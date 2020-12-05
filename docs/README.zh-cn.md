@@ -1,4 +1,4 @@
-＃dashboard-api-golang
+# dashboard-api-golang
 Meraki仪表板API Go语言库
 
 *多语言文档：[英文](README.md)，[日本语](docs / README.ja.md)，[简体中文](docs / README.zh-cn.md)。*

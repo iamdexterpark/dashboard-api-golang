@@ -1,4 +1,4 @@
-＃ダッシュボード-api-golang
+# ダッシュボード-api-golang
 MerakiダッシュボードAPIGo Lang Library
 
 *多言語ドキュメント：[英語](README.md)、[日本語](docs / README.ja.md)、[简体中文](docs / README.zh-cn.md)。*
