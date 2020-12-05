@@ -20,7 +20,7 @@ export PATH=$PATH:$GOPATH/bin
 #### Download Project
 
 ```bash
-go get github.com/ddexterpark/dashboard-api-meraki
+go get github.com/ddexterpark/dashboard-api-golang
 ```
 
 #### Compile (Optional) 

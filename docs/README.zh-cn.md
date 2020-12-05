@@ -20,10 +20,11 @@ Meraki仪表板API Go语言库
 
 ####下载项目
 
-``
-去获取github.com/ddexterpark/dashboard-api-meraki
+```bash
+go get github.com/ddexterpark/dashboard-api-golang
 ```
 
+```
 ####编译(可选)
 外壳脚本
     ＃Linux / MacOS

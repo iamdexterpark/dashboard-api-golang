@@ -20,7 +20,7 @@ PATH = $ PATH：$ GOPATH / binをエクスポートします
 ####プロジェクトをダウンロード
 
 ```bash
-github.com/ddexterpark/dashboard-api-merakiを入手してください
+go get github.com/ddexterpark/dashboard-api-golang
 ```
 
 ####コンパイル(オプション)
