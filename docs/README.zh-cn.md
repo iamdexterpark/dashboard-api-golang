@@ -1,7 +1,7 @@
 # dashboard-api-golang
 Meraki仪表板API Go语言库
 
-*多语言文档：[英文](README.md)，[日本语](docs / README.ja.md)，[简体中文](docs / README.zh-cn.md)。*
+*多语言文档：[英文](README.md)，[日本语](docs/README.ja.md)，[简体中文](docs/README.zh-cn.md)。*
 
 社区为Meraki Dashboard API开发了Golang库。
 有关供应商支持的API接口，请参见精彩内容：[Meraki仪表板API Python库](https://github.com/meraki/dashboard-api-python)
