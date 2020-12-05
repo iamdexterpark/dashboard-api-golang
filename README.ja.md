@@ -1,7 +1,7 @@
 # ダッシュボード-api-golang
 MerakiダッシュボードAPIGo Lang Library
 
-*多言語ドキュメント：[英語](..README.md),[日本語](README.ja.md), [简体中文](README.zh-cn.md)。*
+*多言語ドキュメント：[英語](README.md),[日本語](README.ja.md), [简体中文](README.zh-cn.md)。*
 
 コミュニティは、Meraki DashboardAPI用にGolangライブラリを開発しました。
 ベンダーがサポートするAPIインターフェースについては、すばらしい[Meraki Dashboard API Pythonライブラリ](https://github.com/meraki/dashboard-api-python)を参照してください。

@@ -1,7 +1,7 @@
 # dashboard-api-golang
 Meraki Dashboard API Go Lang Library
 
-*Multi-language Documentation: [English](README.md), [日本語](docs/README.ja.md), [简体中文](docs/README.zh-cn.md).*
+*Multi-language Documentation: [English](README.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md).*
 
 A Community developed Golang Library for the Meraki Dashboard API. 
 For a Vendor supported API interface please see the wonderful: [Meraki Dashboard API Python Library](https://github.com/meraki/dashboard-api-python)
