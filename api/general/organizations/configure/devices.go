@@ -21,15 +21,33 @@ type Device []struct {
 	Firmware  string   `json:"firmware"`
 }
 
-// List the devices in an organization
-func GetDeviceList(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/devices", api.BaseUrl(),
-		organizationId)
+// Devices - List the devices in an organization
+type Devices []struct {
+	Name      string `json:"name"`
+	Serial    string `json:"serial"`
+	Mac       string `json:"mac"`
+	Status    string `json:"status"`
+	LanIP     string `json:"lanIp"`
+	PublicIP  string `json:"publicIp"`
+	NetworkID string `json:"networkId"`
+}
 
+// GetOrganizationDevices - List the devices in an organization
+func GetOrganizationDevices(organizationId, perPage, startingAfter,
+	configurationUpdatedAfter string) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/devices", api.BaseUrl(), organizationId)
 	var datamodel = Device{}
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"configurationUpdatedAfter": configurationUpdatedAfter,
+		"perPage":                   perPage,
+		"startingAfter":             startingAfter}
+
+	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	return sessions
 }
