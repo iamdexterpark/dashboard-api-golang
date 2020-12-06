@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type APIRequestsOverview struct {
+type APIRequestsSummary struct {
 	ResponseCodeCounts struct {
 		Num200 int `json:"200"`
 		Num201 int `json:"201"`
@@ -34,9 +34,9 @@ type APIRequest struct {
 }
 
 // Return an aggregated overview of API requests data
-func GetAPIRequestsOverview(organizationId, t0, t1, timespan string) []api.Results {
+func GetAPIRequestSummary(organizationId, t0, t1, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/apiRequests/overview", api.BaseUrl(), organizationId)
-	var datamodel = APIRequestsOverview{}
+	var datamodel = APIRequestsSummary{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

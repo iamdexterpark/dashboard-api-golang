@@ -35,12 +35,23 @@ type License struct {
 }
 
 // List The Licenses For An Organization
-func GetLicenses(organizationId string) []api.Results {
+func GetOrganizationLicenses(organizationId, perPage, startingAfter,
+	endingBefore, deviceSerial, networkId, state string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/licenses", api.BaseUrl(),
 		organizationId)
-
 	var datamodel = Licenses{}
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"perPage":          perPage,
+		"startingAfter":    startingAfter,
+		"endingBefore":		endingBefore,
+		"deviceSerial": 	deviceSerial,
+		"networkId":		networkId,
+		"state":			state,
+	}
+
+	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -48,7 +59,7 @@ func GetLicenses(organizationId string) []api.Results {
 }
 
 // List A Single License For An Organization
-func GetLicense(organizationId, licenseId string) []api.Results {
+func GetOrganizationLicense(organizationId, licenseId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/%s", api.BaseUrl(),
 		organizationId, licenseId)
 
