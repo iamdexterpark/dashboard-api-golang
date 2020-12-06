@@ -23,7 +23,7 @@ type Inventory struct {
 }
 
 // Return The Device Inventory For An Organization
-func GetDeviceInventory(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
+func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices", api.BaseUrl(),
 		organizationId)
 	var datamodel = DeviceInventory{}
@@ -45,7 +45,7 @@ func GetDeviceInventory(organizationId, perPage, startingAfter, endingBefore, us
 }
 
 // Return A Single Device From The Inventory Of An Organization
-func GetSingleDeviceInventory(organizationId, serial string) []api.Results {
+func GetInventoryDevice(organizationId, serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices/%s", api.BaseUrl(),
 		organizationId, serial)
 
