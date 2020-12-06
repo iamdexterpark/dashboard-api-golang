@@ -23,12 +23,21 @@ type Inventory struct {
 }
 
 // Return The Device Inventory For An Organization
-func GetDeviceInventory(organizationId string) []api.Results {
+func GetDeviceInventory(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices", api.BaseUrl(),
 		organizationId)
-
 	var datamodel = DeviceInventory{}
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"perPage":          perPage,
+		"startingAfter":    startingAfter,
+		"endingBefore":		endingBefore,
+		"usedState": 		usedState,
+		"search":			search,
+	}
+
+	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,9 +45,9 @@ func GetDeviceInventory(organizationId string) []api.Results {
 }
 
 // Return A Single Device From The Inventory Of An Organization
-func GetSingleDeviceInventory(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices", api.BaseUrl(),
-		organizationId)
+func GetSingleDeviceInventory(organizationId, serial string) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices/%s", api.BaseUrl(),
+		organizationId, serial)
 
 	var datamodel = Inventory{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
