@@ -2,7 +2,6 @@ package shell
 
 import (
 	"encoding/json"
-	"github.com/ddexterpark/dashboard-api-golang/api"
 	"github.com/ddexterpark/dashboard-api-golang/api/general/organizations/configure"
 	"github.com/kr/pretty"
 	"github.com/spf13/pflag"
@@ -163,7 +162,7 @@ func resolveNetworkId (netName, orgId string, orgList []string) (netId string) {
 	// iterate through org list
 	for _, org := range orgList {
 		// API Call to get list of networks
-		metadata := api.GetOrganizationNetworks(org, "",
+		metadata := configure.GetOrganizationNetworks(org, "",
 			"", "", "", "", "10")
 
 		var pagnatedData []Match
@@ -232,7 +231,7 @@ func resolveDeviceId (deviceName, networkId, orgId string, orgList []string) (de
 	// iterate through org list
 	for _, org := range orgList {
 		// API Call to get list of networks
-		metadata := api.GetOrganizationDevices(org, "", "","")
+		metadata := configure.GetOrganizationDevices(org, "", "","")
 		var paginatedData []Match
 
 		for _, data := range metadata {
