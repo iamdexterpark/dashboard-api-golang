@@ -23,7 +23,7 @@ type LoginSecurity struct {
 
 // Returns The Login Security Settings For An Organization
 func GetLoginSecurity(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses", api.BaseUrl(),
+	baseurl := fmt.Sprintf("%s/organizations/%s/loginSecurity", api.BaseUrl(),
 		organizationId)
 
 	var datamodel = LoginSecurity{}
