@@ -12,8 +12,8 @@ type CameraRecordingSchedules []struct {
 }
 
 // Returns a list of all camera recording schedules
-func GetCameraRecordingSchedules(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/schedules", api.BaseUrl(), serial)
+func GetCameraRecordingSchedules(networkId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/camera/schedules", api.BaseUrl(), networkId)
 	var datamodel = CameraRecordingSchedules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

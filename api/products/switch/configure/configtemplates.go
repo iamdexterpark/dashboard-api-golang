@@ -34,7 +34,7 @@ type SwitchTemplateConfigProfiles []struct {
 }
 
 // Return All The Ports Of A Switch Profile
-func GetSwitchProfilePorts(organizationId, configTemplateId, profileId string) []api.Results {
+func GetSwitchPortProfiles(organizationId, configTemplateId, profileId  string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports",
 		api.BaseUrl(), organizationId, configTemplateId, profileId)
 	var datamodel = SwitchProfilePorts{}
@@ -46,7 +46,7 @@ func GetSwitchProfilePorts(organizationId, configTemplateId, profileId string) [
 }
 
 // Return A Switch Profile Port
-func GetSwitchProfilePort(organizationId, configTemplateId, profileId, portId string) []api.Results {
+func GetSwitchPortProfile(organizationId, configTemplateId, profileId, portId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
 		api.BaseUrl(), organizationId, configTemplateId, profileId, portId)
 	var datamodel = SwitchProfilePorts{}
