@@ -62,11 +62,16 @@ type UplinkLoss []struct {
 }
 
 // GetDeviceClients - Return A Devices Clients
-func GetDeviceClients(serial string) []api.Results {
+func GetDeviceClients(serial, t0, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/clients", api.BaseUrl(), serial)
 	var datamodel = DeviceClients{}
 
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"t0": t0,
+		"timespan": timespan}
+
+	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
