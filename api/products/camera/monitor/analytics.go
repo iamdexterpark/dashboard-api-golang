@@ -140,11 +140,15 @@ func GetAnalyticZones(serial string) []api.Results {
 }
 
 
-func PostGenerateSnapshot(serial string, data interface{}) []api.Results {
+func PostGenerateSnapshot(serial, timestamp, fullframe string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/generateSnapshot", api.BaseUrl(), serial)
 	var datamodel = AnalyticZones{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"timestamp":         timestamp,
+		"fullframe":         fullframe}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

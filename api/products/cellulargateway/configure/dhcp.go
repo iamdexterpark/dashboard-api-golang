@@ -25,12 +25,18 @@ func GetDhcp(networkId string) []api.Results {
 	return sessions
 }
 
-func PutDhcp(networkId string, data interface{}) []api.Results {
+func PutDhcp(networkId, dhcpLeaseTime, dnsNameservers, dnsCustomNameservers string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/dhcp",
 		api.BaseUrl(), networkId)
 	var datamodel = DHCP{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"dhcpLeaseTime": dhcpLeaseTime,
+		"dnsNameservers": dnsNameservers,
+		"dnsCustomNameservers": dnsCustomNameservers}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

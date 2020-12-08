@@ -26,12 +26,15 @@ func GetUplink(networkId string) []api.Results {
 	return sessions
 }
 
-func PutUplink(networkId string, data interface{}) []api.Results {
+func PutUplink(networkId, bandwidthLimits string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/uplink",
 		api.BaseUrl(), networkId)
 	var datamodel = Uplink{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"bandwidthLimits": bandwidthLimits}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

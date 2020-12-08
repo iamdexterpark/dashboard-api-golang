@@ -66,11 +66,15 @@ func GetManagementInterface(serial string) []api.Results {
 }
 
 
-func PutManagementInterface(serial string, data interface{}) []api.Results {
+func PutManagementInterface(serial, wan1, wan2 string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
 	var datamodel = ManagementInterface{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wan1": wan1,
+		"wan2": wan2}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -82,23 +86,32 @@ func PutManagementInterface(serial string, data interface{}) []api.Results {
 func GetDevice(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
 	var datamodel = Device{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	return sessions
 
 }
 
 
-func PutDevice(serial string, data interface{}) []api.Results {
+func PutDevice(serial, name, tags, lat, lng, address, notes,
+	moveMapMarker, switchProfileId, floorPlanId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Device{}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"tags": tags,
+		"lat": lat,
+		"lng": lng,
+		"address": address,
+		"notes": notes,
+		"moveMapMarker": moveMapMarker,
+		"switchProfileId": switchProfileId,
+		"floorPlanId": floorPlanId}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

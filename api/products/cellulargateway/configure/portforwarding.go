@@ -25,6 +25,7 @@ func GetPortForwardingRules(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/portForwardingRules",
 		api.BaseUrl(), serial)
 	var datamodel = PortForwardingRules{}
+
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -32,12 +33,15 @@ func GetPortForwardingRules(serial string) []api.Results {
 	return sessions
 }
 
-func PutPortForwardingRules(serial string, data interface{}) []api.Results {
+func PutPortForwardingRules(serial, rules string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/portForwardingRules",
 		api.BaseUrl(), serial)
 	var datamodel = PortForwardingRules{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"rules": rules}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

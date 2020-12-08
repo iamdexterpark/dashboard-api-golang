@@ -40,11 +40,16 @@ func GetSense(serial string) []api.Results {
 	return sessions
 }
 
-func PutSense(serial string, data interface{}) []api.Results {
+func PutSense(serial, senseEnabled, mqttBrokerId, detectionModelId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/sense", api.BaseUrl(), serial)
 	var datamodel = Sense{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"senseEnabled": senseEnabled,
+		"mqttBrokerId": mqttBrokerId,
+		"detectionModelId": detectionModelId}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -41,11 +41,24 @@ type QualityRetentionProfile struct {
 	} `json:"videoSettings"`
 }
 
-func PostQualityRetentionProfiles(networkId string, data interface{}) []api.Results {
+func PostQualityRetentionProfiles(networkId, name, motionBasedRetentionEnabled, restrictedBandwidthModeEnabled,
+	audioRecordingEnabled, cloudArchiveEnabled, motionDetectorVersion, scheduleId, maxRetentionDays,
+	videoSettings string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles", api.BaseUrl(), networkId)
 	var datamodel = QualityRetentionProfiles{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"motionBasedRetentionEnabled": motionBasedRetentionEnabled,
+		"restrictedBandwidthModeEnabled": restrictedBandwidthModeEnabled,
+		"audioRecordingEnabled": audioRecordingEnabled,
+		"cloudArchiveEnabled": cloudArchiveEnabled,
+		"motionDetectorVersion": motionDetectorVersion,
+		"scheduleId": scheduleId,
+		"maxRetentionDays": maxRetentionDays,
+		"videoSettings": videoSettings}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -78,12 +91,26 @@ func GetQualityRetentionProfile(networkId, qualityRetentionProfileId string) []a
 }
 
 
-func PutQualityRetentionProfile(networkId, qualityRetentionProfileId string, data interface{}) []api.Results {
+func PutQualityRetentionProfile(networkId, qualityRetentionProfileId, name, motionBasedRetentionEnabled,
+	restrictedBandwidthModeEnabled, audioRecordingEnabled, cloudArchiveEnabled, motionDetectorVersion,
+	scheduleId, maxRetentionDays, videoSettings string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
 		networkId, qualityRetentionProfileId)
 	var datamodel = QualityRetentionProfile{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"motionBasedRetentionEnabled": motionBasedRetentionEnabled,
+		"restrictedBandwidthModeEnabled": restrictedBandwidthModeEnabled,
+		"audioRecordingEnabled": audioRecordingEnabled,
+		"cloudArchiveEnabled": cloudArchiveEnabled,
+		"motionDetectorVersion": motionDetectorVersion,
+		"scheduleId": scheduleId,
+		"maxRetentionDays": maxRetentionDays,
+		"videoSettings": videoSettings}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

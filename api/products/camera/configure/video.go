@@ -23,11 +23,14 @@ func GetVideoSettings(serial string) []api.Results {
 	return sessions
 }
 
-func PutVideoSettings(serial string, data interface{}) []api.Results {
+func PutVideoSettings(serial, externalRtspEnabled string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/video/settings", api.BaseUrl(), serial)
 	var datamodel = VideoSettings{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"externalRtspEnabled": externalRtspEnabled}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

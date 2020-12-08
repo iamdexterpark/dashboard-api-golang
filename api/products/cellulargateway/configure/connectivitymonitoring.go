@@ -27,13 +27,15 @@ func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 	return sessions
 }
 
-func PutConnectivityMonitoringDestinations(networkId string, data interface{}) []api.Results {
+func PutConnectivityMonitoringDestinations(networkId, destinations string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/connectivityMonitoringDestinations",
 		api.BaseUrl(), networkId)
 	var datamodel = ConnectivityTesting{}
 	payload := user_agent.MarshalJSON(data)
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"destinations": destinations}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
