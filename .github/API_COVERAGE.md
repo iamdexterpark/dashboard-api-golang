@@ -1,24 +1,18 @@
 
 ### Meraki Dashboard API Coverage -v1.2.0
 
-- [x] List the Organizations
-- [x] List the Networks in an Organization
-- [x] List the Devices in an Organization
-- [x] List the Clients in a Network
-
-
 ## GENERAL
 
 ### Devices
-- [ ] Configure
-    - [ ] Management Interface
+- [x] Configure
+    - [x] Management Interface
         - [x] Return The Management Interface Settings For A Device
-        - [ ] Update The Management Interface Settings For A Device
+        - [x] Update The Management Interface Settings For A Device
     - [x] Return A Single Device
-    - [ ] Update The Attributes Of A Device
-- [ ] Live Tools
-    - [ ] Blink The LEDs On A Device
-    - [ ] Reboot A Device
+    - [x] Update The Attributes Of A Device
+- [x] Live Tools
+    - [x] Blink The LEDs On A Device
+    - [x] Reboot A Device
 - [x] Monitor
     - [x] Clients
         - [x] List the clients of a device, up to a maximum of a month ago. The usage of each client is returned in kilobytes. If the device is a switch, the switchport is returned; otherwise the switchport field is null.

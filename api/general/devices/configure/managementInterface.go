@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -51,11 +52,10 @@ type Device struct {
 	FloorPlanID string `json:"floorPlanId"`
 }
 
-// GetManagementInterface - Return The Management Interface Settings For A Device
+
 func GetManagementInterface(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
 	var datamodel = ManagementInterface{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -65,8 +65,21 @@ func GetManagementInterface(serial string) []api.Results {
 
 }
 
-// GetSingleDevice - Return A Single Device
-func GetSingleDevice(serial string) []api.Results {
+
+func PutManagementInterface(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
+	var datamodel = ManagementInterface{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+
+func GetDevice(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
 	var datamodel = Device{}
 
@@ -77,4 +90,17 @@ func GetSingleDevice(serial string) []api.Results {
 
 	return sessions
 
+}
+
+
+func PutDevice(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = Device{}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
 }
