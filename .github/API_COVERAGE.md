@@ -720,10 +720,10 @@
 
 ### Insight
 
-- [ ] configure
-    - [ ] monitoredMediaServers
-        - [ ] Add A Media Server To Be Monitored For This Organization
-        - [ ] Delete A Monitored Media Server From This Organization
+- [x] configure
+    - [x] monitoredMediaServers
+        - [x] Add A Media Server To Be Monitored For This Organization
+        - [x] Delete A Monitored Media Server From This Organization
         - [x] List The Monitored Media Servers For This Organization
         - [x] Return A Monitored Media Server For This Organization
-        - [ ] Update A Monitored Media Server For This Organization
+        - [x] Update A Monitored Media Server For This Organization
