@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type BypassActivationLock struct {
+type BypassActivationLockAttempts struct {
 	ID     string `json:"id"`
 	Status string `json:"status"`
 	Data   struct {
@@ -21,12 +22,24 @@ type BypassActivationLock struct {
 }
 
 // Bypass Activation Lock Attempt Status
-func GetBypassActivationLockStatus(networkId, attemptId string) []api.Results {
+func GetBypassActivationLockAttempts(networkId, attemptId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/bypassActivationLockAttempts/%s",
 		api.BaseUrl(), networkId, attemptId)
 
-	var datamodel = BypassActivationLock{}
+	var datamodel = BypassActivationLockAttempts{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostBypassActivationLockAttempts(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/bypassActivationLockAttempts",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = BypassActivationLockAttempts{}
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

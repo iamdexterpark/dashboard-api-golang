@@ -7,18 +7,18 @@ import (
 	"time"
 )
 
-type ClientCellularData []struct {
+type CellularUsageHistory []struct {
 	Received int       `json:"received"`
 	Sent     int       `json:"sent"`
 	Ts       time.Time `json:"ts"`
 }
 
-type HistoricalConnectivityData []struct {
+type Connectivity []struct {
 	FirstSeenAt time.Time `json:"firstSeenAt"`
 	LastSeenAt  time.Time `json:"lastSeenAt"`
 }
 
-type DesktopDevicesHistoricalRecords []struct {
+type DesktopLogs []struct {
 	MeasuredAt    time.Time `json:"measuredAt"`
 	User          string    `json:"user"`
 	NetworkDevice string    `json:"networkDevice"`
@@ -39,7 +39,7 @@ type DesktopDevicesHistoricalRecords []struct {
 	Ts            time.Time `json:"ts"`
 }
 
-type CommandHistoricalRecords []struct {
+type DeviceCommandLogs []struct {
 	Action        string    `json:"action"`
 	Name          string    `json:"name"`
 	Details       string    `json:"details"`
@@ -47,7 +47,7 @@ type CommandHistoricalRecords []struct {
 	Ts            time.Time `json:"ts"`
 }
 
-type ClientMetricsHistoricalRecords []struct {
+type PerformanceHistory []struct {
 	CPUPercentUsed  float64 `json:"cpuPercentUsed"`
 	MemFree         int     `json:"memFree"`
 	MemWired        int     `json:"memWired"`
@@ -66,10 +66,10 @@ type ClientMetricsHistoricalRecords []struct {
 }
 
 // Return the client's daily cellular data usage history
-func GetClientCellularData(networkId, deviceId string) []api.Results {
+func GetCellularUsageHistory(networkId, deviceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/cellularUsageHistory",
 		api.BaseUrl(), networkId, deviceId)
-	var datamodel = ClientCellularData{}
+	var datamodel = CellularUsageHistory{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -78,11 +78,11 @@ func GetClientCellularData(networkId, deviceId string) []api.Results {
 }
 
 // Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
-func GetHistoricalConnectivityData(networkId, deviceId,
+func GetConnectivity(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/connectivity",
 		api.BaseUrl(), networkId, deviceId)
-	var datamodel = HistoricalConnectivityData{}
+	var datamodel = Connectivity{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -97,11 +97,11 @@ func GetHistoricalConnectivityData(networkId, deviceId,
 }
 
 // Return historical records of various Systems Manager network connection details for desktop devices.
-func GetDesktopDevicesHistoricalRecords(networkId, deviceId,
+func GetDesktopLogs(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/desktopLogs",
 		api.BaseUrl(), networkId, deviceId)
-	var datamodel = DesktopDevicesHistoricalRecords{}
+	var datamodel = DesktopLogs{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -117,11 +117,11 @@ func GetDesktopDevicesHistoricalRecords(networkId, deviceId,
 }
 
 // Return historical records of commands sent to Systems Manager devices
-func GetCommandHistoricalRecords(networkId, deviceId,
+func GetDeviceCommandLogs(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/deviceCommandLogs",
 		api.BaseUrl(), networkId, deviceId)
-	var datamodel = CommandHistoricalRecords{}
+	var datamodel = DeviceCommandLogs{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -137,11 +137,11 @@ func GetCommandHistoricalRecords(networkId, deviceId,
 }
 
 // Return historical records of various Systems Manager client metrics for desktop devices.
-func GetClientMetricsHistoricalRecords(networkId, deviceId,
+func GetPerformanceHistory(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/performanceHistory",
 		api.BaseUrl(), networkId, deviceId)
-	var datamodel = ClientMetricsHistoricalRecords{}
+	var datamodel = PerformanceHistory{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

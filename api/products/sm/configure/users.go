@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type UserProfiles []struct {
+type SmUserProfiles []struct {
 	DeviceID    string `json:"deviceId"`
 	ID          string `json:"id"`
 	IsEncrypted bool   `json:"isEncrypted"`
@@ -19,7 +19,7 @@ type UserProfiles []struct {
 	Version           string `json:"version"`
 }
 
-type UserAssociatedSoftware []struct {
+type SmUserSoftware []struct {
 	AppID             string      `json:"appId"`
 	BundleSize        interface{} `json:"bundleSize"`
 	CreatedAt         time.Time   `json:"createdAt"`
@@ -45,7 +45,7 @@ type UserAssociatedSoftware []struct {
 	Version           string      `json:"version"`
 }
 
-type SMNetworkOwners []struct {
+type SmUsers []struct {
 	ID                     string        `json:"id"`
 	Email                  string        `json:"email"`
 	FullName               string        `json:"fullName"`
@@ -61,10 +61,10 @@ type SMNetworkOwners []struct {
 }
 
 // Get the profiles associated with a user
-func GetUserProfiles(networkId, userId string) []api.Results {
+func GetSmUserProfiles(networkId, userId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/deviceProfiles",
 		api.BaseUrl(), networkId, userId)
-	var datamodel = UserProfiles{}
+	var datamodel = SmUserProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -73,10 +73,10 @@ func GetUserProfiles(networkId, userId string) []api.Results {
 }
 
 // Get a list of softwares associated with a user
-func GetUserAssociatedSoftware(networkId, userId string) []api.Results {
+func GetSmUserSoftware(networkId, userId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/softwares",
 		api.BaseUrl(), networkId, userId)
-	var datamodel = UserAssociatedSoftware{}
+	var datamodel = SmUserSoftware{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -85,10 +85,10 @@ func GetUserAssociatedSoftware(networkId, userId string) []api.Results {
 }
 
 //  List The Owners In An SM Network With Various Specified Fields And Filters
-func GetSMNetworkOwners(networkId, ids, usernames, emails, scope string) []api.Results {
+func GetSmUsers(networkId, ids, usernames, emails, scope string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users",
 		api.BaseUrl(), networkId)
-	var datamodel = SMNetworkOwners{}
+	var datamodel = SmUsers{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

@@ -656,18 +656,18 @@
 
 ### Sm
 
-- [ ] Configure
+- [x] Configure
     - [x] Apns Cert
         - [x] Get the organization's APNS certificate
-    - [ ] Bypass Activation Lock Attempts
-        - [ ] Bypass Activation Lock Attempt
+    - [x] Bypass Activation Lock Attempts
+        - [x] Bypass Activation Lock Attempt
         - [x] Bypass Activation Lock Attempt Status
     - [ ] Devices
         - [x] Certs
             - [x] List the certs on a device
         - [x] Device Profiles
             - [x] Get the profiles associated with a device
-        - [ ] Fields
+        - [x] Fields
             - [ ] Modify the fields of a device
         - [x] Network Adapters
             - [x] List the network adapters of a device
@@ -679,22 +679,22 @@
             - [x] Get a list of softwares associated with a device
         - [x] Wlan Lists
             - [x] List the saved SSID names on a device
-        - [ ] Add Delete Or Update The Tags Of A Set Of Devices
-        - [ ] Force Check In A Set Of Devices
+        - [x] Add Delete Or Update The Tags Of A Set Of Devices
+        - [x] Force Check In A Set Of Devices
         - [x] List The Devices Enrolled In An SM Network With Various Specified Fields And Filters
-        - [ ] Lock A Set Of Devices
-        - [ ] Move A Set Of Devices To A New Network
-        - [ ] Refresh The Details Of A Device
-        - [ ] Unenroll A Device
-        - [ ] Wipe A Device
+        - [x] Lock A Set Of Devices
+        - [x] Move A Set Of Devices To A New Network
+        - [x] Refresh The Details Of A Device
+        - [x] Unenroll A Device
+        - [x] Wipe A Device
     - [x] Profiles
         - [x] List all profiles in a network
     - [ ] Target Groups
-        - [ ] Add A Target Group
-        - [ ] Delete A Target Group From A Network
+        - [x] Add A Target Group
+        - [x] Delete A Target Group From A Network
         - [x] List The Target Groups In This Network
         - [x] Return A Target Group
-        - [ ] Update A Target Group
+        - [x] Update A Target Group
     - [x] Users
         - [x] Device Profiles
             - [x] Get the profiles associated with a user

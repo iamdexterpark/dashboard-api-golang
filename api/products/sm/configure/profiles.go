@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type NetworkProfiles []struct {
+type Profiles []struct {
 	ID            string      `json:"id"`
 	Name          string      `json:"name"`
 	Description   string      `json:"description"`
@@ -16,10 +16,10 @@ type NetworkProfiles []struct {
 }
 
 // List all profiles in a network
-func GetNetworkProfiles(networkId string) []api.Results {
+func GetProfiles(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/profiles",
 		api.BaseUrl(), networkId)
-	var datamodel = NetworkProfiles{}
+	var datamodel = Profiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 	"time"
 )
@@ -63,7 +64,7 @@ type DeviceSecurityCenters []struct {
 	RunningProcs         string `json:"runningProcs"`
 }
 
-type DeviceAssociatedSoftware []struct {
+type DeviceSoftwares []struct {
 	AppID             string      `json:"appId"`
 	BundleSize        interface{} `json:"bundleSize"`
 	CreatedAt         time.Time   `json:"createdAt"`
@@ -89,7 +90,34 @@ type DeviceAssociatedSoftware []struct {
 	Version           string      `json:"version"`
 }
 
-type SMEnrolledDevices struct {
+type DeviceWlanLists []struct {
+	CreatedAt time.Time `json:"createdAt"`
+	ID        string    `json:"id"`
+	XML       string    `json:"xml"`
+}
+
+type Fields struct {
+	ID      string `json:"id"`
+	Serial  string `json:"serial"`
+	WifiMac string `json:"wifiMac"`
+	Name    string `json:"name"`
+	Notes   string `json:"notes"`
+}
+
+
+type ModifyTags []struct {
+	ID      string   `json:"id"`
+	Serial  string   `json:"serial"`
+	WifiMac string   `json:"wifiMac"`
+	Tags    []string `json:"tags"`
+}
+
+type SmIds struct {
+	Ids        string `json:"ids"`
+	NewNetwork string `json:"newNetwork"`
+}
+
+type SMDevices struct {
 	ID           string   `json:"id"`
 	Name         string   `json:"name"`
 	Tags         []string `json:"tags"`
@@ -102,6 +130,10 @@ type SMEnrolledDevices struct {
 	Serial       string   `json:"serial"`
 	IP           string   `json:"ip"`
 	Notes        string   `json:"notes"`
+}
+
+type Unenroll struct {
+	Success bool `json:"success"`
 }
 
 // List the certs on a device
@@ -127,6 +159,19 @@ func GetDeviceProfiles(networkId, deviceId string) []api.Results {
 	}
 	return sessions
 }
+
+func PutFields(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/fields",
+		api.BaseUrl(), networkId)
+	var datamodel = Fields{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 
 // List the network adapters of a device
 func GetNetworkAdapters(networkId, deviceId string) []api.Results {
@@ -165,30 +210,24 @@ func GetDeviceSecurityCenters(networkId, deviceId string) []api.Results {
 }
 
 // Get a list of softwares associated with a device
-func GetDeviceAssociatedSoftware(networkId, deviceId string) []api.Results {
+func GetDeviceSoftwares(networkId, deviceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/softwares",
 		api.BaseUrl(), networkId, deviceId)
 
-	var datamodel = DeviceAssociatedSoftware{}
+	var datamodel = DeviceSoftwares{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
-}
-
-type DeviceSSIDNames []struct {
-	CreatedAt time.Time `json:"createdAt"`
-	ID        string    `json:"id"`
-	XML       string    `json:"xml"`
 }
 
 // List the saved SSID names on a device
-func GetDeviceSSIDNames(networkId, deviceId string) []api.Results {
+func GetDeviceWlanLists(networkId, deviceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/wlanLists",
 		api.BaseUrl(), networkId, deviceId)
 
-	var datamodel = DeviceSSIDNames{}
+	var datamodel = DeviceWlanLists{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -196,11 +235,57 @@ func GetDeviceSSIDNames(networkId, deviceId string) []api.Results {
 	return sessions
 }
 
+
+
+func PostModifyTags(networkId, wifiMacs, ids, serials, scope, tags, updateAction string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/modifyTags",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = ModifyTags{}
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wifiMacs":      wifiMacs,
+		"ids":           ids,
+		"serials":       serials,
+		"scope":         scope,
+		"tags": tags,
+		"updateAction":  updateAction}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostCheckin(networkId, wifiMacs, ids, serials, scope string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/checkin",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = SmIds{}
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wifiMacs":      wifiMacs,
+		"ids":           ids,
+		"serials":       serials,
+		"scope":         scope}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
 // List The Devices Enrolled In An SM Network With Various Specified Fields And Filters
-func GetSMEnrolledDevices(networkId, fields, wifiMacs, serials, ids, scope, perPage,
+func GetSMDevices(networkId, fields, wifiMacs, serials, ids, scope, perPage,
 	startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices", api.BaseUrl(), networkId)
-	var datamodel = SMEnrolledDevices{}
+	var datamodel = SMDevices{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -214,6 +299,91 @@ func GetSMEnrolledDevices(networkId, fields, wifiMacs, serials, ids, scope, perP
 		"endingBefore":  endingBefore}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostLock(networkId, wifiMacs, serials, ids, scope, pin string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/lock",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = SmIds{}
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wifiMacs":      wifiMacs,
+		"ids":           ids,
+		"serials":       serials,
+		"scope":         scope,
+		"pin": pin}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostMove(networkId, wifiMacs, serials, ids, scope, newNetwork string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/move",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = SmIds{}
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wifiMacs":      wifiMacs,
+		"ids":           ids,
+		"serials":       serials,
+		"scope":         scope,
+		"newNetwork": newNetwork}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostRefreshDetails(networkId, deviceId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/refreshDetails",
+		api.BaseUrl(), networkId, deviceId)
+	var datamodel interface{}
+	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostUnenroll(networkId, deviceId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/unenroll",
+		api.BaseUrl(), networkId, deviceId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = Unenroll{}
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostWipeDevice(networkId, wifiMacs, id, serial, pin string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/wipe",
+		api.BaseUrl(), networkId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = SmIds{}
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"wifiMacs":      wifiMacs,
+		"id":           id,
+		"serial":       serial,
+		"pin": pin}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

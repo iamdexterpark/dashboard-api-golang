@@ -66,12 +66,11 @@ func PutMonitoredMediaServer(organizationId, monitoredMediaServerId string, data
 	return sessions
 }
 
-func DelMonitoredMediaServer(organizationId, monitoredMediaServerId string, data interface{}) []api.Results {
+func DelMonitoredMediaServer(organizationId, monitoredMediaServerId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers/%s", api.BaseUrl(),
 		organizationId, monitoredMediaServerId)
 	var datamodel = MonitoredMediaServer{}
-	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "DEL", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

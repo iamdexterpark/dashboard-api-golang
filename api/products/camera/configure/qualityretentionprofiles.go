@@ -90,12 +90,11 @@ func PutQualityRetentionProfile(networkId, qualityRetentionProfileId string, dat
 	return sessions
 }
 
-func DelQualityRetentionProfile(networkId, qualityRetentionProfileId string, data interface{}) []api.Results {
+func DelQualityRetentionProfile(networkId, qualityRetentionProfileId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
 		networkId, qualityRetentionProfileId)
 	var datamodel = QualityRetentionProfile{}
-	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "DEL", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
