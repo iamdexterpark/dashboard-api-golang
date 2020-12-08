@@ -408,25 +408,25 @@
     
 ### Cellular Gateway
 
-- [ ] configure
-    - [ ] Connectivity Monitoring Destinations
+- [x] configure
+    - [x] Connectivity Monitoring Destinations
         - [x] Return The Connectivity Testing Destinations For An MG Network
-        - [ ] Update The Connectivity Testing Destinations For An MG Network
-    - [ ] Dhcp
+        - [x] Update The Connectivity Testing Destinations For An MG Network
+    - [x] Dhcp
         - [x] List Common DHCP Settings Of M Gs
-        - [ ] Update Common DHCP Settings Of M Gs
-    - [ ] Lan
+        - [x] Update Common DHCP Settings Of M Gs
+    - [x] Lan
         - [x] Show The LAN Settings Of A MG
-        - [ ] Update The LAN Settings For A Single MG
-    - [ ] Port Forwarding Rules
+        - [x] Update The LAN Settings For A Single MG
+    - [x] Port Forwarding Rules
         - [x] Returns The Port Forwarding Rules For A Single MG
-        - [ ] Updates The Port Forwarding Rules For A Single MG
-    - [ ] Subnet Pool
+        - [x] Updates The Port Forwarding Rules For A Single MG
+    - [x] Subnet Pool
         - [x] Return The Subnet Pool And Mask Configured For M Gs In The Network
-        - [ ] Update The Subnet Pool And Mask Configuration For M Gs In The Network
+        - [x] Update The Subnet Pool And Mask Configuration For M Gs In The Network
     - [ ] Uplink
         - [x] Returns The Uplink Settings For Your MG Network
-        - [ ] Updates The Uplink Settings For Your MG Network
+        - [x] Updates The Uplink Settings For Your MG Network
 
 
 

@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -30,3 +31,16 @@ func GetPortForwardingRules(serial string) []api.Results {
 	}
 	return sessions
 }
+
+func PutPortForwardingRules(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/portForwardingRules",
+		api.BaseUrl(), serial)
+	var datamodel = PortForwardingRules{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
