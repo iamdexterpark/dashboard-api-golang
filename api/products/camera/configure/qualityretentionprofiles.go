@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -40,6 +41,17 @@ type QualityRetentionProfile struct {
 	} `json:"videoSettings"`
 }
 
+func PostQualityRetentionProfiles(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles", api.BaseUrl(), networkId)
+	var datamodel = QualityRetentionProfiles{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 // List the quality retention profiles for this network
 func GetQualityRetentionProfiles(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles", api.BaseUrl(), networkId)
@@ -59,6 +71,31 @@ func GetQualityRetentionProfile(networkId, qualityRetentionProfileId string) []a
 	var datamodel = QualityRetentionProfile{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PutQualityRetentionProfile(networkId, qualityRetentionProfileId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
+		networkId, qualityRetentionProfileId)
+	var datamodel = QualityRetentionProfile{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelQualityRetentionProfile(networkId, qualityRetentionProfileId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
+		networkId, qualityRetentionProfileId)
+	var datamodel = QualityRetentionProfile{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "DEL", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

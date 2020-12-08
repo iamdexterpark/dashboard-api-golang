@@ -3,11 +3,12 @@ package monitor
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 	"time"
 )
 
-type LiveState struct {
+type AnalyticsLive struct {
 	Ts    time.Time `json:"ts"`
 	Zones struct {
 		Num0 struct {
@@ -16,7 +17,7 @@ type LiveState struct {
 	} `json:"zones"`
 }
 
-type AggregateAnalytics []struct {
+type AnalyticsOverview []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
 	ZoneID       int       `json:"zoneId"`
@@ -24,11 +25,11 @@ type AggregateAnalytics []struct {
 	AverageCount int       `json:"averageCount"`
 }
 
-type AnalyticsZoneRecords []struct {
-	AnalyticsZoneRecord
+type AnalyticsRecents []struct {
+	AnalyticsRecent
 }
 
-type AnalyticsZoneRecord struct {
+type AnalyticsRecent struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
 	ZoneID       int       `json:"zoneId"`
@@ -36,7 +37,7 @@ type AnalyticsZoneRecord struct {
 	AverageCount float64   `json:"averageCount"`
 }
 
-type AnalyticsZoneHistoricalRecords []struct {
+type AnalyticsZoneHistory []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
 	Entrances    int       `json:"entrances"`
@@ -55,10 +56,15 @@ type AnalyticZones []struct {
 	} `json:"regionOfInterest"`
 }
 
+type GenerateSnapshot struct {
+	URL    string    `json:"url"`
+	Expiry time.Time `json:"expiry"`
+}
+
 // Returns live state from camera of analytics zones
-func GetLiveState(serial string) []api.Results {
+func GetAnalyticsLive(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/live", api.BaseUrl(), serial)
-	var datamodel = LiveState{}
+	var datamodel = AnalyticsLive{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -67,9 +73,9 @@ func GetLiveState(serial string) []api.Results {
 }
 
 // Returns an overview of aggregate analytics data for a timespan
-func GetAggregateAnalytics(serial, t0, t1, timespan, objectType string) []api.Results {
+func GetAnalyticsOverview(serial, t0, t1, timespan, objectType string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/overview", api.BaseUrl(), serial)
-	var datamodel = AggregateAnalytics{}
+	var datamodel = AnalyticsOverview{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -86,9 +92,9 @@ func GetAggregateAnalytics(serial, t0, t1, timespan, objectType string) []api.Re
 }
 
 // Returns most recent record for analytics zones
-func GetAnalyticsZoneRecord(serial, objectType string) []api.Results {
+func GetAnalyticsRecent(serial, objectType string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/recent", api.BaseUrl(), serial)
-	var datamodel = AnalyticsZoneRecord{}
+	var datamodel = AnalyticsRecents{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -102,10 +108,10 @@ func GetAnalyticsZoneRecord(serial, objectType string) []api.Results {
 }
 
 // Return historical records for analytic zones
-func GetAnalyticsZoneHistoricalRecords(serial, zoneId, t0, t1, timespan,
+func GetAnalyticsZoneHistory(serial, zoneId, t0, t1, timespan,
 	resolution, objectType string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/zones/%s", api.BaseUrl(), serial, zoneId)
-	var datamodel = AnalyticsZoneHistoricalRecords{}
+	var datamodel = AnalyticsZoneHistory{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -127,6 +133,18 @@ func GetAnalyticZones(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/zones", api.BaseUrl(), serial)
 	var datamodel = AnalyticZones{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostGenerateSnapshot(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/camera/generateSnapshot", api.BaseUrl(), serial)
+	var datamodel = AnalyticZones{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

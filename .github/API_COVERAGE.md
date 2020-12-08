@@ -367,31 +367,31 @@
 
 ### Camera
 
-- [ ] Configure
-    - [ ] Quality And Retention
+- [x] Configure
+    - [x] Quality And Retention
         - [x] Returns Quality And Retention Settings For The Given Camera
-        - [ ] Update Quality And Retention Settings For The Given Camera
-    - [ ] Quality Retention Profiles
-        - [ ] Creates New Quality Retention Profile For This Network
-        - [ ] Delete An Existing Quality Retention Profile For This Network
+        - [x] Update Quality And Retention Settings For The Given Camera
+    - [x] Quality Retention Profiles
+        - [x] Creates New Quality Retention Profile For This Network
+        - [x] Delete An Existing Quality Retention Profile For This Network
         - [x] List The Quality Retention Profiles For This Network
         - [x] Retrieve A Single Quality Retention Profile
-        - [ ] Update An Existing Quality Retention Profile For This Network
+        - [x] Update An Existing Quality Retention Profile For This Network
     - [x] Schedules
         - [x] Returns a list of all camera recording schedules.
-    - [ ] Sense
+    - [x] Sense
         - [x] Object Detection Models
             - [x] Returns the MV Sense object detection model list for the given camera
         - [x] Returns Sense Settings For A Given Camera
-        - [ ] Update Sense Settings For The Given Camera
-    - [ ] Video
-        - [ ] settings
+        - [x] Update Sense Settings For The Given Camera
+    - [x] Video
+        - [x] settings
             - [x] Returns Video Settings For The Given Camera
-            - [ ] Update Video Settings For The Given Camera
+            - [x] Update Video Settings For The Given Camera
     - [x] Video Link
         - [x] Returns video link to the specified camera
-- [ ] Monitor
-    - [ ] Analytics
+- [x] Monitor
+    - [x] Analytics
         - [x] Live
             - [x] Returns live state from camera of analytics zones
         - [x] Overview
@@ -402,7 +402,7 @@
             - [x] History
                 - [x] Return historical records for analytic zones
             - [x] Returns All Configured Analytic Zones For This Camera
-    - [ ] Generate A Snapshot Of What The Camera Sees At The Specified Time And Return A Link To That Image
+    - [x] Generate A Snapshot Of What The Camera Sees At The Specified Time And Return A Link To That Image
 
 
     
