@@ -21,7 +21,7 @@ type Device []struct {
 	Firmware  string   `json:"firmware"`
 }
 
-// Devices - List the devices in an organization
+
 type Devices []struct {
 	Name      string `json:"name"`
 	Serial    string `json:"serial"`

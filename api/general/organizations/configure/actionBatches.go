@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type ActionBatchList []struct {
+type ActionBatches []struct {
 	ActionBatch
 }
 
@@ -29,14 +30,14 @@ type ActionBatch struct {
 	} `json:"actions"`
 }
 
-// Return The List Of Action Batches In The Organization
-func GetActionBatchList(organizationId, status string) []api.Results {
+
+func GetActionBatches(organizationId, status string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
 
 	// Parameters for Request URL
 	var parameters = map[string]string{"status": status}
 
-	var datamodel = ActionBatchList{}
+	var datamodel = ActionBatches{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -44,12 +45,54 @@ func GetActionBatchList(organizationId, status string) []api.Results {
 	return sessions
 }
 
-// Return A Single Action Batch
+
 func GetActionBatch(organizationId, actionBatchId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
 
 	var datamodel = ActionBatch{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelActionBatch(organizationId, actionBatchId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
+
+	var datamodel = ActionBatch{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutActionBatch(organizationId, actionBatchId, confirmed, synchronous string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
+	var datamodel = ActionBatch{}
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"confirmed": confirmed,
+		"synchronous": synchronous}
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostActionBatch(organizationId, confirmed, synchronous, actions string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
+	var datamodel = ActionBatch{}
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"confirmed": confirmed,
+		"synchronous": synchronous,
+		"actions": actions}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -49,9 +50,19 @@ type Clients []struct {
 	GroupPolicy8021X   string      `json:"groupPolicy8021x"`
 }
 
+type CombineNetworks struct {
+	ResultingNetwork struct {
+		ID               string   `json:"id"`
+		OrganizationID   string   `json:"organizationId"`
+		Name             string   `json:"name"`
+		TimeZone         string   `json:"timeZone"`
+		Tags             []string `json:"tags"`
+		ProductTypes     []string `json:"productTypes"`
+		EnrollmentString string   `json:"enrollmentString"`
+	} `json:"resultingNetwork"`
+}
 
-// List the networks that the user has privileges on in an organization
-func GetOrganizationNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage,
+func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage,
 	startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/networks", api.BaseUrl(),
 		organizationId)
@@ -73,8 +84,46 @@ func GetOrganizationNetworks(organizationId, configTemplateId, tags, tagsFilterT
 	return sessions
 }
 
-// GetNetworkClients - List the Clients in a Network
-func GetNetworkClients(networkId, t0, t1, timespan,
+func PostNetworks(organizationId, name, productTypes, tags, timeZone string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/networks", api.BaseUrl(),
+		organizationId)
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"productTypes": productTypes,
+		"tags":             tags,
+		"timeZone": timeZone}
+
+	var datamodel = Networks{}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostCombineNetworks(organizationId, name, networkIds, enrollmentString string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/networks/combine", api.BaseUrl(),
+		organizationId)
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"networkIds": networkIds,
+		"enrollmentString": enrollmentString}
+
+	var datamodel = Networks{}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func GetClients(networkId, t0, t1, timespan,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/clients", api.BaseUrl(), networkId)
 	var datamodel = Clients{}

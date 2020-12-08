@@ -7,19 +7,33 @@ import (
 	"log"
 )
 
-// Organization Data Model
+
 type Organization struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
 	URL  string `json:"url"`
 }
 
-// Organizations Data Model
+
 type Organizations []struct {
 	Organization
 }
 
-// GetOrganizations - List the organizations that the user has privileges on
+type Claim struct {
+	Orders   []string `json:"orders"`
+	Serials  []string `json:"serials"`
+	Licenses []struct {
+		Key  string `json:"key"`
+		Mode string `json:"mode"`
+	} `json:"licenses"`
+}
+
+type Clone struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+	URL  string `json:"url"`
+}
+
 func GetOrganizations() []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations", api.BaseUrl())
 
@@ -31,8 +45,8 @@ func GetOrganizations() []api.Results {
 	return sessions
 }
 
-// CreateOrganization - Create a new organization
-func CreateOrganization(name string) []api.Results {
+
+func PostOrganization(name string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations", api.BaseUrl())
 	data := Organization{
 		Name: name,
@@ -47,7 +61,7 @@ func CreateOrganization(name string) []api.Results {
 	return sessions
 }
 
-// GetOrganization - Return a specific organization
+
 func GetOrganization(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
 
@@ -59,15 +73,13 @@ func GetOrganization(organizationId string) []api.Results {
 	return sessions
 }
 
-// UpdateOrganization - Update an organization
-func UpdateOrganization(organizationId, name string) []api.Results {
+
+func PutOrganization(organizationId, name string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
 	data := Organization{
 		Name: name,
 	}
-
 	payload := user_agent.MarshalJSON(data)
-
 	var datamodel = Organization{}
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
@@ -76,8 +88,8 @@ func UpdateOrganization(organizationId, name string) []api.Results {
 	return sessions
 }
 
-// DeleteOrganization - Delete an organization
-func DeleteOrganization(organizationId string) []api.Results {
+
+func DelOrganization(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
 	var datamodel = Organization{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
@@ -87,6 +99,27 @@ func DeleteOrganization(organizationId string) []api.Results {
 	return sessions
 }
 
-// Claim A List Of Devices Licenses And Or Orders Into An Organization
+func PostClaim(organizationId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/claim", api.BaseUrl(), organizationId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = Claim{}
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
 
-// Create A New Organization By Cloning The Addressed Organization
+func PostClone(organizationId, name string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/clone", api.BaseUrl(), organizationId)
+	payload := user_agent.MarshalJSON(data)
+	var datamodel = Clone{}
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name}
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}

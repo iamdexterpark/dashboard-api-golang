@@ -147,79 +147,79 @@ https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8
 
 
 ### Organizations
-- [ ] Action Batches
-    - [ ] Create An Action Batch
+- [x] Action Batches
+    - [x] Create An Action Batch
     - [x] Return The List Of Action Batches In The Organization
     - [x] Return An Action Batch
-    - [ ] Delete An Action Batch
-    - [ ] Update An Action Batch
+    - [x] Delete An Action Batch
+    - [x] Update An Action Batch
 - [ ] Admins
     - [x] List The Dashboard Administrators In This Organization
-    - [ ] Create A New Dashboard Administrator
-    - [ ] Update An Administrator
-    - [ ] Revoke All Access For A Dashboard Administrator Within This Organization
-- [ ] Branding Policy
-    - [ ] Priorities
+    - [x] Create A New Dashboard Administrator
+    - [x] Update An Administrator
+    - [x] Revoke All Access For A Dashboard Administrator Within This Organization
+- [x] Branding Policy
+    - [x] Priorities
         - [x] Return The Branding Policy IDs Of An Organization In Priority Order I Ds Are Ordered In Ascending Order Of Priority I Ds Later In The Array Have Higher Priority
-        - [ ] Update The Priority Ordering Of An Organizations Branding Policies
+        - [x] Update The Priority Ordering Of An Organizations Branding Policies
     - [x] List The Branding Policies Of An Organization
-    - [ ] Add A New Branding Policy To An Organization
+    - [x] Add A New Branding Policy To An Organization
     - [x] Return A Branding Policy
-    - [ ] Update A Branding Policy
-    - [ ] Delete A Branding Policy
-- [ ] Config Templates
+    - [x] Update A Branding Policy
+    - [x] Delete A Branding Policy
+- [x] Config Templates
     - [x] List The Configuration Templates For This Organization
-    - [ ] Create A New Configuration Template
-    - [ ] Update A Configuration Template
-    - [ ] Remove A Configuration Template
-    - [ ] Return A Single Configuration Template
+    - [x] Create A New Configuration Template
+    - [x] Update A Configuration Template
+    - [x] Remove A Configuration Template
+    - [x] Return A Single Configuration Template
 - [x] Devices
     - [x] List the devices in an organization
 - [x] Inventory Devices
     - [x] Return The Device Inventory For An Organization
     - [x] Return A Single Device From The Inventory Of An Organization
-- [ ] Licenses
+- [x] Licenses
     - [x] List The Licenses For An Organization
-    - [ ] Assign SM Seats To A Network This Will Increase The Managed SM Device Limit Of The Network
-    - [ ] Move Licenses To Another Organization This Will Also Move Any Devices That The Licenses Are Assigned To
-    - [ ] Move SM Seats To Another Organization
-    - [ ] Renew SM Seats Of A License This Will Extend The License Expiration Date Of Managed SM Devices Covered By This License
+    - [x] Assign SM Seats To A Network This Will Increase The Managed SM Device Limit Of The Network
+    - [x] Move Licenses To Another Organization This Will Also Move Any Devices That The Licenses Are Assigned To
+    - [x] Move SM Seats To Another Organization
+    - [x] Renew SM Seats Of A License This Will Extend The License Expiration Date Of Managed SM Devices Covered By This License
     - [x] Display A License
-    - [ ] Update A License
-- [ ] Login Security 
+    - [x] Update A License
+- [x] Login Security 
     - [x] Returns The Login Security Settings For An Organization
-    - [ ] Update The Login Security Settings For An Organization
-- [ ] Networks 
+    - [x] Update The Login Security Settings For An Organization
+- [x] Networks 
     - [x] List The Networks That The User Has Privileges On In An Organization
-    - [ ] Create A Network
-    - [ ] Combine Multiple Networks Into A Single Network
-- [ ] Saml
-    - [ ] ldps
+    - [x] Create A Network
+    - [x] Combine Multiple Networks Into A Single Network
+- [x] Saml
+    - [x] ldps
         - [x] List The SAML IdPs In Your Organization
-        - [ ] Create A SAML IdP For Your Organization
-        - [ ] Update A SAML IdP In Your Organization
+        - [x] Create A SAML IdP For Your Organization
+        - [x] Update A SAML IdP In Your Organization
         - [x] Get A SAML IdP From Your Organization
-        - [ ] Remove A SAML IdP In Your Organization
+        - [x] Remove A SAML IdP In Your Organization
     - [x] Returns The SAML SSO Enabled Settings For An Organization
-    - [ ] Updates The SAML SSO Enabled Settings For An Organization
-- [ ] Saml Roles
+    - [x] Updates The SAML SSO Enabled Settings For An Organization
+- [x] Saml Roles
     - [x] List The SAML Roles For This Organization
-    - [ ] Create A SAML Role
+    - [x] Create A SAML Role
     - [x] Return A SAML Role
-    - [ ] Update A SAML Role
-    - [ ] Remove A SAML Role
-- [ ] Snmp    
+    - [x] Update A SAML Role
+    - [x] Remove A SAML Role
+- [x] Snmp    
     - [x] Return The SNMP Settings For An Organization
-    - [ ] Update The SNMP Settings For An Organization
+    - [x] Update The SNMP Settings For An Organization
 - [x] List The Organizations That The User Has Privileges On
 - [x] Create A New Organization
 - [x] Return An Organization
 - [x] Update An Organization
 - [x] Delete An Organization
-- [ ] Claim A List Of Devices Licenses And Or Orders Into An Organization When Claiming By Order All Devices And Licenses In The Order Will Be Claimed Licenses Will Be Added To The Organization And Devices Will Be Placed In The Organizations Inventory
-- [ ] Create A New Organization By Cloning The Addressed Organization
+- [x] Claim A List Of Devices Licenses And Or Orders Into An Organization When Claiming By Order All Devices And Licenses In The Order Will Be Claimed Licenses Will Be Added To The Organization And Devices Will Be Placed In The Organizations Inventory
+- [x] Create A New Organization By Cloning The Addressed Organization
 
-- [ ] Monitor
+- [x] Monitor
    - [x] Api Requests
        - [x] Overview
            - [x] Return an aggregated overview of API requests data

@@ -25,9 +25,7 @@ type DeviceStatus struct {
 	SecondaryDNS   string    `json:"secondaryDns"`
 }
 
-type LossLatencyList []struct {
-}
-type LossLatency []struct {
+type UplinksLossAndLatency []struct {
 	NetworkID  string `json:"networkId"`
 	Serial     string `json:"serial"`
 	Uplink     string `json:"uplink"`
@@ -58,9 +56,9 @@ func GetDeviceStatus(organizationId, perPage, startingAfter, endingBefore string
 }
 
 // Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
-func GetLossLatency(organizationId, t0, t1, timespan, uplink, ip string) []api.Results {
+func GetUplinksLossAndLatency(organizationId, t0, t1, timespan, uplink, ip string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/devices/uplinksLossAndLatency", api.BaseUrl(), organizationId)
-	var datamodel = APIRequests{}
+	var datamodel = UplinksLossAndLatency{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

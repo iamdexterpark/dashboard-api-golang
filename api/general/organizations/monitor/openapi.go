@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type OpenAPI struct {
+type OpenapiSpec struct {
 	Swagger string `json:"swagger"`
 	Info    struct {
 		Version     string `json:"version"`
@@ -35,9 +35,9 @@ type OpenAPI struct {
 }
 
 // Return the OpenAPI 2.0 Specification of the organization's API documentation in JSON
-func GetOpenAPI(organizationId string) []api.Results {
+func GetOpenapiSpec(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/openapiSpec", api.BaseUrl(), organizationId)
-	var datamodel = OpenAPI{}
+	var datamodel = OpenapiSpec{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

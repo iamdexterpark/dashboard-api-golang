@@ -7,11 +7,11 @@ import (
 	"time"
 )
 
-type DeviceInventory []struct {
-	Inventory
+type InventoryDevices []struct {
+	InventoryDevice
 }
 
-type Inventory struct {
+type InventoryDevice struct {
 	Mac                   string    `json:"mac"`
 	Serial                string    `json:"serial"`
 	Name                  string    `json:"name"`
@@ -26,7 +26,7 @@ type Inventory struct {
 func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices", api.BaseUrl(),
 		organizationId)
-	var datamodel = DeviceInventory{}
+	var datamodel = InventoryDevices{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -49,7 +49,7 @@ func GetInventoryDevice(organizationId, serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices/%s", api.BaseUrl(),
 		organizationId, serial)
 
-	var datamodel = Inventory{}
+	var datamodel = InventoryDevice{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

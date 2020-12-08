@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -16,7 +17,7 @@ type SNMP struct {
 	Port       int      `json:"port"`
 }
 
-// Return the SNMP settings for an organization
+
 func GetSNMP(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
 		organizationId)
@@ -27,3 +28,25 @@ func GetSNMP(organizationId string) []api.Results {
 	}
 	return sessions
 }
+
+func PutSNMP(organizationId, v2cEnabled, v3Enabled, v3AuthMode,
+	v3AuthPass, v3PrivMode, peerIps string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
+		organizationId)
+	var datamodel = SNMP{}
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"v2cEnabled": v2cEnabled,
+		"v3Enabled": v3Enabled,
+		"v3AuthMode": v3AuthMode,
+		"v3AuthPass": v3AuthPass,
+		"v3PrivMode": v3PrivMode,
+		"peerIps": peerIps}
+	sessions, err := api.Sessions(baseurl, "GET", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
