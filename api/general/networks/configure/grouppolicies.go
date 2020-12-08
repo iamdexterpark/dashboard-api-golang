@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -120,7 +121,7 @@ type GroupPolicy struct {
 	} `json:"bonjourForwarding"`
 }
 
-// List The Group Policies In A Network
+
 func GetGroupPolicies(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies", api.BaseUrl(), networkId)
 	var datamodel = GroupPolicies{}
@@ -131,11 +132,55 @@ func GetGroupPolicies(networkId string) []api.Results {
 	return sessions
 }
 
-// Display A Group Policy
+
 func GetGroupPolicy(networkId, groupPolicyId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
 	var datamodel = GroupPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutGroupPolicy(networkId, groupPolicyId, name, scheduling string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
+	var datamodel = GroupPolicy{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"scheduling": scheduling}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostGroupPolicy(networkId, name, scheduling string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies", api.BaseUrl(), networkId)
+	var datamodel = GroupPolicy{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"scheduling": scheduling}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelGroupPolicy(networkId, groupPolicyId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
+	var datamodel = GroupPolicy{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

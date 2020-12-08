@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -30,11 +31,44 @@ type Device struct {
 	FloorPlanID string `json:"floorPlanId"`
 }
 
-// GetNetworkDevices - List The Devices In A Network
-func GetNetworkDevices(networkId string) []api.Results {
+
+func GetDevices(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/devices", api.BaseUrl(), networkId)
 	var datamodel = Devices{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostClaimSerials(networkId, serials string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/devices/claim", api.BaseUrl(), networkId)
+	var datamodel interface{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"serials": serials}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostUnClaimSerials(networkId, serials string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/devices/remove", api.BaseUrl(), networkId)
+	var datamodel interface{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"serials": serials}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

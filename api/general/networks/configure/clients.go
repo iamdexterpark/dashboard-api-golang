@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -25,7 +26,16 @@ type SplashAuthorization struct {
 	} `json:"ssids"`
 }
 
-// GetClientPolicy -  Return The Policy Assigned To A Client On The Network
+type ProvisionClient struct {
+	Clients []struct {
+		Mac      string `json:"mac"`
+		ClientID string `json:"clientId"`
+		Name     string `json:"name"`
+	} `json:"clients"`
+	DevicePolicy  string `json:"devicePolicy"`
+	GroupPolicyID string `json:"groupPolicyId"`
+}
+
 func GetClientPolicy(networkId, clientId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/policy", api.BaseUrl(), networkId, clientId)
 	var datamodel = ClientPolicy{}
@@ -36,11 +46,47 @@ func GetClientPolicy(networkId, clientId string) []api.Results {
 	return sessions
 }
 
-// Return The Splash Authorization For A Client For Each SSID They've Associated With Through Splash
+
+func PutClientPolicy(networkId, clientId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/policy", api.BaseUrl(), networkId, clientId)
+	var datamodel = ClientPolicy{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+
 func GetSplashAuthorization(networkId, clientId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/splashAuthorizationStatus", api.BaseUrl(), networkId, clientId)
 	var datamodel = SplashAuthorization{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutSplashAuthorization(networkId, clientId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/splashAuthorizationStatus", api.BaseUrl(), networkId, clientId)
+	var datamodel = SplashAuthorization{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostProvisionClient(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/clients/provision", api.BaseUrl(), networkId)
+	var datamodel = ProvisionClient{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

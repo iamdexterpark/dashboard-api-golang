@@ -1,5 +1,6 @@
 
-### Meraki Dashboard API Coverage -v1.2.0
+### Meraki Dashboard API Coverage -v1.4.0
+https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8d650986d8ec
 
 ## GENERAL
 
@@ -23,103 +24,107 @@
       
 
 ### Networks
-- [ ] Configure
-    - [ ] Alerts
-        - [ ] Settings
+- [x] Configure
+    - [x] Alerts
+        - [x] Settings
             - [x] Return The Alert Configuration For This Network
-            - [ ] Update The Alert Configuration For This Network
-    - [ ] Clients
-        - [ ] Policy
+            - [x] Update The Alert Configuration For This Network
+    - [x] Clients
+        - [x] Policy
             - [x] Return The Policy Assigned To A Client On The Network Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether The Network Uses Track By IP
-            - [ ] Update The Policy Assigned To A Client On The Network Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether The Network Uses Track By IP
-        - [ ] Splash Authorization
+            - [x] Update The Policy Assigned To A Client On The Network Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether The Network Uses Track By IP
+        - [x] Splash Authorization
             - [x] Return The Splash Authorization For A Client For Each SSID Theyve Associated With Through Splash Only Enabled SSI Ds With Click Through Splash Enabled Will Be Included Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether
-            - [ ] Update A Clients Splash Authorization Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether The Network Uses Track By IP
-        - [ ] Provisions A Client With A Name And Policy Clients Can Be Provisioned Before They Associate To The Network
-    - [ ] Devices
+            - [x] Update A Clients Splash Authorization Clients Can Be Identified By A Client Key Or Either The MAC Or IP Depending On Whether The Network Uses Track By IP
+        - [x] Provisions A Client With A Name And Policy Clients Can Be Provisioned Before They Associate To The Network
+    - [x] Devices
         - [x] List The Devices In A Network
-        - [ ] Claim Devices Into A Network
-        - [ ] Remove A Single Device
-    - [ ] Firmware Upgrades
+        - [x] Claim Devices Into A Network
+        - [x] Remove A Single Device
+    - [x] Firmware Upgrades
         - [x] Get Current Maintenance Window For A Network
-        - [ ] Update Current Maintenance Window For A Network
-    - [ ] Floor Plans
+        - [x] Update Current Maintenance Window For A Network
+    - [x] Floor Plans
         - [x] List The Floor Plans That Belong To Your Network
-        - [ ] Upload A Floor Plan
+        - [x] Upload A Floor Plan
         - [x] Find A Floor Plan By ID
-        - [ ] Update A Floor Plans Geolocation And Other Meta Data
-        - [ ] Destroy A Floor Plan
+        - [x] Update A Floor Plans Geolocation And Other Meta Data
+        - [x] Destroy A Floor Plan
     - [ ] Group Policies
         - [x] List The Group Policies In A Network
-        - [ ] Create A Group Policy
+        - [x] Create A Group Policy
         - [X] Display A Group Policy
-        - [ ] Update A Group Policy
-        - [ ] Delete A Group Policy
-    - [ ] Meraki Auth Users
+        - [x] Update A Group Policy
+        - [x] Delete A Group Policy
+    - [x] Meraki Auth Users
         - [x] List The Splash Or RADIUS Users Configured Under Meraki Authentication For A Network
-        - [ ] Create A User Configured With Meraki Authentication For A Network Currently Supports 802 1 X And Splash Guest Users And Currently Organizations Have A 50 000 User Cap
+        - [x] Create A User Configured With Meraki Authentication For A Network Currently Supports 802 1 X And Splash Guest Users And Currently Organizations Have A 50 000 User Cap
         - [x] Return The Meraki Auth Splash Or RADIUS User
-        - [ ] Delete A User Configured With Meraki Authentication Currently Only 802 1 X RADIUS Users Can Be Deleted
-        - [ ] Update A User Configured With Meraki Authentication Currently Only 802 1 X RADIUS Users Can Be Updated
-    - [ ] Mqtt Brokers
+        - [x] Delete A User Configured With Meraki Authentication Currently Only 802 1 X RADIUS Users Can Be Deleted
+        - [x] Update A User Configured With Meraki Authentication Currently Only 802 1 X RADIUS Users Can Be Updated
+    - [x] Mqtt Brokers
         - [x] List The MQTT Brokers For This Network
-        - [ ] Add An MQTT Broker
+        - [x] Add An MQTT Broker
         - [x] Return An MQTT Broker
-        - [ ] Update An MQTT Broker
-        - [ ] Delete An MQTT Broker
-    - [ ] Netflow
+        - [x] Update An MQTT Broker
+        - [x] Delete An MQTT Broker
+    - [x] Netflow
         - [x] Return The Net Flow Traffic Reporting Settings For A Network
-        - [ ] Update The Net Flow Traffic Reporting Settings For A Network
+        - [x] Update The Net Flow Traffic Reporting Settings For A Network
     - [x] Network Health
         - [x] Channel Utilization
             - [x] Get the channel utilization over each radio for all APs in a network.
-    - [ ] Pii
+    - [x] Pii
         - [x] Pii Keys
             - [x] List the keys required to access Personally Identifiable Information (PII) for a given identifier.
-        - [ ] Requests
+        - [x] Requests
             - [x] List The PII Requests For This Network Or Organization
-            - [ ] Submit A New Delete Or Restrict Processing PII Request
+            - [x] Submit A New Delete Or Restrict Processing PII Request
             - [x] Return A PII Request
-            - [ ] Delete A Restrict Processing PII Request
+            - [x] Delete A Restrict Processing PII Request
         - [x] Sm Devices For Key
             - [x] Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details.
         - [x] Sm Owners For Key
             - [x] Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier.
-    - [ ] Settings
+    - [x] Settings
         - [x] Return The Settings For A Network
-        - [ ] Update The Settings For A Network
-    - [ ] Snmp
+        - [x] Update The Settings For A Network
+    - [x] Snmp
         - [x] Return The SNMP Settings For A Network
-        - [ ] Update The SNMP Settings For A Network
-    - [ ] Syslog Servers
+        - [x] Update The SNMP Settings For A Network
+    - [x] Syslog Servers
         - [x] List The Syslog Servers For A Network
-        - [ ] Update The Syslog Servers For A Network
-    - [ ] Traffic Analysis
+        - [x] Update The Syslog Servers For A Network
+    - [x] Traffic Analysis
         - [x] Return The Traffic Analysis Settings For A Network
-        - [ ] Update The Traffic Analysis Settings For A Network
+        - [x] Update The Traffic Analysis Settings For A Network
     - [x] Traffic Shaping
         - [x] Application Categories
             - [x] Returns the application categories for traffic shaping rules.
         - [x] Dscp Tagging Options
             - [x] Returns the available DSCP tagging options for your traffic shaping rules.
-    - [ ] Webhooks
-        - [ ] Http Servers
+    - [x] Webhooks
+        - [x] Http Servers
             - [x] List The HTTP Servers For A Network
-            - [ ] Add An HTTP Server To A Network
+            - [x] Add An HTTP Server To A Network
             - [x] Return An HTTP Server For A Network
-            - [ ] Update An HTTP Server
-            - [ ] Delete An HTTP Server From A Network
-        - [ ] Webhook Tests
-            - [ ] Send A Test Webhook For A Network
+            - [x] Update An HTTP Server
+            - [x] Delete An HTTP Server From A Network
+        - [x] Webhook Tests
+            - [x] Send A Test Webhook For A Network
             - [x] Return The Status Of A Webhook Test For A Network
     - [X] Return A Network
-    - [ ] Update A Network
-    - [ ] Delete A Network
-    - [ ] Bind A Network To A Template
-    - [ ] Split A Combined Network Into Individual Networks For Each Type Of Device
-    - [ ] Unbind A Network From A Template
+    - [x] Update A Network
+    - [x] Delete A Network
+    - [x] Bind A Network To A Template
+    - [x] Split A Combined Network Into Individual Networks For Each Type Of Device
+    - [x] Unbind A Network From A Template
     
 - [x] Monitor
+    - [x] Application Usage
+        - [x] Return the application usage data for clients.
+    - [x] Usage History
+        - [x] Return the usage histories for clients.
     - [x] Bluetooth Clients
         - [x] List The Bluetooth Clients Seen By APs In This Network
         - [x] Return A Bluetooth Client Bluetooth Clients Can Be Identified By Their ID Or Their MAC

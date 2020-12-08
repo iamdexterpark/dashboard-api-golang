@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -41,7 +42,7 @@ type SmOwnersForKey struct {
 	N1234 []string `json:"N_1234"`
 }
 
-// List the keys required to access Personally Identifiable Information (PII) for a given identifier
+
 func GetPiiKeys(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/pii/piiKeys", api.BaseUrl(), networkId)
 	var datamodel = PiiKeys{}
@@ -62,7 +63,7 @@ func GetPiiKeys(networkId, username, email, mac, serial, imei, bluetoothMac stri
 	return sessions
 }
 
-// List The PII Requests For This Network Or Organization
+
 func GetPiiRequests(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests", api.BaseUrl(), networkId)
 	var datamodel = PiiRequests{}
@@ -73,7 +74,9 @@ func GetPiiRequests(networkId string) []api.Results {
 	return sessions
 }
 
-// Return A PII Request
+
+
+
 func GetPiiRequest(networkId, requestId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests/%s", api.BaseUrl(), networkId, requestId)
 	var datamodel = PiiRequest{}
@@ -84,7 +87,30 @@ func GetPiiRequest(networkId, requestId string) []api.Results {
 	return sessions
 }
 
-// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier
+
+func DelPiiRequest(networkId, requestId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests/%s", api.BaseUrl(), networkId, requestId)
+	var datamodel = PiiRequest{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostPiiRequest(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests", api.BaseUrl(), networkId)
+	var datamodel = PiiRequest{}
+	payload := user_agent.MarshalJSON(data)
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
 func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/pii/smDevicesForKey", api.BaseUrl(), networkId)
 	var datamodel = SmDevicesForKey{}
@@ -105,7 +131,6 @@ func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetooth
 	return sessions
 }
 
-// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier
 func GetSmOwnersForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/pii/smOwnersForKey", api.BaseUrl(), networkId)
 	var datamodel = SmOwnersForKey{}

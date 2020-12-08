@@ -3,6 +3,7 @@
 
 ### Alpha DEC 2020
 - [x] 100% Devices API Coverage
+- [x] 100% Network API Coverage
 - [x] 100% Camera API Coverage
 - [x] 100% Insight API Coverage
 - [x] 100% Cellular Gateway API Coverage

@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type TrafficAnalysis []struct {
+type Traffic []struct {
 	Application string      `json:"application"`
 	Destination interface{} `json:"destination"`
 	Protocol    string      `json:"protocol"`
@@ -19,9 +19,9 @@ type TrafficAnalysis []struct {
 }
 
 // Return the traffic analysis data for this network
-func GetTrafficAnalysis(networkId, t0, timespan, deviceType string) []api.Results {
+func GetTraffic(networkId, t0, timespan, deviceType string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/traffic", api.BaseUrl(), networkId)
-	var datamodel = TrafficAnalysis{}
+	var datamodel = Traffic{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -16,8 +17,11 @@ type TrafficAnalysis struct {
 	} `json:"customPieChartItems"`
 }
 
-// TrafficShaping - Returns the application categories for traffic shaping rules.
-type TrafficShaping struct {
+
+
+
+
+type ApplicationCategories struct {
 	ApplicationCategories []struct {
 		ID           string `json:"id"`
 		Name         string `json:"name"`
@@ -28,13 +32,13 @@ type TrafficShaping struct {
 	} `json:"applicationCategories"`
 }
 
-// TrafficShapingDSCP - Returns the available DSCP tagging options for your traffic shaping rules.
-type TrafficShapingDSCP []struct {
+
+type DscpTaggingOptions []struct {
 	DscpTagValue int    `json:"dscpTagValue"`
 	Description  string `json:"description"`
 }
 
-// GetTrafficAnalysis - Return The Traffic Analysis Settings For A Network
+
 func GetTrafficAnalysis(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
 	var datamodel = TrafficAnalysis{}
@@ -45,10 +49,27 @@ func GetTrafficAnalysis(networkId string) []api.Results {
 	return sessions
 }
 
+
+func PutTrafficAnalysis(networkId, mode string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
+	var datamodel = TrafficAnalysis{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"mode": mode}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 // GetTrafficShaping - Returns the application categories for traffic shaping rules.
-func GetTrafficShaping(networkId string) []api.Results {
+func GetApplicationCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/applicationCategories", api.BaseUrl(), networkId)
-	var datamodel = TrafficShaping{}
+	var datamodel = ApplicationCategories{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -57,9 +78,9 @@ func GetTrafficShaping(networkId string) []api.Results {
 }
 
 // GetTrafficShapingDSCP - Returns the available DSCP tagging options for your traffic shaping rules.
-func GetTrafficShapingDSCP(networkId string) []api.Results {
+func GetDscpTaggingOptions(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/dscpTaggingOptions", api.BaseUrl(), networkId)
-	var datamodel = TrafficShapingDSCP{}
+	var datamodel = DscpTaggingOptions{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

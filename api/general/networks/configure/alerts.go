@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type AlertConfig struct {
+type AlertSettings struct {
 	DefaultDestinations struct {
 		Emails    []string `json:"emails"`
 		AllAdmins bool     `json:"allAdmins"`
@@ -26,12 +27,29 @@ type AlertConfig struct {
 	} `json:"alerts"`
 }
 
-// GetNetworkAlertConfig - Return The Alert Configuration For This Network
-func GetNetworkAlertConfig(networkId string) []api.Results {
+
+func GetAlertSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/alerts/settings", api.BaseUrl(), networkId)
 
-	var datamodel = AlertConfig{}
+	var datamodel = AlertSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutAlertSettings(networkId, defaultDestinations, alerts string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/alerts/settings", api.BaseUrl(), networkId)
+	var datamodel = AlertSettings{}
+	payload := user_agent.MarshalJSON(data)
+
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"defaultDestinations": defaultDestinations,
+		"alerts":          alerts}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

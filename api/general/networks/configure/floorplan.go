@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -61,7 +62,7 @@ type FloorPlan struct {
 	} `json:"topRightCorner"`
 }
 
-// GetFloorPlans - List The Floor Plans That Belong To Your Network
+
 func GetFloorPlans(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
 	var datamodel = FloorPlans{}
@@ -72,11 +73,69 @@ func GetFloorPlans(networkId string) []api.Results {
 	return sessions
 }
 
-// GetFloorPlan - List The Floor Plans That Belong To Your Network
+
 func GetFloorPlan(networkId, floorPlanId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
 	var datamodel = FloorPlan{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PostFloorPlan(networkId, name, center, bottomLeftCorner,
+	bottomRightCorner, topLeftCorner, topRightCorner,
+	imageContents string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
+	var datamodel = FloorPlan{}
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"center": center,
+		"bottomLeftCorner": bottomLeftCorner,
+		"bottomRightCorner": bottomRightCorner,
+		"topLeftCorner": topLeftCorner,
+		"topRightCorner": topRightCorner,
+		"imageContents": imageContents}
+
+	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func PutFloorPlan(networkId, floorPlanId, name, center, bottomLeftCorner,
+	bottomRightCorner, topLeftCorner, topRightCorner,
+	imageContents string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
+	var datamodel = FloorPlan{}
+	payload := user_agent.MarshalJSON(data)
+	// Parameters for Request URL
+	var parameters = map[string]string{
+		"name": name,
+		"center": center,
+		"bottomLeftCorner": bottomLeftCorner,
+		"bottomRightCorner": bottomRightCorner,
+		"topLeftCorner": topLeftCorner,
+		"topRightCorner": topRightCorner,
+		"imageContents": imageContents}
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelFloorPlan(networkId, floorPlanId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
+	var datamodel = FloorPlan{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
