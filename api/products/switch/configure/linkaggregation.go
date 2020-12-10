@@ -3,13 +3,14 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type LinkAggregationGroups []struct {
-	LinkAggregationGroup
+type LinkAggregations []struct {
+	LinkAggregation
 }
-type LinkAggregationGroup struct {
+type LinkAggregation struct {
 	ID          string `json:"id"`
 	SwitchPorts []struct {
 		Serial string `json:"serial"`
@@ -17,12 +18,46 @@ type LinkAggregationGroup struct {
 	} `json:"switchPorts"`
 }
 
-// List link aggregation groups
-func GetLinkAggregationGroups(networkId string) []api.Results {
+func GetLinkAggregations(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations",
 		api.BaseUrl(), networkId)
-	var datamodel = LinkAggregationGroups{}
+	var datamodel = LinkAggregations{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelLinkAggregation(networkId, linkAggregationId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations/%s",
+		api.BaseUrl(), networkId, linkAggregationId)
+	var datamodel = LinkAggregation{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutLinkAggregation(networkId, linkAggregationId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations/%s",
+		api.BaseUrl(), networkId, linkAggregationId)
+	var datamodel = LinkAggregation{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostLinkAggregation(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations",
+		api.BaseUrl(), networkId)
+	var datamodel = LinkAggregation{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

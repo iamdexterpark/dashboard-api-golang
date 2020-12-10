@@ -3,13 +3,14 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type SwitchPorts []struct {
-	SwitchPort
+type Ports []struct {
+	Port
 }
-type SwitchPort struct {
+type Port struct {
 	PortID                  string   `json:"portId"`
 	Name                    string   `json:"name"`
 	Tags                    []string `json:"tags"`
@@ -30,11 +31,11 @@ type SwitchPort struct {
 	StormControlEnabled     bool     `json:"stormControlEnabled"`
 }
 
-// List The Switch Ports For A Switch
-func GetSwitchPorts(serial string) []api.Results {
+
+func GetPorts(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports",
 		api.BaseUrl(), serial)
-	var datamodel = SwitchPorts{}
+	var datamodel = Ports{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -42,12 +43,23 @@ func GetSwitchPorts(serial string) []api.Results {
 	return sessions
 }
 
-// Return a Switch Port
 func GetSwitchPort(serial, portId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports/%s",
 		api.BaseUrl(), serial, portId)
-	var datamodel = SwitchPort{}
+	var datamodel = Port{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutSwitchPort(serial, portId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports/%s",
+		api.BaseUrl(), serial, portId)
+	var datamodel = Port{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

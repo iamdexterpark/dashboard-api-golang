@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type SwitchProfilePorts struct {
+type SwitchProfile struct {
 	PortID                  string   `json:"portId"`
 	Name                    string   `json:"name"`
 	Tags                    []string `json:"tags"`
@@ -27,17 +28,16 @@ type SwitchProfilePorts struct {
 	StormControlEnabled     bool     `json:"stormControlEnabled"`
 }
 
-type SwitchTemplateConfigProfiles []struct {
+type ConfigTemplatesProfiles []struct {
 	SwitchProfileID string `json:"switchProfileId"`
 	Name            string `json:"name"`
 	Model           string `json:"model"`
 }
 
-// Return All The Ports Of A Switch Profile
 func GetSwitchPortProfiles(organizationId, configTemplateId, profileId  string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports",
 		api.BaseUrl(), organizationId, configTemplateId, profileId)
-	var datamodel = SwitchProfilePorts{}
+	var datamodel = SwitchProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -45,11 +45,10 @@ func GetSwitchPortProfiles(organizationId, configTemplateId, profileId  string) 
 	return sessions
 }
 
-// Return A Switch Profile Port
 func GetSwitchPortProfile(organizationId, configTemplateId, profileId, portId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
 		api.BaseUrl(), organizationId, configTemplateId, profileId, portId)
-	var datamodel = SwitchProfilePorts{}
+	var datamodel = SwitchProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -57,12 +56,23 @@ func GetSwitchPortProfile(organizationId, configTemplateId, profileId, portId st
 	return sessions
 }
 
-// List The Switch Profiles For Your Switch Template Configuration
-func GetSwitchTemplateConfigProfiles(organizationId,
+func PutSwitchPortProfile(organizationId, configTemplateId, profileId, portId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
+		api.BaseUrl(), organizationId, configTemplateId, profileId, portId)
+	var datamodel = SwitchProfile{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetConfigTemplatesProfiles(organizationId,
 	configTemplateId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles",
 		api.BaseUrl(), organizationId, configTemplateId)
-	var datamodel = SwitchTemplateConfigProfiles{}
+	var datamodel = ConfigTemplatesProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

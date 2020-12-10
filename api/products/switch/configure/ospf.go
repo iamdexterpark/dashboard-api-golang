@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type OSPFRouting struct {
+type OSPF struct {
 	Enabled             bool `json:"enabled"`
 	HelloTimerInSeconds int  `json:"helloTimerInSeconds"`
 	DeadTimerInSeconds  int  `json:"deadTimerInSeconds"`
@@ -22,12 +23,23 @@ type OSPFRouting struct {
 	} `json:"md5AuthenticationKey"`
 }
 
-// Return Layer 3 OSPF Routing Configuration
-func GetOSPFRouting(networkId string) []api.Results {
+func GetOSPF(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/ospf",
 		api.BaseUrl(), networkId)
-	var datamodel = OSPFRouting{}
+	var datamodel = OSPF{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutOSPF(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/ospf",
+		api.BaseUrl(), networkId)
+	var datamodel = OSPF{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

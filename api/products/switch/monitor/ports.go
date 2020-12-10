@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type PacketCounters []struct {
+type Packets []struct {
 	PortID  string `json:"portId"`
 	Packets []struct {
 		Desc       string `json:"desc"`
@@ -21,7 +21,7 @@ type PacketCounters []struct {
 	} `json:"packets"`
 }
 
-type PortsStatus []struct {
+type Statuses []struct {
 	PortID    string   `json:"portId"`
 	Enabled   bool     `json:"enabled"`
 	Status    string   `json:"status"`
@@ -66,12 +66,10 @@ type PortsStatus []struct {
 	} `json:"trafficInKbps"`
 }
 
-// Return the packet counters for all the ports of a switch
 func GetPacketCounters(serial, t0, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/ports/statuses/packets",
 		api.BaseUrl(), serial)
-
-	var datamodel = PacketCounters{}
+	var datamodel = Packets{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -85,11 +83,10 @@ func GetPacketCounters(serial, t0, timespan string) []api.Results {
 	return sessions
 }
 
-// Return The Status For All The Ports Of A Switch
-func GetPortsStatus(serial, t0, timespan string) []api.Results {
+func GetStatuses(serial, t0, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/ports/statuses",
 		api.BaseUrl(), serial)
-	var datamodel = PortsStatus{}
+	var datamodel = Statuses{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

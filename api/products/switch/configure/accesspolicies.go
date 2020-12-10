@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -35,7 +36,6 @@ type AccessPolicy struct {
 	URLRedirectWalledGardenRanges  string `json:"urlRedirectWalledGardenRanges"`
 }
 
-// List The Access Policies For A Switch Network
 func GetAccessPolicies(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies",
 		api.BaseUrl(), networkId)
@@ -47,12 +47,46 @@ func GetAccessPolicies(networkId string) []api.Results {
 	return sessions
 }
 
-// Return A Specific Access Policy For A Switch Network
 func GetAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
 		api.BaseUrl(), networkId, accessPolicyNumber)
-	var datamodel = AccessPolicies{}
+	var datamodel = AccessPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
+		api.BaseUrl(), networkId, accessPolicyNumber)
+	var datamodel = AccessPolicy{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutAccessPolicy(networkId, accessPolicyNumber string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
+		api.BaseUrl(), networkId, accessPolicyNumber)
+	var datamodel = AccessPolicy{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostAccessPolicy(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies",
+		api.BaseUrl(), networkId)
+	var datamodel = AccessPolicy{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

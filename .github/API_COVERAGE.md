@@ -437,123 +437,123 @@ https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8
 
 ### Switch
 
-- [ ] Configure
-    - [ ] Access Control Lists
+- [x] Configure
+    - [x] Access Control Lists
         - [x] Return The Access Control Lists For A MS Network
-        - [ ] Update The Access Control Lists For A MS Network
-    - [ ] Access Policies
-        - [ ] Create An Access Policy For A Switch Network
-        - [ ] Delete An Access Policy For A Switch Network
+        - [x] Update The Access Control Lists For A MS Network
+    - [x] Access Policies
+        - [x] Create An Access Policy For A Switch Network
+        - [x] Delete An Access Policy For A Switch Network
         - [x] List The Access Policies For A Switch Network
         - [x] Return A Specific Access Policy For A Switch Network
-        - [ ] Update An Access Policy For A Switch Network
-    - [ ] Config Templates
-        - [ ] profiles
-            - [ ] Ports
+        - [x] Update An Access Policy For A Switch Network
+    - [x] Config Templates
+        - [x] profiles
+            - [x] Ports
                 - [x] Return A Switch Profile Port
                 - [x] Return All The Ports Of A Switch Profile
-                - [ ] Update A Switch Profile Port
+                - [x] Update A Switch Profile Port
             - [x] List The Switch Profiles For Your Switch Template Configuration
-    - [ ] Devices
-        - [ ] Clone port-level and some switch-level configuration settings from a source switch to one or more target switches
-    - [ ] Dhcp Server Policy
+    - [x] Devices
+        - [x] Clone port-level and some switch-level configuration settings from a source switch to one or more target switches
+    - [x] Dhcp Server Policy
         - [x] Return The DHCP Server Policy
-        - [ ] Update The DHCP Server Policy
-    - [ ] Dscp To Cos Mappings
+        - [x] Update The DHCP Server Policy
+    - [x] Dscp To Cos Mappings
         - [x] Return The DSCP To CoS Mappings
-        - [ ] Update The DSCP To CoS Mappings
-    - [ ] Link Aggregations
-        - [ ] Create A Link Aggregation Group
+        - [x] Update The DSCP To CoS Mappings
+    - [x] Link Aggregations
+        - [x] Create A Link Aggregation Group
         - [x] List Link Aggregation Groups
-        - [ ] Split A Link Aggregation Group Into Separate Ports
-        - [ ] Update A Link Aggregation Group
-    - [ ] Mtu
+        - [x] Split A Link Aggregation Group Into Separate Ports
+        - [x] Update A Link Aggregation Group
+    - [x] Mtu
         - [x] Return The MTU Configuration
-        - [ ] Update The MTU Configuration
-    - [ ] Port Schedules
-        - [ ] Add A Switch Port Schedule
-        - [ ] Delete A Switch Port Schedule
+        - [x] Update The MTU Configuration
+    - [x] Port Schedules
+        - [x] Add A Switch Port Schedule
+        - [x] Delete A Switch Port Schedule
         - [x] List Switch Port Schedules
-        - [ ] Update A Switch Port Schedule
-    - [ ] Ports
+        - [x] Update A Switch Port Schedule
+    - [x] Ports
         - [x] List The Switch Ports For A Switch
         - [x] Return A Switch Port
-        - [ ] Update A Switch Port
-    - [ ] Qos Rules
-        - [ ] Order
+        - [x] Update A Switch Port
+    - [x] Qos Rules
+        - [x] Order
             - [x] Return The Quality Of Service Rule I Ds By Order In Which They Will Be Processed By The Switch
-            - [ ] Update The Order In Which The Rules Should Be Processed By The Switch
-        - [ ] Add A Quality Of Service Rule
-        - [ ] Delete A Quality Of Service Rule
+            - [x] Update The Order In Which The Rules Should Be Processed By The Switch
+        - [x] Add A Quality Of Service Rule
+        - [x] Delete A Quality Of Service Rule
         - [x] List Quality Of Service Rules
         - [x] Return A Quality Of Service Rule
-        - [ ] Update A Quality Of Service Rule
-    - [ ] Routing
-        - [ ] Interfaces
-            - [ ] Dhcp
+        - [x] Update A Quality Of Service Rule
+    - [x] Routing
+        - [x] Interfaces
+            - [x] Dhcp
                 - [x] Return A Layer 3 Interface DHCP Configuration For A Switch
-                - [ ] Update A Layer 3 Interface DHCP Configuration For A Switch
-            - [ ] Create A Layer 3 Interface For A Switch
-            - [ ] Delete A Layer 3 Interface From The Switch
+                - [x] Update A Layer 3 Interface DHCP Configuration For A Switch
+            - [x] Create A Layer 3 Interface For A Switch
+            - [x] Delete A Layer 3 Interface From The Switch
             - [x] List Layer 3 Interfaces For A Switch
             - [x] Return A Layer 3 Interface For A Switch
-            - [ ] Update A Layer 3 Interface For A Switch
-        - [ ] Multicast
-            - [ ] Rendezvous Points
-                - [ ] Create a multicast rendezvous point
-                - [ ] Delete A Multicast Rendezvous Point
+            - [x] Update A Layer 3 Interface For A Switch
+        - [x] Multicast
+            - [x] Rendezvous Points
+                - [x] Create a multicast rendezvous point
+                - [x] Delete A Multicast Rendezvous Point
                 - [x] List Multicast Rendezvous Points
                 - [x] Return A Multicast Rendezvous Point
-                - [ ] Update A Multicast Rendezvous Point
+                - [x] Update A Multicast Rendezvous Point
                 - [x] Return Multicast Settings For A Network
-                - [ ] Update Multicast Settings For A Network
-        - [ ] Ospf
+                - [x] Update Multicast Settings For A Network
+        - [x] Ospf
             - [x] Return Layer 3 OSPF Routing Configuration
-            - [ ] Update Layer 3 OSPF Routing Configuration
-        - [ ] Static Routes
-            - [ ] Create A Layer 3 Static Route For A Switch
-            - [ ] Delete A Layer 3 Static Route For A Switch
+            - [x] Update Layer 3 OSPF Routing Configuration
+        - [x] Static Routes
+            - [x] Create A Layer 3 Static Route For A Switch
+            - [x] Delete A Layer 3 Static Route For A Switch
             - [x] List Layer 3 Static Routes For A Switch
             - [x] Return A Layer 3 Static Route For A Switch
-            - [ ] Update A Layer 3 Static Route For A Switch
-    - [ ] Settings
+            - [x] Update A Layer 3 Static Route For A Switch
+    - [x] Settings
         - [x] Returns The Switch Network Settings
-        - [ ] Update Switch Network Settings
-    - [ ] Stacks
-        - [ ] Routing
-            - [ ] Interfaces
-                - [ ] Dhcp
+        - [x] Update Switch Network Settings
+    - [x] Stacks
+        - [x] Routing
+            - [x] Interfaces
+                - [x] Dhcp
                     - [x] Return A Layer 3 Interface DHCP Configuration For A Switch Stack
-                    - [ ] Update A Layer 3 Interface DHCP Configuration For A Switch Stack
-                - [ ] Create A Layer 3 Interface For A Switch Stack
-                - [ ] Delete A Layer 3 Interface From A Switch Stack
+                    - [x] Update A Layer 3 Interface DHCP Configuration For A Switch Stack
+                - [x] Create A Layer 3 Interface For A Switch Stack
+                - [x] Delete A Layer 3 Interface From A Switch Stack
                 - [x] List Layer 3 Interfaces For A Switch Stack
                 - [x] Return A Layer 3 Interface From A Switch Stack
-                - [ ] Update A Layer 3 Interface For A Switch Stack
-            - [ ] Static Routes
-                - [ ] Create A Layer 3 Static Route For A Switch Stack
-                - [ ] Delete A Layer 3 Static Route For A Switch Stack
+                - [x] Update A Layer 3 Interface For A Switch Stack
+            - [x] Static Routes
+                - [x] Create A Layer 3 Static Route For A Switch Stack
+                - [x] Delete A Layer 3 Static Route For A Switch Stack
                 - [x] List Layer 3 Static Routes For A Switch Stack
                 - [x] Return A Layer 3 Static Route For A Switch Stack
-                - [ ] Update A Layer 3 Static Route For A Switch Stack
-        - [ ] Add A Switch To A Stack
-        - [ ] Create A Stack
-        - [ ] Delete A Stack
+                - [x] Update A Layer 3 Static Route For A Switch Stack
+        - [x] Add A Switch To A Stack
+        - [x] Create A Stack
+        - [x] Delete A Stack
         - [x] List The Switch Stacks In A Network
-        - [ ] Remove A Switch From A Stack
-        - [ ] Show A Switch Stack
-    - [ ] Storm Control
+        - [x] Remove A Switch From A Stack
+        - [x] Show A Switch Stack
+    - [x] Storm Control
         - [x] Return The Storm Control Configuration For A Switch Network
-        - [ ] Update The Storm Control Configuration For A Switch Network
-    - [ ] Stp
+        - [x] Update The Storm Control Configuration For A Switch Network
+    - [x] Stp
         - [x] Returns STP Settings
-        - [ ] Updates STP Settings
-    - [ ] Warm Spare
+        - [x] Updates STP Settings
+    - [x] Warm Spare
         - [x] Return Warm Spare Configuration For A Switch
-        - [ ] Update Warm Spare Configuration For A Switch
-- [ ] Live Tools
-    - [ ] ports
-        - [ ] Cycle a set of switch ports
+        - [x] Update Warm Spare Configuration For A Switch
+- [x] Live Tools
+    - [x] ports
+        - [x] Cycle a set of switch ports
 - [x] Monitor
     - [x] ports
         - [x] statuses

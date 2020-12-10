@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type SwitchNetworkSettings struct {
+type Settings struct {
 	Vlan             int  `json:"vlan"`
 	UseCombinedPower bool `json:"useCombinedPower"`
 	PowerExceptions  []struct {
@@ -15,12 +16,23 @@ type SwitchNetworkSettings struct {
 	} `json:"powerExceptions"`
 }
 
-// Returns The Switch Network Settings
-func GetSwitchNetworkSettings(networkId string) []api.Results {
+func GetSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/settings",
 		api.BaseUrl(), networkId)
-	var datamodel = SwitchNetworkSettings{}
+	var datamodel = Settings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutSettings(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/settings",
+		api.BaseUrl(), networkId)
+	var datamodel = Settings{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

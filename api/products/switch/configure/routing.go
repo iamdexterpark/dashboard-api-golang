@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type Layer3DHCPInterface struct {
+type DHCP struct {
 	DhcpMode             string   `json:"dhcpMode"`
 	DhcpLeaseTime        string   `json:"dhcpLeaseTime"`
 	DNSNameserversOption string   `json:"dnsNameserversOption"`
@@ -31,10 +32,10 @@ type Layer3DHCPInterface struct {
 	} `json:"fixedIpAssignments"`
 }
 
-type Layer3Interfaces []struct {
-	Layer3Interface
+type Interfaces []struct {
+	Interface
 }
-type Layer3Interface struct {
+type Interface struct {
 	InterfaceID      string `json:"interfaceId"`
 	Name             string `json:"name"`
 	Subnet           string `json:"subnet"`
@@ -49,11 +50,11 @@ type Layer3Interface struct {
 	} `json:"ospfSettings"`
 }
 
-type MulticastRendezvousPoints [][]struct {
-	MulticastRendezvousPoint
+type RendezvousPoints [][]struct {
+	RendezvousPoint
 }
 
-type MulticastRendezvousPoint []struct {
+type RendezvousPoint []struct {
 	RendezvousPointID string `json:"rendezvousPointId"`
 	Serial            string `json:"serial,omitempty"`
 	InterfaceName     string `json:"interfaceName,omitempty"`
@@ -62,7 +63,7 @@ type MulticastRendezvousPoint []struct {
 	SwitchStackID     string `json:"switchStackId,omitempty"`
 }
 
-type MulticastSettings struct {
+type Multicast struct {
 	DefaultSettings struct {
 		IgmpSnoopingEnabled                 bool `json:"igmpSnoopingEnabled"`
 		FloodUnknownMulticastTrafficEnabled bool `json:"floodUnknownMulticastTrafficEnabled"`
@@ -75,11 +76,10 @@ type MulticastSettings struct {
 	} `json:"overrides"`
 }
 
-// Return A Layer 3 Interface DHCP Configuration For A Switch
-func GetLayer3DHCPInterface(serial, interfaceId string) []api.Results {
+func GetDHCP(serial, interfaceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s/dhcp",
 		api.BaseUrl(), serial, interfaceId)
-	var datamodel = Layer3DHCPInterface{}
+	var datamodel = DHCP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -87,11 +87,22 @@ func GetLayer3DHCPInterface(serial, interfaceId string) []api.Results {
 	return sessions
 }
 
-// List Layer 3 Interfaces For A Switch
-func GetLayer3Interfaces(serial string) []api.Results {
+func PutDHCP(serial, interfaceId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s/dhcp",
+		api.BaseUrl(), serial, interfaceId)
+	var datamodel = DHCP{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetInterfaces(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces",
 		api.BaseUrl(), serial)
-	var datamodel = Layer3Interfaces{}
+	var datamodel = Interfaces{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -99,11 +110,10 @@ func GetLayer3Interfaces(serial string) []api.Results {
 	return sessions
 }
 
-// Return A Layer 3 Interface For A Switch
-func GetLayer3Interface(serial, interfaceId string) []api.Results {
+func GetInterface(serial, interfaceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
 		api.BaseUrl(), serial, interfaceId)
-	var datamodel = Layer3Interface{}
+	var datamodel = Interface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -111,11 +121,45 @@ func GetLayer3Interface(serial, interfaceId string) []api.Results {
 	return sessions
 }
 
-// List Multicast Rendezvous Points
-func GetMulticastRendezvousPoints(networkId string) []api.Results {
+func DelInterface(serial, interfaceId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
+		api.BaseUrl(), serial, interfaceId)
+	var datamodel = Interface{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutInterface(serial, interfaceId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
+		api.BaseUrl(), serial, interfaceId)
+	var datamodel = Interface{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostInterface(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces",
+		api.BaseUrl(), serial)
+	var datamodel = Interface{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetRendezvousPoints(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints",
 		api.BaseUrl(), networkId)
-	var datamodel = MulticastRendezvousPoints{}
+	var datamodel = RendezvousPoints{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -123,11 +167,10 @@ func GetMulticastRendezvousPoints(networkId string) []api.Results {
 	return sessions
 }
 
-// Return A Multicast Rendezvous Point
-func GetMulticastRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
+func GetRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
 		api.BaseUrl(), networkId, rendezvousPointId)
-	var datamodel = MulticastRendezvousPoint{}
+	var datamodel = RendezvousPoint{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -135,12 +178,58 @@ func GetMulticastRendezvousPoint(networkId, rendezvousPointId string) []api.Resu
 	return sessions
 }
 
-// Return Multicast Settings For A Network
-func GetMulticastSettings(networkId string) []api.Results {
+func delRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
+		api.BaseUrl(), networkId, rendezvousPointId)
+	var datamodel = RendezvousPoint{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutRendezvousPoint(networkId, rendezvousPointId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
+		api.BaseUrl(), networkId, rendezvousPointId)
+	var datamodel = RendezvousPoint{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostRendezvousPoint(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints",
+		api.BaseUrl(), networkId)
+	var datamodel = RendezvousPoint{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetMulticast(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast",
 		api.BaseUrl(), networkId)
-	var datamodel = MulticastSettings{}
+	var datamodel = Multicast{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutMulticast(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast",
+		api.BaseUrl(), networkId)
+	var datamodel = Multicast{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

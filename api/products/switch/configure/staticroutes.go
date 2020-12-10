@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -18,7 +19,6 @@ type StaticRoute struct {
 	PreferOverOspfRoutesEnabled bool   `json:"preferOverOspfRoutesEnabled"`
 }
 
-// List Layer 3 Static Routes For A Switch
 func GetStaticRoutes(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes",
 		api.BaseUrl(), serial)
@@ -30,7 +30,6 @@ func GetStaticRoutes(serial string) []api.Results {
 	return sessions
 }
 
-// Return A Layer 3 Static Route For A Switch
 func GetStaticRoute(serial, staticRouteId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
 		api.BaseUrl(), serial, staticRouteId)
@@ -40,5 +39,39 @@ func GetStaticRoute(serial, staticRouteId string) []api.Results {
 		log.Fatal(err)
 	}
 	return sessions
+}
 
+func DelStaticRoute(serial, staticRouteId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
+		api.BaseUrl(), serial, staticRouteId)
+	var datamodel = StaticRoute{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutStaticRoute(serial, staticRouteId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
+		api.BaseUrl(), serial, staticRouteId)
+	var datamodel = StaticRoute{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostStaticRoute(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes",
+		api.BaseUrl(), serial)
+	var datamodel = StaticRoute{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
 }

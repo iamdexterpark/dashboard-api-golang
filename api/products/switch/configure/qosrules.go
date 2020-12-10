@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type QoSRuleIds struct {
+type QoSRuleOrder struct {
 	RuleIds []string `json:"ruleIds"`
 }
 
@@ -25,11 +26,10 @@ type QoSRule struct {
 	Dscp         int         `json:"dscp"`
 }
 
-// Return the quality of service rule IDs by order in which they will be processed by the switch
-func GetQoSRuleIds(networkId string) []api.Results {
+func GetQoSRuleOrder(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules/order",
 		api.BaseUrl(), networkId)
-	var datamodel = QoSRuleIds{}
+	var datamodel = QoSRuleOrder{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -37,7 +37,18 @@ func GetQoSRuleIds(networkId string) []api.Results {
 	return sessions
 }
 
-// List Quality Of Service Rules
+func PutQoSRuleOrder(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules/order",
+		api.BaseUrl(), networkId)
+	var datamodel = QoSRuleOrder{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetQoSRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules",
 		api.BaseUrl(), networkId)
@@ -49,12 +60,46 @@ func GetQoSRules(networkId string) []api.Results {
 	return sessions
 }
 
-// Return a Quality Of Service Rule
 func GetQoSRule(networkId, qosRuleId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules/%s",
 		api.BaseUrl(), networkId, qosRuleId)
 	var datamodel = QoSRule{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelQoSRule(networkId, qosRuleId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules/%s",
+		api.BaseUrl(), networkId, qosRuleId)
+	var datamodel = QoSRule{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutQoSRule(networkId, qosRuleId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules/%s",
+		api.BaseUrl(), networkId, qosRuleId)
+	var datamodel = QoSRule{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostQoSRule(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/switch/qosRules",
+		api.BaseUrl(), networkId)
+	var datamodel = QoSRule{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
