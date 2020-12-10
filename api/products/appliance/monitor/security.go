@@ -34,7 +34,6 @@ type SecurityEvents []struct {
 	RuleID          string    `json:"ruleId,omitempty"`
 }
 
-// List the security events for a network
 func GetNetworkSecurityEvents(networkId, t0, t1, timespan, perPage,
 	startingAfter, endingBefore, sortOrder string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/security/events", api.BaseUrl(), networkId)
@@ -57,7 +56,6 @@ func GetNetworkSecurityEvents(networkId, t0, t1, timespan, perPage,
 	return sessions
 }
 
-// List the security events for an organization
 func GetOrganizationSecurityEvents(organizationId, t0, t1, timespan, perPage,
 	startingAfter, endingBefore, sortOrder string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/security/events", api.BaseUrl(), organizationId)

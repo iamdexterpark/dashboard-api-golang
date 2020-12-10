@@ -9,8 +9,9 @@
 - [x] 100% Cellular Gateway API Coverage
 - [x] 100% SM API Coverage
 - [x] 100% Organizations API Coverage
+- [x] 100% Appliance API Coverage
 
 ### Backlog
-- [ ] 100% Appliance API Coverage
+
 - [ ] 100% Switch API Coverage
 - [ ] 100% Wireless API Coverage

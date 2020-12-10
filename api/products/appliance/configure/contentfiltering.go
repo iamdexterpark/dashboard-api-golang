@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -10,7 +11,7 @@ type ContentFilteringCategories struct {
 	Categories []interface{} `json:"categories"`
 }
 
-type ContentFilteringSettings struct {
+type ContentFiltering struct {
 	AllowedURLPatterns   []string `json:"allowedUrlPatterns"`
 	BlockedURLPatterns   []string `json:"blockedUrlPatterns"`
 	BlockedURLCategories []struct {
@@ -20,7 +21,6 @@ type ContentFilteringSettings struct {
 	URLCategoryListSize string `json:"urlCategoryListSize"`
 }
 
-// List all available content filtering categories for an MX network
 func GetContentFilteringCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering/categories", api.BaseUrl(), networkId)
 	var datamodel = ContentFilteringCategories{}
@@ -32,12 +32,22 @@ func GetContentFilteringCategories(networkId string) []api.Results {
 	return sessions
 }
 
-// Return the content filtering settings for an MX network
-func GetContentFilteringSettings(networkId string) []api.Results {
+func GetContentFiltering(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering", api.BaseUrl(), networkId)
-	var datamodel = ContentFilteringSettings{}
+	var datamodel = ContentFiltering{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutContentFiltering(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering", api.BaseUrl(), networkId)
+	var datamodel = ContentFiltering{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

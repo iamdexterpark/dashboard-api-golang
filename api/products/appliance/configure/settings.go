@@ -6,14 +6,13 @@ import (
 	"log"
 )
 
-type ApplianceSettings struct {
+type Settings struct {
 	ClientTrackingMethod string `json:"clientTrackingMethod"`
 }
 
-// Return the appliance settings for a network
-func GetApplianceSettings(networkId string) []api.Results {
+func GetSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/settings", api.BaseUrl(), networkId)
-	var datamodel = ApplianceSettings{}
+	var datamodel = Settings{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

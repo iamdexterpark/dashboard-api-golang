@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -29,7 +30,7 @@ type StaticRoute struct {
 	} `json:"reservedIpRanges"`
 }
 
-// List the static routes for an MX or teleworker network
+
 func GetStaticRoutes(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes", api.BaseUrl(), networkId)
 	var datamodel = StaticRoutes{}
@@ -41,12 +42,42 @@ func GetStaticRoutes(networkId string) []api.Results {
 	return sessions
 }
 
-// Return a static route for an MX or teleworker network
 func GetStaticRoute(networkId, staticRouteId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
 	var datamodel = StaticRoutes{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelStaticRoute(networkId, staticRouteId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
+	var datamodel = StaticRoutes{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutStaticRoute(networkId, staticRouteId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
+	var datamodel = StaticRoutes{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostStaticRoutes(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes", api.BaseUrl(), networkId)
+	var datamodel = StaticRoutes{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

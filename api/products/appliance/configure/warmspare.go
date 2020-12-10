@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -21,12 +22,32 @@ type WarmSpare struct {
 	} `json:"wan2"`
 }
 
-// Return MX warm spare settings
 func GetWarmSpare(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare", api.BaseUrl(), networkId)
-	var datamodel = FirewallRules{}
-
+	var datamodel = WarmSpare{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutWarmSpare(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare", api.BaseUrl(), networkId)
+	var datamodel = WarmSpare{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostWarmSpare(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare/swap", api.BaseUrl(), networkId)
+	var datamodel = WarmSpare{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

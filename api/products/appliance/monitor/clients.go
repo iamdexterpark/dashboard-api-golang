@@ -34,9 +34,7 @@ type ClientSecurityEvents []struct {
 	RuleID          string    `json:"ruleId,omitempty"`
 }
 
-// List the security events for a client.
-// Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
-func GetSecurityEvents(networkId, clientId, t0, t1, timespan, perPage, startingAfter, endingBefore,
+func GetClientSecurityEvents(networkId, clientId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	sortOrder string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/clients/%s/security/events", api.BaseUrl(), networkId, clientId)
 	var datamodel = ClientSecurityEvents{}

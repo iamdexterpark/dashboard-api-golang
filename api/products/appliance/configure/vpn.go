@@ -3,8 +3,23 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
+
+type BGP struct {
+	Enabled       bool `json:"enabled"`
+	AsNumber      int  `json:"asNumber"`
+	IbgpHoldTimer int  `json:"ibgpHoldTimer"`
+	Neighbors     []struct {
+		IP             string `json:"ip"`
+		RemoteAsNumber int    `json:"remoteAsNumber"`
+		ReceiveLimit   int    `json:"receiveLimit"`
+		AllowTransit   bool   `json:"allowTransit"`
+		EbgpHoldTimer  int    `json:"ebgpHoldTimer"`
+		EbgpMultihop   int    `json:"ebgpMultihop"`
+	} `json:"neighbors"`
+}
 
 type SiteToSiteVPN struct {
 	Mode string `json:"mode"`
@@ -18,7 +33,7 @@ type SiteToSiteVPN struct {
 	} `json:"subnets"`
 }
 
-type ThirdPartyVPN struct {
+type ThirdPartyVPNPeers struct {
 	Peers []struct {
 		Name           string   `json:"name"`
 		PublicIP       string   `json:"publicIp"`
@@ -42,7 +57,7 @@ type ThirdPartyVPN struct {
 	} `json:"peers"`
 }
 
-type FirewallRules struct {
+type VpnFirewallRules struct {
 	Rules []struct {
 		Comment       string `json:"comment"`
 		Policy        string `json:"policy"`
@@ -55,11 +70,30 @@ type FirewallRules struct {
 	} `json:"rules"`
 }
 
-// Return the site-to-site VPN settings of a network.
+func GetBGP(networkId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/bgp", api.BaseUrl(), networkId)
+	var datamodel = BGP{}
+	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutBGP(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/bgp", api.BaseUrl(), networkId)
+	var datamodel = BGP{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetSiteToSiteVPN(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/vpn/siteToSiteVpn", api.BaseUrl(), networkId)
 	var datamodel = SiteToSiteVPN{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -67,11 +101,20 @@ func GetSiteToSiteVPN(networkId string) []api.Results {
 	return sessions
 }
 
-// Return the third party VPN peers for an organization
-func GetThirdPartyVPN(organizationId string) []api.Results {
+func PutSiteToSiteVPN(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/vpn/siteToSiteVpn", api.BaseUrl(), networkId)
+	var datamodel = SiteToSiteVPN{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetThirdPartyVPNPeers(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/thirdPartyVPNPeers", api.BaseUrl(), organizationId)
-	var datamodel = ThirdPartyVPN{}
-
+	var datamodel = ThirdPartyVPNPeers{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -79,12 +122,32 @@ func GetThirdPartyVPN(organizationId string) []api.Results {
 	return sessions
 }
 
-// Return the firewall rules for an organization's site-to-site VPN
-func GetFirewallRules(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/vpnFirewallRules", api.BaseUrl(), organizationId)
-	var datamodel = FirewallRules{}
+func PutThirdPartyVPNPeers(organizationId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/thirdPartyVPNPeers", api.BaseUrl(), organizationId)
+	var datamodel = ThirdPartyVPNPeers{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
 
+func GetVpnFirewallRules(organizationId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/vpnFirewallRules", api.BaseUrl(), organizationId)
+	var datamodel = VpnFirewallRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutVpnFirewallRules(organizationId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vpn/vpnFirewallRules", api.BaseUrl(), organizationId)
+	var datamodel = VpnFirewallRules{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

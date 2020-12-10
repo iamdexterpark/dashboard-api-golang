@@ -3,13 +3,14 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type PerformanceClasses []struct {
-	PerformanceClass
+type CustomPerformanceClasses []struct {
+	CustomPerformanceClass
 }
-type PerformanceClass struct {
+type CustomPerformanceClass struct {
 	CustomPerformanceClassID string `json:"customPerformanceClassId"`
 	Name                     string `json:"name"`
 	MaxLatency               int    `json:"maxLatency"`
@@ -36,7 +37,7 @@ type TrafficShapingRules struct {
 	} `json:"rules"`
 }
 
-type UplinkBandwidthSettings struct {
+type UplinkBandwidth struct {
 	BandwidthLimits struct {
 		Wan1 struct {
 			LimitUp   int `json:"limitUp"`
@@ -53,7 +54,7 @@ type UplinkBandwidthSettings struct {
 	} `json:"bandwidthLimits"`
 }
 
-type UplinkSelectionSettings struct {
+type UplinkSelection struct {
 	ActiveActiveAutoVpnEnabled  bool   `json:"activeActiveAutoVpnEnabled"`
 	DefaultUplink               string `json:"defaultUplink"`
 	LoadBalancingEnabled        bool   `json:"loadBalancingEnabled"`
@@ -90,18 +91,27 @@ type UplinkSelectionSettings struct {
 	} `json:"vpnTrafficUplinkPreferences"`
 }
 
-type TrafficShapingSettings struct {
+type TrafficShaping struct {
 	GlobalBandwidthLimits struct {
 		LimitUp   int `json:"limitUp"`
 		LimitDown int `json:"limitDown"`
 	} `json:"globalBandwidthLimits"`
 }
 
-// List all custom performance classes for an MX network
+func PostPerformanceClasses(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses", api.BaseUrl(), networkId)
+	var datamodel = CustomPerformanceClasses{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetPerformanceClasses(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses", api.BaseUrl(), networkId)
-	var datamodel = PerformanceClasses{}
-
+	var datamodel = CustomPerformanceClasses{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -109,11 +119,9 @@ func GetPerformanceClasses(networkId string) []api.Results {
 	return sessions
 }
 
-// Return a custom performance class for an MX network
 func GetPerformanceClass(networkId, customPerformanceClassId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
-	var datamodel = PerformanceClass{}
-
+	var datamodel = CustomPerformanceClass{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -121,11 +129,30 @@ func GetPerformanceClass(networkId, customPerformanceClassId string) []api.Resul
 	return sessions
 }
 
-// Display the traffic shaping settings rules for an MX network
+func DelPerformanceClass(networkId, customPerformanceClassId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
+	var datamodel = CustomPerformanceClass{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutPerformanceClass(networkId, customPerformanceClassId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
+	var datamodel = CustomPerformanceClass{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetTrafficShapingRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/rules", api.BaseUrl(), networkId)
 	var datamodel = TrafficShapingRules{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -133,11 +160,20 @@ func GetTrafficShapingRules(networkId string) []api.Results {
 	return sessions
 }
 
-// Returns the uplink bandwidth settings for your MX network.
-func GetUplinkBandwidthSettings(networkId string) []api.Results {
+func PutTrafficShapingRules(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/rules", api.BaseUrl(), networkId)
+	var datamodel = TrafficShapingRules{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetUplinkBandwidth(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkBandwidth", api.BaseUrl(), networkId)
-	var datamodel = UplinkBandwidthSettings{}
-
+	var datamodel = UplinkBandwidth{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -145,11 +181,20 @@ func GetUplinkBandwidthSettings(networkId string) []api.Results {
 	return sessions
 }
 
-// Show uplink selection settings for an MX network
-func GetUplinkSelectionSettings(networkId string) []api.Results {
+func PutUplinkBandwidth(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkBandwidth", api.BaseUrl(), networkId)
+	var datamodel = UplinkBandwidth{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func GetUplinkSelection(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkSelection", api.BaseUrl(), networkId)
-	var datamodel = UplinkSelectionSettings{}
-
+	var datamodel = UplinkSelection{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -157,12 +202,32 @@ func GetUplinkSelectionSettings(networkId string) []api.Results {
 	return sessions
 }
 
-// Display the traffic shaping settings for an MX network
-func GetTrafficShapingSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping", api.BaseUrl(), networkId)
-	var datamodel = TrafficShapingSettings{}
+func PutUplinkSelection(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkSelection", api.BaseUrl(), networkId)
+	var datamodel = UplinkSelection{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
 
+func GetTrafficShaping(networkId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping", api.BaseUrl(), networkId)
+	var datamodel = TrafficShaping{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutTrafficShaping(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping", api.BaseUrl(), networkId)
+	var datamodel = TrafficShaping{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

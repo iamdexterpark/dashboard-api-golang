@@ -243,108 +243,108 @@ https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8
 ## PRODUCTS
 
 ### Appliance
-- [ ] Configure
+- [x] Configure
     - [x] Connectivity Monitoring Destinations
         - [x] Return The Connectivity Testing Destinations For An MX Network
-        - [ ] Update The Connectivity Testing Destinations For An MX Network
-    - [ ] Content Filtering
+        - [x] Update The Connectivity Testing Destinations For An MX Network
+    - [x] Content Filtering
         - [x] Categories
             - [x] List all available content filtering categories for an MX network
         - [x] Return The Content Filtering Settings For An MX Network
-        - [ ] Update The Content Filtering Settings For An MX Network
-    - [ ] Firewall
-        - [ ] Cellular Firewall Rules
+        - [x] Update The Content Filtering Settings For An MX Network
+    - [x] Firewall
+        - [x] Cellular Firewall Rules
             - [x] Return The Cellular Firewall Rules For An MX Network
-            - [ ] Update The Cellular Firewall Rules Of An MX Network
-        - [ ] Firewalled Services
+            - [x] Update The Cellular Firewall Rules Of An MX Network
+        - [x] Firewalled Services
             - [x] List The Appliance Services And Their Accessibility Rules
             - [x] Return The Accessibility Settings Of The Given Service ICMP Web Or SNMP
-            - [ ] Updates The Accessibility Settings For The Given Service ICMP Web Or SNMP
-        - [ ] Inbound Firewall Rules
+            - [x] Updates The Accessibility Settings For The Given Service ICMP Web Or SNMP
+        - [x] Inbound Firewall Rules
             - [x] Return The Inbound Firewall Rules For An MX Network
-            - [ ] Update The Inbound Firewall Rules Of An MX Network
-        - [ ] L3 Firewall Rules
+            - [x] Update The Inbound Firewall Rules Of An MX Network
+        - [x] L3 Firewall Rules
             - [x] Return The L3 Firewall Rules For An MX Network
-            - [ ] Update The L3 Firewall Rules Of An MX Network
-        - [ ] L7 Firewall Rules
+            - [x] Update The L3 Firewall Rules Of An MX Network
+        - [x] L7 Firewall Rules
             - [x] Application Categories
                 - [x] Return the L7 firewall application categories and their associated applications for an MX network
             - [x] List The MX L7 Firewall Rules For An MX Network
-            - [ ] Update The MX L7 Firewall Rules For An MX Network
-        - [ ] One To Many Nat Rules
+            - [x] Update The MX L7 Firewall Rules For An MX Network
+        - [x] One To Many Nat Rules
             - [x] Return The 1 Many NAT Mapping Rules For An MX Network
-            - [ ] Set The 1 Many NAT Mapping Rules For An MX Network
-        - [ ] One To One Nat Rules
+            - [x] Set The 1 Many NAT Mapping Rules For An MX Network
+        - [x] One To One Nat Rules
             - [x] Return The 1 1 NAT Mapping Rules For An MX Network
-            - [ ] Set The 1 1 NAT Mapping Rules For An MX Network
-        - [ ] Port Forwarding Rules
+            - [x] Set The 1 1 NAT Mapping Rules For An MX Network
+        - [x] Port Forwarding Rules
             - [x] Return The Port Forwarding Rules For An MX Network
-            - [ ] Update The Port Forwarding Rules For An MX Network
-    - [ ] Ports
+            - [x] Update The Port Forwarding Rules For An MX Network
+    - [x] Ports
         - [x] List Per Port VLAN Settings For All Ports Of A MX
         - [x] Return Per Port VLAN Settings For A Single MX Port
-        - [ ] Update The Per Port VLAN Settings For A Single MX Port
-    - [ ] Security
-        - [ ] Intrusion
+        - [x] Update The Per Port VLAN Settings For A Single MX Port
+    - [x] Security
+        - [x] Intrusion
             - [x] Returns All Supported Intrusion Settings For An MX Network
             - [x] Returns All Supported Intrusion Settings For An Organization
-            - [ ] Set The Supported Intrusion Settings For An MX Network
-            - [ ] Sets Supported Intrusion Settings For An Organization
-        - [ ] Malware
+            - [x] Set The Supported Intrusion Settings For An MX Network
+            - [x] Sets Supported Intrusion Settings For An Organization
+        - [x] Malware
             - [x] Returns All Supported Malware Settings For An MX Network
-            - [ ] Set The Supported Malware Settings For An MX Network
+            - [x] Set The Supported Malware Settings For An MX Network
     - [x] Settings
         - [x] Return the appliance settings for a network
-    - [ ] Single Lan
+    - [x] Single Lan
         - [x] Return Single LAN Configuration
-        - [ ] Update Single LAN Configuration
-    - [ ] Static Routes
-        - [ ] Add A Static Route For An MX Or Teleworker Network
-        - [ ] Delete A Static Route From An MX Or Teleworker Network
+        - [x] Update Single LAN Configuration
+    - [x] Static Routes
+        - [x] Add A Static Route For An MX Or Teleworker Network
+        - [x] Delete A Static Route From An MX Or Teleworker Network
         - [x] List The Static Routes For An MX Or Teleworker Network
         - [x] Return A Static Route For An MX Or Teleworker Network
-        - [ ] Update A Static Route For An MX Or Teleworker Network
-    - [ ] Traffic Shaping
-        - [ ] Custom Performance Classes
-            - [ ] Add A Custom Performance Class For An MX Network
-            - [ ] Delete A Custom Performance Class From An MX Network
+        - [x] Update A Static Route For An MX Or Teleworker Network
+    - [x] Traffic Shaping
+        - [x] Custom Performance Classes
+            - [x] Add A Custom Performance Class For An MX Network
+            - [x] Delete A Custom Performance Class From An MX Network
             - [x] List All Custom Performance Classes For An MX Network
             - [x] Return A Custom Performance Class For An MX Network
-            - [ ] Update A Custom Performance Class For An MX Network
-        - [ ] Rules
+            - [x] Update A Custom Performance Class For An MX Network
+        - [x] Rules
             - [x] Display The Traffic Shaping Settings Rules For An MX Network
-            - [ ] Update The Traffic Shaping Settings Rules For An MX Network
-        - [ ] Uplink Bandwidth
+            - [x] Update The Traffic Shaping Settings Rules For An MX Network
+        - [x] Uplink Bandwidth
             - [x] Returns The Uplink Bandwidth Settings For Your MX Network
-            - [ ] Updates The Uplink Bandwidth Settings For Your MX Network
-        - [ ] Uplink Selection
+            - [x] Updates The Uplink Bandwidth Settings For Your MX Network
+        - [x] Uplink Selection
             - [x] Show Uplink Selection Settings For An MX Network
-            - [ ] Update Uplink Selection Settings For An MX Network
+            - [x] Update Uplink Selection Settings For An MX Network
         - [x] Display The Traffic Shaping Settings For An MX Network
-        - [ ] Update The Traffic Shaping Settings For An MX Network
-    - [ ] Vlans
-        - [ ] Settings
-            - [ ] Enable Disable VLA Ns For The Given Network
+        - [x] Update The Traffic Shaping Settings For An MX Network
+    - [x] Vlans
+        - [x] Settings
+            - [x] Enable Disable VLA Ns For The Given Network
             - [x] Returns The Enabled Status Of VLANs For The Network
-        - [ ] Add A VLAN
-        - [ ] Delete A VLAN From A Network
+        - [x] Add A VLAN
+        - [x] Delete A VLAN From A Network
         - [x] List The VLA Ns For An MX Network
         - [x] Return A VLAN
-        - [ ] Update A VLAN
-    - [ ] Vpn
-        - [ ] Site To Site Vpn
+        - [x] Update A VLAN
+    - [x] Vpn
+        - [x] Site To Site Vpn
             - [x] Return The Site To Site VPN Settings Of A Network
-            - [ ] Update The Site To Site VPN Settings Of A Network
-        - [ ] Third Party VPN Peers
+            - [x] Update The Site To Site VPN Settings Of A Network
+        - [x] Third Party VPN Peers
             - [x] Return The Third Party VPN Peers For An Organization
-            - [ ] Update The Third Party VPN Peers For An Organization
-        - [ ] Vpn Firewall Rules
+            - [x] Update The Third Party VPN Peers For An Organization
+        - [x] Vpn Firewall Rules
             - [x] Return The Firewall Rules For An Organizations Site To Site VPN
-            - [ ] Update The Firewall Rules Of An Organizations Site To Site VPN
-    - [ ] Warm Spare
+            - [x] Update The Firewall Rules Of An Organizations Site To Site VPN
+    - [x] Warm Spare
         - [x] Return MX Warm Spare Settings
-        - [ ] Swap MX Primary And Warm Spare Appliances
-        - [ ] Update MX Warm Spare Settings
+        - [x] Swap MX Primary And Warm Spare Appliances
+        - [x] Update MX Warm Spare Settings
 - [x] Monitor
     - [x] Clients
         - [x] security

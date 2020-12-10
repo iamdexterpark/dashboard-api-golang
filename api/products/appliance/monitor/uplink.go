@@ -31,7 +31,6 @@ type UplinkStatus []struct {
 	} `json:"uplinks"`
 }
 
-// List the uplink status of every Meraki MX and Z series appliances in the organization
 func GetUplinkStatus(organizationId, perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/uplink/statuses", api.BaseUrl(), organizationId)
 

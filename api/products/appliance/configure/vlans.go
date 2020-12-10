@@ -3,14 +3,15 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type VLANStatus struct {
+type VLANSettings struct {
 	VlansEnabled bool `json:"vlansEnabled"`
 }
 
-type VLANs []struct {
+type VLANS []struct {
 	VLAN
 }
 type VLAN struct {
@@ -44,11 +45,9 @@ type VLAN struct {
 	} `json:"dhcpOptions"`
 }
 
-// Returns the enabled status of VLANs for the network
-func GetVLANStatus(networkId string) []api.Results {
+func GetVLANSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/settings", api.BaseUrl(), networkId)
-	var datamodel = VLANStatus{}
-
+	var datamodel = VLANSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -56,11 +55,20 @@ func GetVLANStatus(networkId string) []api.Results {
 	return sessions
 }
 
-// List the VLANs for an MX network
+func PutVLANSettings(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/settings", api.BaseUrl(), networkId)
+	var datamodel = VLANSettings{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetVLANs(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/", api.BaseUrl(), networkId)
-	var datamodel = VLANStatus{}
-
+	var datamodel = VLANS{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -68,12 +76,42 @@ func GetVLANs(networkId string) []api.Results {
 	return sessions
 }
 
-// List a VLAN for an MX network
+func PostVLAN(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/", api.BaseUrl(), networkId)
+	var datamodel = VLAN{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetVLAN(networkId, vlanId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
-	var datamodel = VLANStatus{}
-
+	var datamodel = VLAN{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelVLAN(networkId, vlanId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
+	var datamodel = VLAN{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutVLAN(networkId, vlanId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
+	var datamodel = VLAN{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

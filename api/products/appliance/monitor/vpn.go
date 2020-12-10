@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type VPNHistory []struct {
+type VpnStats []struct {
 	NetworkID      string `json:"networkId"`
 	NetworkName    string `json:"networkName"`
 	MerakiVpnPeers []struct {
@@ -73,12 +73,10 @@ type VPNStatus []struct {
 	} `json:"thirdPartyVpnPeers"`
 }
 
-// Show VPN history stat for networks in an organization
-func GetVPNHistory(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
+func GetVpnStats(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	networkIds string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/vpn/stats", api.BaseUrl(), organizationId)
-
-	var datamodel = VPNHistory{}
+	var datamodel = VpnStats{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -97,11 +95,9 @@ func GetVPNHistory(organizationId, t0, t1, timespan, perPage, startingAfter, end
 	return sessions
 }
 
-// Show VPN status for networks in an organization
 func GetVPNStatus(organizationId, perPage, startingAfter, endingBefore,
 	networkIds string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/vpn/statuses", api.BaseUrl(), organizationId)
-
 	var datamodel = VPNStatus{}
 
 	// Parameters for Request URL

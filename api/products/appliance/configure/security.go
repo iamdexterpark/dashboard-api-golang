@@ -3,10 +3,11 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type MXIntrusionSettings struct {
+type SecurityIntrusion struct {
 	Mode              string `json:"mode"`
 	IdsRulesets       string `json:"idsRulesets"`
 	ProtectedNetworks struct {
@@ -16,7 +17,7 @@ type MXIntrusionSettings struct {
 	} `json:"protectedNetworks"`
 }
 
-type OrganizationIntrusionSettings struct {
+type OrganizationSecurityIntrusion struct {
 	AllowedRules []struct {
 		RuleID  string `json:"ruleId"`
 		Message string `json:"message"`
@@ -35,10 +36,10 @@ type MalwareSettings struct {
 	} `json:"allowedFiles"`
 }
 
-// Returns all supported intrusion settings for an MX network
-func GetMXIntrusionSettings(networkId string) []api.Results {
+
+func GetNetworkSecurityIntrusion(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/intrusion", api.BaseUrl(), networkId)
-	var datamodel = MXIntrusionSettings{}
+	var datamodel = SecurityIntrusion{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -47,11 +48,21 @@ func GetMXIntrusionSettings(networkId string) []api.Results {
 	return sessions
 }
 
-// Returns all supported intrusion settings for an organization
-func GetOrganizationIntrusionSettings(organizationId string) []api.Results {
+func PutNetworkSecurityIntrusion(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/intrusion", api.BaseUrl(), networkId)
+	var datamodel = SecurityIntrusion{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+
+func GetOrganizationSecurityIntrusion(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/security/intrusion", api.BaseUrl(), organizationId)
-	var datamodel = OrganizationIntrusionSettings{}
-
+	var datamodel = OrganizationSecurityIntrusion{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -59,12 +70,32 @@ func GetOrganizationIntrusionSettings(organizationId string) []api.Results {
 	return sessions
 }
 
-// Returns all supported malware settings for an MX network
+func PutOrganizationSecurityIntrusion(organizationId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/security/intrusion", api.BaseUrl(), organizationId)
+	var datamodel = OrganizationSecurityIntrusion{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
 func GetMalwareSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/malware", api.BaseUrl(), networkId)
 	var datamodel = MalwareSettings{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutMalwareSettings(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/malware", api.BaseUrl(), networkId)
+	var datamodel = MalwareSettings{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
