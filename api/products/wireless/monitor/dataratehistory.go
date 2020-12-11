@@ -15,7 +15,6 @@ type DataRateHistory []struct {
 	UploadKbps   int       `json:"uploadKbps"`
 }
 
-// Return PHY data rates over time for a network, device, or network client
 func GetDataRateHistory(networkId, t0, t1, timespan, resolution, autoResolution,
 	clientId, deviceSerial, apTag, band, ssid string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/dataRateHistory",

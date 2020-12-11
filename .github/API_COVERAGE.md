@@ -566,51 +566,51 @@ https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8
 
 ### Wireless
 
-- [ ] Configure
-    - [ ] Alternate Management Interface
-        - [ ] Return Alternate Management Interface And Devices With IP Assigned
-        - [ ] Update Alternate Management Interface And Device Static IP
-    - [ ] Bluetooth
-        - [ ] settings
+- [x] Configure
+    - [x] Alternate Management Interface
+        - [x] Return Alternate Management Interface And Devices With IP Assigned
+        - [x] Update Alternate Management Interface And Device Static IP
+    - [x] Bluetooth
+        - [x] settings
             - [x] Return The Bluetooth Settings For A Network A Href Https Documentation Meraki Com MR Bluetooth Bluetooth Low Energy BLE Bluetooth Settings A Must Be Enabled On The Network
             - [x] Return The Bluetooth Settings For A Wireless Device
-            - [ ] Update The Bluetooth Settings For A Network
-            - [ ] Update The Bluetooth Settings For A Wireless Device
-    - [ ] Radio
-        - [ ] settings
+            - [x] Update The Bluetooth Settings For A Network
+            - [x] Update The Bluetooth Settings For A Wireless Device
+    - [x] Radio
+        - [x] settings
             - [x] Return The Radio Settings Of A Device
-            - [ ] Update The Radio Settings Of A Device
-    - [ ] Rf Profiles
-        - [ ] Creates New RF Profile For This Network
-        - [ ] Delete A RF Profile
+            - [x] Update The Radio Settings Of A Device
+    - [x] Rf Profiles
+        - [x] Creates New RF Profile For This Network
+        - [x] Delete A RF Profile
         - [x] List The Non Basic RF Profiles For This Network
         - [x] Return A RF Profile
-        - [ ] Updates Specified RF Profile For This Network
-    - [ ] Settings
+        - [x] Updates Specified RF Profile For This Network
+    - [x] Settings
         - [x] Return The Wireless Settings For A Network
-        - [ ] Update The Wireless Settings For A Network
-    - [ ] Ssids
-        - [ ] Firewall
-            - [ ] L3 Firewall Rules
+        - [x] Update The Wireless Settings For A Network
+    - [x] Ssids
+        - [x] Firewall
+            - [x] L3 Firewall Rules
                 - [x] Return The L3 Firewall Rules For An SSID On An MR Network
-                - [ ] Update The L3 Firewall Rules Of An SSID On An MR Network
-            - [ ] L7 Firewall Rules
+                - [x] Update The L3 Firewall Rules Of An SSID On An MR Network
+            - [x] L7 Firewall Rules
                 - [x] Return The L7 Firewall Rules For An SSID On An MR Network
-                - [ ] Update The L7 Firewall Rules Of An SSID On An MR Network
-        - [ ] Identity Psks
-            - [ ] Create An Identity PSK
-            - [ ] Delete An Identity PSK
+                - [x] Update The L7 Firewall Rules Of An SSID On An MR Network
+        - [x] Identity Psks
+            - [x] Create An Identity PSK
+            - [x] Delete An Identity PSK
             - [x] List All Identity PSKs In A Wireless Network
             - [x] Return An Identity PSK
-            - [ ] Update An Identity PSK
-        - [ ] Splash
-            - [ ] settings
+            - [x] Update An Identity PSK
+        - [x] Splash
+            - [x] settings
                 - [x] Display The Splash Page Settings For The Given SSID
-                - [ ] Modify The Splash Page Settings For The Given SSID
-        - [ ] Traffic Shaping
-            - [ ] rules
+                - [x] Modify The Splash Page Settings For The Given SSID
+        - [x] Traffic Shaping
+            - [x] rules
                 - [x] Display The Traffic Shaping Settings For A SSID On An MR Network
-                - [ ] Update The Traffic Shaping Settings For An SSID On An MR Network
+                - [x] Update The Traffic Shaping Settings For An SSID On An MR Network
         - [x] List The MR SSIDs In A Network
         - [x] Return A Single MR SSID
         - [x] Update The Attributes Of An MR SSID

@@ -16,7 +16,6 @@ type MeshStatuses struct {
 	} `json:"latestMeshPerformance"`
 }
 
-// List wireless mesh statuses for repeaters
 func GetMeshStatuses(networkId, perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/meshStatuses",
 		api.BaseUrl(), networkId)

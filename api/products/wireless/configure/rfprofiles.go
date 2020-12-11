@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -38,7 +39,6 @@ type RFProfile struct {
 	} `json:"fiveGhzSettings"`
 }
 
-// List The Non Basic RF Profiles For This Network
 func GetRFProfiles(networkId, includeTemplateProfiles string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles",
 		api.BaseUrl(), networkId)
@@ -55,12 +55,46 @@ func GetRFProfiles(networkId, includeTemplateProfiles string) []api.Results {
 	return sessions
 }
 
-// Return A RF Profile
 func GetRFProfile(networkId, rfProfileId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
 		api.BaseUrl(), networkId, rfProfileId)
 	var datamodel = RFProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func DelRFProfile(networkId, rfProfileId string) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
+		api.BaseUrl(), networkId, rfProfileId)
+	var datamodel = RFProfile{}
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutRFProfile(networkId, rfProfileId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
+		api.BaseUrl(), networkId, rfProfileId)
+	var datamodel = RFProfile{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PostRFProfile(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles",
+		api.BaseUrl(), networkId)
+	var datamodel = RFProfile{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

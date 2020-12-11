@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type AggregatedConnectivity []struct {
+type DeviceconnectionStats []struct {
 	Serial          string `json:"serial"`
 	ConnectionStats struct {
 		Assoc   int `json:"assoc"`
@@ -17,7 +17,7 @@ type AggregatedConnectivity []struct {
 	} `json:"connectionStats"`
 }
 
-type AggregatedLatencyInfo []struct {
+type LatencyStats []struct {
 	Serial       string `json:"serial"`
 	LatencyStats struct {
 		BackgroundTraffic struct {
@@ -44,12 +44,12 @@ type AggregatedLatencyInfo []struct {
 	} `json:"latencyStats"`
 }
 
-// Aggregated connectivity info for this network, grouped by node
-func GetAggregatedConnectivity(networkId, t0, t1, timespan,
+
+func GetDeviceconnectionStats(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/connectionStats",
 		api.BaseUrl(), networkId)
-	var datamodel = AggregatedConnectivity{}
+	var datamodel = DeviceconnectionStats{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -68,12 +68,11 @@ func GetAggregatedConnectivity(networkId, t0, t1, timespan,
 	return sessions
 }
 
-// Aggregated latency info for this network, grouped by node
-func GetAggregatedLatencyInfo(networkId, t0, t1, timespan,
+func GetLatencyStats(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
 		api.BaseUrl(), networkId)
-	var datamodel = AggregatedLatencyInfo{}
+	var datamodel = LatencyStats{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

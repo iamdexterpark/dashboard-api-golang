@@ -6,26 +6,9 @@ import (
 	"log"
 )
 
-type AggregatedConnectivityInfo struct {
-	Mac             string `json:"mac"`
-	ConnectionStats struct {
-		Assoc   int `json:"assoc"`
-		Auth    int `json:"auth"`
-		Dhcp    int `json:"dhcp"`
-		DNS     int `json:"dns"`
-		Success int `json:"success"`
-	} `json:"connectionStats"`
-}
 
-type AggregatedConnectivityClients struct {
-	Assoc   int `json:"assoc"`
-	Auth    int `json:"auth"`
-	Dhcp    int `json:"dhcp"`
-	DNS     int `json:"dns"`
-	Success int `json:"success"`
-}
 
-type WirelessConnectivityEvents []struct {
+type ConnectivityEvents []struct {
 	OccurredAt   int     `json:"occurredAt"`
 	DeviceSerial string  `json:"deviceSerial"`
 	Band         int     `json:"band"`
@@ -106,61 +89,12 @@ type AggregatedLatency struct {
 	} `json:"latencyStats"`
 }
 
-// Aggregated Connectivity Info For A Given Client On This Network
-func GetAggregatedConnectivityInfo(devices, serial, t0, t1, timespan,
-	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/clients/%s/connectionStats",
-		api.BaseUrl(), devices, serial)
-	var datamodel = AggregatedConnectivityInfo{}
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"t0":       t0,
-		"t1":       t1,
-		"timespan": timespan,
-		"band":     band,
-		"ssid":     ssid,
-		"vlan":     vlan,
-		"apTag":    apTag}
-
-	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
-// Aggregated Connectivity Info For This Network Grouped By Clients
-func GetAggregatedConnectivityClients(networkId, clientId, t0, t1, timespan,
-	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/connectionStats",
-		api.BaseUrl(), networkId, clientId)
-	var datamodel = AggregatedConnectivityClients{}
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"t0":       t0,
-		"t1":       t1,
-		"timespan": timespan,
-		"band":     band,
-		"ssid":     ssid,
-		"vlan":     vlan,
-		"apTag":    apTag}
-
-	sessions, err := api.Sessions(baseurl, "GET", nil, parameters, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
-// List the wireless connectivity events for a client within a network in the timespan
-func GetWirelessConnectivityEvents(networkId, clientId, perPage, startingAfter,
+func GetConnectivityEvents(networkId, clientId, perPage, startingAfter,
 	endingBefore, t0, t1, timespan, types, includedSeverities, band, ssidNumber,
 	deviceSerial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/connectivityEvents",
 		api.BaseUrl(), networkId, clientId)
-	var datamodel = WirelessConnectivityEvents{}
+	var datamodel = ConnectivityEvents{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -183,7 +117,6 @@ func GetWirelessConnectivityEvents(networkId, clientId, perPage, startingAfter,
 	return sessions
 }
 
-// Return the latency history for a client
 func GetClientLatencyHistory(networkId, clientId, t0, t1, timespan,
 	resolution string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/latencyHistory",
@@ -204,7 +137,6 @@ func GetClientLatencyHistory(networkId, clientId, t0, t1, timespan,
 	return sessions
 }
 
-// Aggregated Latency Info For This Network Grouped By Clients
 func GetAggregatedLatencies(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
@@ -229,7 +161,6 @@ func GetAggregatedLatencies(networkId, t0, t1, timespan,
 	return sessions
 }
 
-// Aggregated Latency Info For A Given Client On This Network
 func GetAggregatedLatency(networkId, clientId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/latencyStats",

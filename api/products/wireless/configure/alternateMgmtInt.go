@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -20,12 +21,23 @@ type AlternateManagementInterface struct {
 	} `json:"accessPoints"`
 }
 
-// Return Alternate Management Interface And Devices With IP Assigned
 func GetAlternateManagementInterface(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/alternateManagementInterface",
 		api.BaseUrl(), networkId)
 	var datamodel = AlternateManagementInterface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutAlternateManagementInterface(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/alternateManagementInterface",
+		api.BaseUrl(), networkId)
+	var datamodel = AlternateManagementInterface{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

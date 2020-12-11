@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type APChannelUtilization []struct {
+type ChannelUtilizationHistory []struct {
 	StartTs             time.Time `json:"startTs"`
 	EndTs               time.Time `json:"endTs"`
 	UtilizationTotal    float64   `json:"utilizationTotal"`
@@ -15,12 +15,11 @@ type APChannelUtilization []struct {
 	UtilizationNon80211 float64   `json:"utilizationNon80211"`
 }
 
-// Return AP channel utilization over time for a device or network client
-func GetAPChannelUtilization(networkId, t0, t1, timespan,
+func GetChannelUtilizationHistory(networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag,
 	band string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/channelUtilizationHistory", api.BaseUrl(), networkId)
-	var datamodel = APChannelUtilization{}
+	var datamodel = ChannelUtilizationHistory{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

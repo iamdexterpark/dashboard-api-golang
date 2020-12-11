@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -26,12 +27,23 @@ type SplashPageSettings struct {
 	} `json:"splashPrepaidFront"`
 }
 
-// Display The Splash Page Settings For The Given SSID
 func GetSplashPageSettings(networkId, number string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/splash/settings",
 		api.BaseUrl(), networkId, number)
 	var datamodel SplashPageSettings
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutSplashPageSettings(networkId, number string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/splash/settings",
+		api.BaseUrl(), networkId, number)
+	var datamodel SplashPageSettings
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type SSIDStatuses struct {
+type Status struct {
 	BasicServiceSets []struct {
 		SsidName     string `json:"ssidName"`
 		SsidNumber   int    `json:"ssidNumber"`
@@ -21,11 +21,10 @@ type SSIDStatuses struct {
 	} `json:"basicServiceSets"`
 }
 
-// Return the SSID statuses of an access point
-func GetSSIDStatuses(serial string) []api.Results {
+func GetStatus(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/wireless/status",
 		api.BaseUrl(), serial)
-	var datamodel = SSIDStatuses{}
+	var datamodel = Status{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

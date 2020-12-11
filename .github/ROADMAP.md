@@ -11,6 +11,6 @@
 - [x] 100% Organizations API Coverage
 - [x] 100% Appliance API Coverage
 - [x] 100% Switch API Coverage
+- [x] 100% Wireless API Coverage
 
 ### Backlog
-- [ ] 100% Wireless API Coverage

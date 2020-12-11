@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type FailedClientConnections []struct {
+type FailedConnections []struct {
 	SsidNumber  int       `json:"ssidNumber"`
 	Vlan        int       `json:"vlan"`
 	ClientMac   string    `json:"clientMac"`
@@ -18,12 +18,11 @@ type FailedClientConnections []struct {
 	NodeID      string    `json:"nodeId,omitempty"`
 }
 
-// List of all failed client connection events on this network in a given time range
-func GetFailedClientConnections(networkId, t0, t1, timespan,
+func GetFailedConnections(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/failedConnections",
 		api.BaseUrl(), networkId)
-	var datamodel = FailedClientConnections{}
+	var datamodel = FailedConnections{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

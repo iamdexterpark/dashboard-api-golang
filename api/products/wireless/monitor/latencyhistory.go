@@ -13,7 +13,6 @@ type LatencyHistory []struct {
 	AvgLatencyMs int       `json:"avgLatencyMs"`
 }
 
-// Return average wireless latency over time for a network, device, or network client
 func GetLatencyHistory(networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag, band, ssid, accessCategory string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/latencyHistory",

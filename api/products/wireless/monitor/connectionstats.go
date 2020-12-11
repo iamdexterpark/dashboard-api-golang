@@ -6,8 +6,8 @@ import (
 	"log"
 )
 
-type AggregatedConnectivityPerAP struct {
-	Serial          string `json:"serial"`
+type ConnectionStats struct {
+	Mac             string `json:"mac"`
 	ConnectionStats struct {
 		Assoc   int `json:"assoc"`
 		Auth    int `json:"auth"`
@@ -17,7 +17,7 @@ type AggregatedConnectivityPerAP struct {
 	} `json:"connectionStats"`
 }
 
-type AggregatedConnectivityPerNetwork struct {
+type ConnectionStat struct {
 	Assoc   int `json:"assoc"`
 	Auth    int `json:"auth"`
 	Dhcp    int `json:"dhcp"`
@@ -25,12 +25,12 @@ type AggregatedConnectivityPerNetwork struct {
 	Success int `json:"success"`
 }
 
-// Aggregated Connectivity Info For A Given AP On This Network
-func GetAPAggregatedConnectivity(serial, t0, t1, timespan,
+
+func GetConnectionStats(devices, serial, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/connectionStats",
-		api.BaseUrl(), serial)
-	var datamodel = AggregatedConnectivityPerAP{}
+	baseurl := fmt.Sprintf("%s/devices/%s/wireless/clients/%s/connectionStats",
+		api.BaseUrl(), devices, serial)
+	var datamodel = ConnectionStats{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -49,12 +49,11 @@ func GetAPAggregatedConnectivity(serial, t0, t1, timespan,
 	return sessions
 }
 
-// Aggregated Connectivity Info For This Network
-func GetAggregatedConnectivityPerNetwork(networkId, t0, t1, timespan,
+func GetConnectionStat(networkId, clientId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/connectionStats",
-		api.BaseUrl(), networkId)
-	var datamodel = AggregatedConnectivityPerNetwork{}
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/connectionStats",
+		api.BaseUrl(), networkId, clientId)
+	var datamodel = ConnectionStat{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

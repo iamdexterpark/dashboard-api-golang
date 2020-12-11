@@ -3,22 +3,34 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
-type WirelessSettings struct {
+type Settings struct {
 	MeshingEnabled           bool   `json:"meshingEnabled"`
 	Ipv6BridgeEnabled        bool   `json:"ipv6BridgeEnabled"`
 	LocationAnalyticsEnabled bool   `json:"locationAnalyticsEnabled"`
 	UpgradeStrategy          string `json:"upgradeStrategy"`
 }
 
-// Return The Wireless Settings For A Network
-func GetWirelessSettings(networkId string) []api.Results {
+func GetSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/settings",
 		api.BaseUrl(), networkId)
-	var datamodel = WirelessSettings{}
+	var datamodel = Settings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutSettings(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/networks/%s/wireless/settings",
+		api.BaseUrl(), networkId)
+	var datamodel = Settings{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

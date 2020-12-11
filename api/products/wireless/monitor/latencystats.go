@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type AggregatedLatencyPerAP struct {
+type APLatencyStats struct {
 	Serial       string `json:"serial"`
 	LatencyStats struct {
 		BackgroundTraffic struct {
@@ -33,7 +33,7 @@ type AggregatedLatencyPerAP struct {
 	} `json:"latencyStats"`
 }
 
-type AggregatedLatencyPerNetwork struct {
+type APLatencyStat struct {
 	BackgroundTraffic struct {
 		RawDistribution struct {
 			Num0    int `json:"0"`
@@ -57,12 +57,11 @@ type AggregatedLatencyPerNetwork struct {
 	VoiceTraffic      string `json:"voiceTraffic"`
 }
 
-// Aggregated Latency Info For A Given AP On This Network
-func GetAggregatedLatencyPerAP(serial, t0, t1, timespan,
+func GetAPLatencyStats(serial, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/wireless/clients/latencyStats",
 		api.BaseUrl(), serial)
-	var datamodel = AggregatedLatencyPerAP{}
+	var datamodel = APLatencyStats{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -82,12 +81,11 @@ func GetAggregatedLatencyPerAP(serial, t0, t1, timespan,
 	return sessions
 }
 
-// Aggregated Latency Info For This Network
-func GetAggregatedLatencyPerNetwork(networkId, t0, t1, timespan,
+func GetAPLatencyStat(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
 		api.BaseUrl(), networkId)
-	var datamodel = AggregatedLatencyPerNetwork{}
+	var datamodel = APLatencyStat{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

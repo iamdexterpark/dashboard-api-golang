@@ -7,26 +7,7 @@ import (
 	"log"
 )
 
-type L3FirewallRules struct {
-	Rules []struct {
-		Comment  string `json:"comment"`
-		Policy   string `json:"policy"`
-		Protocol string `json:"protocol"`
-		DestPort int    `json:"destPort"`
-		DestCidr string `json:"destCidr"`
-	} `json:"rules"`
-}
 
-type L7FirewallRules struct {
-	Rules []struct {
-		Policy string `json:"policy"`
-		Type   string `json:"type"`
-		Value  struct {
-			ID   string `json:"id"`
-			Name string `json:"name"`
-		} `json:"value"`
-	} `json:"rules"`
-}
 
 type SSID struct {
 	Number              int    `json:"number"`
@@ -68,31 +49,7 @@ type SSIDS []struct {
 	SSID
 }
 
-// Return The L3 Firewall Rules For An SSID On An MR Network
-func GetL3FirewallRules(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l3FirewallRules",
-		api.BaseUrl(), networkId, number)
-	var datamodel L3FirewallRules
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
 
-// Return The L7 Firewall Rules For An SSID On An MR Network
-func GetL7FirewallRules(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l7FirewallRules",
-		api.BaseUrl(), networkId, number)
-	var datamodel L7FirewallRules
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
-// List The MR SSIDs In A Network
 func GetSSIDS(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids", api.BaseUrl(), networkId)
 	var datamodel SSIDS
@@ -103,7 +60,6 @@ func GetSSIDS(networkId string) []api.Results {
 	return sessions
 }
 
-// Return A Single MR SSID
 func GetSSID(networkId, ssidNumber string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s", api.BaseUrl(), networkId, ssidNumber)
 	var datamodel SSID
@@ -114,8 +70,7 @@ func GetSSID(networkId, ssidNumber string) []api.Results {
 	return sessions
 }
 
-// Update A Single MR SSID
-func UpdateSSID(networkId, ssidNumber string, data interface{}) []api.Results {
+func PutSSID(networkId, ssidNumber string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s", api.BaseUrl(), networkId, ssidNumber)
 
 	payload := user_agent.MarshalJSON(data)

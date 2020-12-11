@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -20,12 +21,23 @@ type RadioSettings struct {
 	} `json:"fiveGhzSettings"`
 }
 
-// Return The Radio Settings Of A Device
 func GetRadioSettings(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/wireless/radio/settings",
 		api.BaseUrl(), serial)
 	var datamodel = RadioSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+func PutRadioSettings(serial string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("%s/devices/%s/wireless/radio/settings",
+		api.BaseUrl(), serial)
+	var datamodel = RadioSettings{}
+	paylaod := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", paylaod, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

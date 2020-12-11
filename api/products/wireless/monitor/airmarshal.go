@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-type AirMarshalScanResults []struct {
+type AirMarshal[]struct {
 	Ssid   string `json:"ssid"`
 	Bssids []struct {
 		Bssid      string `json:"bssid"`
@@ -24,11 +24,10 @@ type AirMarshalScanResults []struct {
 	WiredLastSeen int      `json:"wiredLastSeen"`
 }
 
-// List Air Marshal scan results from a network
-func GetAirMarshalScanResults(serial, t0, timespan string) []api.Results {
+func GetAirMarshal(serial, t0, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/wireless/airMarshal",
 		api.BaseUrl(), serial)
-	var datamodel = AirMarshalScanResults{}
+	var datamodel = AirMarshal{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
