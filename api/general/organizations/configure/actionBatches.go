@@ -30,7 +30,6 @@ type ActionBatch struct {
 	} `json:"actions"`
 }
 
-
 func GetActionBatches(organizationId, status string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
 
@@ -44,7 +43,6 @@ func GetActionBatches(organizationId, status string) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetActionBatch(organizationId, actionBatchId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
@@ -68,31 +66,22 @@ func DelActionBatch(organizationId, actionBatchId string) []api.Results {
 	return sessions
 }
 
-func PutActionBatch(organizationId, actionBatchId, confirmed, synchronous string, data interface{}) []api.Results {
+func PutActionBatch(organizationId, actionBatchId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
 	var datamodel = ActionBatch{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"confirmed": confirmed,
-		"synchronous": synchronous}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-func PostActionBatch(organizationId, confirmed, synchronous, actions string, data interface{}) []api.Results {
+func PostActionBatch(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
 	var datamodel = ActionBatch{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"confirmed": confirmed,
-		"synchronous": synchronous,
-		"actions": actions}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

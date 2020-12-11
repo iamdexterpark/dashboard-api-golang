@@ -60,7 +60,6 @@ type SmUsers []struct {
 	UserThumbnail          string        `json:"userThumbnail"`
 }
 
-// Get the profiles associated with a user
 func GetSmUserProfiles(networkId, userId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/deviceProfiles",
 		api.BaseUrl(), networkId, userId)
@@ -72,7 +71,6 @@ func GetSmUserProfiles(networkId, userId string) []api.Results {
 	return sessions
 }
 
-// Get a list of softwares associated with a user
 func GetSmUserSoftware(networkId, userId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/softwares",
 		api.BaseUrl(), networkId, userId)
@@ -84,7 +82,6 @@ func GetSmUserSoftware(networkId, userId string) []api.Results {
 	return sessions
 }
 
-//  List The Owners In An SM Network With Various Specified Fields And Filters
 func GetSmUsers(networkId, ids, usernames, emails, scope string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/users",
 		api.BaseUrl(), networkId)

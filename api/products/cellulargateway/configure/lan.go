@@ -23,7 +23,6 @@ type LAN struct {
 	} `json:"reservedIpRanges"`
 }
 
-// Show the LAN Settings of a MG
 func GetLan(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/lan",
 		api.BaseUrl(), serial)
@@ -35,17 +34,12 @@ func GetLan(serial string) []api.Results {
 	return sessions
 }
 
-func PutLan(serial, reservedIpRanges, fixedIpAssignments string, data interface{}) []api.Results {
+func PutLan(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/lan",
 		api.BaseUrl(), serial)
 	var datamodel = LAN{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"reservedIpRanges": reservedIpRanges,
-		"fixedIpAssignments": fixedIpAssignments}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

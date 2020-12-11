@@ -22,17 +22,11 @@ func GetSettings(networkId string) []api.Results {
 	return sessions
 }
 
-func PutSettings(networkId, localStatusPageEnabled, remoteStatusPageEnabled string, data interface{}) []api.Results {
+func PutSettings(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/settings", api.BaseUrl(), networkId)
 	var datamodel = Settings{}
 	payload := user_agent.MarshalJSON(data)
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"localStatusPageEnabled": localStatusPageEnabled,
-		"remoteStatusPageEnabled": remoteStatusPageEnabled}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

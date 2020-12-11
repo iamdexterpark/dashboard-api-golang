@@ -17,7 +17,6 @@ type SNMP struct {
 	Port       int      `json:"port"`
 }
 
-
 func GetSNMP(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
 		organizationId)
@@ -29,21 +28,12 @@ func GetSNMP(organizationId string) []api.Results {
 	return sessions
 }
 
-func PutSNMP(organizationId, v2cEnabled, v3Enabled, v3AuthMode,
-	v3AuthPass, v3PrivMode, peerIps string, data interface{}) []api.Results {
+func PutSNMP(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
 		organizationId)
 	var datamodel = SNMP{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"v2cEnabled": v2cEnabled,
-		"v3Enabled": v3Enabled,
-		"v3AuthMode": v3AuthMode,
-		"v3AuthPass": v3AuthPass,
-		"v3PrivMode": v3PrivMode,
-		"peerIps": peerIps}
-	sessions, err := api.Sessions(baseurl, "GET", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

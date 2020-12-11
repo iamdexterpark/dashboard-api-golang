@@ -39,17 +39,11 @@ func GetAlertSettings(networkId string) []api.Results {
 	return sessions
 }
 
-func PutAlertSettings(networkId, defaultDestinations, alerts string, data interface{}) []api.Results {
+func PutAlertSettings(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/alerts/settings", api.BaseUrl(), networkId)
 	var datamodel = AlertSettings{}
 	payload := user_agent.MarshalJSON(data)
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"defaultDestinations": defaultDestinations,
-		"alerts":          alerts}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

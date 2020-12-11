@@ -7,7 +7,6 @@ import (
 	"log"
 )
 
-// ManagementInterface - Return The Management Interface Settings For A Device
 type ManagementInterface struct {
 	DdnsHostnames struct {
 		ActiveDdnsHostname string `json:"activeDdnsHostname"`
@@ -30,7 +29,6 @@ type ManagementInterface struct {
 	} `json:"wan2"`
 }
 
-// Device - Return A Single Device
 type Device struct {
 	Name           string   `json:"name"`
 	Lat            float64  `json:"lat"`
@@ -65,23 +63,17 @@ func GetManagementInterface(serial string) []api.Results {
 
 }
 
-
-func PutManagementInterface(serial, wan1, wan2 string, data interface{}) []api.Results {
+func PutManagementInterface(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
 	var datamodel = ManagementInterface{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"wan1": wan1,
-		"wan2": wan2}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
-
-
 
 func GetDevice(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
@@ -94,24 +86,11 @@ func GetDevice(serial string) []api.Results {
 
 }
 
-
-func PutDevice(serial, name, tags, lat, lng, address, notes,
-	moveMapMarker, switchProfileId, floorPlanId string, data interface{}) []api.Results {
+func PutDevice(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Device{}
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"tags": tags,
-		"lat": lat,
-		"lng": lng,
-		"address": address,
-		"notes": notes,
-		"moveMapMarker": moveMapMarker,
-		"switchProfileId": switchProfileId,
-		"floorPlanId": floorPlanId}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

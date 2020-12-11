@@ -24,14 +24,10 @@ func GetFirmwareUpgrades(networkId string) []api.Results {
 	return sessions
 }
 
-func PutFirmwareUpgrades(networkId, upgradeWindow string) []api.Results {
+func PutFirmwareUpgrades(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/firmwareUpgrades", api.BaseUrl(), networkId)
 	var datamodel = FirmwareUpgrades{}
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"upgradeWindow": upgradeWindow}
-	sessions, err := api.Sessions(baseurl, "PUT", nil, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

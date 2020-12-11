@@ -7,7 +7,6 @@ import (
 	"log"
 )
 
-// Data Structure
 type BrandingPolicyPriorities struct {
 	BrandingPolicyIds []string `json:"brandingPolicyIds"`
 }
@@ -42,7 +41,6 @@ type BrandingPolicy struct {
 	} `json:"helpSettings"`
 }
 
-
 func GetBrandingPolicyPriorities(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/priorities", api.BaseUrl(),
 		organizationId)
@@ -55,15 +53,12 @@ func GetBrandingPolicyPriorities(organizationId string) []api.Results {
 	return sessions
 }
 
-func PutBrandingPolicyPriorities(organizationId, brandingPolicyIds string, data interface{}) []api.Results {
+func PutBrandingPolicyPriorities(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/priorities", api.BaseUrl(),
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = BrandingPolicyPriorities{}
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"brandingPolicyIds": brandingPolicyIds}
-	sessions, err := api.Sessions(baseurl, "GET", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -104,36 +99,24 @@ func DelBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 	return sessions
 }
 
-func PutBrandingPolicy(organizationId, brandingPolicyId, name, enabled, adminSettings, helpSettings string, data interface{}) []api.Results {
+func PutBrandingPolicy(organizationId, brandingPolicyId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/%s", api.BaseUrl(),
 		organizationId, brandingPolicyId)
 	var datamodel = BrandingPolicy{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"enabled": enabled,
-		"adminSettings": adminSettings,
-		"helpSettings": helpSettings}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-func PostBrandingPolicy(organizationId, name, enabled, adminSettings, helpSettings string, data interface{}) []api.Results {
+func PostBrandingPolicy(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies", api.BaseUrl(),
 		organizationId)
 	var datamodel = BrandingPolicy{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"enabled": enabled,
-		"adminSettings": adminSettings,
-		"helpSettings": helpSettings}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

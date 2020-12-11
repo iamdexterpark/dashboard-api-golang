@@ -15,7 +15,6 @@ type Profiles []struct {
 	TargetGroupID interface{} `json:"targetGroupId"`
 }
 
-// List all profiles in a network
 func GetProfiles(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/profiles",
 		api.BaseUrl(), networkId)

@@ -35,6 +35,7 @@ type DHCP struct {
 type Interfaces []struct {
 	Interface
 }
+
 type Interface struct {
 	InterfaceID      string `json:"interfaceId"`
 	Name             string `json:"name"`

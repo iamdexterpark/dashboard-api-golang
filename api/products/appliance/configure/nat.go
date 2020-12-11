@@ -48,7 +48,6 @@ type PortForwardingRules struct {
 	} `json:"rules"`
 }
 
-
 func GetOneToManyNatRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToManyNatRules", api.BaseUrl(), networkId)
 	var datamodel = OneToManyNatRules{}
@@ -70,7 +69,6 @@ func PutOneToManyNatRules(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
-
 func GetOneToOneNatRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToOneNatRules", api.BaseUrl(), networkId)
 	var datamodel = OneToOneNatRules{}
@@ -91,7 +89,6 @@ func PutOneToOneNatRules(networkId string, data interface{}) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetPortForwardingRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/portForwardingRules", api.BaseUrl(), networkId)

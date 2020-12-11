@@ -21,7 +21,6 @@ type Device []struct {
 	Firmware  string   `json:"firmware"`
 }
 
-
 type Devices []struct {
 	Name      string `json:"name"`
 	Serial    string `json:"serial"`
@@ -32,7 +31,6 @@ type Devices []struct {
 	NetworkID string `json:"networkId"`
 }
 
-// GetOrganizationDevices - List the devices in an organization
 func GetOrganizationDevices(organizationId, perPage, startingAfter,
 	configurationUpdatedAfter string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/devices", api.BaseUrl(), organizationId)

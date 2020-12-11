@@ -24,7 +24,6 @@ type ContentFiltering struct {
 func GetContentFilteringCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering/categories", api.BaseUrl(), networkId)
 	var datamodel = ContentFilteringCategories{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -35,7 +34,6 @@ func GetContentFilteringCategories(networkId string) []api.Results {
 func GetContentFiltering(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering", api.BaseUrl(), networkId)
 	var datamodel = ContentFiltering{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

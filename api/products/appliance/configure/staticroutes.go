@@ -10,6 +10,7 @@ import (
 type StaticRoutes []struct {
 	StaticRoute
 }
+
 type StaticRoute struct {
 	ID                 string `json:"id"`
 	NetworkID          string `json:"networkId"`
@@ -29,7 +30,6 @@ type StaticRoute struct {
 		Comment string `json:"comment"`
 	} `json:"reservedIpRanges"`
 }
-
 
 func GetStaticRoutes(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes", api.BaseUrl(), networkId)

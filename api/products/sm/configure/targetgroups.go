@@ -17,7 +17,6 @@ type TargetGroup struct {
 	Type  string `json:"type"`
 }
 
-// List The Target Groups In This Network
 func GetTargetGroups(networkId, withDetails string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups",
 		api.BaseUrl(), networkId)
@@ -34,7 +33,6 @@ func GetTargetGroups(networkId, withDetails string) []api.Results {
 	return sessions
 }
 
-// Return A Target Group
 func GetTargetGroup(networkId, targetGroupId, withDetails string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
 		api.BaseUrl(), networkId, targetGroupId)
@@ -51,18 +49,12 @@ func GetTargetGroup(networkId, targetGroupId, withDetails string) []api.Results 
 	return sessions
 }
 
-func PutTargetGroup(networkId, targetGroupId, name, scope string, data interface{}) []api.Results {
+func PutTargetGroup(networkId, targetGroupId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
 		api.BaseUrl(), networkId, targetGroupId)
 	var datamodel = TargetGroups{}
 	payload := user_agent.MarshalJSON(data)
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"scope": scope}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -73,7 +65,6 @@ func DelTargetGroup(networkId, targetGroupId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
 		api.BaseUrl(), networkId, targetGroupId)
 	var datamodel = TargetGroups{}
-
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -81,17 +72,12 @@ func DelTargetGroup(networkId, targetGroupId string) []api.Results {
 	return sessions
 }
 
-func PostTargetGroups(networkId, name, scope string, data interface{}) []api.Results {
+func PostTargetGroups(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups",
 		api.BaseUrl(), networkId)
 	var datamodel = TargetGroups{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-	"scope": scope}
-
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

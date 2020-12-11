@@ -22,7 +22,6 @@ type LoginSecurity struct {
 	LoginIPRanges             []string `json:"loginIpRanges"`
 }
 
-
 func GetLoginSecurity(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/loginSecurity", api.BaseUrl(),
 		organizationId)
@@ -35,30 +34,12 @@ func GetLoginSecurity(organizationId string) []api.Results {
 	return sessions
 }
 
-func PutLoginSecurity(organizationId, enforcePasswordExpiration, passwordExpirationDays,
-	enforceDifferentPasswords, numDifferentPasswords, enforceStrongPasswords,
-	enforceAccountLockout, accountLockoutAttempts, enforceIdleTimeout,
-	idleTimeoutMinutes, enforceTwoFactorAuth, enforceLoginIpRanges,
-	loginIpRanges string, data interface{}) []api.Results{
+func PutLoginSecurity(organizationId string, data interface{}) []api.Results{
 	baseurl := fmt.Sprintf("%s/organizations/%s/loginSecurity", api.BaseUrl(),
 		organizationId)
 	var datamodel = LoginSecurity{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"cenforcePasswordExpiration": enforcePasswordExpiration,
-		"passwordExpirationDays": passwordExpirationDays,
-		"enforceDifferentPasswords": enforceDifferentPasswords,
-		"numDifferentPasswords": numDifferentPasswords,
-		"enforceStrongPasswords": enforceStrongPasswords,
-		"enforceAccountLockout": enforceAccountLockout,
-		"accountLockoutAttempts": accountLockoutAttempts,
-		"enforceIdleTimeout": enforceIdleTimeout,
-		"idleTimeoutMinutes": idleTimeoutMinutes,
-		"enforceTwoFactorAuth": enforceTwoFactorAuth,
-		"enforceLoginIpRanges": enforceLoginIpRanges,
-		"loginIpRanges": loginIpRanges}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

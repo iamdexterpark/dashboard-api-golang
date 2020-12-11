@@ -26,7 +26,6 @@ type MerakiAuthUser struct {
 	} `json:"authorizations"`
 }
 
-// List The Users Configured Under Meraki Authentication For A Network Splash Guest Or RADIUS Users For A Wireless Network Or Client VPN Users For A Wired Network
 func GetMerakiAuthUsers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers", api.BaseUrl(), networkId)
 	var datamodel = MerakiAuthUsers{}
@@ -36,7 +35,6 @@ func GetMerakiAuthUsers(networkId string) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers/%s", api.BaseUrl(), networkId, merakiAuthUserId)
@@ -58,37 +56,22 @@ func DelMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
 	return sessions
 }
 
-func PutMerakiAuthUser(networkId, merakiAuthUserId, name, password, emailPasswordToUser, authorizations string, data interface{}) []api.Results {
+func PutMerakiAuthUser(networkId, merakiAuthUserId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers/%s", api.BaseUrl(), networkId, merakiAuthUserId)
 	var datamodel = MerakiAuthUser{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"password": password,
-		"emailPasswordToUser": emailPasswordToUser,
-		"authorizations": authorizations}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-func PostMerakiAuthUser(networkId, name, password, accountType, emailPasswordToUser, authorizations string, data interface{}) []api.Results {
+func PostMerakiAuthUser(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers", api.BaseUrl(), networkId)
 	var datamodel = MerakiAuthUser{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"password": password,
-		"accountType": accountType,
-		"emailPasswordToUser": emailPasswordToUser,
-		"authorizations": authorizations}
-
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 
 	if err != nil {
 		log.Fatal(err)

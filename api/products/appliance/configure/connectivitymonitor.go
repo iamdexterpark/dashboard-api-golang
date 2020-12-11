@@ -15,7 +15,6 @@ type ConnectivityMonitoringDestinations struct {
 	} `json:"destinations"`
 }
 
-
 func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/connectivityMonitoringDestinations", api.BaseUrl(), networkId)
 	var datamodel = ConnectivityMonitoringDestinations{}
@@ -26,7 +25,6 @@ func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 	}
 	return sessions
 }
-
 
 func PutConnectivityMonitoringDestinations(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/connectivityMonitoringDestinations", api.BaseUrl(), networkId)

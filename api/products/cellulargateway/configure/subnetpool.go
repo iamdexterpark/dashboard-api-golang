@@ -18,12 +18,10 @@ type SubnetPool struct {
 	} `json:"subnets"`
 }
 
-// Return the subnet pool and mask configured for MGs in the network.
 func GetSubnetPool(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/subnetPool",
 		api.BaseUrl(), networkId)
 	var datamodel = SubnetPool{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -31,16 +29,12 @@ func GetSubnetPool(networkId string) []api.Results {
 	return sessions
 }
 
-func PutSubnetPool(networkId, mask, cidr  string, data interface{}) []api.Results {
+func PutSubnetPool(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/subnetPool",
 		api.BaseUrl(), networkId)
 	var datamodel = SubnetPool{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"mask": mask,
-		"cidr": cidr}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

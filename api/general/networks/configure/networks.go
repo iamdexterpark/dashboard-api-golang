@@ -50,18 +50,11 @@ func DelNetwork(networkId string) []api.Results {
 	return sessions
 }
 
-func PutNetwork(networkId, name, timeZone, tags, enrollmentString string, data interface{}) []api.Results {
+func PutNetwork(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s", api.BaseUrl(), networkId)
 	var datamodel = Network{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"timeZone": timeZone,
-		"tags": tags,
-		"enrollmentString": enrollmentString}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -79,19 +72,11 @@ func PutSplitNetwork(networkId  string, data interface{}) []api.Results {
 	return sessions
 }
 
-
-func PutUnBindNetwork(networkId, name, timeZone, tags, enrollmentString string, data interface{}) []api.Results {
+func PutUnBindNetwork(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/unbind", api.BaseUrl(), networkId)
 	var datamodel = Network{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"timeZone": timeZone,
-		"tags": tags,
-		"enrollmentString": enrollmentString}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

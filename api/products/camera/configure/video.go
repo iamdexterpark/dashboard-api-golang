@@ -12,7 +12,6 @@ type VideoSettings struct {
 	RtspURL             string `json:"rtspUrl"`
 }
 
-// Returns video settings for the given camera
 func GetVideoSettings(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/video/settings", api.BaseUrl(), serial)
 	var datamodel = VideoSettings{}
@@ -23,14 +22,11 @@ func GetVideoSettings(serial string) []api.Results {
 	return sessions
 }
 
-func PutVideoSettings(serial, externalRtspEnabled string, data interface{}) []api.Results {
+func PutVideoSettings(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/video/settings", api.BaseUrl(), serial)
 	var datamodel = VideoSettings{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"externalRtspEnabled": externalRtspEnabled}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

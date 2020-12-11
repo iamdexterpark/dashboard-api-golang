@@ -11,7 +11,6 @@ type CameraRecordingSchedules []struct {
 	Name string `json:"name"`
 }
 
-// Returns a list of all camera recording schedules
 func GetCameraSchedules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/camera/schedules", api.BaseUrl(), networkId)
 	var datamodel = CameraRecordingSchedules{}

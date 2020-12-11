@@ -14,7 +14,6 @@ type Uplink struct {
 	} `json:"bandwidthLimits"`
 }
 
-// Returns The Uplink Settings For Your MG Network
 func GetUplink(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/uplink",
 		api.BaseUrl(), networkId)
@@ -26,15 +25,12 @@ func GetUplink(networkId string) []api.Results {
 	return sessions
 }
 
-func PutUplink(networkId, bandwidthLimits string, data interface{}) []api.Results {
+func PutUplink(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/uplink",
 		api.BaseUrl(), networkId)
 	var datamodel = Uplink{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"bandwidthLimits": bandwidthLimits}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

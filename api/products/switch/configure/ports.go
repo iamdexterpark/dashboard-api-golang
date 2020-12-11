@@ -31,7 +31,6 @@ type Port struct {
 	StormControlEnabled     bool     `json:"stormControlEnabled"`
 }
 
-
 func GetPorts(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports",
 		api.BaseUrl(), serial)

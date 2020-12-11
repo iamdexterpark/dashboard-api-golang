@@ -10,6 +10,7 @@ import (
 type RFProfiles []struct {
 	RFProfile
 }
+
 type RFProfile struct {
 	ID                     string `json:"id"`
 	NetworkID              string `json:"networkId"`

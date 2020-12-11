@@ -17,17 +17,11 @@ type Reboot struct {
 	Success bool `json:"success"`
 }
 
-func PostBlinkLeds(serial, duration, period, duty string) []api.Results {
+func PostBlinkLeds(serial string) []api.Results {
 	baseurl := fmt.Sprintf("%s/devices/%s/blinkLeds", api.BaseUrl(), serial)
 	var datamodel BlinkLeds
 
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"duration": duration,
-		"period": period,
-		"duty": duty}
-
-	sessions, err := api.Sessions(baseurl, "POST", nil, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

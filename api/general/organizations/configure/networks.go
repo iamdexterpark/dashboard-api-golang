@@ -21,7 +21,6 @@ type Network struct {
 	EnrollmentString string   `json:"enrollmentString"`
 }
 
-// Clients - List the clients that have used this network in the timespan
 type Clients []struct {
 	Usage struct {
 		Sent int `json:"sent"`
@@ -84,44 +83,29 @@ func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage
 	return sessions
 }
 
-func PostNetworks(organizationId, name, productTypes, tags, timeZone string, data interface{}) []api.Results {
+func PostNetworks(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/networks", api.BaseUrl(),
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"productTypes": productTypes,
-		"tags":             tags,
-		"timeZone": timeZone}
-
 	var datamodel = Networks{}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-
-func PostCombineNetworks(organizationId, name, networkIds, enrollmentString string, data interface{}) []api.Results {
+func PostCombineNetworks(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/networks/combine", api.BaseUrl(),
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"networkIds": networkIds,
-		"enrollmentString": enrollmentString}
-
 	var datamodel = Networks{}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
-
 
 func GetClients(networkId, t0, t1, timespan,
 	perPage, startingAfter, endingBefore string) []api.Results {

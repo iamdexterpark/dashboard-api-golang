@@ -25,7 +25,6 @@ type SAMLRole struct {
 	} `json:"tags"`
 }
 
-
 func GetSAMLRoles(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles", api.BaseUrl(),
 		organizationId)
@@ -36,7 +35,6 @@ func GetSAMLRoles(organizationId string) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
@@ -49,7 +47,6 @@ func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
 	return sessions
 }
 
-
 func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
 		organizationId, samlRoleId)
@@ -61,36 +58,24 @@ func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
 	return sessions
 }
 
-func PutSAMLRole(organizationId, samlRoleId, role, orgAccess, tags, networks string, data interface{}) []api.Results {
+func PutSAMLRole(organizationId, samlRoleId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
 		organizationId, samlRoleId)
 	var datamodel = SAMLRole{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"role": role,
-		"orgAccess": orgAccess,
-		"tags": tags,
-		"networks": networks}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-func PostSAMLRole(organizationId, role, orgAccess, tags, networks string, data interface{}) []api.Results {
+func PostSAMLRole(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles", api.BaseUrl(),
 		organizationId)
 	var datamodel = SAMLRole{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"role": role,
-		"orgAccess": orgAccess,
-		"tags": tags,
-		"networks": networks}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -62,7 +62,6 @@ type FloorPlan struct {
 	} `json:"topRightCorner"`
 }
 
-
 func GetFloorPlans(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
 	var datamodel = FloorPlans{}
@@ -72,7 +71,6 @@ func GetFloorPlans(networkId string) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetFloorPlan(networkId, floorPlanId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
@@ -84,48 +82,22 @@ func GetFloorPlan(networkId, floorPlanId string) []api.Results {
 	return sessions
 }
 
-
-func PostFloorPlan(networkId, name, center, bottomLeftCorner,
-	bottomRightCorner, topLeftCorner, topRightCorner,
-	imageContents string, data interface{}) []api.Results {
+func PostFloorPlan(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
 	var datamodel = FloorPlan{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"center": center,
-		"bottomLeftCorner": bottomLeftCorner,
-		"bottomRightCorner": bottomRightCorner,
-		"topLeftCorner": topLeftCorner,
-		"topRightCorner": topRightCorner,
-		"imageContents": imageContents}
-
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-
-func PutFloorPlan(networkId, floorPlanId, name, center, bottomLeftCorner,
-	bottomRightCorner, topLeftCorner, topRightCorner,
-	imageContents string, data interface{}) []api.Results {
+func PutFloorPlan(networkId, floorPlanId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
 	var datamodel = FloorPlan{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"center": center,
-		"bottomLeftCorner": bottomLeftCorner,
-		"bottomRightCorner": bottomRightCorner,
-		"topLeftCorner": topLeftCorner,
-		"topRightCorner": topRightCorner,
-		"imageContents": imageContents}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

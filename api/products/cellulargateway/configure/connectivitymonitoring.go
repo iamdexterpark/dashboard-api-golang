@@ -15,7 +15,6 @@ type ConnectivityTesting struct {
 	} `json:"destinations"`
 }
 
-// Return the connectivity testing destinations for an MG network
 func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/connectivityMonitoringDestinations",
 		api.BaseUrl(), networkId)
@@ -27,15 +26,12 @@ func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 	return sessions
 }
 
-func PutConnectivityMonitoringDestinations(networkId, destinations string, data interface{}) []api.Results {
+func PutConnectivityMonitoringDestinations(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/connectivityMonitoringDestinations",
 		api.BaseUrl(), networkId)
 	var datamodel = ConnectivityTesting{}
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"destinations": destinations}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

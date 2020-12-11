@@ -21,11 +21,9 @@ type BypassActivationLockAttempts struct {
 	} `json:"data"`
 }
 
-// Bypass Activation Lock Attempt Status
 func GetBypassActivationLockAttempts(networkId, attemptId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/sm/bypassActivationLockAttempts/%s",
 		api.BaseUrl(), networkId, attemptId)
-
 	var datamodel = BypassActivationLockAttempts{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

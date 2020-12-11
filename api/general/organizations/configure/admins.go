@@ -32,7 +32,6 @@ type Admin struct {
 	AuthenticationMethod string `json:"authenticationMethod"`
 }
 
-
 func GetAdmins(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/admins", api.BaseUrl(), organizationId)
 
@@ -55,38 +54,22 @@ func DelAdmin(organizationId, adminId string) []api.Results {
 	return sessions
 }
 
-
-func PutAdmin(organizationId, adminId, name, orgAccess, tags, networks string, data interface{}) []api.Results {
+func PutAdmin(organizationId, adminId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/admins/%s", api.BaseUrl(), organizationId, adminId)
 	var datamodel = Admin{}
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"orgAccess": orgAccess,
-		"tags": tags,
-		"networks": networks}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-
-func PostAdmin(organizationId, email, name, orgAccess, tags, networks, authenticationMethod string, data interface{}) []api.Results {
+func PostAdmin(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/admins", api.BaseUrl(), organizationId)
 	var datamodel = Admin{}
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"email": email,
-		"name": name,
-		"orgAccess": orgAccess,
-		"tags": tags,
-		"networks": networks,
-		"authenticationMethod": authenticationMethod}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

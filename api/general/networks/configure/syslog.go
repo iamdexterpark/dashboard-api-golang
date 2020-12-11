@@ -16,7 +16,6 @@ type SyslogServers struct {
 	} `json:"servers"`
 }
 
-
 func GetSyslogServers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/syslogServers", api.BaseUrl(), networkId)
 	var datamodel = SyslogServers{}
@@ -27,15 +26,11 @@ func GetSyslogServers(networkId string) []api.Results {
 	return sessions
 }
 
-func PutSyslogServers(networkId, servers string, data interface{}) []api.Results {
+func PutSyslogServers(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/syslogServers", api.BaseUrl(), networkId)
 	var datamodel = SyslogServers{}
 	payload := user_agent.MarshalJSON(data)
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"servers": servers}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

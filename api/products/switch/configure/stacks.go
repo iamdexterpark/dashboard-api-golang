@@ -35,6 +35,7 @@ type StackDHCP struct {
 type StackInterfaces []struct {
 	StackInterface
 }
+
 type StackInterface struct {
 	InterfaceID      string `json:"interfaceId"`
 	Name             string `json:"name"`
@@ -158,7 +159,6 @@ func PostStackInterface(networkId, switchStackId string, data interface{}) []api
 	}
 	return sessions
 }
-
 
 func GetStackStaticRoutes(networkId, switchStackId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces",

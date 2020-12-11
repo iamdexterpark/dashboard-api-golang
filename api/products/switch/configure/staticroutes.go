@@ -10,6 +10,7 @@ import (
 type StaticRoutes []struct {
 	StaticRoute
 }
+
 type StaticRoute struct {
 	StaticRouteID               string `json:"staticRouteId"`
 	Name                        string `json:"name"`

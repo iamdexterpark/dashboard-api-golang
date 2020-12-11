@@ -77,11 +77,9 @@ type L7FirewallApplicationCategories struct {
 	} `json:"applicationCategories"`
 }
 
-
 func GetCellularFirewallRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/cellularFirewallRules", api.BaseUrl(), networkId)
 	var datamodel = CellularFirewallRules{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -100,12 +98,9 @@ func PutCellularFirewallRules(networkId string, data interface{}) []api.Results 
 	return sessions
 }
 
-
-
 func GetFirewalledServices(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/firewalledServices", api.BaseUrl(), networkId)
 	var datamodel = FirewalledServices{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -113,11 +108,9 @@ func GetFirewalledServices(networkId string) []api.Results {
 	return sessions
 }
 
-
 func GetFirewalledService(networkId, serviceId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/firewalledServices/%s", api.BaseUrl(), networkId, serviceId)
 	var datamodel = FirewalledService{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -136,7 +129,6 @@ func PutFirewalledService(networkId, serviceId string, data interface{}) []api.R
 	return sessions
 }
 
-
 func GetInboundFirewallRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/inboundFirewallRules", api.BaseUrl(), networkId)
 	var datamodel = InboundFirewallRules{}
@@ -148,7 +140,6 @@ func GetInboundFirewallRules(networkId string) []api.Results {
 	return sessions
 }
 
-
 func PutInboundFirewallRules(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/inboundFirewallRules", api.BaseUrl(), networkId)
 	var datamodel = InboundFirewallRules{}
@@ -159,8 +150,6 @@ func PutInboundFirewallRules(networkId string, data interface{}) []api.Results {
 	}
 	return sessions
 }
-
-
 
 func GetL3FirewallRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/l3FirewallRules", api.BaseUrl(), networkId)
@@ -183,7 +172,6 @@ func PutL3FirewallRules(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
-
 func GetL7FirewallRules(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/l7FirewallRules", api.BaseUrl(), networkId)
 	var datamodel = L7FirewallRules{}
@@ -205,11 +193,9 @@ func PutL7FirewallRules(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
-// Return the L7 firewall application categories and their associated applications for an MX network
 func GetL7FirewallApplicationCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/l7FirewallRules/applicationCategories", api.BaseUrl(), networkId)
 	var datamodel = L7FirewallApplicationCategories{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)

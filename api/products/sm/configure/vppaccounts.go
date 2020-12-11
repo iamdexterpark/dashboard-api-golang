@@ -15,7 +15,6 @@ type VPPAccount struct {
 	VppServiceToken string `json:"vppServiceToken"`
 }
 
-// Get A Hash Containing The Unparsed Token Of The VPP Account With The Given ID
 func GetVPPAccount(organizationId, vppAccountId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/sm/vppAccounts/%s",
 		api.BaseUrl(), organizationId, vppAccountId)
@@ -27,7 +26,6 @@ func GetVPPAccount(organizationId, vppAccountId string) []api.Results {
 	return sessions
 }
 
-// List The VPP Accounts In The Organization
 func GetVPPAccounts(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/sm/vppAccounts",
 		api.BaseUrl(), organizationId)

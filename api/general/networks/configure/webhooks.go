@@ -32,7 +32,6 @@ func GetHTTPServers(networkId string) []api.Results {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	return sessions
 }
 
@@ -44,20 +43,14 @@ func GetHTTPServer(networkId, httpServerId string) []api.Results {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	return sessions
 }
 
-func PutHTTPServer(networkId, httpServerId, name, url, sharedSecret string, data interface{}) []api.Results {
+func PutHTTPServer(networkId, httpServerId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/webhooks/httpServers/%s", api.BaseUrl(), networkId, httpServerId)
 	var datamodel HTTPServer
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-	"url": url,
-	"sharedSecret": sharedSecret}
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -68,12 +61,7 @@ func PostHTTPServer(networkId, name, url, sharedSecret string, data interface{})
 	baseurl := fmt.Sprintf("%s/networks/%s/webhooks/httpServers", api.BaseUrl(), networkId)
 	var datamodel HTTPServer
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"url": url,
-		"sharedSecret": sharedSecret}
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -91,7 +79,6 @@ func DelHTTPServer(networkId, httpServerId string) []api.Results {
 	return sessions
 }
 
-
 func GetWebhookTests(networkId, webhookTestId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/webhooks/webhookTests/%s", api.BaseUrl(), networkId, webhookTestId)
 	var datamodel = WebhookTests{}
@@ -103,14 +90,10 @@ func GetWebhookTests(networkId, webhookTestId string) []api.Results {
 	return sessions
 }
 
-func PostWebhookTests(networkId, url, sharedSecret string) []api.Results {
+func PostWebhookTests(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/webhooks/webhookTests", api.BaseUrl(), networkId)
 	var datamodel = WebhookTests{}
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"url": url,
-		"sharedSecret": sharedSecret}
-	sessions, err := api.Sessions(baseurl, "POST", nil, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

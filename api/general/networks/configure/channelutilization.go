@@ -31,7 +31,6 @@ type ChannelUtilization struct {
 	} `json:"wifi1"`
 }
 
-// Get the channel utilization over each radio for all APs in a network.
 func GetChannelUtilization(networkId, t0, t1, timespan, resolution, perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/networkHealth/channelUtilization", api.BaseUrl(), networkId)
 	var datamodel = ChannelUtilizations{}
@@ -51,5 +50,4 @@ func GetChannelUtilization(networkId, t0, t1, timespan, resolution, perPage, sta
 		log.Fatal(err)
 	}
 	return sessions
-
 }

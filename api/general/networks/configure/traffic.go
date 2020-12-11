@@ -7,7 +7,6 @@ import (
 	"log"
 )
 
-// TrafficAnalysis - Return The Traffic Analysis Settings For A Network
 type TrafficAnalysis struct {
 	Mode                string `json:"mode"`
 	CustomPieChartItems []struct {
@@ -16,10 +15,6 @@ type TrafficAnalysis struct {
 		Value string `json:"value"`
 	} `json:"customPieChartItems"`
 }
-
-
-
-
 
 type ApplicationCategories struct {
 	ApplicationCategories []struct {
@@ -32,12 +27,10 @@ type ApplicationCategories struct {
 	} `json:"applicationCategories"`
 }
 
-
 type DscpTaggingOptions []struct {
 	DscpTagValue int    `json:"dscpTagValue"`
 	Description  string `json:"description"`
 }
-
 
 func GetTrafficAnalysis(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
@@ -49,24 +42,17 @@ func GetTrafficAnalysis(networkId string) []api.Results {
 	return sessions
 }
 
-
-func PutTrafficAnalysis(networkId, mode string, data interface{}) []api.Results {
+func PutTrafficAnalysis(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
 	var datamodel = TrafficAnalysis{}
 	payload := user_agent.MarshalJSON(data)
-
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"mode": mode}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-// GetTrafficShaping - Returns the application categories for traffic shaping rules.
 func GetApplicationCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/applicationCategories", api.BaseUrl(), networkId)
 	var datamodel = ApplicationCategories{}
@@ -77,7 +63,6 @@ func GetApplicationCategories(networkId string) []api.Results {
 	return sessions
 }
 
-// GetTrafficShapingDSCP - Returns the available DSCP tagging options for your traffic shaping rules.
 func GetDscpTaggingOptions(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/dscpTaggingOptions", api.BaseUrl(), networkId)
 	var datamodel = DscpTaggingOptions{}

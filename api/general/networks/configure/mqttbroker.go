@@ -18,7 +18,6 @@ type MQTTBroker struct {
 	Port int    `json:"port"`
 }
 
-
 func GetMqttBrokers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers", api.BaseUrl(), networkId)
 	var datamodel = MQTTBrokers{}
@@ -28,7 +27,6 @@ func GetMqttBrokers(networkId string) []api.Results {
 	}
 	return sessions
 }
-
 
 func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
@@ -40,8 +38,6 @@ func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
 	return sessions
 }
 
-
-// Return An MQTT Broker
 func DelMqttBroker(networkId, mqttBrokerId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
@@ -52,38 +48,22 @@ func DelMqttBroker(networkId, mqttBrokerId string) []api.Results {
 	return sessions
 }
 
-
-func PutMqttBroker(networkId, mqttBrokerId, name, host, port string, data interface{}) []api.Results {
+func PutMqttBroker(networkId, mqttBrokerId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
-
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"host": host,
-		"port": port}
-
-	sessions, err := api.Sessions(baseurl, "PUT", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-
-func PostMqttBroker(networkId, name, host, port string, data interface{}) []api.Results {
+func PostMqttBroker(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers", api.BaseUrl(), networkId)
 	var datamodel = MQTTBroker{}
-
 	payload := user_agent.MarshalJSON(data)
-	// Parameters for Request URL
-	var parameters = map[string]string{
-		"name": name,
-		"host": host,
-		"port": port}
-
-	sessions, err := api.Sessions(baseurl, "POST", payload, parameters, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

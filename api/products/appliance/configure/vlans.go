@@ -14,6 +14,7 @@ type VLANSettings struct {
 type VLANS []struct {
 	VLAN
 }
+
 type VLAN struct {
 	ID                 string `json:"id"`
 	NetworkID          string `json:"networkId"`

@@ -36,11 +36,9 @@ type MalwareSettings struct {
 	} `json:"allowedFiles"`
 }
 
-
 func GetNetworkSecurityIntrusion(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/intrusion", api.BaseUrl(), networkId)
 	var datamodel = SecurityIntrusion{}
-
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -58,7 +56,6 @@ func PutNetworkSecurityIntrusion(networkId string, data interface{}) []api.Resul
 	}
 	return sessions
 }
-
 
 func GetOrganizationSecurityIntrusion(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/security/intrusion", api.BaseUrl(), organizationId)
