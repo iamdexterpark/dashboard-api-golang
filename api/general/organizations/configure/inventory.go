@@ -23,7 +23,7 @@ type InventoryDevice struct {
 }
 
 func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/inventoryDevices",
 		organizationId)
 	var datamodel = InventoryDevices{}
 
@@ -44,7 +44,7 @@ func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, u
 }
 
 func GetInventoryDevice(organizationId, serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/inventoryDevices/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/inventoryDevices/%s",
 		organizationId, serial)
 	var datamodel = InventoryDevice{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)

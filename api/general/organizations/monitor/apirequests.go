@@ -35,7 +35,7 @@ type APIRequest struct {
 
 // Return an aggregated overview of API requests data
 func GetAPIRequestSummary(organizationId, t0, t1, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/apiRequests/overview", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/apiRequests/overview",  organizationId)
 	var datamodel = APIRequestsSummary{}
 
 	// Parameters for Request URL
@@ -54,7 +54,7 @@ func GetAPIRequestSummary(organizationId, t0, t1, timespan string) []api.Results
 // Return an aggregated overview of API requests data
 func GetAPIRequests(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	adminId, path, method, responseCode, sourceIp string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/apiRequests", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/apiRequests",  organizationId)
 	var datamodel = APIRequests{}
 
 	// Parameters for Request URL

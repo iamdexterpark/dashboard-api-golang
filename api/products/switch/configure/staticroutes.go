@@ -21,8 +21,8 @@ type StaticRoute struct {
 }
 
 func GetStaticRoutes(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/staticRoutes",
+		 serial)
 	var datamodel = StaticRoutes{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -32,8 +32,8 @@ func GetStaticRoutes(serial string) []api.Results {
 }
 
 func GetStaticRoute(serial, staticRouteId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
-		api.BaseUrl(), serial, staticRouteId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/staticRoutes/%s",
+		 serial, staticRouteId)
 	var datamodel = StaticRoute{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -43,8 +43,8 @@ func GetStaticRoute(serial, staticRouteId string) []api.Results {
 }
 
 func DelStaticRoute(serial, staticRouteId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
-		api.BaseUrl(), serial, staticRouteId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/staticRoutes/%s",
+		 serial, staticRouteId)
 	var datamodel = StaticRoute{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -54,8 +54,8 @@ func DelStaticRoute(serial, staticRouteId string) []api.Results {
 }
 
 func PutStaticRoute(serial, staticRouteId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes/%s",
-		api.BaseUrl(), serial, staticRouteId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/staticRoutes/%s",
+		 serial, staticRouteId)
 	var datamodel = StaticRoute{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -66,8 +66,8 @@ func PutStaticRoute(serial, staticRouteId string, data interface{}) []api.Result
 }
 
 func PostStaticRoute(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/staticRoutes",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/staticRoutes",
+		 serial)
 	var datamodel = StaticRoute{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

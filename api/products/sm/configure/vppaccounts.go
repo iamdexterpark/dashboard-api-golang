@@ -16,8 +16,8 @@ type VPPAccount struct {
 }
 
 func GetVPPAccount(organizationId, vppAccountId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/sm/vppAccounts/%s",
-		api.BaseUrl(), organizationId, vppAccountId)
+	baseurl := fmt.Sprintf("/organizations/%s/sm/vppAccounts/%s",
+		 organizationId, vppAccountId)
 	var datamodel = VPPAccount{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -27,8 +27,8 @@ func GetVPPAccount(organizationId, vppAccountId string) []api.Results {
 }
 
 func GetVPPAccounts(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/sm/vppAccounts",
-		api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/sm/vppAccounts",
+		 organizationId)
 	var datamodel = VPPAccounts{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

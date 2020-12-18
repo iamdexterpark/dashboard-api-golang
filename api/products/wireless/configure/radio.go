@@ -22,8 +22,8 @@ type RadioSettings struct {
 }
 
 func GetRadioSettings(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/radio/settings",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/radio/settings",
+		 serial)
 	var datamodel = RadioSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -33,8 +33,8 @@ func GetRadioSettings(serial string) []api.Results {
 }
 
 func PutRadioSettings(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/radio/settings",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/radio/settings",
+		 serial)
 	var datamodel = RadioSettings{}
 	paylaod := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", paylaod, nil, datamodel)

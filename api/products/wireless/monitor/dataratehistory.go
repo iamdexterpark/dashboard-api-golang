@@ -17,8 +17,8 @@ type DataRateHistory []struct {
 
 func GetDataRateHistory(networkId, t0, t1, timespan, resolution, autoResolution,
 	clientId, deviceSerial, apTag, band, ssid string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/dataRateHistory",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/dataRateHistory",
+		 networkId)
 	var datamodel = DataRateHistory{}
 
 	// Parameters for Request URL

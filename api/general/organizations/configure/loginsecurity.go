@@ -23,7 +23,7 @@ type LoginSecurity struct {
 }
 
 func GetLoginSecurity(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/loginSecurity", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/loginSecurity",
 		organizationId)
 
 	var datamodel = LoginSecurity{}
@@ -35,7 +35,7 @@ func GetLoginSecurity(organizationId string) []api.Results {
 }
 
 func PutLoginSecurity(organizationId string, data interface{}) []api.Results{
-	baseurl := fmt.Sprintf("%s/organizations/%s/loginSecurity", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/loginSecurity",
 		organizationId)
 	var datamodel = LoginSecurity{}
 	payload := user_agent.MarshalJSON(data)

@@ -18,7 +18,7 @@ type SNMP struct {
 }
 
 func GetSNMP(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/snmp",
 		organizationId)
 	var datamodel = SNMP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -29,7 +29,7 @@ func GetSNMP(organizationId string) []api.Results {
 }
 
 func PutSNMP(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/snmp", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/snmp",
 		organizationId)
 	var datamodel = SNMP{}
 	payload := user_agent.MarshalJSON(data)

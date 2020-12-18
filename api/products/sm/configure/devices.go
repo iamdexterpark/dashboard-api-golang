@@ -137,8 +137,8 @@ type Unenroll struct {
 }
 
 func GetDeviceCerts(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/certs",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/certs",
+		 networkId, deviceId)
 	var datamodel = DeviceCerts{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -148,8 +148,8 @@ func GetDeviceCerts(networkId, deviceId string) []api.Results {
 }
 
 func GetDeviceProfiles(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/deviceProfiles",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/deviceProfiles",
+		 networkId, deviceId)
 	var datamodel = DeviceProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -159,8 +159,8 @@ func GetDeviceProfiles(networkId, deviceId string) []api.Results {
 }
 
 func PutFields(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/fields",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/fields",
+		 networkId)
 	var datamodel = Fields{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -171,8 +171,8 @@ func PutFields(networkId string, data interface{}) []api.Results {
 }
 
 func GetNetworkAdapters(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/networkAdapters",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/networkAdapters",
+		 networkId, deviceId)
 	var datamodel = NetworkAdapters{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -182,8 +182,8 @@ func GetNetworkAdapters(networkId, deviceId string) []api.Results {
 }
 
 func GetDeviceRestrictions(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/restrictions",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/restrictions",
+		 networkId, deviceId)
 	var datamodel = DeviceRestrictions{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -193,8 +193,8 @@ func GetDeviceRestrictions(networkId, deviceId string) []api.Results {
 }
 
 func GetDeviceSecurityCenters(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/securityCenters",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/securityCenters",
+		 networkId, deviceId)
 	var datamodel = DeviceSecurityCenters{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -204,8 +204,8 @@ func GetDeviceSecurityCenters(networkId, deviceId string) []api.Results {
 }
 
 func GetDeviceSoftwares(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/softwares",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/softwares",
+		 networkId, deviceId)
 
 	var datamodel = DeviceSoftwares{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -216,8 +216,8 @@ func GetDeviceSoftwares(networkId, deviceId string) []api.Results {
 }
 
 func GetDeviceWlanLists(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/wlanLists",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/wlanLists",
+		 networkId, deviceId)
 
 	var datamodel = DeviceWlanLists{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -228,8 +228,8 @@ func GetDeviceWlanLists(networkId, deviceId string) []api.Results {
 }
 
 func PostModifyTags(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/modifyTags",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/modifyTags",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = ModifyTags{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -240,8 +240,8 @@ func PostModifyTags(networkId string, data interface{}) []api.Results {
 }
 
 func PostCheckin(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/checkin",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/checkin",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = SmIds{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -253,7 +253,7 @@ func PostCheckin(networkId string, data interface{}) []api.Results {
 
 func GetSMDevices(networkId, fields, wifiMacs, serials, ids, scope, perPage,
 	startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices",  networkId)
 	var datamodel = SMDevices{}
 
 	// Parameters for Request URL
@@ -275,8 +275,8 @@ func GetSMDevices(networkId, fields, wifiMacs, serials, ids, scope, perPage,
 }
 
 func PostLock(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/lock",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/lock",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = SmIds{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -287,8 +287,8 @@ func PostLock(networkId string, data interface{}) []api.Results {
 }
 
 func PostMove(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/move",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/move",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = SmIds{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -299,8 +299,8 @@ func PostMove(networkId string, data interface{}) []api.Results {
 }
 
 func PostRefreshDetails(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/refreshDetails",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/refreshDetails",
+		 networkId, deviceId)
 	var datamodel interface{}
 	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)
 	if err != nil {
@@ -310,8 +310,8 @@ func PostRefreshDetails(networkId, deviceId string) []api.Results {
 }
 
 func PostUnenroll(networkId, deviceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/unenroll",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/unenroll",
+		 networkId, deviceId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Unenroll{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -322,8 +322,8 @@ func PostUnenroll(networkId, deviceId string, data interface{}) []api.Results {
 }
 
 func PostWipeDevice(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/wipe",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/wipe",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = SmIds{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

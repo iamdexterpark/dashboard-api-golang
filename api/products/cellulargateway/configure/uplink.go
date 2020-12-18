@@ -15,8 +15,8 @@ type Uplink struct {
 }
 
 func GetUplink(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/uplink",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/uplink",
+		 networkId)
 	var datamodel = Uplink{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -26,8 +26,8 @@ func GetUplink(networkId string) []api.Results {
 }
 
 func PutUplink(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/uplink",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/uplink",
+		 networkId)
 	var datamodel = Uplink{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

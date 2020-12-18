@@ -47,8 +47,8 @@ type LatencyStats []struct {
 
 func GetDeviceconnectionStats(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/connectionStats",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/connectionStats",
+		 networkId)
 	var datamodel = DeviceconnectionStats{}
 
 	// Parameters for Request URL
@@ -70,8 +70,8 @@ func GetDeviceconnectionStats(networkId, t0, t1, timespan,
 
 func GetLatencyStats(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/latencyStats",
+		 networkId)
 	var datamodel = LatencyStats{}
 
 	// Parameters for Request URL

@@ -67,8 +67,8 @@ type PerformanceHistory []struct {
 
 // Return the client's daily cellular data usage history
 func GetCellularUsageHistory(networkId, deviceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/devices/%s/cellularUsageHistory",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/devices/%s/cellularUsageHistory",
+		 networkId, deviceId)
 	var datamodel = CellularUsageHistory{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -80,8 +80,8 @@ func GetCellularUsageHistory(networkId, deviceId string) []api.Results {
 // Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
 func GetConnectivity(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/connectivity",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm//devices/%s/connectivity",
+		 networkId, deviceId)
 	var datamodel = Connectivity{}
 
 	// Parameters for Request URL
@@ -99,8 +99,8 @@ func GetConnectivity(networkId, deviceId,
 // Return historical records of various Systems Manager network connection details for desktop devices.
 func GetDesktopLogs(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/desktopLogs",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm//devices/%s/desktopLogs",
+		 networkId, deviceId)
 	var datamodel = DesktopLogs{}
 
 	// Parameters for Request URL
@@ -119,8 +119,8 @@ func GetDesktopLogs(networkId, deviceId,
 // Return historical records of commands sent to Systems Manager devices
 func GetDeviceCommandLogs(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/deviceCommandLogs",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm//devices/%s/deviceCommandLogs",
+		 networkId, deviceId)
 	var datamodel = DeviceCommandLogs{}
 
 	// Parameters for Request URL
@@ -139,8 +139,8 @@ func GetDeviceCommandLogs(networkId, deviceId,
 // Return historical records of various Systems Manager client metrics for desktop devices.
 func GetPerformanceHistory(networkId, deviceId,
 	perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm//devices/%s/performanceHistory",
-		api.BaseUrl(), networkId, deviceId)
+	baseurl := fmt.Sprintf("/networks/%s/sm//devices/%s/performanceHistory",
+		 networkId, deviceId)
 	var datamodel = PerformanceHistory{}
 
 	// Parameters for Request URL

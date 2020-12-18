@@ -17,8 +17,8 @@ type STP struct {
 }
 
 func GetSTP(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stp",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stp",
+		 networkId)
 	var datamodel = STP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -28,8 +28,8 @@ func GetSTP(networkId string) []api.Results {
 }
 
 func PutSTP(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stp",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stp",
+		 networkId)
 	var datamodel = STP{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

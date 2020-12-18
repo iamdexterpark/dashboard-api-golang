@@ -22,8 +22,8 @@ type AccessControlLists struct {
 }
 
 func GetAccessControlLists(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessControlLists",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessControlLists",
+		 networkId)
 	var datamodel = AccessControlLists{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -33,8 +33,8 @@ func GetAccessControlLists(networkId string) []api.Results {
 }
 
 func PutAccessControlLists(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessControlLists",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessControlLists",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = AccessControlLists{}
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

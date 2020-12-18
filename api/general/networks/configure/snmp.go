@@ -17,7 +17,7 @@ type SNMP struct {
 }
 
 func GetSNMP(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/snmp", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/snmp",  networkId)
 	var datamodel = SNMP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -27,7 +27,7 @@ func GetSNMP(networkId string) []api.Results {
 }
 
 func PutSNMP(networkId, access, communityString, users string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/snmp", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/snmp",  networkId)
 	var datamodel = SNMP{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

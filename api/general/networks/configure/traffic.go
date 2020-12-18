@@ -33,7 +33,7 @@ type DscpTaggingOptions []struct {
 }
 
 func GetTrafficAnalysis(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/trafficAnalysis",  networkId)
 	var datamodel = TrafficAnalysis{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -43,7 +43,7 @@ func GetTrafficAnalysis(networkId string) []api.Results {
 }
 
 func PutTrafficAnalysis(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/trafficAnalysis", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/trafficAnalysis",  networkId)
 	var datamodel = TrafficAnalysis{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -54,7 +54,7 @@ func PutTrafficAnalysis(networkId string, data interface{}) []api.Results {
 }
 
 func GetApplicationCategories(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/applicationCategories", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/trafficShaping/applicationCategories",  networkId)
 	var datamodel = ApplicationCategories{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -64,7 +64,7 @@ func GetApplicationCategories(networkId string) []api.Results {
 }
 
 func GetDscpTaggingOptions(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/trafficShaping/dscpTaggingOptions", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/trafficShaping/dscpTaggingOptions",  networkId)
 	var datamodel = DscpTaggingOptions{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

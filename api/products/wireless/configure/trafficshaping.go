@@ -28,8 +28,8 @@ type TrafficShapingRules struct {
 }
 
 func GetTrafficShapingRules(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/trafficShaping/rules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/trafficShaping/rules",
+		 networkId, number)
 	var datamodel TrafficShapingRules
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -39,8 +39,8 @@ func GetTrafficShapingRules(networkId, number string) []api.Results {
 }
 
 func PutTrafficShapingRules(networkId, number string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/trafficShaping/rules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/trafficShaping/rules",
+		 networkId, number)
 	var datamodel TrafficShapingRules
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

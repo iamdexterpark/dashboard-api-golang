@@ -49,7 +49,7 @@ type PortForwardingRules struct {
 }
 
 func GetOneToManyNatRules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToManyNatRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/oneToManyNatRules",  networkId)
 	var datamodel = OneToManyNatRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -59,7 +59,7 @@ func GetOneToManyNatRules(networkId string) []api.Results {
 }
 
 func PutOneToManyNatRules(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToManyNatRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/oneToManyNatRules",  networkId)
 	var datamodel = OneToManyNatRules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -70,7 +70,7 @@ func PutOneToManyNatRules(networkId string, data interface{}) []api.Results {
 }
 
 func GetOneToOneNatRules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToOneNatRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/oneToOneNatRules",  networkId)
 	var datamodel = OneToOneNatRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -80,7 +80,7 @@ func GetOneToOneNatRules(networkId string) []api.Results {
 }
 
 func PutOneToOneNatRules(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/oneToOneNatRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/oneToOneNatRules",  networkId)
 	var datamodel = OneToOneNatRules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -91,7 +91,7 @@ func PutOneToOneNatRules(networkId string, data interface{}) []api.Results {
 }
 
 func GetPortForwardingRules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/portForwardingRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/portForwardingRules",  networkId)
 	var datamodel = PortForwardingRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -101,7 +101,7 @@ func GetPortForwardingRules(networkId string) []api.Results {
 }
 
 func PutPortForwardingRules(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/firewall/portForwardingRules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/firewall/portForwardingRules",  networkId)
 	var datamodel = PortForwardingRules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

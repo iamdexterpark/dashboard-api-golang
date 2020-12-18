@@ -43,7 +43,7 @@ type QualityRetentionProfile struct {
 }
 
 func PostQualityRetentionProfiles(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/camera/qualityRetentionProfiles",  networkId)
 	var datamodel = QualityRetentionProfiles{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -54,7 +54,7 @@ func PostQualityRetentionProfiles(networkId string, data interface{}) []api.Resu
 }
 
 func GetQualityRetentionProfiles(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/camera/qualityRetentionProfiles",  networkId)
 	var datamodel = QualityRetentionProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -64,7 +64,7 @@ func GetQualityRetentionProfiles(networkId string) []api.Results {
 }
 
 func GetQualityRetentionProfile(networkId, qualityRetentionProfileId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/networks/%s/camera/qualityRetentionProfiles/%s",
 		networkId, qualityRetentionProfileId)
 	var datamodel = QualityRetentionProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -75,7 +75,7 @@ func GetQualityRetentionProfile(networkId, qualityRetentionProfileId string) []a
 }
 
 func PutQualityRetentionProfile(networkId, qualityRetentionProfileId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/networks/%s/camera/qualityRetentionProfiles/%s",
 		networkId, qualityRetentionProfileId)
 	var datamodel = QualityRetentionProfile{}
 	payload := user_agent.MarshalJSON(data)
@@ -87,7 +87,7 @@ func PutQualityRetentionProfile(networkId, qualityRetentionProfileId string, dat
 }
 
 func DelQualityRetentionProfile(networkId, qualityRetentionProfileId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/camera/qualityRetentionProfiles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/networks/%s/camera/qualityRetentionProfiles/%s",
 		networkId, qualityRetentionProfileId)
 	var datamodel = QualityRetentionProfile{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)

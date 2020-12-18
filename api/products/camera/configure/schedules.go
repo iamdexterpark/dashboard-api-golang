@@ -12,7 +12,7 @@ type CameraRecordingSchedules []struct {
 }
 
 func GetCameraSchedules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/schedules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/devices/%s/camera/schedules",  networkId)
 	var datamodel = CameraRecordingSchedules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

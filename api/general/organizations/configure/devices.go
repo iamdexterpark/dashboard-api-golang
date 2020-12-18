@@ -33,7 +33,7 @@ type Devices []struct {
 
 func GetOrganizationDevices(organizationId, perPage, startingAfter,
 	configurationUpdatedAfter string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/devices", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/devices",  organizationId)
 	var datamodel = Device{}
 
 	// Parameters for Request URL

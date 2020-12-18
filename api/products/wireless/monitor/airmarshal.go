@@ -25,8 +25,8 @@ type AirMarshal[]struct {
 }
 
 func GetAirMarshal(serial, t0, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/airMarshal",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/airMarshal",
+		 serial)
 	var datamodel = AirMarshal{}
 
 	// Parameters for Request URL

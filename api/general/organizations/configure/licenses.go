@@ -86,7 +86,7 @@ type RenewSeats struct {
 
 func GetLicenses(organizationId, perPage, startingAfter,
 	endingBefore, deviceSerial, networkId, state string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses",
 		organizationId)
 	var datamodel = Licenses{}
 
@@ -109,7 +109,7 @@ func GetLicenses(organizationId, perPage, startingAfter,
 
 
 func GetLicense(organizationId, licenseId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/%s",
 		organizationId, licenseId)
 	var datamodel = License{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -120,7 +120,7 @@ func GetLicense(organizationId, licenseId string) []api.Results {
 }
 
 func PutLicense(organizationId, licenseId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/%s",
 		organizationId, licenseId)
 	var datamodel = License{}
 	sessions, err := api.Sessions(baseurl, "PUT", nil, nil, datamodel)
@@ -131,7 +131,7 @@ func PutLicense(organizationId, licenseId string) []api.Results {
 }
 
 func PostAssignSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/assignSeats", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/assignSeats",
 		organizationId)
 	var datamodel = AssignSeats{}
 	payload := user_agent.MarshalJSON(data)
@@ -143,7 +143,7 @@ func PostAssignSeats(organizationId, deviceSerial string, data interface{}) []ap
 }
 
 func PostMoveLicenses(organizationId, deviceSerial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/move", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/move",
 		organizationId)
 	var datamodel = AssignSeats{}
 	payload := user_agent.MarshalJSON(data)
@@ -155,7 +155,7 @@ func PostMoveLicenses(organizationId, deviceSerial string, data interface{}) []a
 }
 
 func PostMoveSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/moveSeats", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/moveSeats",
 		organizationId)
 	var datamodel = MoveSeats{}
 	payload := user_agent.MarshalJSON(data)
@@ -167,7 +167,7 @@ func PostMoveSeats(organizationId, deviceSerial string, data interface{}) []api.
 }
 
 func PostRenewSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/renewSeats", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/renewSeats",
 		organizationId)
 	var datamodel = RenewSeats{}
 	payload := user_agent.MarshalJSON(data)

@@ -19,8 +19,8 @@ type LinkAggregation struct {
 }
 
 func GetLinkAggregations(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/linkAggregations",
+		 networkId)
 	var datamodel = LinkAggregations{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -30,8 +30,8 @@ func GetLinkAggregations(networkId string) []api.Results {
 }
 
 func DelLinkAggregation(networkId, linkAggregationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations/%s",
-		api.BaseUrl(), networkId, linkAggregationId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/linkAggregations/%s",
+		 networkId, linkAggregationId)
 	var datamodel = LinkAggregation{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -41,8 +41,8 @@ func DelLinkAggregation(networkId, linkAggregationId string) []api.Results {
 }
 
 func PutLinkAggregation(networkId, linkAggregationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations/%s",
-		api.BaseUrl(), networkId, linkAggregationId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/linkAggregations/%s",
+		 networkId, linkAggregationId)
 	var datamodel = LinkAggregation{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -53,8 +53,8 @@ func PutLinkAggregation(networkId, linkAggregationId string, data interface{}) [
 }
 
 func PostLinkAggregation(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/linkAggregations",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/linkAggregations",
+		 networkId)
 	var datamodel = LinkAggregation{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

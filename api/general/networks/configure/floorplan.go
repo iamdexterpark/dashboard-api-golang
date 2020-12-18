@@ -63,7 +63,7 @@ type FloorPlan struct {
 }
 
 func GetFloorPlans(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans",  networkId)
 	var datamodel = FloorPlans{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -73,7 +73,7 @@ func GetFloorPlans(networkId string) []api.Results {
 }
 
 func GetFloorPlan(networkId, floorPlanId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
 	var datamodel = FloorPlan{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -83,7 +83,7 @@ func GetFloorPlan(networkId, floorPlanId string) []api.Results {
 }
 
 func PostFloorPlan(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans",  networkId)
 	var datamodel = FloorPlan{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -94,7 +94,7 @@ func PostFloorPlan(networkId string, data interface{}) []api.Results {
 }
 
 func PutFloorPlan(networkId, floorPlanId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
 	var datamodel = FloorPlan{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -105,7 +105,7 @@ func PutFloorPlan(networkId, floorPlanId string, data interface{}) []api.Results
 }
 
 func DelFloorPlan(networkId, floorPlanId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/floorPlans/%s", api.BaseUrl(), networkId, floorPlanId)
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
 	var datamodel = FloorPlan{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {

@@ -12,8 +12,8 @@ type Cycle struct {
 }
 
 func PostCyclePorts(networkId, serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports/cycle",
-		api.BaseUrl(), networkId, serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/ports/cycle",
+		 networkId, serial)
 	var datamodel = Cycle{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

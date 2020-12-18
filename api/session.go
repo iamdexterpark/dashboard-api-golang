@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"github.com/spf13/viper"
 	"io"
@@ -9,35 +8,30 @@ import (
 	"net/http"
 )
 
-// Meraki API token
-func Token() string {
+// Set Environmental Variables
+func EnvironmentalVariables()  {
+
+	// read value ENV variable
 	viper.AutomaticEnv()
-	token, ok := viper.Get("MERAKI_API_TOKEN").(string)
+
+	// Ensure API Token is set correctly
+	_, ok := viper.Get("MERAKI_DASHBOARD_API_KEY").(string)
 	if !ok {
-		log.Fatal("Please set your MERAKI_API_TOKEN environmental variable to use this tool. ")
+		log.Fatal("Please set your MERAKI_DASHBOARD_API_KEY environmental variable to use this tool. ")
 	}
-	return token
+
+	// Set default values
+
+	// API Version
+	viper.SetDefault("MERAKI_DASHBOARD_API_VERSION", "v1")
+
+	// Base URL
+	viper.SetDefault("MERAKI_DASHBOARD_API_URL", "https://api-mp.meraki.com/api/")
+
+
+
 }
 
-// Set Meraki API Version for BaseUrl & User-agent API Header
-func APIversion() string {
-	viper.AutomaticEnv()
-	apiversion, ok := viper.Get("MERAKI_API_VERSION").(string)
-	if !ok {
-		apiversion = "v1"
-	}
-	return apiversion
-}
-
-// Meraki Shard Url
-func BaseUrl() string {
-	viper.AutomaticEnv()
-	baseurl, ok := viper.Get("MERAKI_API_URL").(string)
-	if !ok {
-		baseurl = fmt.Sprintf("https://api-mp.meraki.com/api/%s", APIversion())
-	}
-	return baseurl
-}
 
 // Create a struct that allows us to pass data through a single interface
 type ResponseData struct {
@@ -72,42 +66,42 @@ type Results struct {
 	Payload    interface{}
 }
 
-// TestSession initializes a communication channel with the Meraki Dashboard API
-func Session(baseurl string, method string, payload io.ReadSeeker,
+// Session initializes a communication channel with the Meraki Dashboard API
+func Session(apikey, baseurl, method string, payload io.ReadSeeker,
 	parameter map[string]string, datamodel interface{}) (Results, error) {
 	restSession := user_agent.MerakiClient()
-
 	// response variable
 	var session *http.Response
 	var err error
 
+	apiVersion := viper.GetString("MERAKI_DASHBOARD_API_VERSION")
 	// Determine HTTP Method
 	switch method {
 
 	// Get-based API Calls
 	case "GET":
-		session, err = restSession.Get(baseurl, APIversion(), Token())
+		session, err = restSession.Get(baseurl, apiVersion, apikey)
 		if err != nil {
 			log.Fatal(err)
 		}
 
 	// Create-based API Calls
 	case "POST":
-		session, err = restSession.Post(baseurl, APIversion(), Token(), payload)
+		session, err = restSession.Post(baseurl, apiVersion, apikey, payload)
 		if err != nil {
 			log.Fatal(err)
 		}
 
 	// Update-based API Calls
 	case "PUT":
-		session, err = restSession.Put(baseurl, APIversion(), Token(), payload)
+		session, err = restSession.Put(baseurl, apiVersion, apikey, payload)
 		if err != nil {
 			log.Fatal(err)
 		}
 
 	// Delete-based API Calls
 	case "DELETE":
-		session, err = restSession.Delete(baseurl, APIversion(), Token())
+		session, err = restSession.Delete(baseurl, apiVersion, apikey)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -132,7 +126,7 @@ func Session(baseurl string, method string, payload io.ReadSeeker,
 		baseurl:             baseurl,
 		parameters:          session.Request.URL.RawQuery,
 		payload:             payload,
-		DashboardAPIVersion: APIversion(),
+		DashboardAPIVersion: viper.GetString("MERAKI_DASHBOARD_API_VERSION"),
 	}
 
 	dashboardResponse := Response{
@@ -156,15 +150,26 @@ func Session(baseurl string, method string, payload io.ReadSeeker,
 	return metadata, err
 }
 
-func Sessions(baseurl string, method string, payload io.ReadSeeker,
+func Sessions(resource string, method string, payload io.ReadSeeker,
 	parameters map[string]string, datamodel interface{}) ([]Results, error) {
+
+	// Set Environmental Variables
+	EnvironmentalVariables()
+
+	// Declare var
+	apiKey := viper.GetString("MERAKI_DASHBOARD_API_KEY")
+	baseUrl :=  viper.GetString("MERAKI_DASHBOARD_API_URL")
+	version :=  viper.GetString("MERAKI_DASHBOARD_API_VERSION")
 
 	var sessions []Results
 
-	session, err := Session(baseurl, method, payload, parameters, datamodel)
+	// Assemble url
+	url := baseUrl+version+resource
+	session, err := Session(apiKey, url, method, payload, parameters, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	sessions = append(sessions, session)
 
 	for _, page := range session.Pagination {
@@ -174,7 +179,7 @@ func Sessions(baseurl string, method string, payload io.ReadSeeker,
 		parameters["endingBefore"] = page.EndingBefore
 
 		if page.Rel == "next" || page.Rel == "last" {
-			paginatedSession, err := Session(page.URI, "GET", payload, parameters, datamodel)
+			paginatedSession, err := Session(apiKey, page.URI, "GET", payload, parameters, datamodel)
 			if err != nil {
 				log.Fatal(err)
 			}

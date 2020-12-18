@@ -36,7 +36,7 @@ type SecurityEvents []struct {
 
 func GetNetworkSecurityEvents(networkId, t0, t1, timespan, perPage,
 	startingAfter, endingBefore, sortOrder string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/security/events", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/security/events",  networkId)
 	var datamodel = SecurityEvents{}
 
 	// Parameters for Request URL
@@ -58,7 +58,7 @@ func GetNetworkSecurityEvents(networkId, t0, t1, timespan, perPage,
 
 func GetOrganizationSecurityEvents(organizationId, t0, t1, timespan, perPage,
 	startingAfter, endingBefore, sortOrder string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/security/events", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/security/events",  organizationId)
 	var datamodel = SecurityEvents{}
 
 	// Parameters for Request URL

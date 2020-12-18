@@ -29,8 +29,8 @@ type L7FirewallRules struct {
 }
 
 func GetL3FirewallRules(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l3FirewallRules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/firewall/l3FirewallRules",
+		 networkId, number)
 	var datamodel L3FirewallRules
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -40,8 +40,8 @@ func GetL3FirewallRules(networkId, number string) []api.Results {
 }
 
 func PutL3FirewallRules(networkId, number string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l3FirewallRules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/firewall/l3FirewallRules",
+		 networkId, number)
 	var datamodel L3FirewallRules
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -52,8 +52,8 @@ func PutL3FirewallRules(networkId, number string, data interface{}) []api.Result
 }
 
 func GetL7FirewallRules(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l7FirewallRules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/firewall/l7FirewallRules",
+		 networkId, number)
 	var datamodel L7FirewallRules
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -63,8 +63,8 @@ func GetL7FirewallRules(networkId, number string) []api.Results {
 }
 
 func PutL7FirewallRules(networkId, number string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/firewall/l7FirewallRules",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/firewall/l7FirewallRules",
+		 networkId, number)
 	var datamodel L7FirewallRules
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

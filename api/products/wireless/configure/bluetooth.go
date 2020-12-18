@@ -22,8 +22,8 @@ type BluetoothDeviceSettings struct {
 }
 
 func GetBluetoothNetworkSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/bluetooth/settings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/bluetooth/settings",
+		 networkId)
 	var datamodel = BluetoothNetworkSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -33,8 +33,8 @@ func GetBluetoothNetworkSettings(networkId string) []api.Results {
 }
 
 func PutBluetoothNetworkSettings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/bluetooth/settings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/bluetooth/settings",
+		 networkId)
 	var datamodel = BluetoothNetworkSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -45,8 +45,8 @@ func PutBluetoothNetworkSettings(networkId string, data interface{}) []api.Resul
 }
 
 func GetBluetoothDeviceSettings(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/bluetooth/settings",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/bluetooth/settings",
+		 serial)
 	var datamodel = BluetoothDeviceSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -56,8 +56,8 @@ func GetBluetoothDeviceSettings(serial string) []api.Results {
 }
 
 func PutBluetoothDeviceSettings(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/bluetooth/settings",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/bluetooth/settings",
+		 serial)
 	var datamodel = BluetoothDeviceSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

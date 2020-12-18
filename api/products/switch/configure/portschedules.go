@@ -43,8 +43,8 @@ type PortSchedules []struct {
 }
 
 func GetPortSchedules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/portSchedules",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/portSchedules",
+		 networkId)
 	var datamodel = PortSchedules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -54,8 +54,8 @@ func GetPortSchedules(networkId string) []api.Results {
 }
 
 func DelPortSchedules(networkId, portScheduleId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/portSchedules/%s",
-		api.BaseUrl(), networkId, portScheduleId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/portSchedules/%s",
+		 networkId, portScheduleId)
 	var datamodel = PortSchedules{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -65,8 +65,8 @@ func DelPortSchedules(networkId, portScheduleId string) []api.Results {
 }
 
 func PutPortSchedules(networkId, portScheduleId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/portSchedules/%s",
-		api.BaseUrl(), networkId, portScheduleId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/portSchedules/%s",
+		 networkId, portScheduleId)
 	var datamodel = PortSchedules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -77,8 +77,8 @@ func PutPortSchedules(networkId, portScheduleId string, data interface{}) []api.
 }
 
 func PostPortSchedules(networkId  string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/portSchedules",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/portSchedules",
+		 networkId)
 	var datamodel = PortSchedules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

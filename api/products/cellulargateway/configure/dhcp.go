@@ -14,8 +14,8 @@ type DHCP struct {
 }
 
 func GetDhcp(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/dhcp",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/dhcp",
+		 networkId)
 	var datamodel = DHCP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -25,8 +25,8 @@ func GetDhcp(networkId string) []api.Results {
 }
 
 func PutDhcp(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/dhcp",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/dhcp",
+		 networkId)
 	var datamodel = DHCP{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

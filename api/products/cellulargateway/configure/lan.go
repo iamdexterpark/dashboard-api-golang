@@ -24,8 +24,8 @@ type LAN struct {
 }
 
 func GetLan(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/lan",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/cellularGateway/lan",
+		 serial)
 	var datamodel = LAN{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -35,8 +35,8 @@ func GetLan(serial string) []api.Results {
 }
 
 func PutLan(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/lan",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/cellularGateway/lan",
+		 serial)
 	var datamodel = LAN{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

@@ -20,7 +20,7 @@ type Traffic []struct {
 
 // Return the traffic analysis data for this network
 func GetTraffic(networkId, t0, timespan, deviceType string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/traffic", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/traffic",  networkId)
 	var datamodel = Traffic{}
 
 	// Parameters for Request URL

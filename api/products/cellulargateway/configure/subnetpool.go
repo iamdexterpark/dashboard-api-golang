@@ -19,8 +19,8 @@ type SubnetPool struct {
 }
 
 func GetSubnetPool(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/subnetPool",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/subnetPool",
+		 networkId)
 	var datamodel = SubnetPool{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -30,8 +30,8 @@ func GetSubnetPool(networkId string) []api.Results {
 }
 
 func PutSubnetPool(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/subnetPool",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/subnetPool",
+		 networkId)
 	var datamodel = SubnetPool{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

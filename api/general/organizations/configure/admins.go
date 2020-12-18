@@ -33,8 +33,7 @@ type Admin struct {
 }
 
 func GetAdmins(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/admins", api.BaseUrl(), organizationId)
-
+	baseurl := fmt.Sprintf("/organizations/%s/admins", organizationId)
 	var datamodel = Admins{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -44,8 +43,7 @@ func GetAdmins(organizationId string) []api.Results {
 }
 
 func DelAdmin(organizationId, adminId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/admins/%s", api.BaseUrl(), organizationId, adminId)
-
+	baseurl := fmt.Sprintf("/organizations/%s/admins/%s",  organizationId, adminId)
 	var datamodel = Admin{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -55,7 +53,7 @@ func DelAdmin(organizationId, adminId string) []api.Results {
 }
 
 func PutAdmin(organizationId, adminId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/admins/%s", api.BaseUrl(), organizationId, adminId)
+	baseurl := fmt.Sprintf("/organizations/%s/admins/%s",  organizationId, adminId)
 	var datamodel = Admin{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -66,7 +64,7 @@ func PutAdmin(organizationId, adminId string, data interface{}) []api.Results {
 }
 
 func PostAdmin(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/admins", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/admins",  organizationId)
 	var datamodel = Admin{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

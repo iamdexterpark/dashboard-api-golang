@@ -16,7 +16,7 @@ type License struct {
 
 // Return an overview of the license state for an organization
 func GetLicenseOverview(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/licenses/overview", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/licenses/overview",  organizationId)
 	var datamodel = License{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)

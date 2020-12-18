@@ -27,7 +27,7 @@ type MerakiAuthUser struct {
 }
 
 func GetMerakiAuthUsers(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/merakiAuthUsers",  networkId)
 	var datamodel = MerakiAuthUsers{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -37,7 +37,7 @@ func GetMerakiAuthUsers(networkId string) []api.Results {
 }
 
 func GetMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers/%s", api.BaseUrl(), networkId, merakiAuthUserId)
+	baseurl := fmt.Sprintf("/networks/%s/merakiAuthUsers/%s",  networkId, merakiAuthUserId)
 	var datamodel = MerakiAuthUser{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -47,7 +47,7 @@ func GetMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
 }
 
 func DelMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers/%s", api.BaseUrl(), networkId, merakiAuthUserId)
+	baseurl := fmt.Sprintf("/networks/%s/merakiAuthUsers/%s",  networkId, merakiAuthUserId)
 	var datamodel = MerakiAuthUser{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -57,7 +57,7 @@ func DelMerakiAuthUser(networkId, merakiAuthUserId string) []api.Results {
 }
 
 func PutMerakiAuthUser(networkId, merakiAuthUserId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers/%s", api.BaseUrl(), networkId, merakiAuthUserId)
+	baseurl := fmt.Sprintf("/networks/%s/merakiAuthUsers/%s",  networkId, merakiAuthUserId)
 	var datamodel = MerakiAuthUser{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -68,7 +68,7 @@ func PutMerakiAuthUser(networkId, merakiAuthUserId string, data interface{}) []a
 }
 
 func PostMerakiAuthUser(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/merakiAuthUsers", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/merakiAuthUsers",  networkId)
 	var datamodel = MerakiAuthUser{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

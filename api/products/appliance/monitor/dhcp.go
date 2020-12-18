@@ -14,7 +14,7 @@ type DHCP []struct {
 }
 
 func GetDHCP(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/appliance/dhcp/subnets", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/appliance/dhcp/subnets",  serial)
 	var datamodel = DHCP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

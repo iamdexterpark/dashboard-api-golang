@@ -18,7 +18,7 @@ type QualityAndRetention struct {
 }
 
 func GetQualityAndRetention(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/qualityAndRetention", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/qualityAndRetention",  serial)
 	var datamodel = QualityAndRetention{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -28,7 +28,7 @@ func GetQualityAndRetention(serial string) []api.Results {
 }
 
 func PutQualityAndRetention(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/qualityAndRetention", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/qualityAndRetention",  serial)
 	var datamodel = QualityAndRetention{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

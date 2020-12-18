@@ -18,7 +18,7 @@ type ConfigTemplate struct {
 }
 
 func GetConfigTemplates(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates",
 		organizationId)
 	var datamodel = ConfigTemplates{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -29,7 +29,7 @@ func GetConfigTemplates(organizationId string) []api.Results {
 }
 
 func GetConfigTemplate(organizationId, configTemplateId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
 	var datamodel = ConfigTemplate{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -40,7 +40,7 @@ func GetConfigTemplate(organizationId, configTemplateId string) []api.Results {
 }
 
 func DelConfigTemplate(organizationId, configTemplateId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
 	var datamodel = ConfigTemplate{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
@@ -51,7 +51,7 @@ func DelConfigTemplate(organizationId, configTemplateId string) []api.Results {
 }
 
 func PutConfigTemplate(organizationId, configTemplateId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
 	var datamodel = ConfigTemplate{}
 	payload := user_agent.MarshalJSON(data)
@@ -63,7 +63,7 @@ func PutConfigTemplate(organizationId, configTemplateId string, data interface{}
 }
 
 func PostConfigTemplate(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates",
 		organizationId)
 	var datamodel = ConfigTemplate{}
 	payload := user_agent.MarshalJSON(data)

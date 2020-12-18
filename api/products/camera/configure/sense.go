@@ -19,7 +19,7 @@ type Sense struct {
 }
 
 func GetObjectDetectionModel(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/sense/objectDetectionModels", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/sense/objectDetectionModels",  serial)
 	var datamodel = ObjectDetectionModel{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -29,7 +29,7 @@ func GetObjectDetectionModel(serial string) []api.Results {
 }
 
 func GetSense(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/sense", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/sense",  serial)
 	var datamodel = Sense{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -39,7 +39,7 @@ func GetSense(serial string) []api.Results {
 }
 
 func PutSense(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/sense", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/sense",  serial)
 	var datamodel = Sense{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

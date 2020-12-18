@@ -28,8 +28,8 @@ type SplashPageSettings struct {
 }
 
 func GetSplashPageSettings(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/splash/settings",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/splash/settings",
+		 networkId, number)
 	var datamodel SplashPageSettings
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -39,8 +39,8 @@ func GetSplashPageSettings(networkId, number string) []api.Results {
 }
 
 func PutSplashPageSettings(networkId, number string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/splash/settings",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/splash/settings",
+		 networkId, number)
 	var datamodel SplashPageSettings
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

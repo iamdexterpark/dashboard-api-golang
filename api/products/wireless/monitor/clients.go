@@ -92,8 +92,8 @@ type AggregatedLatency struct {
 func GetConnectivityEvents(networkId, clientId, perPage, startingAfter,
 	endingBefore, t0, t1, timespan, types, includedSeverities, band, ssidNumber,
 	deviceSerial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/connectivityEvents",
-		api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/%s/connectivityEvents",
+		 networkId, clientId)
 	var datamodel = ConnectivityEvents{}
 
 	// Parameters for Request URL
@@ -119,8 +119,8 @@ func GetConnectivityEvents(networkId, clientId, perPage, startingAfter,
 
 func GetClientLatencyHistory(networkId, clientId, t0, t1, timespan,
 	resolution string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/latencyHistory",
-		api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/%s/latencyHistory",
+		 networkId, clientId)
 	var datamodel = ClientLatencyHistory{}
 
 	// Parameters for Request URL
@@ -139,8 +139,8 @@ func GetClientLatencyHistory(networkId, clientId, t0, t1, timespan,
 
 func GetAggregatedLatencies(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/latencyStats",
+		 networkId)
 	var datamodel = AggregatedLatencies{}
 
 	// Parameters for Request URL
@@ -163,8 +163,8 @@ func GetAggregatedLatencies(networkId, t0, t1, timespan,
 
 func GetAggregatedLatency(networkId, clientId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/latencyStats",
-		api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/%s/latencyStats",
+		 networkId, clientId)
 	var datamodel = AggregatedLatency{}
 
 	// Parameters for Request URL

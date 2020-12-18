@@ -61,8 +61,8 @@ type SmUsers []struct {
 }
 
 func GetSmUserProfiles(networkId, userId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/deviceProfiles",
-		api.BaseUrl(), networkId, userId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/users/%s/deviceProfiles",
+		 networkId, userId)
 	var datamodel = SmUserProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -72,8 +72,8 @@ func GetSmUserProfiles(networkId, userId string) []api.Results {
 }
 
 func GetSmUserSoftware(networkId, userId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/users/%s/softwares",
-		api.BaseUrl(), networkId, userId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/users/%s/softwares",
+		 networkId, userId)
 	var datamodel = SmUserSoftware{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -83,8 +83,8 @@ func GetSmUserSoftware(networkId, userId string) []api.Results {
 }
 
 func GetSmUsers(networkId, ids, usernames, emails, scope string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/users",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/users",
+		 networkId)
 	var datamodel = SmUsers{}
 
 	// Parameters for Request URL

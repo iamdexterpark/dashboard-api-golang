@@ -67,8 +67,8 @@ type Statuses []struct {
 }
 
 func GetPacketCounters(serial, t0, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/ports/statuses/packets",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/networks/%s/switch/ports/statuses/packets",
+		 serial)
 	var datamodel = Packets{}
 
 	// Parameters for Request URL
@@ -84,8 +84,8 @@ func GetPacketCounters(serial, t0, timespan string) []api.Results {
 }
 
 func GetStatuses(serial, t0, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/ports/statuses",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/networks/%s/switch/ports/statuses",
+		 serial)
 	var datamodel = Statuses{}
 
 	// Parameters for Request URL

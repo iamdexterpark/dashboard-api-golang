@@ -11,7 +11,7 @@ type VideoLink struct {
 }
 
 func GetVideoLink(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/videoLink", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/videoLink",  serial)
 	var datamodel = VideoLink{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

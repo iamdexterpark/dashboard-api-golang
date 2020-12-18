@@ -39,7 +39,7 @@ type Events struct {
 func GetEvents(networkId, productType, includedEventTypes, excludedEventTypes,
 	deviceMac, deviceSerial, deviceName, clientIp, clientMac, clientName,
 	smDeviceMac, smDeviceName, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/events", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/events",  networkId)
 	var datamodel = Events{}
 
 	// Parameters for Request URL

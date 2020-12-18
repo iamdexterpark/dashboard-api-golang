@@ -16,8 +16,8 @@ type ClientCountHistory []struct {
 func GetClientCountHistory (networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag,
 	band, ssid string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clientCountHistory",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clientCountHistory",
+		 networkId)
 	var datamodel = ClientCountHistory{}
 
 	// Parameters for Request URL

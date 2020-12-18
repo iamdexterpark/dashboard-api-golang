@@ -23,7 +23,7 @@ type SAML struct {
 }
 
 func GetIDPS(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml/idps", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml/idps",
 		organizationId)
 	var datamodel = IDPS{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -34,7 +34,7 @@ func GetIDPS(organizationId string) []api.Results {
 }
 
 func GetIDP(organizationId, idpId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml/idp/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
 
 	var datamodel = IDP{}
@@ -46,7 +46,7 @@ func GetIDP(organizationId, idpId string) []api.Results {
 }
 
 func DelIDP(organizationId, idpId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml/idp/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
 
 	var datamodel = IDP{}
@@ -58,7 +58,7 @@ func DelIDP(organizationId, idpId string) []api.Results {
 }
 
 func PutIDP(organizationId, idpId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml/idp/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
 	var datamodel = IDP{}
 	payload := user_agent.MarshalJSON(data)
@@ -70,7 +70,7 @@ func PutIDP(organizationId, idpId string, data interface{}) []api.Results {
 }
 
 func PostIDP(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml/idp", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml/idp",
 		organizationId)
 	var datamodel = IDP{}
 	payload := user_agent.MarshalJSON(data)
@@ -82,7 +82,7 @@ func PostIDP(organizationId string, data interface{}) []api.Results {
 }
 
 func GetSAML(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml",
 		organizationId)
 
 	var datamodel = SAML{}
@@ -94,7 +94,7 @@ func GetSAML(organizationId string) []api.Results {
 }
 
 func PutSAML(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/saml", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/saml",
 		organizationId)
 	var datamodel = SAML{}
 	payload := user_agent.MarshalJSON(data)

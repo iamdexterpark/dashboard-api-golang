@@ -23,7 +23,7 @@ type WarmSpare struct {
 }
 
 func GetWarmSpare(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/warmSpare",  networkId)
 	var datamodel = WarmSpare{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -33,7 +33,7 @@ func GetWarmSpare(networkId string) []api.Results {
 }
 
 func PutWarmSpare(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/warmSpare",  networkId)
 	var datamodel = WarmSpare{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -44,7 +44,7 @@ func PutWarmSpare(networkId string, data interface{}) []api.Results {
 }
 
 func PostWarmSpare(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/warmSpare/swap", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/warmSpare/swap",  networkId)
 	var datamodel = WarmSpare{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

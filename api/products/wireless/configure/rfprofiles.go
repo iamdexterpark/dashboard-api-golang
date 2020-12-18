@@ -41,8 +41,8 @@ type RFProfile struct {
 }
 
 func GetRFProfiles(networkId, includeTemplateProfiles string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/rfProfiles",
+		 networkId)
 	var datamodel = RFProfiles{}
 
 	// Parameters for Request URL
@@ -57,8 +57,8 @@ func GetRFProfiles(networkId, includeTemplateProfiles string) []api.Results {
 }
 
 func GetRFProfile(networkId, rfProfileId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
-		api.BaseUrl(), networkId, rfProfileId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/rfProfiles/%s",
+		 networkId, rfProfileId)
 	var datamodel = RFProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -68,8 +68,8 @@ func GetRFProfile(networkId, rfProfileId string) []api.Results {
 }
 
 func DelRFProfile(networkId, rfProfileId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
-		api.BaseUrl(), networkId, rfProfileId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/rfProfiles/%s",
+		 networkId, rfProfileId)
 	var datamodel = RFProfile{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -79,8 +79,8 @@ func DelRFProfile(networkId, rfProfileId string) []api.Results {
 }
 
 func PutRFProfile(networkId, rfProfileId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles/%s",
-		api.BaseUrl(), networkId, rfProfileId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/rfProfiles/%s",
+		 networkId, rfProfileId)
 	var datamodel = RFProfile{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -91,8 +91,8 @@ func PutRFProfile(networkId, rfProfileId string, data interface{}) []api.Results
 }
 
 func PostRFProfile(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/rfProfiles",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/rfProfiles",
+		 networkId)
 	var datamodel = RFProfile{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

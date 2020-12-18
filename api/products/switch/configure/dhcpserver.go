@@ -13,8 +13,8 @@ type DHCPServerPolicy struct {
 }
 
 func GetDHCPServerPolicy(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/dhcpServerPolicy",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/dhcpServerPolicy",
+		 networkId)
 	var datamodel = DHCPServerPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -24,8 +24,8 @@ func GetDHCPServerPolicy(networkId string) []api.Results {
 }
 
 func PutDHCPServerPolicy(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/dhcpServerPolicy",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/dhcpServerPolicy",
+		 networkId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = DHCPServerPolicy{}
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

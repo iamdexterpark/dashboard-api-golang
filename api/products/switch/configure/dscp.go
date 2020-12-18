@@ -16,8 +16,8 @@ type DscpToCosMappings struct {
 }
 
 func GetDscpToCosMappings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/dscpToCosMappings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/dscpToCosMappings",
+		 networkId)
 	var datamodel = DscpToCosMappings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -27,8 +27,8 @@ func GetDscpToCosMappings(networkId string) []api.Results {
 }
 
 func PutDscpToCosMappings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/dscpToCosMappings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/dscpToCosMappings",
+		 networkId)
 	var datamodel = DscpToCosMappings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

@@ -21,8 +21,8 @@ type PortForwardingRules struct {
 }
 
 func GetPortForwardingRules(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/portForwardingRules",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/cellularGateway/portForwardingRules",
+		 serial)
 	var datamodel = PortForwardingRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -32,8 +32,8 @@ func GetPortForwardingRules(serial string) []api.Results {
 }
 
 func PutPortForwardingRules(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/cellularGateway/portForwardingRules",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/cellularGateway/portForwardingRules",
+		 serial)
 	var datamodel = PortForwardingRules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

@@ -13,8 +13,8 @@ type Clone struct {
 }
 
 func PostClone(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/switch/devices/clone",
-		api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/switch/devices/clone",
+		 organizationId)
 	var datamodel = Clone{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

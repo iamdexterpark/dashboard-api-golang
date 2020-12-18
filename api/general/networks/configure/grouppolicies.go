@@ -123,7 +123,7 @@ type GroupPolicy struct {
 
 
 func GetGroupPolicies(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies",  networkId)
 	var datamodel = GroupPolicies{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -134,7 +134,7 @@ func GetGroupPolicies(networkId string) []api.Results {
 
 
 func GetGroupPolicy(networkId, groupPolicyId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
 	var datamodel = GroupPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -144,7 +144,7 @@ func GetGroupPolicy(networkId, groupPolicyId string) []api.Results {
 }
 
 func PutGroupPolicy(networkId, groupPolicyId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
 	var datamodel = GroupPolicy{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -155,7 +155,7 @@ func PutGroupPolicy(networkId, groupPolicyId string, data interface{}) []api.Res
 }
 
 func PostGroupPolicy(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies",  networkId)
 	var datamodel = GroupPolicy{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -166,7 +166,7 @@ func PostGroupPolicy(networkId string, data interface{}) []api.Results {
 }
 
 func DelGroupPolicy(networkId, groupPolicyId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/groupPolicies/%s", api.BaseUrl(), networkId, groupPolicyId)
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
 	var datamodel = GroupPolicy{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {

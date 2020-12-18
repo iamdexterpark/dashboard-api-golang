@@ -26,7 +26,7 @@ type EnvironmentalEvents struct {
 // List the environmental events for the network
 func GetEnvironmentalEvents(networkId, includedEventTypes, excludedEventTypes, sensorSerial,
 	gatewaySerial, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/environmental/events", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/environmental/events",  networkId)
 	var datamodel = EnvironmentalEvents{}
 
 	// Parameters for Request URL

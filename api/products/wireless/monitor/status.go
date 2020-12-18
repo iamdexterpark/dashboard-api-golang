@@ -22,8 +22,8 @@ type Status struct {
 }
 
 func GetStatus(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/status",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/status",
+		 serial)
 	var datamodel = Status{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

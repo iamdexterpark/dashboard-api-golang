@@ -22,8 +22,8 @@ type AlternateManagementInterface struct {
 }
 
 func GetAlternateManagementInterface(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/alternateManagementInterface",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/alternateManagementInterface",
+		 networkId)
 	var datamodel = AlternateManagementInterface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -33,8 +33,8 @@ func GetAlternateManagementInterface(networkId string) []api.Results {
 }
 
 func PutAlternateManagementInterface(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/alternateManagementInterface",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/alternateManagementInterface",
+		 networkId)
 	var datamodel = AlternateManagementInterface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

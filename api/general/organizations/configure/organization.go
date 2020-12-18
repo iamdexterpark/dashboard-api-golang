@@ -33,7 +33,7 @@ type Clone struct {
 }
 
 func GetOrganizations() []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations", api.BaseUrl())
+	baseurl := fmt.Sprintf("/organizations", api.BaseUrl())
 
 	var datamodel = Organizations{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -44,7 +44,7 @@ func GetOrganizations() []api.Results {
 }
 
 func PostOrganization(name string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations", api.BaseUrl())
+	baseurl := fmt.Sprintf("/organizations", api.BaseUrl())
 	data := Organization{
 		Name: name,
 	}
@@ -58,7 +58,7 @@ func PostOrganization(name string) []api.Results {
 }
 
 func GetOrganization(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	var datamodel = Organization{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -68,7 +68,7 @@ func GetOrganization(organizationId string) []api.Results {
 }
 
 func PutOrganization(organizationId, name string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	data := Organization{
 		Name: name,
 	}
@@ -83,7 +83,7 @@ func PutOrganization(organizationId, name string) []api.Results {
 
 
 func DelOrganization(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	var datamodel = Organization{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -93,7 +93,7 @@ func DelOrganization(organizationId string) []api.Results {
 }
 
 func PostClaim(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/claim", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/claim",  organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Claim{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -104,7 +104,7 @@ func PostClaim(organizationId string, data interface{}) []api.Results {
 }
 
 func PostClone(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/clone", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/clone",  organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Clone{}
 	sessions, err := api.Sessions(baseurl, "POST", payload,nil, datamodel)

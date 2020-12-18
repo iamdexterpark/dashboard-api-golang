@@ -63,7 +63,7 @@ type CombineNetworks struct {
 
 func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage,
 	startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/networks", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/networks",
 		organizationId)
 
 	// Parameters for Request URL
@@ -84,7 +84,7 @@ func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage
 }
 
 func PostNetworks(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/networks", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/networks",
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Networks{}
@@ -96,7 +96,7 @@ func PostNetworks(organizationId string, data interface{}) []api.Results {
 }
 
 func PostCombineNetworks(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/networks/combine", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/networks/combine",
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Networks{}
@@ -109,7 +109,7 @@ func PostCombineNetworks(organizationId string, data interface{}) []api.Results 
 
 func GetClients(networkId, t0, t1, timespan,
 	perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/clients",  networkId)
 	var datamodel = Clients{}
 
 	// Parameters for Request URL

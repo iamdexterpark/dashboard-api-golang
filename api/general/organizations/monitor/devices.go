@@ -39,7 +39,7 @@ type UplinksLossAndLatency []struct {
 
 // List the status of every Meraki device in the organization
 func GetDeviceStatus(organizationId, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/devices/statuses", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/devices/statuses",  organizationId)
 	var datamodel = DeviceStatuses{}
 
 	// Parameters for Request URL
@@ -57,7 +57,7 @@ func GetDeviceStatus(organizationId, perPage, startingAfter, endingBefore string
 
 // Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
 func GetUplinksLossAndLatency(organizationId, t0, t1, timespan, uplink, ip string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/devices/uplinksLossAndLatency", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/devices/uplinksLossAndLatency",  organizationId)
 	var datamodel = UplinksLossAndLatency{}
 
 	// Parameters for Request URL

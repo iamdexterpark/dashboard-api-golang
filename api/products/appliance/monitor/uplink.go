@@ -32,7 +32,7 @@ type UplinkStatus []struct {
 }
 
 func GetUplinkStatus(organizationId, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/uplink/statuses", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/appliance/uplink/statuses",  organizationId)
 
 	var datamodel = UplinkStatus{}
 	// Parameters for Request URL

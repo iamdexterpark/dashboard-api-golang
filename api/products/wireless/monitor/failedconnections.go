@@ -20,8 +20,8 @@ type FailedConnections []struct {
 
 func GetFailedConnections(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/failedConnections",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/failedConnections",
+		 networkId)
 	var datamodel = FailedConnections{}
 
 	// Parameters for Request URL

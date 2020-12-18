@@ -15,8 +15,8 @@ type Settings struct {
 }
 
 func GetSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/settings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/settings",
+		 networkId)
 	var datamodel = Settings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -26,8 +26,8 @@ func GetSettings(networkId string) []api.Results {
 }
 
 func PutSettings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/settings",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/settings",
+		 networkId)
 	var datamodel = Settings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

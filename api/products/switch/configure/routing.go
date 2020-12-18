@@ -78,8 +78,8 @@ type Multicast struct {
 }
 
 func GetDHCP(serial, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s/dhcp",
-		api.BaseUrl(), serial, interfaceId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces/%s/dhcp",
+		 serial, interfaceId)
 	var datamodel = DHCP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -89,8 +89,8 @@ func GetDHCP(serial, interfaceId string) []api.Results {
 }
 
 func PutDHCP(serial, interfaceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s/dhcp",
-		api.BaseUrl(), serial, interfaceId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces/%s/dhcp",
+		 serial, interfaceId)
 	var datamodel = DHCP{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
@@ -101,8 +101,8 @@ func PutDHCP(serial, interfaceId string, data interface{}) []api.Results {
 }
 
 func GetInterfaces(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces",
+		 serial)
 	var datamodel = Interfaces{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -112,8 +112,8 @@ func GetInterfaces(serial string) []api.Results {
 }
 
 func GetInterface(serial, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
-		api.BaseUrl(), serial, interfaceId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces/%s",
+		 serial, interfaceId)
 	var datamodel = Interface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -123,8 +123,8 @@ func GetInterface(serial, interfaceId string) []api.Results {
 }
 
 func DelInterface(serial, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
-		api.BaseUrl(), serial, interfaceId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces/%s",
+		 serial, interfaceId)
 	var datamodel = Interface{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -134,8 +134,8 @@ func DelInterface(serial, interfaceId string) []api.Results {
 }
 
 func PutInterface(serial, interfaceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces/%s",
-		api.BaseUrl(), serial, interfaceId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces/%s",
+		 serial, interfaceId)
 	var datamodel = Interface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -146,8 +146,8 @@ func PutInterface(serial, interfaceId string, data interface{}) []api.Results {
 }
 
 func PostInterface(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/routing/interfaces",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/routing/interfaces",
+		 serial)
 	var datamodel = Interface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -158,8 +158,8 @@ func PostInterface(serial string, data interface{}) []api.Results {
 }
 
 func GetRendezvousPoints(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints",
+		 networkId)
 	var datamodel = RendezvousPoints{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -169,8 +169,8 @@ func GetRendezvousPoints(networkId string) []api.Results {
 }
 
 func GetRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
-		api.BaseUrl(), networkId, rendezvousPointId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
+		 networkId, rendezvousPointId)
 	var datamodel = RendezvousPoint{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -180,8 +180,8 @@ func GetRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
 }
 
 func delRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
-		api.BaseUrl(), networkId, rendezvousPointId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
+		 networkId, rendezvousPointId)
 	var datamodel = RendezvousPoint{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -191,8 +191,8 @@ func delRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
 }
 
 func PutRendezvousPoint(networkId, rendezvousPointId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
-		api.BaseUrl(), networkId, rendezvousPointId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
+		 networkId, rendezvousPointId)
 	var datamodel = RendezvousPoint{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -203,8 +203,8 @@ func PutRendezvousPoint(networkId, rendezvousPointId string, data interface{}) [
 }
 
 func PostRendezvousPoint(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast/rendezvousPoints",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints",
+		 networkId)
 	var datamodel = RendezvousPoint{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -215,8 +215,8 @@ func PostRendezvousPoint(networkId string, data interface{}) []api.Results {
 }
 
 func GetMulticast(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast",
+		 networkId)
 	var datamodel = Multicast{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -226,8 +226,8 @@ func GetMulticast(networkId string) []api.Results {
 }
 
 func PutMulticast(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/multicast",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast",
+		 networkId)
 	var datamodel = Multicast{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

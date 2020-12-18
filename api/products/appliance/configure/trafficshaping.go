@@ -99,7 +99,7 @@ type TrafficShaping struct {
 }
 
 func PostPerformanceClasses(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/customPerformanceClasses",  networkId)
 	var datamodel = CustomPerformanceClasses{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -110,7 +110,7 @@ func PostPerformanceClasses(networkId string, data interface{}) []api.Results {
 }
 
 func GetPerformanceClasses(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/customPerformanceClasses",  networkId)
 	var datamodel = CustomPerformanceClasses{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -120,7 +120,7 @@ func GetPerformanceClasses(networkId string) []api.Results {
 }
 
 func GetPerformanceClass(networkId, customPerformanceClassId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s",  networkId, customPerformanceClassId)
 	var datamodel = CustomPerformanceClass{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -130,7 +130,7 @@ func GetPerformanceClass(networkId, customPerformanceClassId string) []api.Resul
 }
 
 func DelPerformanceClass(networkId, customPerformanceClassId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s",  networkId, customPerformanceClassId)
 	var datamodel = CustomPerformanceClass{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -140,7 +140,7 @@ func DelPerformanceClass(networkId, customPerformanceClassId string) []api.Resul
 }
 
 func PutPerformanceClass(networkId, customPerformanceClassId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s", api.BaseUrl(), networkId, customPerformanceClassId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/customPerformanceClasses/%s",  networkId, customPerformanceClassId)
 	var datamodel = CustomPerformanceClass{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -151,7 +151,7 @@ func PutPerformanceClass(networkId, customPerformanceClassId string, data interf
 }
 
 func GetTrafficShapingRules(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/rules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/rules",  networkId)
 	var datamodel = TrafficShapingRules{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -161,7 +161,7 @@ func GetTrafficShapingRules(networkId string) []api.Results {
 }
 
 func PutTrafficShapingRules(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/rules", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/rules",  networkId)
 	var datamodel = TrafficShapingRules{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
@@ -172,7 +172,7 @@ func PutTrafficShapingRules(networkId string, data interface{}) []api.Results {
 }
 
 func GetUplinkBandwidth(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkBandwidth", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/uplinkBandwidth",  networkId)
 	var datamodel = UplinkBandwidth{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -182,7 +182,7 @@ func GetUplinkBandwidth(networkId string) []api.Results {
 }
 
 func PutUplinkBandwidth(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkBandwidth", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/uplinkBandwidth",  networkId)
 	var datamodel = UplinkBandwidth{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
@@ -193,7 +193,7 @@ func PutUplinkBandwidth(networkId string, data interface{}) []api.Results {
 }
 
 func GetUplinkSelection(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkSelection", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/uplinkSelection",  networkId)
 	var datamodel = UplinkSelection{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -203,7 +203,7 @@ func GetUplinkSelection(networkId string) []api.Results {
 }
 
 func PutUplinkSelection(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping/uplinkSelection", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping/uplinkSelection",  networkId)
 	var datamodel = UplinkSelection{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -214,7 +214,7 @@ func PutUplinkSelection(networkId string, data interface{}) []api.Results {
 }
 
 func GetTrafficShaping(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping",  networkId)
 	var datamodel = TrafficShaping{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -224,7 +224,7 @@ func GetTrafficShaping(networkId string) []api.Results {
 }
 
 func PutTrafficShaping(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/trafficShaping", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/trafficShaping",  networkId)
 	var datamodel = TrafficShaping{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

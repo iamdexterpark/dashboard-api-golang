@@ -28,7 +28,7 @@ type BluetoothClient struct {
 
 // GetBluetoothClients - List The Bluetooth Clients Seen By APs In This Network
 func GetBluetoothClients(networkId, t0, t1, timespan, perPage, startingAfter, endingBefore, includeConnectivityHistory string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/bluetoothClients", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/bluetoothClients",  networkId)
 	var datamodel = BluetoothClients{}
 
 	// Parameters for Request URL
@@ -50,7 +50,7 @@ func GetBluetoothClients(networkId, t0, t1, timespan, perPage, startingAfter, en
 
 // GetBluetoothClient - List A Bluetooth Client Seen By APs In This Network
 func GetBluetoothClient(networkId, bluetoothClientId, includeConnectivityHistory, connectivityHistoryTimespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/bluetoothClients/%s", api.BaseUrl(), networkId, bluetoothClientId)
+	baseurl := fmt.Sprintf("/networks/%s/bluetoothClients/%s",  networkId, bluetoothClientId)
 	var datamodel = BluetoothClient{}
 
 	// Parameters for Request URL

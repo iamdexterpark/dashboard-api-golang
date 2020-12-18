@@ -25,7 +25,7 @@ type ConfigurationChange struct {
 // View the Change Log for your organization
 func GetConfigurationChanges(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	adminId, networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configurationChanges", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/configurationChanges",  organizationId)
 	var datamodel = ConfigurationChanges{}
 
 	// Parameters for Request URL

@@ -13,7 +13,7 @@ type VideoSettings struct {
 }
 
 func GetVideoSettings(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/video/settings", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/video/settings",  serial)
 	var datamodel = VideoSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -23,7 +23,7 @@ func GetVideoSettings(serial string) []api.Results {
 }
 
 func PutVideoSettings(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/video/settings", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/video/settings",  serial)
 	var datamodel = VideoSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

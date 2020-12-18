@@ -18,8 +18,8 @@ type TargetGroup struct {
 }
 
 func GetTargetGroups(networkId, withDetails string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/targetGroups",
+		 networkId)
 	var datamodel = TargetGroups{}
 
 	// Parameters for Request URL
@@ -34,8 +34,8 @@ func GetTargetGroups(networkId, withDetails string) []api.Results {
 }
 
 func GetTargetGroup(networkId, targetGroupId, withDetails string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
-		api.BaseUrl(), networkId, targetGroupId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/targetGroups/%s",
+		 networkId, targetGroupId)
 	var datamodel = TargetGroups{}
 
 	// Parameters for Request URL
@@ -50,8 +50,8 @@ func GetTargetGroup(networkId, targetGroupId, withDetails string) []api.Results 
 }
 
 func PutTargetGroup(networkId, targetGroupId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
-		api.BaseUrl(), networkId, targetGroupId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/targetGroups/%s",
+		 networkId, targetGroupId)
 	var datamodel = TargetGroups{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -62,8 +62,8 @@ func PutTargetGroup(networkId, targetGroupId string, data interface{}) []api.Res
 }
 
 func DelTargetGroup(networkId, targetGroupId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups/%s",
-		api.BaseUrl(), networkId, targetGroupId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/targetGroups/%s",
+		 networkId, targetGroupId)
 	var datamodel = TargetGroups{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -73,8 +73,8 @@ func DelTargetGroup(networkId, targetGroupId string) []api.Results {
 }
 
 func PostTargetGroups(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/targetGroups",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/targetGroups",
+		 networkId)
 	var datamodel = TargetGroups{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

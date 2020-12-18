@@ -19,7 +19,7 @@ type MonitoredMediaServer struct {
 }
 
 func PostMonitoredMediaServer(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/insight/monitoredMediaServers",  organizationId)
 	var datamodel = MonitoredMediaServers{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -30,7 +30,7 @@ func PostMonitoredMediaServer(organizationId string, data interface{}) []api.Res
 }
 
 func GetMonitoredMediaServers(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/insight/monitoredMediaServers",  organizationId)
 	var datamodel = MonitoredMediaServers{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -40,7 +40,7 @@ func GetMonitoredMediaServers(organizationId string) []api.Results {
 }
 
 func GetMonitoredMediaServer(organizationId, monitoredMediaServerId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/insight/monitoredMediaServers/%s",
 		organizationId, monitoredMediaServerId)
 	var datamodel = MonitoredMediaServer{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -51,7 +51,7 @@ func GetMonitoredMediaServer(organizationId, monitoredMediaServerId string) []ap
 }
 
 func PutMonitoredMediaServer(organizationId, monitoredMediaServerId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/insight/monitoredMediaServers/%s",
 		organizationId, monitoredMediaServerId)
 	var datamodel = MonitoredMediaServer{}
 	payload := user_agent.MarshalJSON(data)
@@ -63,7 +63,7 @@ func PutMonitoredMediaServer(organizationId, monitoredMediaServerId string, data
 }
 
 func DelMonitoredMediaServer(organizationId, monitoredMediaServerId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/insight/monitoredMediaServers/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/insight/monitoredMediaServers/%s",
 		organizationId, monitoredMediaServerId)
 	var datamodel = MonitoredMediaServer{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)

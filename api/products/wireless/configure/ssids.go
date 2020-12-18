@@ -51,7 +51,7 @@ type SSIDS []struct {
 
 
 func GetSSIDS(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids",  networkId)
 	var datamodel SSIDS
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -61,7 +61,7 @@ func GetSSIDS(networkId string) []api.Results {
 }
 
 func GetSSID(networkId, ssidNumber string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s", api.BaseUrl(), networkId, ssidNumber)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s",  networkId, ssidNumber)
 	var datamodel SSID
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -71,7 +71,7 @@ func GetSSID(networkId, ssidNumber string) []api.Results {
 }
 
 func PutSSID(networkId, ssidNumber string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s", api.BaseUrl(), networkId, ssidNumber)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s",  networkId, ssidNumber)
 
 	payload := user_agent.MarshalJSON(data)
 	var datamodel SSID

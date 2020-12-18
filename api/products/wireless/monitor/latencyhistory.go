@@ -15,8 +15,8 @@ type LatencyHistory []struct {
 
 func GetLatencyHistory(networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag, band, ssid, accessCategory string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/latencyHistory",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/latencyHistory",
+		 networkId)
 	var datamodel = LatencyHistory{}
 
 	// Parameters for Request URL

@@ -11,7 +11,7 @@ type APNSCertificate struct {
 }
 
 func GetAPNSCertificate(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/sm/apnsCert", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/sm/apnsCert",  organizationId)
 	var datamodel = APNSCertificate{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

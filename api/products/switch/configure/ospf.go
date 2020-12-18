@@ -24,8 +24,8 @@ type OSPF struct {
 }
 
 func GetOSPF(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/ospf",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/ospf",
+		 networkId)
 	var datamodel = OSPF{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -35,8 +35,8 @@ func GetOSPF(networkId string) []api.Results {
 }
 
 func PutOSPF(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/routing/ospf",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/routing/ospf",
+		 networkId)
 	var datamodel = OSPF{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

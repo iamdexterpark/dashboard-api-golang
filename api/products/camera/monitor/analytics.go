@@ -63,7 +63,7 @@ type GenerateSnapshot struct {
 
 // Returns live state from camera of analytics zones
 func GetAnalyticsLive(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/live", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/analytics/live",  serial)
 	var datamodel = AnalyticsLive{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -74,7 +74,7 @@ func GetAnalyticsLive(serial string) []api.Results {
 
 // Returns an overview of aggregate analytics data for a timespan
 func GetAnalyticsOverview(serial, t0, t1, timespan, objectType string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/overview", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/analytics/overview",  serial)
 	var datamodel = AnalyticsOverview{}
 
 	// Parameters for Request URL
@@ -93,7 +93,7 @@ func GetAnalyticsOverview(serial, t0, t1, timespan, objectType string) []api.Res
 
 // Returns most recent record for analytics zones
 func GetAnalyticsRecent(serial, objectType string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/recent", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/analytics/recent",  serial)
 	var datamodel = AnalyticsRecents{}
 
 	// Parameters for Request URL
@@ -110,7 +110,7 @@ func GetAnalyticsRecent(serial, objectType string) []api.Results {
 // Return historical records for analytic zones
 func GetAnalyticsZoneHistory(serial, zoneId, t0, t1, timespan,
 	resolution, objectType string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/zones/%s", api.BaseUrl(), serial, zoneId)
+	baseurl := fmt.Sprintf("/devices/%s/camera/analytics/zones/%s",  serial, zoneId)
 	var datamodel = AnalyticsZoneHistory{}
 
 	// Parameters for Request URL
@@ -130,7 +130,7 @@ func GetAnalyticsZoneHistory(serial, zoneId, t0, t1, timespan,
 
 // Returns All Configured Analytic Zones For This Camera
 func GetAnalyticZones(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/analytics/zones", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/analytics/zones",  serial)
 	var datamodel = AnalyticZones{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -141,7 +141,7 @@ func GetAnalyticZones(serial string) []api.Results {
 
 
 func PostGenerateSnapshot(serial, timestamp, fullframe string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/camera/generateSnapshot", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/camera/generateSnapshot",  serial)
 	var datamodel = AnalyticZones{}
 	payload := user_agent.MarshalJSON(data)
 	// Parameters for Request URL

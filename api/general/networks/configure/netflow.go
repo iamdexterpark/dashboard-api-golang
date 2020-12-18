@@ -14,7 +14,7 @@ type NetFlow struct {
 }
 
 func GetNetFlow(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/netflow", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/netflow",  networkId)
 	var datamodel = NetFlow{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -24,7 +24,7 @@ func GetNetFlow(networkId string) []api.Results {
 }
 
 func PutNetFlow(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/netflow", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/netflow",  networkId)
 	var datamodel = NetFlow{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

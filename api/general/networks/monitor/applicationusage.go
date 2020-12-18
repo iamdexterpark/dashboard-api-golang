@@ -18,7 +18,7 @@ type ApplicationUsage []struct {
 }
 
 func GetApplicationUsage(networkId, clients, ssidNumber, perPage, startingAfter, endingBefore, t0, t1, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/applicationUsage", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/applicationUsage",  networkId)
 	var datamodel = ApplicationUsage{}
 
 	// Parameters for Request URL

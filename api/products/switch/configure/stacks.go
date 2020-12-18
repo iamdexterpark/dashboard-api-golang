@@ -81,8 +81,8 @@ type Stack struct {
 }
 
 func GetStackDHCP(networkId, switchStackId, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces/%s/dhcp",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces/%s/dhcp",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackDHCP{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -92,8 +92,8 @@ func GetStackDHCP(networkId, switchStackId, interfaceId string) []api.Results {
 }
 
 func PutStackDHCP(networkId, switchStackId, interfaceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces/%s/dhcp",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces/%s/dhcp",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackDHCP{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -104,8 +104,8 @@ func PutStackDHCP(networkId, switchStackId, interfaceId string, data interface{}
 }
 
 func GetStackInterfaces(networkId, switchStackId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces",
+		 networkId, switchStackId)
 	var datamodel = StackInterfaces{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -115,8 +115,8 @@ func GetStackInterfaces(networkId, switchStackId string) []api.Results {
 }
 
 func GetStackInterface(networkId, switchStackId, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackInterface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -126,8 +126,8 @@ func GetStackInterface(networkId, switchStackId, interfaceId string) []api.Resul
 }
 
 func DelStackInterface(networkId, switchStackId, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackInterface{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -137,8 +137,8 @@ func DelStackInterface(networkId, switchStackId, interfaceId string) []api.Resul
 }
 
 func PutStackInterface(networkId, switchStackId, interfaceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackInterface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -149,8 +149,8 @@ func PutStackInterface(networkId, switchStackId, interfaceId string, data interf
 }
 
 func PostStackInterface(networkId, switchStackId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/routing/interfaces",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/routing/interfaces",
+		 networkId, switchStackId)
 	var datamodel = StackInterface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -161,8 +161,8 @@ func PostStackInterface(networkId, switchStackId string, data interface{}) []api
 }
 
 func GetStackStaticRoutes(networkId, switchStackId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%srouting/interfaces",
+		 networkId, switchStackId)
 	var datamodel = StackStaticRoutes{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -172,8 +172,8 @@ func GetStackStaticRoutes(networkId, switchStackId string) []api.Results {
 }
 
 func GetStackStaticRoute(networkId, switchStackId, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%srouting/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackStaticRoute{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -183,8 +183,8 @@ func GetStackStaticRoute(networkId, switchStackId, interfaceId string) []api.Res
 }
 
 func DelStackStaticRoute(networkId, switchStackId, interfaceId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%srouting/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackStaticRoute{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -194,8 +194,8 @@ func DelStackStaticRoute(networkId, switchStackId, interfaceId string) []api.Res
 }
 
 func PutStackStaticRoute(networkId, switchStackId, interfaceId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces/%s",
-		api.BaseUrl(), networkId, switchStackId, interfaceId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%srouting/interfaces/%s",
+		 networkId, switchStackId, interfaceId)
 	var datamodel = StackStaticRoute{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -206,8 +206,8 @@ func PutStackStaticRoute(networkId, switchStackId, interfaceId string, data inte
 }
 
 func PostStackStaticRoute(networkId, switchStackId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%srouting/interfaces",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%srouting/interfaces",
+		 networkId, switchStackId)
 	var datamodel = StackStaticRoute{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -218,8 +218,8 @@ func PostStackStaticRoute(networkId, switchStackId string, data interface{}) []a
 }
 
 func GetStacks(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks",
+		 networkId)
 	var datamodel = Stacks{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -229,8 +229,8 @@ func GetStacks(networkId string) []api.Results {
 }
 
 func GetStack(networkId, switchStackId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s",
+		 networkId, switchStackId)
 	var datamodel = Stack{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -240,8 +240,8 @@ func GetStack(networkId, switchStackId string) []api.Results {
 }
 
 func DelStack(networkId, switchStackId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s",
+		 networkId, switchStackId)
 	var datamodel = Stack{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -251,8 +251,8 @@ func DelStack(networkId, switchStackId string) []api.Results {
 }
 
 func PostStack(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks",
+		 networkId)
 	var datamodel = Stack{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -263,8 +263,8 @@ func PostStack(networkId string, data interface{}) []api.Results {
 }
 
 func PostRemoveFromStack(networkId, switchStackId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/remove",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/remove",
+		 networkId, switchStackId)
 	var datamodel = Stack{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -275,8 +275,8 @@ func PostRemoveFromStack(networkId, switchStackId string, data interface{}) []ap
 }
 
 func PostAddToStack(networkId, switchStackId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stacks/%s/add",
-		api.BaseUrl(), networkId, switchStackId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stacks/%s/add",
+		 networkId, switchStackId)
 	var datamodel = Stack{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

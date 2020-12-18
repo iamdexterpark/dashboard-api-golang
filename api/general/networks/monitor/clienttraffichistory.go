@@ -87,7 +87,7 @@ type Client struct {
 // Return the client's network traffic data over time
 func GetTrafficHistory(networkId, clientId, perPage,
 	startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/trafficHistory", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/trafficHistory",  networkId, clientId)
 	var datamodel = TrafficHistory{}
 
 	// Parameters for Request URL
@@ -106,7 +106,7 @@ func GetTrafficHistory(networkId, clientId, perPage,
 
 // Return the client's daily usage history
 func GetUsageHistory(networkId, clientId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/usageHistory", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/usageHistory",  networkId, clientId)
 	var datamodel = UsageHistory{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -118,7 +118,7 @@ func GetUsageHistory(networkId, clientId string) []api.Results {
 
 // List The Clients That Have Used This Network In The Timespan
 func GetClients(networkId, t0, timespan, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/clients",  networkId)
 	var datamodel = Clients{}
 
 	// Parameters for Request URL
@@ -139,7 +139,7 @@ func GetClients(networkId, t0, timespan, perPage, startingAfter, endingBefore st
 
 // Return The Client Associated With The Given Identifier
 func GetClient(networkId, clientId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s",  networkId, clientId)
 	var datamodel = Client{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)

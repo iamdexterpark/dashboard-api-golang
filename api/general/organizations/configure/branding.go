@@ -42,7 +42,7 @@ type BrandingPolicy struct {
 }
 
 func GetBrandingPolicyPriorities(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/priorities", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/priorities",
 		organizationId)
 
 	var datamodel = BrandingPolicyPriorities{}
@@ -54,7 +54,7 @@ func GetBrandingPolicyPriorities(organizationId string) []api.Results {
 }
 
 func PutBrandingPolicyPriorities(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/priorities", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/priorities",
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = BrandingPolicyPriorities{}
@@ -66,7 +66,7 @@ func PutBrandingPolicyPriorities(organizationId string, data interface{}) []api.
 }
 
 func GetBrandingPolicies(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies",
 		organizationId)
 
 	var datamodel = BrandingPolicies{}
@@ -78,7 +78,7 @@ func GetBrandingPolicies(organizationId string) []api.Results {
 }
 
 func GetBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
 	var datamodel = BrandingPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -89,7 +89,7 @@ func GetBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 }
 
 func DelBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
 	var datamodel = BrandingPolicy{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
@@ -100,7 +100,7 @@ func DelBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 }
 
 func PutBrandingPolicy(organizationId, brandingPolicyId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
 	var datamodel = BrandingPolicy{}
 	payload := user_agent.MarshalJSON(data)
@@ -112,7 +112,7 @@ func PutBrandingPolicy(organizationId, brandingPolicyId string, data interface{}
 }
 
 func PostBrandingPolicy(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/brandingPolicies", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies",
 		organizationId)
 	var datamodel = BrandingPolicy{}
 	payload := user_agent.MarshalJSON(data)

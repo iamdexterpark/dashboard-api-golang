@@ -32,7 +32,7 @@ type ChannelUtilization struct {
 }
 
 func GetChannelUtilization(networkId, t0, t1, timespan, resolution, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/networkHealth/channelUtilization", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/networkHealth/channelUtilization",  networkId)
 	var datamodel = ChannelUtilizations{}
 
 	// Parameters for Request URL

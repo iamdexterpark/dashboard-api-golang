@@ -14,8 +14,8 @@ type StormControl struct {
 }
 
 func GetStormControl(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stormControl",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stormControl",
+		 networkId)
 	var datamodel = StormControl{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -25,8 +25,8 @@ func GetStormControl(networkId string) []api.Results {
 }
 
 func PutStormControl(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/stormControl",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/stormControl",
+		 networkId)
 	var datamodel = StormControl{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

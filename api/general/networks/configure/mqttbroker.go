@@ -19,7 +19,7 @@ type MQTTBroker struct {
 }
 
 func GetMqttBrokers(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers",  networkId)
 	var datamodel = MQTTBrokers{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -29,7 +29,7 @@ func GetMqttBrokers(networkId string) []api.Results {
 }
 
 func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -39,7 +39,7 @@ func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
 }
 
 func DelMqttBroker(networkId, mqttBrokerId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -49,7 +49,7 @@ func DelMqttBroker(networkId, mqttBrokerId string) []api.Results {
 }
 
 func PutMqttBroker(networkId, mqttBrokerId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers/%s", api.BaseUrl(), networkId, mqttBrokerId)
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -60,7 +60,7 @@ func PutMqttBroker(networkId, mqttBrokerId string, data interface{}) []api.Resul
 }
 
 func PostMqttBroker(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/mqttBrokers", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers",  networkId)
 	var datamodel = MQTTBroker{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

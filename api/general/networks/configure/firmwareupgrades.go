@@ -15,7 +15,7 @@ type FirmwareUpgrades struct {
 
 
 func GetFirmwareUpgrades(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/firmwareUpgrades", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/firmwareUpgrades",  networkId)
 	var datamodel = FirmwareUpgrades{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -25,7 +25,7 @@ func GetFirmwareUpgrades(networkId string) []api.Results {
 }
 
 func PutFirmwareUpgrades(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/firmwareUpgrades", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/firmwareUpgrades",  networkId)
 	var datamodel = FirmwareUpgrades{}
 	sessions, err := api.Sessions(baseurl, "PUT", nil, nil, datamodel)
 	if err != nil {

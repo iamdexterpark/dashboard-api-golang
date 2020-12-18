@@ -36,7 +36,7 @@ type OpenapiSpec struct {
 
 // Return the OpenAPI 2.0 Specification of the organization's API documentation in JSON
 func GetOpenapiSpec(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/openapiSpec", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/openapiSpec",  organizationId)
 	var datamodel = OpenapiSpec{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)

@@ -37,7 +37,7 @@ type MalwareSettings struct {
 }
 
 func GetNetworkSecurityIntrusion(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/intrusion", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/security/intrusion",  networkId)
 	var datamodel = SecurityIntrusion{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -47,7 +47,7 @@ func GetNetworkSecurityIntrusion(networkId string) []api.Results {
 }
 
 func PutNetworkSecurityIntrusion(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/intrusion", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/security/intrusion",  networkId)
 	var datamodel = SecurityIntrusion{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -58,7 +58,7 @@ func PutNetworkSecurityIntrusion(networkId string, data interface{}) []api.Resul
 }
 
 func GetOrganizationSecurityIntrusion(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/security/intrusion", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/appliance/security/intrusion",  organizationId)
 	var datamodel = OrganizationSecurityIntrusion{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -68,7 +68,7 @@ func GetOrganizationSecurityIntrusion(organizationId string) []api.Results {
 }
 
 func PutOrganizationSecurityIntrusion(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/security/intrusion", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/appliance/security/intrusion",  organizationId)
 	var datamodel = OrganizationSecurityIntrusion{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -79,7 +79,7 @@ func PutOrganizationSecurityIntrusion(organizationId string, data interface{}) [
 }
 
 func GetMalwareSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/malware", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/security/malware",  networkId)
 	var datamodel = MalwareSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -89,7 +89,7 @@ func GetMalwareSettings(networkId string) []api.Results {
 }
 
 func PutMalwareSettings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/security/malware", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/security/malware",  networkId)
 	var datamodel = MalwareSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

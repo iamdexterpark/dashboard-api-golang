@@ -13,7 +13,7 @@ type SingleLan struct {
 }
 
 func GetSingleLan(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/singleLan", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/singleLan",  networkId)
 	var datamodel = SingleLan{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -23,7 +23,7 @@ func GetSingleLan(networkId string) []api.Results {
 }
 
 func PutSingleLan(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/singleLan", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/singleLan",  networkId)
 	var datamodel = SingleLan{}
 payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)

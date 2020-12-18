@@ -18,7 +18,7 @@ type Reboot struct {
 }
 
 func PostBlinkLeds(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/blinkLeds", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
 	var datamodel BlinkLeds
 
 	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)
@@ -30,7 +30,7 @@ func PostBlinkLeds(serial string) []api.Results {
 
 
 func PostReboot(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/blinkLeds", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
 	var datamodel Reboot
 	data := Reboot{true}
 	payload := user_agent.MarshalJSON(data)

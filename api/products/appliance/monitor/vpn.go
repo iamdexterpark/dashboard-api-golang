@@ -75,7 +75,7 @@ type VPNStatus []struct {
 
 func GetVpnStats(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	networkIds string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/vpn/stats", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/appliance/vpn/stats",  organizationId)
 	var datamodel = VpnStats{}
 
 	// Parameters for Request URL
@@ -97,7 +97,7 @@ func GetVpnStats(organizationId, t0, t1, timespan, perPage, startingAfter, endin
 
 func GetVPNStatus(organizationId, perPage, startingAfter, endingBefore,
 	networkIds string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/appliance/vpn/statuses", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/appliance/vpn/statuses",  organizationId)
 	var datamodel = VPNStatus{}
 
 	// Parameters for Request URL

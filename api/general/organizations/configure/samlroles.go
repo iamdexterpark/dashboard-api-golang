@@ -26,7 +26,7 @@ type SAMLRole struct {
 }
 
 func GetSAMLRoles(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/samlRoles",
 		organizationId)
 	var datamodel = SAMLRoles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -37,7 +37,7 @@ func GetSAMLRoles(organizationId string) []api.Results {
 }
 
 func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
 	var datamodel = SAMLRole{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -48,7 +48,7 @@ func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
 }
 
 func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
 	var datamodel = SAMLRole{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
@@ -59,7 +59,7 @@ func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
 }
 
 func PutSAMLRole(organizationId, samlRoleId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles/%s", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
 	var datamodel = SAMLRole{}
 	payload := user_agent.MarshalJSON(data)
@@ -71,7 +71,7 @@ func PutSAMLRole(organizationId, samlRoleId string, data interface{}) []api.Resu
 }
 
 func PostSAMLRole(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/samlRoles", api.BaseUrl(),
+	baseurl := fmt.Sprintf("/organizations/%s/samlRoles",
 		organizationId)
 	var datamodel = SAMLRole{}
 	payload := user_agent.MarshalJSON(data)

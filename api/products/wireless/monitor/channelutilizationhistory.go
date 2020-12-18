@@ -18,7 +18,7 @@ type ChannelUtilizationHistory []struct {
 func GetChannelUtilizationHistory(networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag,
 	band string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/channelUtilizationHistory", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/channelUtilizationHistory",  networkId)
 	var datamodel = ChannelUtilizationHistory{}
 
 	// Parameters for Request URL

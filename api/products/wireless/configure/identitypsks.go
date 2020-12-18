@@ -18,8 +18,8 @@ type IdentityPSK struct {
 }
 
 func GetIdentityPSKs(networkId, number string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/identityPsks",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/identityPsks",
+		 networkId, number)
 	var datamodel IdentityPSKs
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -29,8 +29,8 @@ func GetIdentityPSKs(networkId, number string) []api.Results {
 }
 
 func GetIdentityPSK(networkId, number, identityPskId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/identityPsks/%s",
-		api.BaseUrl(), networkId, number, identityPskId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/identityPsks/%s",
+		 networkId, number, identityPskId)
 	var datamodel IdentityPSK
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -40,8 +40,8 @@ func GetIdentityPSK(networkId, number, identityPskId string) []api.Results {
 }
 
 func DelIdentityPSK(networkId, number, identityPskId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/identityPsks/%s",
-		api.BaseUrl(), networkId, number, identityPskId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/identityPsks/%s",
+		 networkId, number, identityPskId)
 	var datamodel IdentityPSK
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -51,8 +51,8 @@ func DelIdentityPSK(networkId, number, identityPskId string) []api.Results {
 }
 
 func PutIdentityPSK(networkId, number, identityPskId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/identityPsks/%s",
-		api.BaseUrl(), networkId, number, identityPskId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/identityPsks/%s",
+		 networkId, number, identityPskId)
 	var datamodel IdentityPSK
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -63,8 +63,8 @@ func PutIdentityPSK(networkId, number, identityPskId string, data interface{}) [
 }
 
 func PostIdentityPSK(networkId, number string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/ssids/%s/identityPsks",
-		api.BaseUrl(), networkId, number)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s/identityPsks",
+		 networkId, number)
 	var datamodel IdentityPSK
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

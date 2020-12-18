@@ -47,7 +47,7 @@ type VLAN struct {
 }
 
 func GetVLANSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/settings", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/settings",  networkId)
 	var datamodel = VLANSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -57,7 +57,7 @@ func GetVLANSettings(networkId string) []api.Results {
 }
 
 func PutVLANSettings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/settings", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/settings",  networkId)
 	var datamodel = VLANSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -68,7 +68,7 @@ func PutVLANSettings(networkId string, data interface{}) []api.Results {
 }
 
 func GetVLANs(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/",  networkId)
 	var datamodel = VLANS{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -78,7 +78,7 @@ func GetVLANs(networkId string) []api.Results {
 }
 
 func PostVLAN(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/",  networkId)
 	var datamodel = VLAN{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -89,7 +89,7 @@ func PostVLAN(networkId string, data interface{}) []api.Results {
 }
 
 func GetVLAN(networkId, vlanId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/%s",  networkId, vlanId)
 	var datamodel = VLAN{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -99,7 +99,7 @@ func GetVLAN(networkId, vlanId string) []api.Results {
 }
 
 func DelVLAN(networkId, vlanId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/%s",  networkId, vlanId)
 	var datamodel = VLAN{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -109,7 +109,7 @@ func DelVLAN(networkId, vlanId string) []api.Results {
 }
 
 func PutVLAN(networkId, vlanId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/vlans/%s", api.BaseUrl(), networkId, vlanId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/%s",  networkId, vlanId)
 	var datamodel = VLAN{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

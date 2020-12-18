@@ -16,8 +16,8 @@ type ConnectivityTesting struct {
 }
 
 func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/connectivityMonitoringDestinations",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/connectivityMonitoringDestinations",
+		 networkId)
 	var datamodel = ConnectivityTesting{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -27,8 +27,8 @@ func GetConnectivityMonitoringDestinations(networkId string) []api.Results {
 }
 
 func PutConnectivityMonitoringDestinations(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/cellularGateway/connectivityMonitoringDestinations",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/cellularGateway/connectivityMonitoringDestinations",
+		 networkId)
 	var datamodel = ConnectivityTesting{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

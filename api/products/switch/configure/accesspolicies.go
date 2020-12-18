@@ -37,8 +37,8 @@ type AccessPolicy struct {
 }
 
 func GetAccessPolicies(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessPolicies",
+		 networkId)
 	var datamodel = AccessPolicies{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -48,8 +48,8 @@ func GetAccessPolicies(networkId string) []api.Results {
 }
 
 func GetAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
-		api.BaseUrl(), networkId, accessPolicyNumber)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessPolicies/%s",
+		 networkId, accessPolicyNumber)
 	var datamodel = AccessPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -59,8 +59,8 @@ func GetAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
 }
 
 func DelAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
-		api.BaseUrl(), networkId, accessPolicyNumber)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessPolicies/%s",
+		 networkId, accessPolicyNumber)
 	var datamodel = AccessPolicy{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -70,8 +70,8 @@ func DelAccessPolicy(networkId, accessPolicyNumber string) []api.Results {
 }
 
 func PutAccessPolicy(networkId, accessPolicyNumber string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies/%s",
-		api.BaseUrl(), networkId, accessPolicyNumber)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessPolicies/%s",
+		 networkId, accessPolicyNumber)
 	var datamodel = AccessPolicy{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -82,8 +82,8 @@ func PutAccessPolicy(networkId, accessPolicyNumber string, data interface{}) []a
 }
 
 func PostAccessPolicy(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/accessPolicies",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/accessPolicies",
+		 networkId)
 	var datamodel = AccessPolicy{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

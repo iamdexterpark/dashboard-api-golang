@@ -29,7 +29,7 @@ type AlertSettings struct {
 
 
 func GetAlertSettings(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/alerts/settings", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/alerts/settings",  networkId)
 
 	var datamodel = AlertSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -40,7 +40,7 @@ func GetAlertSettings(networkId string) []api.Results {
 }
 
 func PutAlertSettings(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/alerts/settings", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/alerts/settings",  networkId)
 	var datamodel = AlertSettings{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

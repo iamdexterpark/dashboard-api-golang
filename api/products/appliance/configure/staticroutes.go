@@ -32,7 +32,7 @@ type StaticRoute struct {
 }
 
 func GetStaticRoutes(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/staticRoutes",  networkId)
 	var datamodel = StaticRoutes{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -43,7 +43,7 @@ func GetStaticRoutes(networkId string) []api.Results {
 }
 
 func GetStaticRoute(networkId, staticRouteId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/staticRoutes/%s",  networkId, staticRouteId)
 	var datamodel = StaticRoutes{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -53,7 +53,7 @@ func GetStaticRoute(networkId, staticRouteId string) []api.Results {
 }
 
 func DelStaticRoute(networkId, staticRouteId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/staticRoutes/%s",  networkId, staticRouteId)
 	var datamodel = StaticRoutes{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -63,7 +63,7 @@ func DelStaticRoute(networkId, staticRouteId string) []api.Results {
 }
 
 func PutStaticRoute(networkId, staticRouteId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes/%s", api.BaseUrl(), networkId, staticRouteId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/staticRoutes/%s",  networkId, staticRouteId)
 	var datamodel = StaticRoutes{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -74,7 +74,7 @@ func PutStaticRoute(networkId, staticRouteId string, data interface{}) []api.Res
 }
 
 func PostStaticRoutes(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/staticRoutes", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/staticRoutes",  networkId)
 	var datamodel = StaticRoutes{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

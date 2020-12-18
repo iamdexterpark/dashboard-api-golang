@@ -21,7 +21,7 @@ type AppliancePort struct {
 }
 
 func GetAppliancePorts(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/ports", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/ports",  networkId)
 	var datamodel = AppliancePorts{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -31,7 +31,7 @@ func GetAppliancePorts(networkId string) []api.Results {
 }
 
 func GetAppliancePort(networkId, portId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/ports/%s", api.BaseUrl(), networkId, portId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/ports/%s",  networkId, portId)
 	var datamodel = AppliancePort{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -41,7 +41,7 @@ func GetAppliancePort(networkId, portId string) []api.Results {
 }
 
 func PutAppliancePort(networkId, portId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/ports/%s", api.BaseUrl(), networkId, portId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/ports/%s",  networkId, portId)
 	var datamodel = AppliancePort{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

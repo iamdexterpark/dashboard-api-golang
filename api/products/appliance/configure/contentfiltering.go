@@ -22,7 +22,7 @@ type ContentFiltering struct {
 }
 
 func GetContentFilteringCategories(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering/categories", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/contentFiltering/categories",  networkId)
 	var datamodel = ContentFilteringCategories{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -32,7 +32,7 @@ func GetContentFilteringCategories(networkId string) []api.Results {
 }
 
 func GetContentFiltering(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/contentFiltering",  networkId)
 	var datamodel = ContentFiltering{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -42,7 +42,7 @@ func GetContentFiltering(networkId string) []api.Results {
 }
 
 func PutContentFiltering(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/contentFiltering", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/contentFiltering",  networkId)
 	var datamodel = ContentFiltering{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

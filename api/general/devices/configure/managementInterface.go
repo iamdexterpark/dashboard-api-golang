@@ -52,7 +52,7 @@ type Device struct {
 
 
 func GetManagementInterface(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/managementInterface",  serial)
 	var datamodel = ManagementInterface{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -64,7 +64,7 @@ func GetManagementInterface(serial string) []api.Results {
 }
 
 func PutManagementInterface(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/managementInterface", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/managementInterface",  serial)
 	var datamodel = ManagementInterface{}
 	payload := user_agent.MarshalJSON(data)
 
@@ -76,7 +76,7 @@ func PutManagementInterface(serial string, data interface{}) []api.Results {
 }
 
 func GetDevice(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s",  serial)
 	var datamodel = Device{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -87,7 +87,7 @@ func GetDevice(serial string) []api.Results {
 }
 
 func PutDevice(serial string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s", api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s",  serial)
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Device{}
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

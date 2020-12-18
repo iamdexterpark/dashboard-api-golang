@@ -17,8 +17,8 @@ type MeshStatuses struct {
 }
 
 func GetMeshStatuses(networkId, perPage, startingAfter, endingBefore string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/meshStatuses",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/meshStatuses",
+		 networkId)
 	var datamodel = MeshStatuses{}
 
 	// Parameters for Request URL

@@ -16,8 +16,8 @@ type Profiles []struct {
 }
 
 func GetProfiles(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/sm/profiles",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/sm/profiles",
+		 networkId)
 	var datamodel = Profiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

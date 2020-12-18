@@ -17,8 +17,8 @@ type MTU struct {
 }
 
 func GetMTU(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/mtu",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/mtu",
+		 networkId)
 	var datamodel = MTU{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -28,8 +28,8 @@ func GetMTU(networkId string) []api.Results {
 }
 
 func PutMTU(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/switch/mtu",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/switch/mtu",
+		 networkId)
 	var datamodel = MTU{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

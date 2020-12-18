@@ -33,7 +33,7 @@ type Device struct {
 
 
 func GetDevices(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/devices", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/devices",  networkId)
 	var datamodel = Devices{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -43,7 +43,7 @@ func GetDevices(networkId string) []api.Results {
 }
 
 func PostClaimSerials(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/devices/claim", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/devices/claim",  networkId)
 	var datamodel interface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -54,7 +54,7 @@ func PostClaimSerials(networkId string, data interface{}) []api.Results {
 }
 
 func PostUnClaimSerials(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/devices/remove", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/devices/remove",  networkId)
 	var datamodel interface{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

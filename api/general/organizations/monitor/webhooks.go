@@ -52,7 +52,7 @@ type Log struct {
 
 
 func GetAlertTypes(organizationId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/webhooks/alertTypes", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/webhooks/alertTypes",  organizationId)
 	var datamodel = AlertTypes{}
 
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -65,7 +65,7 @@ func GetAlertTypes(organizationId string) []api.Results {
 
 func GetWebHookLogs(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	url string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/webhooks/logs", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/webhooks/logs",  organizationId)
 	var datamodel = WebHookLogs{}
 
 	// Parameters for Request URL

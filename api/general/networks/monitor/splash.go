@@ -20,7 +20,7 @@ type SplashLoginAttempts []struct {
 
 // List the splash login attempts for a network
 func GetSplashLoginAttempts(networkId, splashLoginAttempts, ssidNumber, loginIdentifier, timespan string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/splashLoginAttempts", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/splashLoginAttempts",  networkId)
 	datamodel := SplashLoginAttempts{}
 
 	// Parameters for Request URL

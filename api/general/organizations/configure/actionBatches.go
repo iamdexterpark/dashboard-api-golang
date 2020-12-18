@@ -31,7 +31,7 @@ type ActionBatch struct {
 }
 
 func GetActionBatches(organizationId, status string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/actionBatches",  organizationId)
 
 	// Parameters for Request URL
 	var parameters = map[string]string{"status": status}
@@ -45,7 +45,7 @@ func GetActionBatches(organizationId, status string) []api.Results {
 }
 
 func GetActionBatch(organizationId, actionBatchId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
+	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 
 	var datamodel = ActionBatch{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -56,7 +56,7 @@ func GetActionBatch(organizationId, actionBatchId string) []api.Results {
 }
 
 func DelActionBatch(organizationId, actionBatchId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
+	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 
 	var datamodel = ActionBatch{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
@@ -67,7 +67,7 @@ func DelActionBatch(organizationId, actionBatchId string) []api.Results {
 }
 
 func PutActionBatch(organizationId, actionBatchId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches/%s", api.BaseUrl(), organizationId, actionBatchId)
+	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 	var datamodel = ActionBatch{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -78,7 +78,7 @@ func PutActionBatch(organizationId, actionBatchId string, data interface{}) []ap
 }
 
 func PostActionBatch(organizationId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/actionBatches", api.BaseUrl(), organizationId)
+	baseurl := fmt.Sprintf("/organizations/%s/actionBatches",  organizationId)
 	var datamodel = ActionBatch{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

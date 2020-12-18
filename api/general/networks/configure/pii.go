@@ -43,7 +43,7 @@ type SmOwnersForKey struct {
 }
 
 func GetPiiKeys(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/piiKeys", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/piiKeys",  networkId)
 	var datamodel = PiiKeys{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -53,7 +53,7 @@ func GetPiiKeys(networkId string) []api.Results {
 }
 
 func GetPiiRequests(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/requests",  networkId)
 	var datamodel = PiiRequests{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -63,7 +63,7 @@ func GetPiiRequests(networkId string) []api.Results {
 }
 
 func GetPiiRequest(networkId, requestId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests/%s", api.BaseUrl(), networkId, requestId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/requests/%s",  networkId, requestId)
 	var datamodel = PiiRequest{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -73,7 +73,7 @@ func GetPiiRequest(networkId, requestId string) []api.Results {
 }
 
 func DelPiiRequest(networkId, requestId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests/%s", api.BaseUrl(), networkId, requestId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/requests/%s",  networkId, requestId)
 	var datamodel = PiiRequest{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
@@ -83,7 +83,7 @@ func DelPiiRequest(networkId, requestId string) []api.Results {
 }
 
 func PostPiiRequest(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/requests", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/requests",  networkId)
 	var datamodel = PiiRequest{}
 	payload := user_agent.MarshalJSON(data)
 
@@ -95,7 +95,7 @@ func PostPiiRequest(networkId string, data interface{}) []api.Results {
 }
 
 func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/smDevicesForKey", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/smDevicesForKey",  networkId)
 	var datamodel = SmDevicesForKey{}
 
 	// Parameters for Request URL
@@ -115,7 +115,7 @@ func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetooth
 }
 
 func GetSmOwnersForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/pii/smOwnersForKey", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/pii/smOwnersForKey",  networkId)
 	var datamodel = SmOwnersForKey{}
 
 	// Parameters for Request URL

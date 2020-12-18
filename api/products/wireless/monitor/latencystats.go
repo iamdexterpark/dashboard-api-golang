@@ -59,8 +59,8 @@ type APLatencyStat struct {
 
 func GetAPLatencyStats(serial, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/clients/latencyStats",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/clients/latencyStats",
+		 serial)
 	var datamodel = APLatencyStats{}
 
 	// Parameters for Request URL
@@ -83,8 +83,8 @@ func GetAPLatencyStats(serial, t0, t1, timespan,
 
 func GetAPLatencyStat(networkId, t0, t1, timespan,
 	band, ssid, vlan, apTag, fields string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/latencyStats",
-		api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/latencyStats",
+		 networkId)
 	var datamodel = APLatencyStat{}
 
 	// Parameters for Request URL

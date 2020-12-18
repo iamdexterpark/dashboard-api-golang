@@ -18,7 +18,7 @@ type UsageHistory []struct {
 func GetUsageHistory(networkId, t0, t1, timespan,
 	resolution, autoResolution, clientId, deviceSerial, apTag,
 	band, ssid string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/usageHistory", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/usageHistory",  networkId)
 	var datamodel = UsageHistory{}
 
 	// Parameters for Request URL

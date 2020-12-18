@@ -32,8 +32,8 @@ type Port struct {
 }
 
 func GetPorts(serial string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports",
-		api.BaseUrl(), serial)
+	baseurl := fmt.Sprintf("/devices/%s/switch/ports",
+		 serial)
 	var datamodel = Ports{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -43,8 +43,8 @@ func GetPorts(serial string) []api.Results {
 }
 
 func GetSwitchPort(serial, portId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports/%s",
-		api.BaseUrl(), serial, portId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/ports/%s",
+		 serial, portId)
 	var datamodel = Port{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -54,8 +54,8 @@ func GetSwitchPort(serial, portId string) []api.Results {
 }
 
 func PutSwitchPort(serial, portId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/switch/ports/%s",
-		api.BaseUrl(), serial, portId)
+	baseurl := fmt.Sprintf("/devices/%s/switch/ports/%s",
+		 serial, portId)
 	var datamodel = Port{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)

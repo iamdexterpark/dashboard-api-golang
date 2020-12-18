@@ -37,7 +37,7 @@ type ProvisionClient struct {
 }
 
 func GetClientPolicy(networkId, clientId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/policy", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/policy",  networkId, clientId)
 	var datamodel = ClientPolicy{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -48,7 +48,7 @@ func GetClientPolicy(networkId, clientId string) []api.Results {
 
 
 func PutClientPolicy(networkId, clientId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/policy", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/policy",  networkId, clientId)
 	var datamodel = ClientPolicy{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -61,7 +61,7 @@ func PutClientPolicy(networkId, clientId string, data interface{}) []api.Results
 
 
 func GetSplashAuthorization(networkId, clientId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/splashAuthorizationStatus", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/splashAuthorizationStatus",  networkId, clientId)
 	var datamodel = SplashAuthorization{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -71,7 +71,7 @@ func GetSplashAuthorization(networkId, clientId string) []api.Results {
 }
 
 func PutSplashAuthorization(networkId, clientId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/%s/splashAuthorizationStatus", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/%s/splashAuthorizationStatus",  networkId, clientId)
 	var datamodel = SplashAuthorization{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -83,7 +83,7 @@ func PutSplashAuthorization(networkId, clientId string, data interface{}) []api.
 
 
 func PostProvisionClient(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/clients/provision", api.BaseUrl(), networkId)
+	baseurl := fmt.Sprintf("/networks/%s/clients/provision",  networkId)
 	var datamodel = ProvisionClient{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)

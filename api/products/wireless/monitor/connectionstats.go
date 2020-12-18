@@ -28,8 +28,8 @@ type ConnectionStat struct {
 
 func GetConnectionStats(devices, serial, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/devices/%s/wireless/clients/%s/connectionStats",
-		api.BaseUrl(), devices, serial)
+	baseurl := fmt.Sprintf("/devices/%s/wireless/clients/%s/connectionStats",
+		 devices, serial)
 	var datamodel = ConnectionStats{}
 
 	// Parameters for Request URL
@@ -51,8 +51,8 @@ func GetConnectionStats(devices, serial, t0, t1, timespan,
 
 func GetConnectionStat(networkId, clientId, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/wireless/clients/%s/connectionStats",
-		api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/wireless/clients/%s/connectionStats",
+		 networkId, clientId)
 	var datamodel = ConnectionStat{}
 
 	// Parameters for Request URL

@@ -35,8 +35,8 @@ type ConfigTemplatesProfiles []struct {
 }
 
 func GetSwitchPortProfiles(organizationId, configTemplateId, profileId  string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports",
-		api.BaseUrl(), organizationId, configTemplateId, profileId)
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s/switch/profiles/%s/ports",
+		 organizationId, configTemplateId, profileId)
 	var datamodel = SwitchProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -46,8 +46,8 @@ func GetSwitchPortProfiles(organizationId, configTemplateId, profileId  string) 
 }
 
 func GetSwitchPortProfile(organizationId, configTemplateId, profileId, portId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
-		api.BaseUrl(), organizationId, configTemplateId, profileId, portId)
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
+		 organizationId, configTemplateId, profileId, portId)
 	var datamodel = SwitchProfile{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -57,8 +57,8 @@ func GetSwitchPortProfile(organizationId, configTemplateId, profileId, portId st
 }
 
 func PutSwitchPortProfile(organizationId, configTemplateId, profileId, portId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
-		api.BaseUrl(), organizationId, configTemplateId, profileId, portId)
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s/switch/profiles/%s/ports/%s",
+		 organizationId, configTemplateId, profileId, portId)
 	var datamodel = SwitchProfile{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
@@ -70,8 +70,8 @@ func PutSwitchPortProfile(organizationId, configTemplateId, profileId, portId st
 
 func GetConfigTemplatesProfiles(organizationId,
 	configTemplateId string) []api.Results {
-	baseurl := fmt.Sprintf("%s/organizations/%s/configTemplates/%s/switch/profiles",
-		api.BaseUrl(), organizationId, configTemplateId)
+	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s/switch/profiles",
+		 organizationId, configTemplateId)
 	var datamodel = ConfigTemplatesProfiles{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {

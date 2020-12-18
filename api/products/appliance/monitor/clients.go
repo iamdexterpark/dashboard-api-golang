@@ -36,7 +36,7 @@ type ClientSecurityEvents []struct {
 
 func GetClientSecurityEvents(networkId, clientId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	sortOrder string) []api.Results {
-	baseurl := fmt.Sprintf("%s/networks/%s/appliance/clients/%s/security/events", api.BaseUrl(), networkId, clientId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/clients/%s/security/events",  networkId, clientId)
 	var datamodel = ClientSecurityEvents{}
 
 	// Parameters for Request URL
