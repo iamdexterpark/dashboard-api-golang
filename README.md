@@ -6,6 +6,14 @@ Meraki Dashboard API Go Lang Library
 A Community developed Golang Library for the Meraki Dashboard API. 
 For a Vendor supported API interface please see the wonderful: [Meraki Dashboard API Python Library](https://github.com/meraki/dashboard-api-python)
 
+## Features 
+
+100% coverage of the Meraki Dashboard OpenAPI specification. See [API Coverage Documentaion](./github/API_COVERAGE.md) for version. 
+Verbose session logging of HTTP Request & Response data.
+Policy-based HTTP Client able to reuse the connection for subsequent requests.
+Rate limit aware `Retry-After` handler with exponential backoff strategy & Retry Logic.   
+Automatic Pagination control.      
+
 ## Run From Source Code 
 
 #### Installation
@@ -23,18 +31,6 @@ export PATH=$PATH:$GOPATH/bin
 go get github.com/ddexterpark/dashboard-api-golang
 ```
 
-#### Compile (Optional) 
-```shell script
-    # Linux/MacOS
-    go build main.go
-
-    # Windows 64-bit
-    env GOOS=windows GOARCH=amd64 go build main.go
-    
-    # Windows 32-bit
-    env GOOS=windows GOARCH=386 go build main.go
-```
-    
 ## Environment Variables
 
 At minimum, to use this tool you will need to set an environmental variable for the API key. 
@@ -45,46 +41,58 @@ There are also some optional env vars that you can set to customize your API cal
 **MERAKI_API_TOKEN**
 ```shell script
       Bash -
-      export MERAKI_API_TOKEN=1234567890987654321
-      echo $MERAKI_API_TOKEN 
+      export MERAKI_DASHBOARD_API_KEY=1234567890987654321
+      echo $MERAKI_DASHBOARD_API_KEY
       
       PowerShell -
-            setx MERAKI_API_TOKEN "1234567890987654321"
-            echo %MERAKI_API_TOKEN%
+            setx MERAKI_DASHBOARD_API_KEY "1234567890987654321"
+            echo %MERAKI_DASHBOARD_API_KEY%
 ```
 #### Optional
  
-**MERAKI_API_URL**
+**MERAKI_DASHBOARD_API_URL**
 ```shell script
         Default = 'https://api.meraki.com/api/'
         China = 'https://api.meraki.cn/api/' 
 ```
 
-**MERAKI_API_VERSION**
+**MERAKI_DASHBOARD_API_VERSION**
 
-The default version is v1, this tool has limited support for v0 as it is being sunset in 2022. 
+The default version is v1, this library has limited support for v0 as it is being sunset in 2022. 
 Not all endpoints will work in v0.
  
 ```shell script
     Default = 'v1'
 ```
-    
-## Syntax
 
-```shell script
-    merakictl [COMMAND] [SUBCOMMAND] [TARGET]  [flags]
+## Data Model 
+
+All API functions will return a list of a custom `Result` struct which contains the entire HTTP request,
+ and response, a pagination header, and the marshaled data.
+
+```go
+
 ```
 
+### User-Agent
+The User-Agent is an extremely fast, policy-based, HTTP client for making GET/POST/PUT/DELETE requests to the Meraki Dashboard API.
+
+It leverages the response from the `Retry-After` header for its exponential back off timer and is designed to retry an API call up to 3 times.
+
+The `Link` header will determine if the API response is part of a list of paginated results. 
+The User-Agent will then automatically step through the `StartingAfter` & `endingBefore` parameters until it has made api calls to all URI's.
+
+The user-agent is also checking for `Deprecation` and `Sunset` headers and will log a response based on the expiration date.
+
+Additionally, the user-agent is capable of returning a variety of helpful responses based on the HTTP status code. 
 
 ### Disclaimer
 
-The User-Agent is extremely powerful. Even with the Dashboard rate-limit, you have a theoretical potential to make:
-
+Even with the Dashboard rate-limit, you have a theoretical potential to make:
 
 Number of API Calls | 5 | 300 | 180,000 | 1,400,000 |
 --- | --- | --- | --- | --- |
 **Time to Complete** | **1 second** | **1 minute** | **1 hour** | **8 hours** |
-
 
 Please be cautious when making production changes. If you are unsure about the tool, look at the code. 
 

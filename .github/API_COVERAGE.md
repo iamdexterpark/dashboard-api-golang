@@ -1,5 +1,6 @@
 
-### Meraki Dashboard API Coverage -v1.4.0
+### Meraki Dashboard API Coverage 
+Current Version: v1.4.0
 https://documenter.getpostman.com/view/897512/SzYXYfmJ#c925a560-5954-4cd3-891e-8d650986d8ec
 
 ## GENERAL

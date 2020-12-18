@@ -14,3 +14,8 @@
 - [x] 100% Wireless API Coverage
 
 ### Backlog
+example scripts (inventory, switchports, ssid, etc..)
+readme updated
+certificate path
+reverse proxy support
+logging
