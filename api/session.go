@@ -70,6 +70,7 @@ type Results struct {
 func Session(apikey, baseurl, method string, payload io.ReadSeeker,
 	parameter map[string]string, datamodel interface{}) (Results, error) {
 	restSession := user_agent.MerakiClient()
+
 	// response variable
 	var session *http.Response
 	var err error
@@ -173,6 +174,7 @@ func Sessions(resource string, method string, payload io.ReadSeeker,
 	sessions = append(sessions, session)
 
 	for _, page := range session.Pagination {
+
 		// Update parameters
 		parameters["perPage"] = page.PerPage
 		parameters["startingAfter"] = page.StartingAfter

@@ -162,7 +162,7 @@ func resolveNetworkId (netName, orgId string, orgList []string) (netId string) {
 	// iterate through org list
 	for _, org := range orgList {
 		// API Call to get list of networks
-		metadata := configure.GetOrganizationNetworks(org, "",
+		metadata := configure.GetNetworks(org, "",
 			"", "", "", "", "10")
 
 		var pagnatedData []Match

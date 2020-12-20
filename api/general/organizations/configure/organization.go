@@ -33,7 +33,7 @@ type Clone struct {
 }
 
 func GetOrganizations() []api.Results {
-	baseurl := fmt.Sprintf("/organizations", api.BaseUrl())
+	baseurl := fmt.Sprintf("/organizations")
 
 	var datamodel = Organizations{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -44,7 +44,7 @@ func GetOrganizations() []api.Results {
 }
 
 func PostOrganization(name string) []api.Results {
-	baseurl := fmt.Sprintf("/organizations", api.BaseUrl())
+	baseurl := fmt.Sprintf("/organizations")
 	data := Organization{
 		Name: name,
 	}
