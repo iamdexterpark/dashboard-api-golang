@@ -50,7 +50,7 @@ type Device struct {
 	FloorPlanID string `json:"floorPlanId"`
 }
 
-
+// Return the management interface settings for a device
 func GetManagementInterface(serial string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/managementInterface",  serial)
 	var datamodel = ManagementInterface{}
@@ -63,6 +63,13 @@ func GetManagementInterface(serial string) []api.Results {
 
 }
 
+/*
+Update the management interface settings for a device
+ #### Body Parameters
+wan1 | object | WAN 1 settings
+
+wan2 | object | WAN 2 settings (only for MX devices)
+*/
 func PutManagementInterface(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/managementInterface",  serial)
 	var datamodel = ManagementInterface{}
@@ -75,6 +82,7 @@ func PutManagementInterface(serial string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Return a single device
 func GetDevice(serial string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s",  serial)
 	var datamodel = Device{}
@@ -86,6 +94,27 @@ func GetDevice(serial string) []api.Results {
 
 }
 
+/*
+Update the attributes of a device
+ #### Body Parameters
+name | string | The name of a device
+
+tags | array | The list of tags of a device
+
+lat | number | The latitude of a device
+
+lng | number | The longitude of a device
+
+address | string | The address of a device
+
+notes | string | The notes for the device. String. Limited to 255 characters.
+
+moveMapMarker | boolean | Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.
+
+switchProfileId | string | The ID of a switch profile to bind to the device (for available switch profiles, see the 'Switch Profiles' endpoint). Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile, it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.
+
+floorPlanId | string | The floor plan to associate to this device. null disassociates the device from the floorplan.
+*/
 func PutDevice(serial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s",  serial)
 	payload := user_agent.MarshalJSON(data)

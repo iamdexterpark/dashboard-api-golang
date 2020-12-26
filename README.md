@@ -8,11 +8,11 @@ For a Vendor supported API interface please see the wonderful: [Meraki Dashboard
 
 ## Features 
 
-100% coverage of the Meraki Dashboard OpenAPI specification. See [API Coverage Documentaion](./github/API_COVERAGE.md) for version. 
-Verbose session logging of HTTP Request & Response data.
-Policy-based HTTP Client able to reuse the connection for subsequent requests.
-Rate limit aware `Retry-After` handler with exponential backoff strategy & Retry Logic.   
-Automatic Pagination control.      
+* 100% coverage of the Meraki Dashboard OpenAPI specification. See [API Coverage Documentaion](./github/API_COVERAGE.md) for version. 
+* Verbose session logging of HTTP Request & Response data.
+* Policy-based HTTP Client able to reuse the connection for subsequent requests.
+* Rate limit aware `Retry-After` handler with exponential backoff strategy & Retry Logic.   
+* Automatic Pagination control.      
 
 ## Run From Source Code 
 
