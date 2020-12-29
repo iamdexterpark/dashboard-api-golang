@@ -28,7 +28,7 @@ func GetSNMP(networkId string) []api.Results {
 }
 
 // Update the SNMP settings for a network
-func PutSNMP(networkId, string, data interface{}) []api.Results {
+func PutSNMP(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/snmp",  networkId)
 	var datamodel = SNMP{}
 	payload := user_agent.MarshalJSON(data)
