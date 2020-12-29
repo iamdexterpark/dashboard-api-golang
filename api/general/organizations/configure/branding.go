@@ -41,6 +41,9 @@ type BrandingPolicy struct {
 	} `json:"helpSettings"`
 }
 
+// Return the branding policy IDs of an organization in priority order.
+// IDs are ordered in ascending order of priority
+// (IDs later in the array have higher priority).
 func GetBrandingPolicyPriorities(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/priorities",
 		organizationId)
@@ -53,6 +56,7 @@ func GetBrandingPolicyPriorities(organizationId string) []api.Results {
 	return sessions
 }
 
+// Update the priority ordering of an organization's branding policies.
 func PutBrandingPolicyPriorities(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/priorities",
 		organizationId)
@@ -65,6 +69,7 @@ func PutBrandingPolicyPriorities(organizationId string, data interface{}) []api.
 	return sessions
 }
 
+// List the branding policies of an organization
 func GetBrandingPolicies(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies",
 		organizationId)
@@ -77,6 +82,7 @@ func GetBrandingPolicies(organizationId string) []api.Results {
 	return sessions
 }
 
+// Return a branding policy
 func GetBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
@@ -88,6 +94,7 @@ func GetBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 	return sessions
 }
 
+// Delete a branding policy
 func DelBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
@@ -99,6 +106,7 @@ func DelBrandingPolicy(organizationId, brandingPolicyId string) []api.Results {
 	return sessions
 }
 
+// Update a branding policy
 func PutBrandingPolicy(organizationId, brandingPolicyId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies/%s",
 		organizationId, brandingPolicyId)
@@ -111,6 +119,7 @@ func PutBrandingPolicy(organizationId, brandingPolicyId string, data interface{}
 	return sessions
 }
 
+// Add a new branding policy to an organization
 func PostBrandingPolicy(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/brandingPolicies",
 		organizationId)

@@ -32,6 +32,7 @@ type Admin struct {
 	AuthenticationMethod string `json:"authenticationMethod"`
 }
 
+// List the dashboard administrators in this organization
 func GetAdmins(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/admins", organizationId)
 	var datamodel = Admins{}
@@ -42,6 +43,7 @@ func GetAdmins(organizationId string) []api.Results {
 	return sessions
 }
 
+// Revoke all access for a dashboard administrator within this organization
 func DelAdmin(organizationId, adminId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/admins/%s",  organizationId, adminId)
 	var datamodel = Admin{}
@@ -52,6 +54,7 @@ func DelAdmin(organizationId, adminId string) []api.Results {
 	return sessions
 }
 
+// Update an administrator
 func PutAdmin(organizationId, adminId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/admins/%s",  organizationId, adminId)
 	var datamodel = Admin{}
@@ -63,6 +66,7 @@ func PutAdmin(organizationId, adminId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Create a new dashboard administrator
 func PostAdmin(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/admins",  organizationId)
 	var datamodel = Admin{}

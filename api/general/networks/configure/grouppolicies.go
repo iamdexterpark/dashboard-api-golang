@@ -121,7 +121,7 @@ type GroupPolicy struct {
 	} `json:"bonjourForwarding"`
 }
 
-
+// List the group policies in a network
 func GetGroupPolicies(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/groupPolicies",  networkId)
 	var datamodel = GroupPolicies{}
@@ -132,28 +132,7 @@ func GetGroupPolicies(networkId string) []api.Results {
 	return sessions
 }
 
-
-func GetGroupPolicy(networkId, groupPolicyId string) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
-	var datamodel = GroupPolicy{}
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
-func PutGroupPolicy(networkId, groupPolicyId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
-	var datamodel = GroupPolicy{}
-	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
+// Create a group policy
 func PostGroupPolicy(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/groupPolicies",  networkId)
 	var datamodel = GroupPolicy{}
@@ -165,6 +144,30 @@ func PostGroupPolicy(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Display a group policy
+func GetGroupPolicy(networkId, groupPolicyId string) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
+	var datamodel = GroupPolicy{}
+	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+// Update a group policy
+func PutGroupPolicy(networkId, groupPolicyId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
+	var datamodel = GroupPolicy{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+// Delete a group policy
 func DelGroupPolicy(networkId, groupPolicyId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/groupPolicies/%s",  networkId, groupPolicyId)
 	var datamodel = GroupPolicy{}

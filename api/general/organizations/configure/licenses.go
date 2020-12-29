@@ -84,6 +84,8 @@ type RenewSeats struct {
 	} `json:"resultingLicenses"`
 }
 
+
+// List the licenses for an organization
 func GetLicenses(organizationId, perPage, startingAfter,
 	endingBefore, deviceSerial, networkId, state string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses",
@@ -107,7 +109,7 @@ func GetLicenses(organizationId, perPage, startingAfter,
 	return sessions
 }
 
-
+// Display a license
 func GetLicense(organizationId, licenseId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/%s",
 		organizationId, licenseId)
@@ -119,6 +121,8 @@ func GetLicense(organizationId, licenseId string) []api.Results {
 	return sessions
 }
 
+
+// Update a license
 func PutLicense(organizationId, licenseId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/%s",
 		organizationId, licenseId)
@@ -130,6 +134,7 @@ func PutLicense(organizationId, licenseId string) []api.Results {
 	return sessions
 }
 
+// Assign SM seats to a network. This will increase the managed SM device limit of the network
 func PostAssignSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/assignSeats",
 		organizationId)
@@ -142,6 +147,7 @@ func PostAssignSeats(organizationId, deviceSerial string, data interface{}) []ap
 	return sessions
 }
 
+// Move licenses to another organization. This will also move any devices that the licenses are assigned to
 func PostMoveLicenses(organizationId, deviceSerial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/move",
 		organizationId)
@@ -154,6 +160,7 @@ func PostMoveLicenses(organizationId, deviceSerial string, data interface{}) []a
 	return sessions
 }
 
+// Move SM seats to another organization
 func PostMoveSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/moveSeats",
 		organizationId)
@@ -166,6 +173,8 @@ func PostMoveSeats(organizationId, deviceSerial string, data interface{}) []api.
 	return sessions
 }
 
+// Renew SM seats of a license.
+// This will extend the license expiration date of managed SM devices covered by this license
 func PostRenewSeats(organizationId, deviceSerial string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/licenses/renewSeats",
 		organizationId)

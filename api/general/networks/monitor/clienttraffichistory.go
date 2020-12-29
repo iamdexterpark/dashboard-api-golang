@@ -85,7 +85,7 @@ type Client struct {
 }
 
 // Return the client's network traffic data over time
-func GetTrafficHistory(networkId, clientId, perPage,
+func GetClientTrafficHistory(networkId, clientId, perPage,
 	startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/%s/trafficHistory",  networkId, clientId)
 	var datamodel = TrafficHistory{}
@@ -105,7 +105,7 @@ func GetTrafficHistory(networkId, clientId, perPage,
 }
 
 // Return the client's daily usage history
-func GetUsageHistory(networkId, clientId string) []api.Results {
+func GetClientUsageHistory(networkId, clientId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/%s/usageHistory",  networkId, clientId)
 	var datamodel = UsageHistory{}
 
@@ -117,7 +117,7 @@ func GetUsageHistory(networkId, clientId string) []api.Results {
 }
 
 // List The Clients That Have Used This Network In The Timespan
-func GetClients(networkId, t0, timespan, perPage, startingAfter, endingBefore string) []api.Results {
+func GetNetworkClients(networkId, t0, timespan, perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients",  networkId)
 	var datamodel = Clients{}
 
@@ -138,7 +138,7 @@ func GetClients(networkId, t0, timespan, perPage, startingAfter, endingBefore st
 }
 
 // Return The Client Associated With The Given Identifier
-func GetClient(networkId, clientId string) []api.Results {
+func GetNetworkClient(networkId, clientId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/%s",  networkId, clientId)
 	var datamodel = Client{}
 

@@ -16,6 +16,7 @@ type SyslogServers struct {
 	} `json:"servers"`
 }
 
+// List the syslog servers for a network
 func GetSyslogServers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/syslogServers",  networkId)
 	var datamodel = SyslogServers{}
@@ -26,6 +27,7 @@ func GetSyslogServers(networkId string) []api.Results {
 	return sessions
 }
 
+// Update the syslog servers for a network
 func PutSyslogServers(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/syslogServers",  networkId)
 	var datamodel = SyslogServers{}

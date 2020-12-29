@@ -22,6 +22,7 @@ type LoginSecurity struct {
 	LoginIPRanges             []string `json:"loginIpRanges"`
 }
 
+// Returns the login security settings for an organization.
 func GetLoginSecurity(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/loginSecurity",
 		organizationId)
@@ -34,6 +35,7 @@ func GetLoginSecurity(organizationId string) []api.Results {
 	return sessions
 }
 
+// Update the login security settings for an organization
 func PutLoginSecurity(organizationId string, data interface{}) []api.Results{
 	baseurl := fmt.Sprintf("/organizations/%s/loginSecurity",
 		organizationId)

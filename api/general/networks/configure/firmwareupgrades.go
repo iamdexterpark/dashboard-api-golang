@@ -3,6 +3,7 @@ package configure
 import (
 	"fmt"
 	"github.com/ddexterpark/dashboard-api-golang/api"
+	user_agent "github.com/ddexterpark/dashboard-api-golang/user-agent"
 	"log"
 )
 
@@ -13,7 +14,7 @@ type FirmwareUpgrades struct {
 	} `json:"upgradeWindow"`
 }
 
-
+// Get current maintenance window for a network
 func GetFirmwareUpgrades(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/firmwareUpgrades",  networkId)
 	var datamodel = FirmwareUpgrades{}
@@ -24,10 +25,12 @@ func GetFirmwareUpgrades(networkId string) []api.Results {
 	return sessions
 }
 
-func PutFirmwareUpgrades(networkId string) []api.Results {
+// Update current maintenance window for a network
+func PutFirmwareUpgrades(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/firmwareUpgrades",  networkId)
 	var datamodel = FirmwareUpgrades{}
-	sessions, err := api.Sessions(baseurl, "PUT", nil, nil, datamodel)
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

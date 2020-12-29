@@ -31,7 +31,7 @@ type Device struct {
 	FloorPlanID string `json:"floorPlanId"`
 }
 
-
+// List the devices in a network
 func GetDevices(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/devices",  networkId)
 	var datamodel = Devices{}
@@ -42,6 +42,7 @@ func GetDevices(networkId string) []api.Results {
 	return sessions
 }
 
+// Claim devices into a network
 func PostClaimSerials(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/devices/claim",  networkId)
 	var datamodel interface{}
@@ -53,6 +54,7 @@ func PostClaimSerials(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Remove a single device
 func PostUnClaimSerials(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/devices/remove",  networkId)
 	var datamodel interface{}

@@ -50,7 +50,7 @@ type Log struct {
 	ResponseDuration int       `json:"responseDuration"`
 }
 
-
+// Return a list of alert types to be used with managing webhook alerts
 func GetAlertTypes(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/webhooks/alertTypes",  organizationId)
 	var datamodel = AlertTypes{}
@@ -62,7 +62,7 @@ func GetAlertTypes(organizationId string) []api.Results {
 	return sessions
 }
 
-
+// Return the log of webhook POSTs sent
 func GetWebHookLogs(organizationId, t0, t1, timespan, perPage, startingAfter, endingBefore,
 	url string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/webhooks/logs",  organizationId)

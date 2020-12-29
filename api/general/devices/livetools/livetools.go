@@ -17,14 +17,8 @@ type Reboot struct {
 	Success bool `json:"success"`
 }
 
-/*
-Blink the LEDs on a device
- #### Body Parameters
-duration | integer | The duration in seconds. Must be between 5 and 120. Default is 20 seconds
-period | integer | The period in milliseconds. Must be between 100 and 1000. Default is 160 milliseconds
-duty | integer | The duty cycle as the percent active. Must be between 10 and 90. Default is 50.
- */
-func PostBlinkLeds(serial string) []api.Results {
+// Blink the LEDs on a device
+func PostBlinkLEDs(serial string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
 	var datamodel BlinkLeds
 
@@ -35,7 +29,7 @@ func PostBlinkLeds(serial string) []api.Results {
 	return sessions
 }
 
-
+// Reboot a device
 func PostReboot(serial string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
 	var datamodel Reboot

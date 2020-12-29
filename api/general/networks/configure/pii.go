@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-type PiiKeys struct {
+type PIIKeys struct {
 	N1234 struct {
 		Macs          []string `json:"macs"`
 		Emails        []string `json:"emails"`
@@ -18,7 +18,7 @@ type PiiKeys struct {
 	} `json:"N_1234"`
 }
 
-type PiiRequest struct {
+type PIIRequest struct {
 	ID               string `json:"id"`
 	OrganizationWide bool   `json:"organizationWide"`
 	NetworkID        string `json:"networkId"`
@@ -30,21 +30,27 @@ type PiiRequest struct {
 	CompletedAt      int    `json:"completedAt"`
 }
 
-type PiiRequests []struct {
-	PiiRequest
+type PIIRequests []struct {
+	PIIRequest
 }
 
-type SmDevicesForKey struct {
+type SMDevicesForKey struct {
 	N1234 []string `json:"N_1234"`
 }
 
-type SmOwnersForKey struct {
+type SMOwnersForKey struct {
 	N1234 []string `json:"N_1234"`
 }
 
-func GetPiiKeys(networkId string) []api.Results {
+// List the keys required to access Personally Identifiable
+//Information (PII) for a given identifier.
+//Exactly one identifier will be accepted.
+//If the organization contains org-wide Systems Manager users
+//matching the key provided then there will be an entry with
+//the key "0" containing the applicable keys.
+func GetPIIKeys(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/piiKeys",  networkId)
-	var datamodel = PiiKeys{}
+	var datamodel = PIIKeys{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -52,9 +58,10 @@ func GetPiiKeys(networkId string) []api.Results {
 	return sessions
 }
 
-func GetPiiRequests(networkId string) []api.Results {
+// List the PII requests for this network or organization
+func GetPIIRequests(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/requests",  networkId)
-	var datamodel = PiiRequests{}
+	var datamodel = PIIRequests{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -62,9 +69,10 @@ func GetPiiRequests(networkId string) []api.Results {
 	return sessions
 }
 
-func GetPiiRequest(networkId, requestId string) []api.Results {
+// Return a PII request
+func GetPIIRequest(networkId, requestId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/requests/%s",  networkId, requestId)
-	var datamodel = PiiRequest{}
+	var datamodel = PIIRequest{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -72,9 +80,11 @@ func GetPiiRequest(networkId, requestId string) []api.Results {
 	return sessions
 }
 
-func DelPiiRequest(networkId, requestId string) []api.Results {
+
+// Delete a restrict processing PII request
+func DelPIIRequest(networkId, requestId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/requests/%s",  networkId, requestId)
-	var datamodel = PiiRequest{}
+	var datamodel = PIIRequest{}
 	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -82,9 +92,10 @@ func DelPiiRequest(networkId, requestId string) []api.Results {
 	return sessions
 }
 
-func PostPiiRequest(networkId string, data interface{}) []api.Results {
+// Submit a new delete or restrict processing PII request
+func PostPIIRequest(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/requests",  networkId)
-	var datamodel = PiiRequest{}
+	var datamodel = PIIRequest{}
 	payload := user_agent.MarshalJSON(data)
 
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
@@ -94,9 +105,13 @@ func PostPiiRequest(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
-func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
+// Given a piece of Personally Identifiable Information (PII),
+// return the Systems Manager device ID(s) associated with that identifier.
+// These device IDs can be used with the Systems Manager API endpoints to retrieve device details.
+// Exactly one identifier will be accepted.
+func GetSMDevices(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/smDevicesForKey",  networkId)
-	var datamodel = SmDevicesForKey{}
+	var datamodel = SMDevicesForKey{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{
@@ -114,9 +129,13 @@ func GetSmDevicesForKey(networkId, username, email, mac, serial, imei, bluetooth
 	return sessions
 }
 
-func GetSmOwnersForKey(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
+// Given a piece of Personally Identifiable Information (PII),
+// return the Systems Manager owner ID(s) associated with that identifier.
+// These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details.
+// Exactly one identifier will be accepted.
+func GetSMOwners(networkId, username, email, mac, serial, imei, bluetoothMac string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/pii/smOwnersForKey",  networkId)
-	var datamodel = SmOwnersForKey{}
+	var datamodel = SMOwnersForKey{}
 
 	// Parameters for Request URL
 	var parameters = map[string]string{

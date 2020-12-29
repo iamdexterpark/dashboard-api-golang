@@ -18,7 +18,8 @@ type MQTTBroker struct {
 	Port int    `json:"port"`
 }
 
-func GetMqttBrokers(networkId string) []api.Results {
+// List the MQTT brokers for this network
+func GetMQTTBrokers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers",  networkId)
 	var datamodel = MQTTBrokers{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -28,7 +29,20 @@ func GetMqttBrokers(networkId string) []api.Results {
 	return sessions
 }
 
-func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
+// Add an MQTT broker
+func PostMQTTBroker(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers",  networkId)
+	var datamodel = MQTTBroker{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+// Return an MQTT broker
+func GetMQTTBroker(networkId, mqttBrokerId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -38,17 +52,9 @@ func GetMqttBroker(networkId, mqttBrokerId string) []api.Results {
 	return sessions
 }
 
-func DelMqttBroker(networkId, mqttBrokerId string) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
-	var datamodel = MQTTBroker{}
-	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
 
-func PutMqttBroker(networkId, mqttBrokerId string, data interface{}) []api.Results {
+// Update an MQTT broker
+func PutMQTTBroker(networkId, mqttBrokerId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
 	payload := user_agent.MarshalJSON(data)
@@ -59,14 +65,16 @@ func PutMqttBroker(networkId, mqttBrokerId string, data interface{}) []api.Resul
 	return sessions
 }
 
-func PostMqttBroker(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers",  networkId)
+// Delete an MQTT broker
+func DelMQTTBroker(networkId, mqttBrokerId string) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/mqttBrokers/%s",  networkId, mqttBrokerId)
 	var datamodel = MQTTBroker{}
-	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "DELETE", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
+
+
 

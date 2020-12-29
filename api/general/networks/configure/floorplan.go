@@ -62,6 +62,7 @@ type FloorPlan struct {
 	} `json:"topRightCorner"`
 }
 
+// List the floor plans that belong to your network
 func GetFloorPlans(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/floorPlans",  networkId)
 	var datamodel = FloorPlans{}
@@ -72,16 +73,7 @@ func GetFloorPlans(networkId string) []api.Results {
 	return sessions
 }
 
-func GetFloorPlan(networkId, floorPlanId string) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
-	var datamodel = FloorPlan{}
-	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return sessions
-}
-
+// Upload a floor plan
 func PostFloorPlan(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/floorPlans",  networkId)
 	var datamodel = FloorPlan{}
@@ -93,6 +85,19 @@ func PostFloorPlan(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
+
+// Find a floor plan by ID
+func GetFloorPlan(networkId, floorPlanId string) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
+	var datamodel = FloorPlan{}
+	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+// Update a floor plan's geolocation and other meta data
 func PutFloorPlan(networkId, floorPlanId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
 	var datamodel = FloorPlan{}
@@ -104,6 +109,7 @@ func PutFloorPlan(networkId, floorPlanId string, data interface{}) []api.Results
 	return sessions
 }
 
+// Destroy a floor plan
 func DelFloorPlan(networkId, floorPlanId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/floorPlans/%s",  networkId, floorPlanId)
 	var datamodel = FloorPlan{}

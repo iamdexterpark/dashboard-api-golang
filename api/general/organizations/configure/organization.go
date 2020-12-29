@@ -32,6 +32,7 @@ type Clone struct {
 	URL  string `json:"url"`
 }
 
+// List the organizations that the user has privileges on
 func GetOrganizations() []api.Results {
 	baseurl := fmt.Sprintf("/organizations")
 
@@ -43,6 +44,7 @@ func GetOrganizations() []api.Results {
 	return sessions
 }
 
+// Create a new organization
 func PostOrganization(name string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations")
 	data := Organization{
@@ -57,6 +59,7 @@ func PostOrganization(name string) []api.Results {
 	return sessions
 }
 
+// Return an organization
 func GetOrganization(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	var datamodel = Organization{}
@@ -67,6 +70,7 @@ func GetOrganization(organizationId string) []api.Results {
 	return sessions
 }
 
+// Update an organization
 func PutOrganization(organizationId, name string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	data := Organization{
@@ -81,7 +85,7 @@ func PutOrganization(organizationId, name string) []api.Results {
 	return sessions
 }
 
-
+// Delete an organization
 func DelOrganization(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s",  organizationId)
 	var datamodel = Organization{}
@@ -92,6 +96,10 @@ func DelOrganization(organizationId string) []api.Results {
 	return sessions
 }
 
+// Claim a list of devices, licenses, and/or orders into an organization.
+// When claiming by order, all devices and licenses in the order will be
+// claimed; licenses will be added to the organization and devices will
+// be placed in the organization's inventory.
 func PostClaim(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/claim",  organizationId)
 	payload := user_agent.MarshalJSON(data)
@@ -103,6 +111,7 @@ func PostClaim(organizationId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Create a new organization by cloning the addressed organization
 func PostClone(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/clone",  organizationId)
 	payload := user_agent.MarshalJSON(data)

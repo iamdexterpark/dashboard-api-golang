@@ -12,6 +12,7 @@ type Settings struct {
 	RemoteStatusPageEnabled bool `json:"remoteStatusPageEnabled"`
 }
 
+// Return the settings for a network
 func GetSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/settings",  networkId)
 	var datamodel = Settings{}
@@ -22,6 +23,7 @@ func GetSettings(networkId string) []api.Results {
 	return sessions
 }
 
+// Update the settings for a network
 func PutSettings(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/settings",  networkId)
 	var datamodel = Settings{}

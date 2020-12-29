@@ -30,6 +30,7 @@ type SplitNetwork struct {
 	} `json:"resultingNetworks"`
 }
 
+// Return a network
 func GetNetwork(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s",  networkId)
 	var datamodel = Network{}
@@ -40,6 +41,7 @@ func GetNetwork(networkId string) []api.Results {
 	return sessions
 }
 
+// Delete a network
 func DelNetwork(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s",  networkId)
 	var datamodel = Network{}
@@ -50,6 +52,7 @@ func DelNetwork(networkId string) []api.Results {
 	return sessions
 }
 
+// Update a network
 func PutNetwork(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s",  networkId)
 	var datamodel = Network{}
@@ -61,22 +64,36 @@ func PutNetwork(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
-func PutSplitNetwork(networkId  string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/split",  networkId)
-	var datamodel = SplitNetwork{}
+// Bind a network to a template
+func PostBindNetwork(networkId string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/bind",  networkId)
+	var datamodel = Network{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return sessions
 }
 
-func PutUnBindNetwork(networkId string, data interface{}) []api.Results {
+// Split a combined network into individual networks for each type of device
+func PostSplitNetwork(networkId  string, data interface{}) []api.Results {
+	baseurl := fmt.Sprintf("/networks/%s/split",  networkId)
+	var datamodel = SplitNetwork{}
+	payload := user_agent.MarshalJSON(data)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return sessions
+}
+
+// Unbind a network from a template.
+func PostUnBindNetwork(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/unbind",  networkId)
 	var datamodel = Network{}
 	payload := user_agent.MarshalJSON(data)
-	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}

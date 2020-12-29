@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// DeviceClients - Return A Devices Clients
+
 type DeviceClients []struct {
 	Usage struct {
 		Sent int `json:"sent"`
@@ -24,8 +24,8 @@ type DeviceClients []struct {
 	DhcpHostname string      `json:"dhcpHostname"`
 }
 
-// lldpCdp - List LLDP and CDP information for a device
-type lldpCdp struct {
+
+type LLdpCdp struct {
 	SourceMac string `json:"sourceMac"`
 	Ports     struct {
 		Num8 struct {
@@ -53,7 +53,6 @@ type lldpCdp struct {
 	} `json:"ports"`
 }
 
-// UplinkLoss -  Get the uplink loss percentage and latency in milliseconds for a wired network device.
 type UplinkLoss []struct {
 	StartTime   time.Time `json:"startTime"`
 	EndTime     time.Time `json:"endTime"`
@@ -61,7 +60,7 @@ type UplinkLoss []struct {
 	LatencyMs   int       `json:"latencyMs"`
 }
 
-// GetDeviceClients - Return A Devices Clients
+// Return A Devices Clients
 func GetClients(serial, t0, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/clients",  serial)
 	var datamodel = DeviceClients{}
@@ -76,10 +75,10 @@ func GetClients(serial, t0, timespan string) []api.Results {
 	return sessions
 }
 
-// GetlldpCdp - List LLDP and CDP information for a device
-func GetLldpCdp(serial string) []api.Results {
+// List LLDP and CDP information for a device
+func GetLLdpCdp(serial string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/lldpCdp",  serial)
-	var datamodel = lldpCdp{}
+	var datamodel = LLdpCdp{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -87,7 +86,7 @@ func GetLldpCdp(serial string) []api.Results {
 	return sessions
 }
 
-// GetlldpCdp - Get the uplink loss percentage and latency in milliseconds for a wired network device.
+//  Get the uplink loss percentage and latency in milliseconds for a wired network device.
 func GetLossAndLatencyHistory(serial, t0, t1, timespan, resolution, uplink, ip string) []api.Results {
 	baseurl := fmt.Sprintf("/devices/%s/lossAndLatencyHistory",  serial)
 	var datamodel = UplinkLoss{}

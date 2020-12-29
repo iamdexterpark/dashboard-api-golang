@@ -31,6 +31,7 @@ type Devices []struct {
 	NetworkID string `json:"networkId"`
 }
 
+// List the devices in an organization
 func GetOrganizationDevices(organizationId, perPage, startingAfter,
 	configurationUpdatedAfter string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/devices",  organizationId)

@@ -18,7 +18,10 @@ type Traffic []struct {
 	Flows       int         `json:"flows"`
 }
 
-// Return the traffic analysis data for this network
+// Return the client's network traffic data over time. Usage data is in kilobytes.
+// This endpoint requires detailed traffic analysis to be enabled on the Network-wide > General
+// page. Clients can be identified by a client key or either the MAC or IP depending on whether
+// the network uses Track-by-IP.
 func GetTraffic(networkId, t0, timespan, deviceType string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/traffic",  networkId)
 	var datamodel = Traffic{}

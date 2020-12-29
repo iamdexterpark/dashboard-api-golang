@@ -32,6 +32,7 @@ type DscpTaggingOptions []struct {
 	Description  string `json:"description"`
 }
 
+// Return the traffic analysis settings for a network
 func GetTrafficAnalysis(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/trafficAnalysis",  networkId)
 	var datamodel = TrafficAnalysis{}
@@ -42,6 +43,7 @@ func GetTrafficAnalysis(networkId string) []api.Results {
 	return sessions
 }
 
+// Update the traffic analysis settings for a network
 func PutTrafficAnalysis(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/trafficAnalysis",  networkId)
 	var datamodel = TrafficAnalysis{}
@@ -53,6 +55,7 @@ func PutTrafficAnalysis(networkId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Returns the application categories for traffic shaping rules.
 func GetApplicationCategories(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/trafficShaping/applicationCategories",  networkId)
 	var datamodel = ApplicationCategories{}
@@ -63,7 +66,8 @@ func GetApplicationCategories(networkId string) []api.Results {
 	return sessions
 }
 
-func GetDscpTaggingOptions(networkId string) []api.Results {
+// Returns the available DSCP tagging options for your traffic shaping rules.
+func GetDSCPTaggingOptions(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/trafficShaping/dscpTaggingOptions",  networkId)
 	var datamodel = DscpTaggingOptions{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)

@@ -17,6 +17,7 @@ type ConfigTemplate struct {
 	TimeZone     string   `json:"timeZone"`
 }
 
+// List the configuration templates for this organization
 func GetConfigTemplates(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/configTemplates",
 		organizationId)
@@ -28,6 +29,7 @@ func GetConfigTemplates(organizationId string) []api.Results {
 	return sessions
 }
 
+// Return a single configuration template
 func GetConfigTemplate(organizationId, configTemplateId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
@@ -39,6 +41,7 @@ func GetConfigTemplate(organizationId, configTemplateId string) []api.Results {
 	return sessions
 }
 
+// Remove a configuration template
 func DelConfigTemplate(organizationId, configTemplateId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
@@ -50,6 +53,7 @@ func DelConfigTemplate(organizationId, configTemplateId string) []api.Results {
 	return sessions
 }
 
+// Update a configuration template
 func PutConfigTemplate(organizationId, configTemplateId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/configTemplates/%s",
 		organizationId, configTemplateId)
@@ -62,6 +66,7 @@ func PutConfigTemplate(organizationId, configTemplateId string, data interface{}
 	return sessions
 }
 
+// Create a new configuration template
 func PostConfigTemplate(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/configTemplates",
 		organizationId)

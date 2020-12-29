@@ -17,6 +17,7 @@ type SNMP struct {
 	Port       int      `json:"port"`
 }
 
+// Return the SNMP settings for an organization
 func GetSNMP(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/snmp",
 		organizationId)
@@ -28,6 +29,7 @@ func GetSNMP(organizationId string) []api.Results {
 	return sessions
 }
 
+// Update the SNMP settings for an organization
 func PutSNMP(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/snmp",
 		organizationId)

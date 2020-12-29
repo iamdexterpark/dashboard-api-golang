@@ -179,7 +179,7 @@ func GetRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
 	return sessions
 }
 
-func delRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
+func DelRendezvousPoint(networkId, rendezvousPointId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/switch/routing/multicast/rendezvousPoints/%s",
 		 networkId, rendezvousPointId)
 	var datamodel = RendezvousPoint{}

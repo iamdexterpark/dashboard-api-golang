@@ -25,6 +25,7 @@ type SAMLRole struct {
 	} `json:"tags"`
 }
 
+// List the SAML roles for this organization
 func GetSAMLRoles(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/samlRoles",
 		organizationId)
@@ -36,6 +37,8 @@ func GetSAMLRoles(organizationId string) []api.Results {
 	return sessions
 }
 
+
+// Return a SAML role
 func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
@@ -47,6 +50,7 @@ func GetSAMLRole(organizationId, samlRoleId string) []api.Results {
 	return sessions
 }
 
+// Remove a SAML role
 func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
@@ -58,6 +62,7 @@ func DelSAMLRole(organizationId, samlRoleId string) []api.Results {
 	return sessions
 }
 
+// Update a SAML role
 func PutSAMLRole(organizationId, samlRoleId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/samlRoles/%s",
 		organizationId, samlRoleId)
@@ -70,6 +75,7 @@ func PutSAMLRole(organizationId, samlRoleId string, data interface{}) []api.Resu
 	return sessions
 }
 
+// Create a SAML role
 func PostSAMLRole(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/samlRoles",
 		organizationId)

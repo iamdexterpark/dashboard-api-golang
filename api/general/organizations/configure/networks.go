@@ -61,6 +61,7 @@ type CombineNetworks struct {
 	} `json:"resultingNetwork"`
 }
 
+// List the networks that the user has privileges on in an organization
 func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage,
 	startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/networks",
@@ -83,6 +84,7 @@ func GetNetworks(organizationId, configTemplateId, tags, tagsFilterType, perPage
 	return sessions
 }
 
+// Create a network
 func PostNetworks(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/networks",
 		organizationId)
@@ -95,6 +97,7 @@ func PostNetworks(organizationId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Combine multiple networks into a single network
 func PostCombineNetworks(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/networks/combine",
 		organizationId)
@@ -107,6 +110,7 @@ func PostCombineNetworks(organizationId string, data interface{}) []api.Results 
 	return sessions
 }
 
+// List the clients that have used this network in the timespan
 func GetClients(networkId, t0, t1, timespan,
 	perPage, startingAfter, endingBefore string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients",  networkId)

@@ -27,7 +27,7 @@ type AlertSettings struct {
 	} `json:"alerts"`
 }
 
-
+// Return the alert configuration for this network
 func GetAlertSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/alerts/settings",  networkId)
 
@@ -39,6 +39,7 @@ func GetAlertSettings(networkId string) []api.Results {
 	return sessions
 }
 
+// Update the alert configuration for this network
 func PutAlertSettings(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/alerts/settings",  networkId)
 	var datamodel = AlertSettings{}

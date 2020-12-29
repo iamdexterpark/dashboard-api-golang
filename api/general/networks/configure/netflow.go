@@ -13,6 +13,7 @@ type NetFlow struct {
 	CollectorPort    int    `json:"collectorPort"`
 }
 
+// Return the NetFlow traffic reporting settings for a network
 func GetNetFlow(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/netflow",  networkId)
 	var datamodel = NetFlow{}
@@ -23,6 +24,7 @@ func GetNetFlow(networkId string) []api.Results {
 	return sessions
 }
 
+// Update the NetFlow traffic reporting settings for a networ
 func PutNetFlow(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/netflow",  networkId)
 	var datamodel = NetFlow{}

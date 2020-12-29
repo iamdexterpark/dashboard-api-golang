@@ -45,10 +45,10 @@ type LatencyStats []struct {
 }
 
 
-func GetDeviceconnectionStats(networkId, t0, t1, timespan,
+func GetDeviceConnectionStats(serial, t0, t1, timespan,
 	band, ssid, vlan, apTag string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/wireless/connectionStats",
-		 networkId)
+		 serial)
 	var datamodel = DeviceconnectionStats{}
 
 	// Parameters for Request URL

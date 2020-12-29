@@ -22,6 +22,7 @@ type InventoryDevice struct {
 	LicenseExpirationDate time.Time `json:"licenseExpirationDate"`
 }
 
+// Return the device inventory for an organization
 func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, usedState, search string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/inventoryDevices",
 		organizationId)
@@ -43,6 +44,7 @@ func GetInventoryDevices(organizationId, perPage, startingAfter, endingBefore, u
 	return sessions
 }
 
+// Return a single device from the inventory of an organization
 func GetInventoryDevice(organizationId, serial string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/inventoryDevices/%s",
 		organizationId, serial)

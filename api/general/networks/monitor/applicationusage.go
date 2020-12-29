@@ -17,6 +17,9 @@ type ApplicationUsage []struct {
 	} `json:"applicationUsage"`
 }
 
+// Return the application usage data for clients. Usage data is in kilobytes.
+//Clients can be identified by client keys or either the MACs or IPs depending
+//on whether the network uses Track-by-IP.
 func GetApplicationUsage(networkId, clients, ssidNumber, perPage, startingAfter, endingBefore, t0, t1, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/applicationUsage",  networkId)
 	var datamodel = ApplicationUsage{}

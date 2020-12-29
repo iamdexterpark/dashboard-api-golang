@@ -22,6 +22,7 @@ type SAML struct {
 	Enabled bool `json:"enabled"`
 }
 
+// List the SAML IdPs in your organization.
 func GetIDPS(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml/idps",
 		organizationId)
@@ -33,6 +34,7 @@ func GetIDPS(organizationId string) []api.Results {
 	return sessions
 }
 
+// Get a SAML IdP from your organization
 func GetIDP(organizationId, idpId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
@@ -45,6 +47,7 @@ func GetIDP(organizationId, idpId string) []api.Results {
 	return sessions
 }
 
+// Remove a SAML IdP in your organization.
 func DelIDP(organizationId, idpId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
@@ -57,6 +60,7 @@ func DelIDP(organizationId, idpId string) []api.Results {
 	return sessions
 }
 
+// Update a SAML IdP in your organization
 func PutIDP(organizationId, idpId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml/idp/%s",
 		organizationId, idpId)
@@ -69,6 +73,7 @@ func PutIDP(organizationId, idpId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Create a SAML IdP for your organization.
 func PostIDP(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml/idp",
 		organizationId)
@@ -81,6 +86,7 @@ func PostIDP(organizationId string, data interface{}) []api.Results {
 	return sessions
 }
 
+// Returns the SAML SSO enabled settings for an organization.
 func GetSAML(organizationId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml",
 		organizationId)
@@ -93,6 +99,7 @@ func GetSAML(organizationId string) []api.Results {
 	return sessions
 }
 
+// Updates the SAML SSO enabled settings for an organization.
 func PutSAML(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/saml",
 		organizationId)

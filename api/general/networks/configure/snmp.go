@@ -16,6 +16,7 @@ type SNMP struct {
 	} `json:"users"`
 }
 
+// Return the SNMP settings for a network
 func GetSNMP(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/snmp",  networkId)
 	var datamodel = SNMP{}
@@ -26,7 +27,8 @@ func GetSNMP(networkId string) []api.Results {
 	return sessions
 }
 
-func PutSNMP(networkId, access, communityString, users string, data interface{}) []api.Results {
+// Update the SNMP settings for a network
+func PutSNMP(networkId, string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/snmp",  networkId)
 	var datamodel = SNMP{}
 	payload := user_agent.MarshalJSON(data)

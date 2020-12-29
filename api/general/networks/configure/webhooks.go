@@ -24,7 +24,7 @@ type WebhookTests struct {
 	Status string `json:"status"`
 }
 
-
+// List the HTTP servers for a network
 func GetHTTPServers(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/httpServers",  networkId)
 	var datamodel = HTTPServers{}
@@ -35,7 +35,7 @@ func GetHTTPServers(networkId string) []api.Results {
 	return sessions
 }
 
-
+// Return an HTTP server for a network
 func GetHTTPServer(networkId, httpServerId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/httpServers/%s",  networkId, httpServerId)
 	var datamodel HTTPServer
@@ -46,6 +46,7 @@ func GetHTTPServer(networkId, httpServerId string) []api.Results {
 	return sessions
 }
 
+// Update an HTTP server
 func PutHTTPServer(networkId, httpServerId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/httpServers/%s",  networkId, httpServerId)
 	var datamodel HTTPServer
@@ -57,7 +58,8 @@ func PutHTTPServer(networkId, httpServerId string, data interface{}) []api.Resul
 	return sessions
 }
 
-func PostHTTPServer(networkId, name, url, sharedSecret string, data interface{}) []api.Results {
+// Add an HTTP server to a network
+func PostHTTPServer(networkId, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/httpServers",  networkId)
 	var datamodel HTTPServer
 	payload := user_agent.MarshalJSON(data)
@@ -68,6 +70,7 @@ func PostHTTPServer(networkId, name, url, sharedSecret string, data interface{})
 	return sessions
 }
 
+// Delete an HTTP server from a network
 func DelHTTPServer(networkId, httpServerId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/httpServers/%s",  networkId, httpServerId)
 	var datamodel HTTPServer
@@ -79,7 +82,8 @@ func DelHTTPServer(networkId, httpServerId string) []api.Results {
 	return sessions
 }
 
-func GetWebhookTests(networkId, webhookTestId string) []api.Results {
+// Return the status of a webhook test for a network
+func GetWebhookTest(networkId, webhookTestId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/webhookTests/%s",  networkId, webhookTestId)
 	var datamodel = WebhookTests{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
@@ -90,7 +94,8 @@ func GetWebhookTests(networkId, webhookTestId string) []api.Results {
 	return sessions
 }
 
-func PostWebhookTests(networkId string) []api.Results {
+// Send a test webhook for a network
+func PostWebhookTest(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/webhooks/webhookTests",  networkId)
 	var datamodel = WebhookTests{}
 	sessions, err := api.Sessions(baseurl, "POST", nil, nil, datamodel)

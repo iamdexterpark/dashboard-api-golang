@@ -18,6 +18,8 @@ type UsageHistories []struct {
 	} `json:"usageHistory"`
 }
 
+// Return the usage histories for clients. Usage data is in kilobytes.
+// Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP.
 func GetUsageHistories(networkId, clients, ssidNumber, perPage, startingAfter, endingBefore, t0, t1, timespan string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/usageHistories",  networkId)
 	var datamodel = UsageHistories{}
@@ -39,3 +41,4 @@ func GetUsageHistories(networkId, clients, ssidNumber, perPage, startingAfter, e
 	}
 	return sessions
 }
+

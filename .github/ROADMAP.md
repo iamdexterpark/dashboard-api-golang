@@ -1,6 +1,5 @@
 ## RoadMap
 
-
 ### Alpha DEC 2020
 - [x] 100% Devices API Coverage
 - [x] 100% Network API Coverage

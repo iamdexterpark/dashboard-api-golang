@@ -30,6 +30,7 @@ type ActionBatch struct {
 	} `json:"actions"`
 }
 
+// Return the list of action batches in the organization
 func GetActionBatches(organizationId, status string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/actionBatches",  organizationId)
 
@@ -44,6 +45,7 @@ func GetActionBatches(organizationId, status string) []api.Results {
 	return sessions
 }
 
+// Return an action batch
 func GetActionBatch(organizationId, actionBatchId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 
@@ -55,6 +57,7 @@ func GetActionBatch(organizationId, actionBatchId string) []api.Results {
 	return sessions
 }
 
+// Delete an action batch
 func DelActionBatch(organizationId, actionBatchId string) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 
@@ -66,6 +69,7 @@ func DelActionBatch(organizationId, actionBatchId string) []api.Results {
 	return sessions
 }
 
+// Update an action batch
 func PutActionBatch(organizationId, actionBatchId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/actionBatches/%s",  organizationId, actionBatchId)
 	var datamodel = ActionBatch{}
@@ -77,6 +81,7 @@ func PutActionBatch(organizationId, actionBatchId string, data interface{}) []ap
 	return sessions
 }
 
+// Create an action batch
 func PostActionBatch(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/actionBatches",  organizationId)
 	var datamodel = ActionBatch{}
