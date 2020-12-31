@@ -112,8 +112,11 @@ func PostClaim(organizationId string, data interface{}) []api.Results {
 }
 
 // Create a new organization by cloning the addressed organization
-func PostClone(organizationId string, data interface{}) []api.Results {
+func PostClone(organizationId, name string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/clone",  organizationId)
+	data = Organization{
+		Name: name,
+	}
 	payload := user_agent.MarshalJSON(data)
 	var datamodel = Clone{}
 	sessions, err := api.Sessions(baseurl, "POST", payload,nil, datamodel)
