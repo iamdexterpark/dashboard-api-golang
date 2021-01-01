@@ -58,6 +58,27 @@ func MarshalJSON(data interface{}) *strings.Reader {
 	return payload
 }
 
+func FormatPayload(data, datamodel interface{}) *strings.Reader {
+
+	// format data into JSON
+	var jsonData []byte
+	jsonData, err := json.Marshal(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// io read closer
+	var reader io.ReadCloser
+	_, _ = reader.Read(jsonData)
+
+
+	//unMarshal data into datamodel
+	MarshalData := UnMarshalJSON(reader, datamodel)
+
+	formattedData := MarshalJSON(MarshalData)
+	return formattedData
+}
+
 type HttpPacket struct {
 	Status     string // e.g. "200 OK"
 	StatusCode int    // e.g. 200
