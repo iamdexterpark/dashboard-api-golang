@@ -59,7 +59,6 @@ func MarshalJSON(data interface{}) *strings.Reader {
 }
 
 func FormatPayload(data, datamodel interface{}) *strings.Reader {
-
 	// format data into JSON
 	var jsonData []byte
 	jsonData, err := json.Marshal(data)
@@ -67,15 +66,12 @@ func FormatPayload(data, datamodel interface{}) *strings.Reader {
 		log.Fatal(err)
 	}
 
-	// io read closer
-	var reader io.ReadCloser
-	_, _ = reader.Read(jsonData)
+	jsonErr := json.Unmarshal(jsonData, &datamodel)
+	if jsonErr != nil {
+		log.Fatal(err)
+	}
 
-
-	//unMarshal data into datamodel
-	MarshalData := UnMarshalJSON(reader, datamodel)
-
-	formattedData := MarshalJSON(MarshalData)
+	formattedData := MarshalJSON(datamodel)
 	return formattedData
 }
 
