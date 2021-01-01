@@ -70,6 +70,7 @@ func GetSSID(networkId, ssidNumber string) []api.Results {
 	return sessions
 }
 
+// payload := user_agent.FormatPayload(data, datamodel)
 func PutSSID(networkId, ssidNumber string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/wireless/ssids/%s",  networkId, ssidNumber)
 
