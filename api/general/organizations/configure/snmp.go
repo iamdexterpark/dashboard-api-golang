@@ -35,7 +35,7 @@ func PutSNMP(organizationId string, data interface{}) []api.Results {
 		organizationId)
 	var datamodel = SNMP{}
 	payload := user_agent.FormatPayload(data, datamodel)
-	sessions, err := api.Sessions(baseurl, "GET", payload, nil, datamodel)
+	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
 	}
