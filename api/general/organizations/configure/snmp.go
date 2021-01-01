@@ -33,7 +33,7 @@ func GetSNMP(organizationId string) []api.Results {
 func PutSNMP(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/snmp",
 		organizationId)
-	var datamodel = SNMP{}
+	var datamodel SNMP
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
