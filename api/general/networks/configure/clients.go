@@ -16,12 +16,12 @@ type ClientPolicy struct {
 type SplashAuthorizationStatus struct {
 	Ssids struct {
 		Num0 struct {
-			IsAuthorized bool   `json:"isAuthorized"`
+			IsAuthorized string `json:"isAuthorized"`
 			AuthorizedAt string `json:"authorizedAt"`
 			ExpiresAt    string `json:"expiresAt"`
 		} `json:"0"`
 		Num2 struct {
-			IsAuthorized bool `json:"isAuthorized"`
+			IsAuthorized string `json:"isAuthorized"`
 		} `json:"2"`
 	} `json:"ssids"`
 }

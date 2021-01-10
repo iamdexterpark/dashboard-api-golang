@@ -15,13 +15,13 @@ type QualityRetentionProfile struct {
 	ID                             string      `json:"id"`
 	NetworkID                      string      `json:"networkId"`
 	Name                           string      `json:"name"`
-	RestrictedBandwidthModeEnabled bool        `json:"restrictedBandwidthModeEnabled"`
-	MotionBasedRetentionEnabled    bool        `json:"motionBasedRetentionEnabled"`
-	AudioRecordingEnabled          bool        `json:"audioRecordingEnabled"`
-	CloudArchiveEnabled            bool        `json:"cloudArchiveEnabled"`
-	MaxRetentionDays               int         `json:"maxRetentionDays"`
+	RestrictedBandwidthModeEnabled string        `json:"restrictedBandwidthModeEnabled"`
+	MotionBasedRetentionEnabled    string        `json:"motionBasedRetentionEnabled"`
+	AudioRecordingEnabled          string        `json:"audioRecordingEnabled"`
+	CloudArchiveEnabled            string        `json:"cloudArchiveEnabled"`
+	MaxRetentionDays               string         `json:"maxRetentionDays"`
 	ScheduleID                     interface{} `json:"scheduleId"`
-	MotionDetectorVersion          int         `json:"motionDetectorVersion"`
+	MotionDetectorVersion          string         `json:"motionDetectorVersion"`
 	VideoSettings                  struct {
 		MV32 struct {
 			Quality    string `json:"quality"`

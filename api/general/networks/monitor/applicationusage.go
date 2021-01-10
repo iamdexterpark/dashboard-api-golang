@@ -12,8 +12,8 @@ type ApplicationUsage []struct {
 	ClientMac        string `json:"clientMac"`
 	ApplicationUsage []struct {
 		Application string `json:"application"`
-		Recv        int    `json:"recv"`
-		Sent        int    `json:"sent"`
+		Recv        string `json:"recv"`
+		Sent        string `json:"sent"`
 	} `json:"applicationUsage"`
 }
 

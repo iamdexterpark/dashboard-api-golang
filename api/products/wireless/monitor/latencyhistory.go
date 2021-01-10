@@ -10,7 +10,7 @@ import (
 type LatencyHistory []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	AvgLatencyMs int       `json:"avgLatencyMs"`
+	AvgLatencyMs string       `json:"avgLatencyMs"`
 }
 
 func GetLatencyHistory(networkId, t0, t1, timespan,

@@ -12,12 +12,12 @@ type InventoryDevices []struct {
 }
 
 type InventoryDevice struct {
-	Mac                   string    `json:"mac"`
-	Serial                string    `json:"serial"`
-	Name                  string    `json:"name"`
-	Model                 string    `json:"model"`
-	NetworkID             string    `json:"networkId"`
-	OrderNumber           string    `json:"orderNumber"`
+	Mac                   string `json:"mac"`
+	Serial                string `json:"serial"`
+	Name                  string `json:"name"`
+	Model                 string `json:"model"`
+	NetworkID             string `json:"networkId"`
+	OrderNumber           string `json:"orderNumber"`
 	ClaimedAt             time.Time `json:"claimedAt"`
 	LicenseExpirationDate time.Time `json:"licenseExpirationDate"`
 }

@@ -14,18 +14,18 @@ type ActionBatches []struct {
 type ActionBatch struct {
 	ID             string `json:"id"`
 	OrganizationID string `json:"organizationId"`
-	Confirmed      bool   `json:"confirmed"`
-	Synchronous    bool   `json:"synchronous"`
+	Confirmed      string `json:"confirmed"`
+	Synchronous    string `json:"synchronous"`
 	Status         struct {
-		Completed bool          `json:"completed"`
-		Failed    bool          `json:"failed"`
+		Completed string          `json:"completed"`
+		Failed    string          `json:"failed"`
 		Errors    []interface{} `json:"errors"`
 	} `json:"status"`
 	Actions []struct {
 		Resource  string `json:"resource"`
 		Operation string `json:"operation"`
 		Body      struct {
-			Enabled bool `json:"enabled"`
+			Enabled string `json:"enabled"`
 		} `json:"body"`
 	} `json:"actions"`
 }

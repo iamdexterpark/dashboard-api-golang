@@ -11,13 +11,13 @@ type RadioSettings struct {
 	Serial             string `json:"serial"`
 	RfProfileID        string `json:"rfProfileId"`
 	TwoFourGhzSettings struct {
-		Channel     int `json:"channel"`
-		TargetPower int `json:"targetPower"`
+		Channel     string `json:"channel"`
+		TargetPower string `json:"targetPower"`
 	} `json:"twoFourGhzSettings"`
 	FiveGhzSettings struct {
-		Channel      int `json:"channel"`
-		ChannelWidth int `json:"channelWidth"`
-		TargetPower  int `json:"targetPower"`
+		Channel      string `json:"channel"`
+		ChannelWidth string `json:"channelWidth"`
+		TargetPower  string `json:"targetPower"`
 	} `json:"fiveGhzSettings"`
 }
 

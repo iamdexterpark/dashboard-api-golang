@@ -21,14 +21,14 @@ type License struct {
 	NetworkID                 string      `json:"networkId"`
 	State                     string      `json:"state"`
 	SeatCount                 interface{} `json:"seatCount"`
-	TotalDurationInDays       int         `json:"totalDurationInDays"`
-	DurationInDays            int         `json:"durationInDays"`
+	TotalDurationInDays       string         `json:"totalDurationInDays"`
+	DurationInDays            string         `json:"durationInDays"`
 	PermanentlyQueuedLicenses []struct {
 		ID             string `json:"id"`
 		LicenseType    string `json:"licenseType"`
 		LicenseKey     string `json:"licenseKey"`
 		OrderNumber    string `json:"orderNumber"`
-		DurationInDays int    `json:"durationInDays"`
+		DurationInDays string `json:"durationInDays"`
 	} `json:"permanentlyQueuedLicenses"`
 	ClaimDate      time.Time `json:"claimDate"`
 	ActivationDate time.Time `json:"activationDate"`
@@ -44,9 +44,9 @@ type AssignSeats struct {
 		DeviceSerial              interface{}   `json:"deviceSerial"`
 		NetworkID                 string        `json:"networkId"`
 		State                     string        `json:"state"`
-		SeatCount                 int           `json:"seatCount"`
-		TotalDurationInDays       int           `json:"totalDurationInDays"`
-		DurationInDays            int           `json:"durationInDays"`
+		SeatCount                 string           `json:"seatCount"`
+		TotalDurationInDays       string           `json:"totalDurationInDays"`
+		DurationInDays            string           `json:"durationInDays"`
 		PermanentlyQueuedLicenses []interface{} `json:"permanentlyQueuedLicenses"`
 		ClaimDate                 time.Time     `json:"claimDate"`
 		ActivationDate            time.Time     `json:"activationDate"`
@@ -62,7 +62,7 @@ type MoveLicenses struct {
 type MoveSeats struct {
 	DestOrganizationID string `json:"destOrganizationId"`
 	LicenseID          string `json:"licenseId"`
-	SeatCount          int    `json:"seatCount"`
+	SeatCount          string `json:"seatCount"`
 }
 
 type RenewSeats struct {
@@ -74,9 +74,9 @@ type RenewSeats struct {
 		DeviceSerial              interface{}   `json:"deviceSerial"`
 		NetworkID                 string        `json:"networkId"`
 		State                     string        `json:"state"`
-		SeatCount                 int           `json:"seatCount"`
-		TotalDurationInDays       int           `json:"totalDurationInDays"`
-		DurationInDays            int           `json:"durationInDays"`
+		SeatCount                 string           `json:"seatCount"`
+		TotalDurationInDays       string           `json:"totalDurationInDays"`
+		DurationInDays            string           `json:"durationInDays"`
 		PermanentlyQueuedLicenses []interface{} `json:"permanentlyQueuedLicenses"`
 		ClaimDate                 time.Time     `json:"claimDate"`
 		ActivationDate            time.Time     `json:"activationDate"`

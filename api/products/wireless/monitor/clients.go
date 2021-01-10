@@ -9,39 +9,39 @@ import (
 
 
 type ConnectivityEvents []struct {
-	OccurredAt   int     `json:"occurredAt"`
+	OccurredAt   string     `json:"occurredAt"`
 	DeviceSerial string  `json:"deviceSerial"`
-	Band         int     `json:"band"`
-	SsidNumber   int     `json:"ssidNumber"`
+	Band         string     `json:"band"`
+	SsidNumber   string     `json:"ssidNumber"`
 	Type         string  `json:"type"`
 	Subtype      string  `json:"subtype"`
 	Severity     string  `json:"severity"`
 	DurationMs   float64 `json:"durationMs"`
-	Channel      int     `json:"channel"`
-	Rssi         int     `json:"rssi"`
+	Channel      string     `json:"channel"`
+	Rssi         string     `json:"rssi"`
 	EventData    struct {
 		ClientIP string `json:"clientIp"`
 	} `json:"eventData"`
 }
 
 type ClientLatencyTraffic struct {
-	Zero5   int `json:"0.5"`
-	One1    int `json:"1.1"`
-	Two1    int `json:"2.1"`
-	Four1   int `json:"4.1"`
-	Eight1  int `json:"8.1"`
-	One61   int `json:"16.1"`
-	Three21 int `json:"32.1"`
-	Six41   int `json:"64.1"`
-	One281  int `json:"128.1"`
-	Two561  int `json:"256.1"`
-	Five121 int `json:"512.1"`
-	One0241 int `json:"1024.1"`
-	Two0481 int `json:"2048.1"`
+	Zero5   string `json:"0.5"`
+	One1    string `json:"1.1"`
+	Two1    string `json:"2.1"`
+	Four1   string `json:"4.1"`
+	Eight1  string `json:"8.1"`
+	One61   string `json:"16.1"`
+	Three21 string `json:"32.1"`
+	Six41   string `json:"64.1"`
+	One281  string `json:"128.1"`
+	Two561  string `json:"256.1"`
+	Five121 string `json:"512.1"`
+	One0241 string `json:"1024.1"`
+	Two0481 string `json:"2048.1"`
 }
 type ClientLatencyHistory []struct {
-	T0                    int `json:"t0"`
-	T1                    int `json:"t1"`
+	T0                    string `json:"t0"`
+	T1                    string `json:"t1"`
 	LatencyBinsByCategory struct {
 		BackgroundTraffic struct {
 			ClientLatencyTraffic
@@ -67,19 +67,19 @@ type AggregatedLatency struct {
 	LatencyStats struct {
 		BackgroundTraffic struct {
 			RawDistribution struct {
-				Num0    int `json:"0"`
-				Num1    int `json:"1"`
-				Num2    int `json:"2"`
-				Num4    int `json:"4"`
-				Num8    int `json:"8"`
-				Num16   int `json:"16"`
-				Num32   int `json:"32"`
-				Num64   int `json:"64"`
-				Num128  int `json:"128"`
-				Num256  int `json:"256"`
-				Num512  int `json:"512"`
-				Num1024 int `json:"1024"`
-				Num2048 int `json:"2048"`
+				Num0    string `json:"0"`
+				Num1    string `json:"1"`
+				Num2    string `json:"2"`
+				Num4    string `json:"4"`
+				Num8    string `json:"8"`
+				Num16   string `json:"16"`
+				Num32   string `json:"32"`
+				Num64   string `json:"64"`
+				Num128  string `json:"128"`
+				Num256  string `json:"256"`
+				Num512  string `json:"512"`
+				Num1024 string `json:"1024"`
+				Num2048 string `json:"2048"`
 			} `json:"rawDistribution"`
 			Avg float64 `json:"avg"`
 		} `json:"backgroundTraffic"`

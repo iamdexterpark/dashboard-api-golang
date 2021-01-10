@@ -23,19 +23,19 @@ type Network struct {
 
 type Clients []struct {
 	Usage struct {
-		Sent int `json:"sent"`
-		Recv int `json:"recv"`
+		Sent string `json:"sent"`
+		Recv string `json:"recv"`
 	} `json:"usage"`
 	ID                 string      `json:"id"`
 	Description        string      `json:"description"`
 	Mac                string      `json:"mac"`
 	IP                 string      `json:"ip"`
 	User               string      `json:"user"`
-	Vlan               int         `json:"vlan"`
+	Vlan               string         `json:"vlan"`
 	Switchport         interface{} `json:"switchport"`
 	IP6                string      `json:"ip6"`
-	FirstSeen          int         `json:"firstSeen"`
-	LastSeen           int         `json:"lastSeen"`
+	FirstSeen          string         `json:"firstSeen"`
+	LastSeen           string         `json:"lastSeen"`
 	Manufacturer       string      `json:"manufacturer"`
 	Os                 string      `json:"os"`
 	RecentDeviceSerial string      `json:"recentDeviceSerial"`
@@ -45,7 +45,7 @@ type Clients []struct {
 	Status             string      `json:"status"`
 	Notes              string      `json:"notes"`
 	IP6Local           string      `json:"ip6Local"`
-	SmInstalled        bool        `json:"smInstalled"`
+	SmInstalled        string        `json:"smInstalled"`
 	GroupPolicy8021X   string      `json:"groupPolicy8021x"`
 }
 

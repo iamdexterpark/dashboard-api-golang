@@ -12,7 +12,7 @@ type StackDHCP struct {
 	DhcpLeaseTime        string   `json:"dhcpLeaseTime"`
 	DNSNameserversOption string   `json:"dnsNameserversOption"`
 	DNSCustomNameservers []string `json:"dnsCustomNameservers"`
-	BootOptionsEnabled   bool     `json:"bootOptionsEnabled"`
+	BootOptionsEnabled   string `json:"bootOptionsEnabled"`
 	BootNextServer       string   `json:"bootNextServer"`
 	BootFileName         string   `json:"bootFileName"`
 	DhcpOptions          []struct {
@@ -42,12 +42,12 @@ type StackInterface struct {
 	Subnet           string `json:"subnet"`
 	InterfaceIP      string `json:"interfaceIp"`
 	MulticastRouting string `json:"multicastRouting"`
-	VlanID           int    `json:"vlanId"`
+	VlanID           string `json:"vlanId"`
 	DefaultGateway   string `json:"defaultGateway"`
 	OspfSettings     struct {
 		Area             string `json:"area"`
-		Cost             int    `json:"cost"`
-		IsPassiveEnabled bool   `json:"isPassiveEnabled"`
+		Cost             string `json:"cost"`
+		IsPassiveEnabled string `json:"isPassiveEnabled"`
 	} `json:"ospfSettings"`
 }
 
@@ -61,12 +61,12 @@ type StackStaticRoute struct {
 	Subnet           string `json:"subnet"`
 	InterfaceIP      string `json:"interfaceIp"`
 	MulticastRouting string `json:"multicastRouting"`
-	VlanID           int    `json:"vlanId"`
+	VlanID           string `json:"vlanId"`
 	DefaultGateway   string `json:"defaultGateway"`
 	OspfSettings     struct {
 		Area             string `json:"area"`
-		Cost             int    `json:"cost"`
-		IsPassiveEnabled bool   `json:"isPassiveEnabled"`
+		Cost             string `json:"cost"`
+		IsPassiveEnabled string `json:"isPassiveEnabled"`
 	} `json:"ospfSettings"`
 }
 

@@ -8,15 +8,15 @@ import (
 )
 
 type OSPF struct {
-	Enabled             bool `json:"enabled"`
-	HelloTimerInSeconds int  `json:"helloTimerInSeconds"`
-	DeadTimerInSeconds  int  `json:"deadTimerInSeconds"`
+	Enabled             string `json:"enabled"`
+	HelloTimerInSeconds string  `json:"helloTimerInSeconds"`
+	DeadTimerInSeconds  string  `json:"deadTimerInSeconds"`
 	Areas               []struct {
 		AreaID   string `json:"areaId"`
 		AreaName string `json:"areaName"`
 		AreaType string `json:"areaType"`
 	} `json:"areas"`
-	Md5AuthenticationEnabled bool `json:"md5AuthenticationEnabled"`
+	Md5AuthenticationEnabled string `json:"md5AuthenticationEnabled"`
 	Md5AuthenticationKey     struct {
 		ID         string `json:"id"`
 		Passphrase string `json:"passphrase"`
