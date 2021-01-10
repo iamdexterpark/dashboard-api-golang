@@ -8,10 +8,10 @@ import (
 )
 
 type MTU struct {
-	DefaultMtuSize int `json:"defaultMtuSize"`
+	DefaultMtuSize string `json:"defaultMtuSize"`
 	Overrides      []struct {
 		Switches       []string `json:"switches,omitempty"`
-		MtuSize        int      `json:"mtuSize"`
+		MtuSize        string      `json:"mtuSize"`
 		SwitchProfiles []string `json:"switchProfiles,omitempty"`
 	} `json:"overrides"`
 }

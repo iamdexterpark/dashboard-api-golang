@@ -12,7 +12,7 @@ type DHCP struct {
 	DhcpLeaseTime        string   `json:"dhcpLeaseTime"`
 	DNSNameserversOption string   `json:"dnsNameserversOption"`
 	DNSCustomNameservers []string `json:"dnsCustomNameservers"`
-	BootOptionsEnabled   bool     `json:"bootOptionsEnabled"`
+	BootOptionsEnabled   string `json:"bootOptionsEnabled"`
 	BootNextServer       string   `json:"bootNextServer"`
 	BootFileName         string   `json:"bootFileName"`
 	DhcpOptions          []struct {
@@ -42,12 +42,12 @@ type Interface struct {
 	Subnet           string `json:"subnet"`
 	InterfaceIP      string `json:"interfaceIp"`
 	MulticastRouting string `json:"multicastRouting"`
-	VlanID           int    `json:"vlanId"`
+	VlanID           string `json:"vlanId"`
 	DefaultGateway   string `json:"defaultGateway"`
 	OspfSettings     struct {
 		Area             string `json:"area"`
-		Cost             int    `json:"cost"`
-		IsPassiveEnabled bool   `json:"isPassiveEnabled"`
+		Cost             string `json:"cost"`
+		IsPassiveEnabled string `json:"isPassiveEnabled"`
 	} `json:"ospfSettings"`
 }
 
@@ -55,7 +55,7 @@ type RendezvousPoints [][]struct {
 	RendezvousPoint
 }
 
-type RendezvousPoint []struct {
+type RendezvousPostring []struct {
 	RendezvousPointID string `json:"rendezvousPointId"`
 	Serial            string `json:"serial,omitempty"`
 	InterfaceName     string `json:"interfaceName,omitempty"`
@@ -66,13 +66,13 @@ type RendezvousPoint []struct {
 
 type Multicast struct {
 	DefaultSettings struct {
-		IgmpSnoopingEnabled                 bool `json:"igmpSnoopingEnabled"`
-		FloodUnknownMulticastTrafficEnabled bool `json:"floodUnknownMulticastTrafficEnabled"`
+		IgmpSnoopingEnabled                 string `json:"igmpSnoopingEnabled"`
+		FloodUnknownMulticastTrafficEnabled string `json:"floodUnknownMulticastTrafficEnabled"`
 	} `json:"defaultSettings"`
 	Overrides []struct {
 		Switches                            []string `json:"switches,omitempty"`
-		IgmpSnoopingEnabled                 bool     `json:"igmpSnoopingEnabled"`
-		FloodUnknownMulticastTrafficEnabled bool     `json:"floodUnknownMulticastTrafficEnabled"`
+		IgmpSnoopingEnabled                 string `json:"igmpSnoopingEnabled"`
+		FloodUnknownMulticastTrafficEnabled string `json:"floodUnknownMulticastTrafficEnabled"`
 		Stacks                              []string `json:"stacks,omitempty"`
 	} `json:"overrides"`
 }

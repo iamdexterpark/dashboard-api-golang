@@ -10,36 +10,36 @@ type Packets []struct {
 	PortID  string `json:"portId"`
 	Packets []struct {
 		Desc       string `json:"desc"`
-		Total      int    `json:"total"`
-		Sent       int    `json:"sent"`
-		Recv       int    `json:"recv"`
+		Total      string `json:"total"`
+		Sent       string `json:"sent"`
+		Recv       string `json:"recv"`
 		RatePerSec struct {
-			Total int `json:"total"`
-			Sent  int `json:"sent"`
-			Recv  int `json:"recv"`
+			Total string `json:"total"`
+			Sent  string `json:"sent"`
+			Recv  string `json:"recv"`
 		} `json:"ratePerSec"`
 	} `json:"packets"`
 }
 
 type Statuses []struct {
 	PortID    string   `json:"portId"`
-	Enabled   bool     `json:"enabled"`
+	Enabled   string `json:"enabled"`
 	Status    string   `json:"status"`
 	Errors    []string `json:"errors"`
 	Warnings  []string `json:"warnings"`
 	Speed     string   `json:"speed"`
 	Duplex    string   `json:"duplex"`
 	UsageInKb struct {
-		Total int `json:"total"`
-		Sent  int `json:"sent"`
-		Recv  int `json:"recv"`
+		Total string `json:"total"`
+		Sent  string `json:"sent"`
+		Recv  string `json:"recv"`
 	} `json:"usageInKb"`
 	Cdp struct {
 		SystemName          string `json:"systemName"`
 		Platform            string `json:"platform"`
 		DeviceID            string `json:"deviceId"`
 		PortID              string `json:"portId"`
-		NativeVlan          int    `json:"nativeVlan"`
+		NativeVlan          string `json:"nativeVlan"`
 		Address             string `json:"address"`
 		ManagementAddress   string `json:"managementAddress"`
 		Version             string `json:"version"`
@@ -52,17 +52,17 @@ type Statuses []struct {
 		PortID             string `json:"portId"`
 		PortDescription    string `json:"portDescription"`
 		ChassisID          string `json:"chassisId"`
-		ManagementVlan     int    `json:"managementVlan"`
-		PortVlan           int    `json:"portVlan"`
+		ManagementVlan     string `json:"managementVlan"`
+		PortVlan           string `json:"portVlan"`
 		ManagementAddress  string `json:"managementAddress"`
 		SystemCapabilities string `json:"systemCapabilities"`
 	} `json:"lldp"`
-	ClientCount    int     `json:"clientCount"`
+	ClientCount    string     `json:"clientCount"`
 	PowerUsageInWh float64 `json:"powerUsageInWh"`
 	TrafficInKbps  struct {
 		Total float64 `json:"total"`
 		Sent  float64 `json:"sent"`
-		Recv  int     `json:"recv"`
+		Recv  string     `json:"recv"`
 	} `json:"trafficInKbps"`
 }
 

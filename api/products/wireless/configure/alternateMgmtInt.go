@@ -8,8 +8,8 @@ import (
 )
 
 type AlternateManagementInterface struct {
-	Enabled      bool     `json:"enabled"`
-	VlanID       int      `json:"vlanId"`
+	Enabled      string `json:"enabled"`
+	VlanID       string      `json:"vlanId"`
 	Protocols    []string `json:"protocols"`
 	AccessPoints []struct {
 		Serial                string `json:"serial"`

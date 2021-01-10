@@ -8,7 +8,7 @@ import (
 )
 
 type VideoSettings struct {
-	ExternalRtspEnabled bool   `json:"externalRtspEnabled"`
+	ExternalRtspEnabled string `json:"externalRtspEnabled"`
 	RtspURL             string `json:"rtspUrl"`
 }
 

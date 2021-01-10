@@ -15,17 +15,17 @@ type ManagementInterface struct {
 	} `json:"ddnsHostnames"`
 	Wan1 struct {
 		WanEnabled       string   `json:"wanEnabled"`
-		UsingStaticIP    bool     `json:"usingStaticIp"`
+		UsingStaticIP    string `json:"usingStaticIp"`
 		StaticIP         string   `json:"staticIp"`
 		StaticSubnetMask string   `json:"staticSubnetMask"`
 		StaticGatewayIP  string   `json:"staticGatewayIp"`
 		StaticDNS        []string `json:"staticDns"`
-		Vlan             int      `json:"vlan"`
+		Vlan             string      `json:"vlan"`
 	} `json:"wan1"`
 	Wan2 struct {
 		WanEnabled    string `json:"wanEnabled"`
-		UsingStaticIP bool   `json:"usingStaticIp"`
-		Vlan          int    `json:"vlan"`
+		UsingStaticIP string `json:"usingStaticIp"`
+		Vlan          string `json:"vlan"`
 	} `json:"wan2"`
 }
 
@@ -43,8 +43,8 @@ type Device struct {
 	NetworkID      string   `json:"networkId"`
 	BeaconIDParams struct {
 		UUID  string `json:"uuid"`
-		Major int    `json:"major"`
-		Minor int    `json:"minor"`
+		Major string `json:"major"`
+		Minor string `json:"minor"`
 	} `json:"beaconIdParams"`
 	Firmware    string `json:"firmware"`
 	FloorPlanID string `json:"floorPlanId"`

@@ -17,13 +17,13 @@ type QoSRules []struct {
 
 type QoSRule struct {
 	ID           string      `json:"id"`
-	Vlan         int         `json:"vlan"`
+	Vlan         string         `json:"vlan"`
 	Protocol     string      `json:"protocol"`
-	SrcPort      int         `json:"srcPort"`
+	SrcPort      string         `json:"srcPort"`
 	SrcPortRange interface{} `json:"srcPortRange"`
 	DstPort      interface{} `json:"dstPort"`
 	DstPortRange string      `json:"dstPortRange"`
-	Dscp         int         `json:"dscp"`
+	Dscp         string         `json:"dscp"`
 }
 
 func GetQoSRuleOrder(networkId string) []api.Results {

@@ -14,15 +14,15 @@ type Events struct {
 	PageEndAt   time.Time   `json:"pageEndAt"`
 	Events      []struct {
 		OccurredAt        time.Time `json:"occurredAt"`
-		NetworkID         string    `json:"networkId"`
-		Type              string    `json:"type"`
-		Description       string    `json:"description"`
-		ClientID          string    `json:"clientId"`
-		ClientDescription string    `json:"clientDescription"`
-		DeviceSerial      string    `json:"deviceSerial"`
-		DeviceName        string    `json:"deviceName"`
-		SsidNumber        int       `json:"ssidNumber"`
-		SsidName          string    `json:"ssidName"`
+		NetworkID         string `json:"networkId"`
+		Type              string `json:"type"`
+		Description       string `json:"description"`
+		ClientID          string `json:"clientId"`
+		ClientDescription string `json:"clientDescription"`
+		DeviceSerial      string `json:"deviceSerial"`
+		DeviceName        string `json:"deviceName"`
+		SsidNumber        string       `json:"ssidNumber"`
+		SsidName          string `json:"ssidName"`
 		EventData         struct {
 			Radio     string `json:"radio"`
 			Vap       string `json:"vap"`

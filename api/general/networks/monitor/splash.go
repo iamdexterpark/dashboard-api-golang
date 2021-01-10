@@ -8,14 +8,14 @@ import (
 )
 
 type SplashLoginAttempts []struct {
-	Name             string    `json:"name"`
-	Login            string    `json:"login"`
-	Ssid             string    `json:"ssid"`
+	Name             string `json:"name"`
+	Login            string `json:"login"`
+	Ssid             string `json:"ssid"`
 	LoginAt          time.Time `json:"loginAt"`
-	GatewayDeviceMac string    `json:"gatewayDeviceMac"`
-	ClientMac        string    `json:"clientMac"`
-	ClientID         string    `json:"clientId"`
-	Authorization    string    `json:"authorization"`
+	GatewayDeviceMac string `json:"gatewayDeviceMac"`
+	ClientMac        string `json:"clientMac"`
+	ClientID         string `json:"clientId"`
+	Authorization    string `json:"authorization"`
 }
 
 // List the splash login attempts for a network

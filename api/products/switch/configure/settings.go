@@ -8,8 +8,8 @@ import (
 )
 
 type Settings struct {
-	Vlan             int  `json:"vlan"`
-	UseCombinedPower bool `json:"useCombinedPower"`
+	Vlan             string  `json:"vlan"`
+	UseCombinedPower string `json:"useCombinedPower"`
 	PowerExceptions  []struct {
 		Serial    string `json:"serial"`
 		PowerType string `json:"powerType"`

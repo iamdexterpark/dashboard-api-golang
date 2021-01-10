@@ -15,39 +15,39 @@ type GroupPolicy struct {
 	Name          string `json:"name"`
 	GroupPolicyID string `json:"groupPolicyId"`
 	Scheduling    struct {
-		Enabled bool `json:"enabled"`
+		Enabled string `json:"enabled"`
 		Monday  struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"monday"`
 		Tuesday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"tuesday"`
 		Wednesday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"wednesday"`
 		Thursday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"thursday"`
 		Friday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"friday"`
 		Saturday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"saturday"`
 		Sunday struct {
-			Active bool   `json:"active"`
+			Active string `json:"active"`
 			From   string `json:"from"`
 			To     string `json:"to"`
 		} `json:"sunday"`
@@ -55,8 +55,8 @@ type GroupPolicy struct {
 	Bandwidth struct {
 		Settings        string `json:"settings"`
 		BandwidthLimits struct {
-			LimitUp   int `json:"limitUp"`
-			LimitDown int `json:"limitDown"`
+			LimitUp   string `json:"limitUp"`
+			LimitDown string `json:"limitDown"`
 		} `json:"bandwidthLimits"`
 	} `json:"bandwidth"`
 	FirewallAndTrafficShaping struct {
@@ -69,8 +69,8 @@ type GroupPolicy struct {
 			PerClientBandwidthLimits struct {
 				Settings        string `json:"settings"`
 				BandwidthLimits struct {
-					LimitUp   int `json:"limitUp"`
-					LimitDown int `json:"limitDown"`
+					LimitUp   string `json:"limitUp"`
+					LimitDown string `json:"limitDown"`
 				} `json:"bandwidthLimits"`
 			} `json:"perClientBandwidthLimits"`
 			DscpTagValue interface{} `json:"dscpTagValue"`
@@ -80,7 +80,7 @@ type GroupPolicy struct {
 			Comment  string `json:"comment"`
 			Policy   string `json:"policy"`
 			Protocol string `json:"protocol"`
-			DestPort int    `json:"destPort"`
+			DestPort string `json:"destPort"`
 			DestCidr string `json:"destCidr"`
 		} `json:"l3FirewallRules"`
 		L7FirewallRules []struct {

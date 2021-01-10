@@ -13,8 +13,8 @@ type UsageHistories []struct {
 	ClientMac    string `json:"clientMac"`
 	UsageHistory []struct {
 		Ts   time.Time `json:"ts"`
-		Recv int       `json:"recv"`
-		Sent int       `json:"sent"`
+		Recv string       `json:"recv"`
+		Sent string       `json:"sent"`
 	} `json:"usageHistory"`
 }
 

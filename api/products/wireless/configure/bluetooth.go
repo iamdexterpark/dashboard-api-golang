@@ -8,17 +8,17 @@ import (
 )
 
 type BluetoothNetworkSettings struct {
-	ScanningEnabled          bool   `json:"scanningEnabled"`
-	AdvertisingEnabled       bool   `json:"advertisingEnabled"`
+	ScanningEnabled          string `json:"scanningEnabled"`
+	AdvertisingEnabled       string `json:"advertisingEnabled"`
 	UUID                     string `json:"uuid"`
 	MajorMinorAssignmentMode string `json:"majorMinorAssignmentMode"`
-	Major                    int    `json:"major"`
+	Major                    string `json:"major"`
 }
 
 type BluetoothDeviceSettings struct {
 	UUID  string `json:"uuid"`
-	Major int    `json:"major"`
-	Minor int    `json:"minor"`
+	Major string `json:"major"`
+	Minor string `json:"minor"`
 }
 
 func GetBluetoothNetworkSettings(networkId string) []api.Results {
