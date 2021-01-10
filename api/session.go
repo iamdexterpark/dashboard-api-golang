@@ -50,10 +50,10 @@ type Request struct {
 // HTTP Protocol
 type Response struct {
 	Status     string      // e.g. "200 OK"
-	StatusCode string         // e.g. 200
+	StatusCode int         // e.g. 200
 	Proto      string      // e.g. "HTTP/1.0"
-	ProtoMajor string         // e.g. 1
-	ProtoMinor string         // e.g. 0
+	ProtoMajor int         // e.g. 1
+	ProtoMinor int         // e.g. 0
 	Header     http.Header // response headers
 	// Body  io.ReadCloser  // response body includes entire cert chain...
 }
