@@ -43,7 +43,7 @@ func GetDevices(networkId string) []api.Results {
 }
 
 // Claim devices into a network
-func PostClaimSerials(networkId string, data interface{}) []api.Results {
+func PostClaimDevices(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/devices/claim",  networkId)
 	var datamodel interface{}
 	payload := user_agent.MarshalJSON(data)
@@ -55,7 +55,7 @@ func PostClaimSerials(networkId string, data interface{}) []api.Results {
 }
 
 // Remove a single device
-func PostUnClaimSerials(networkId string, data interface{}) []api.Results {
+func PostRemoveDevices(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/devices/remove",  networkId)
 	var datamodel interface{}
 	payload := user_agent.MarshalJSON(data)

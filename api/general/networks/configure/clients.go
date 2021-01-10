@@ -13,7 +13,7 @@ type ClientPolicy struct {
 	GroupPolicyID string `json:"groupPolicyId"`
 }
 
-type SplashAuthorization struct {
+type SplashAuthorizationStatus struct {
 	Ssids struct {
 		Num0 struct {
 			IsAuthorized bool   `json:"isAuthorized"`
@@ -26,7 +26,7 @@ type SplashAuthorization struct {
 	} `json:"ssids"`
 }
 
-type ProvisionClient struct {
+type ProvisionClients struct {
 	Clients []struct {
 		Mac      string `json:"mac"`
 		ClientID string `json:"clientId"`
@@ -64,9 +64,9 @@ func PutClientPolicy(networkId, clientId string, data interface{}) []api.Results
 // for each SSID they've associated with through splash.
 // Only enabled SSIDs with Click-through splash enabled will be included.
 // Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
-func GetSplashAuthorization(networkId, clientId string) []api.Results {
+func GetSplashAuthorizationStatus(networkId, clientId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/%s/splashAuthorizationStatus",  networkId, clientId)
-	var datamodel = SplashAuthorization{}
+	var datamodel = SplashAuthorizationStatus{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
@@ -75,9 +75,9 @@ func GetSplashAuthorization(networkId, clientId string) []api.Results {
 }
 
 // Update a client's splash authorization. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
-func PutSplashAuthorization(networkId, clientId string, data interface{}) []api.Results {
+func PutSplashAuthorizationStatus(networkId, clientId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/%s/splashAuthorizationStatus",  networkId, clientId)
-	var datamodel = SplashAuthorization{}
+	var datamodel = SplashAuthorizationStatus{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
 	if err != nil {
@@ -87,9 +87,9 @@ func PutSplashAuthorization(networkId, clientId string, data interface{}) []api.
 }
 
 // Provisions a client with a name and policy. Clients can be provisioned before they associate to the network
-func PostProvisionClient(networkId string, data interface{}) []api.Results {
+func PostProvisionClients(networkId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/clients/provision",  networkId)
-	var datamodel = ProvisionClient{}
+	var datamodel = ProvisionClients{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {

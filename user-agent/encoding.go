@@ -53,7 +53,6 @@ func MarshalJSON(data interface{}) *strings.Reader {
 		log.Fatal(err)
 	}
 	inputs := fmt.Sprintf(string(jsonData))
-
 	payload := strings.NewReader(inputs)
 	return payload
 }

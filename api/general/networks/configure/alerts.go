@@ -30,7 +30,6 @@ type AlertSettings struct {
 // Return the alert configuration for this network
 func GetAlertSettings(networkId string) []api.Results {
 	baseurl := fmt.Sprintf("/networks/%s/alerts/settings",  networkId)
-
 	var datamodel = AlertSettings{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
