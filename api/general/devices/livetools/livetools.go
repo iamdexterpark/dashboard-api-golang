@@ -31,7 +31,7 @@ func PostBlinkLEDs(serial string) []api.Results {
 
 // Reboot a device
 func PostReboot(serial string) []api.Results {
-	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
+	baseurl := fmt.Sprintf("/devices/%s/reboot",  serial)
 	var datamodel Reboot
 	data := Reboot{true}
 	payload := user_agent.MarshalJSON(data)
