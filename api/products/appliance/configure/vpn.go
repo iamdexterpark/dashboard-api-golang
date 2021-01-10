@@ -8,16 +8,16 @@ import (
 )
 
 type BGP struct {
-	Enabled       bool `json:"enabled"`
-	AsNumber      int  `json:"asNumber"`
-	IbgpHoldTimer int  `json:"ibgpHoldTimer"`
+	Enabled       string `json:"enabled"`
+	AsNumber      string  `json:"asNumber"`
+	IbgpHoldTimer string  `json:"ibgpHoldTimer"`
 	Neighbors     []struct {
 		IP             string `json:"ip"`
-		RemoteAsNumber int    `json:"remoteAsNumber"`
-		ReceiveLimit   int    `json:"receiveLimit"`
-		AllowTransit   bool   `json:"allowTransit"`
-		EbgpHoldTimer  int    `json:"ebgpHoldTimer"`
-		EbgpMultihop   int    `json:"ebgpMultihop"`
+		RemoteAsNumber string `json:"remoteAsNumber"`
+		ReceiveLimit   string `json:"receiveLimit"`
+		AllowTransit   string `json:"allowTransit"`
+		EbgpHoldTimer  string `json:"ebgpHoldTimer"`
+		EbgpMultihop   string `json:"ebgpMultihop"`
 	} `json:"neighbors"`
 }
 
@@ -25,11 +25,11 @@ type SiteToSiteVPN struct {
 	Mode string `json:"mode"`
 	Hubs []struct {
 		HubID           string `json:"hubId"`
-		UseDefaultRoute bool   `json:"useDefaultRoute"`
+		UseDefaultRoute string `json:"useDefaultRoute"`
 	} `json:"hubs"`
 	Subnets []struct {
 		LocalSubnet string `json:"localSubnet"`
-		UseVpn      bool   `json:"useVpn"`
+		UseVpn      string `json:"useVpn"`
 	} `json:"subnets"`
 }
 
@@ -45,11 +45,11 @@ type ThirdPartyVPNPeers struct {
 			IkeAuthAlgo           []string `json:"ikeAuthAlgo"`
 			IkePrfAlgo            []string `json:"ikePrfAlgo"`
 			IkeDiffieHellmanGroup []string `json:"ikeDiffieHellmanGroup"`
-			IkeLifetime           int      `json:"ikeLifetime"`
+			IkeLifetime           string      `json:"ikeLifetime"`
 			ChildCipherAlgo       []string `json:"childCipherAlgo"`
 			ChildAuthAlgo         []string `json:"childAuthAlgo"`
 			ChildPfsGroup         []string `json:"childPfsGroup"`
-			ChildLifetime         int      `json:"childLifetime"`
+			ChildLifetime         string      `json:"childLifetime"`
 		} `json:"ipsecPolicies,omitempty"`
 		NetworkTags         []string `json:"networkTags"`
 		RemoteID            string   `json:"remoteId,omitempty"`
@@ -62,11 +62,11 @@ type VpnFirewallRules struct {
 		Comment       string `json:"comment"`
 		Policy        string `json:"policy"`
 		Protocol      string `json:"protocol"`
-		DestPort      int    `json:"destPort"`
+		DestPort      string `json:"destPort"`
 		DestCidr      string `json:"destCidr"`
 		SrcPort       string `json:"srcPort"`
 		SrcCidr       string `json:"srcCidr"`
-		SyslogEnabled bool   `json:"syslogEnabled"`
+		SyslogEnabled string `json:"syslogEnabled"`
 	} `json:"rules"`
 }
 

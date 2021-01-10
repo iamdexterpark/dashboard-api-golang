@@ -12,7 +12,7 @@ type AnalyticsLive struct {
 	Ts    time.Time `json:"ts"`
 	Zones struct {
 		Num0 struct {
-			Person int `json:"person"`
+			Person string `json:"person"`
 		} `json:"0"`
 	} `json:"zones"`
 }
@@ -20,9 +20,9 @@ type AnalyticsLive struct {
 type AnalyticsOverview []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	ZoneID       int       `json:"zoneId"`
-	Entrances    int       `json:"entrances"`
-	AverageCount int       `json:"averageCount"`
+	ZoneID       string       `json:"zoneId"`
+	Entrances    string       `json:"entrances"`
+	AverageCount string       `json:"averageCount"`
 }
 
 type AnalyticsRecents []struct {
@@ -32,15 +32,15 @@ type AnalyticsRecents []struct {
 type AnalyticsRecent struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	ZoneID       int       `json:"zoneId"`
-	Entrances    int       `json:"entrances"`
+	ZoneID       string       `json:"zoneId"`
+	Entrances    string       `json:"entrances"`
 	AverageCount float64   `json:"averageCount"`
 }
 
 type AnalyticsZoneHistory []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	Entrances    int       `json:"entrances"`
+	Entrances    string       `json:"entrances"`
 	AverageCount float64   `json:"averageCount"`
 }
 
@@ -57,7 +57,7 @@ type AnalyticZones []struct {
 }
 
 type GenerateSnapshot struct {
-	URL    string    `json:"url"`
+	URL    string `json:"url"`
 	Expiry time.Time `json:"expiry"`
 }
 

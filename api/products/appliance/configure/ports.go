@@ -12,11 +12,11 @@ type AppliancePorts []struct {
 }
 
 type AppliancePort struct {
-	Number              int    `json:"number"`
-	Enabled             bool   `json:"enabled"`
+	Number              string `json:"number"`
+	Enabled             string `json:"enabled"`
 	Type                string `json:"type"`
-	DropUntaggedTraffic bool   `json:"dropUntaggedTraffic"`
-	Vlan                int    `json:"vlan"`
+	DropUntaggedTraffic string `json:"dropUntaggedTraffic"`
+	Vlan                string `json:"vlan"`
 	AccessPolicy        string `json:"accessPolicy"`
 }
 

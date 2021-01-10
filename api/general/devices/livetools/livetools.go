@@ -8,13 +8,13 @@ import (
 )
 
 type BlinkLeds struct {
-	Duration int `json:"duration"`
-	Period   int `json:"period"`
-	Duty     int `json:"duty"`
+	Duration string `json:"duration"`
+	Period   string `json:"period"`
+	Duty     string `json:"duty"`
 }
 
 type Reboot struct {
-	Success bool `json:"success"`
+	Success string `json:"success"`
 }
 
 // Blink the LEDs on a device

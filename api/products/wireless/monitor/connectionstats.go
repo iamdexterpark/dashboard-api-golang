@@ -9,20 +9,20 @@ import (
 type ConnectionStats struct {
 	Mac             string `json:"mac"`
 	ConnectionStats struct {
-		Assoc   int `json:"assoc"`
-		Auth    int `json:"auth"`
-		Dhcp    int `json:"dhcp"`
-		DNS     int `json:"dns"`
-		Success int `json:"success"`
+		Assoc   string `json:"assoc"`
+		Auth    string `json:"auth"`
+		Dhcp    string `json:"dhcp"`
+		DNS     string `json:"dns"`
+		Success string `json:"success"`
 	} `json:"connectionStats"`
 }
 
 type ConnectionStat struct {
-	Assoc   int `json:"assoc"`
-	Auth    int `json:"auth"`
-	Dhcp    int `json:"dhcp"`
-	DNS     int `json:"dns"`
-	Success int `json:"success"`
+	Assoc   string `json:"assoc"`
+	Auth    string `json:"auth"`
+	Dhcp    string `json:"dhcp"`
+	DNS     string `json:"dns"`
+	Success string `json:"success"`
 }
 
 

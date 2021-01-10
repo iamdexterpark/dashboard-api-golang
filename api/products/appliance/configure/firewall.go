@@ -12,11 +12,11 @@ type CellularFirewallRules struct {
 		Comment       string `json:"comment"`
 		Policy        string `json:"policy"`
 		Protocol      string `json:"protocol"`
-		DestPort      int    `json:"destPort"`
+		DestPort      string `json:"destPort"`
 		DestCidr      string `json:"destCidr"`
 		SrcPort       string `json:"srcPort"`
 		SrcCidr       string `json:"srcCidr"`
-		SyslogEnabled bool   `json:"syslogEnabled"`
+		SyslogEnabled string `json:"syslogEnabled"`
 	} `json:"rules"`
 }
 
@@ -34,13 +34,13 @@ type InboundFirewallRules struct {
 		Comment       string `json:"comment"`
 		Policy        string `json:"policy"`
 		Protocol      string `json:"protocol"`
-		DestPort      int    `json:"destPort"`
+		DestPort      string `json:"destPort"`
 		DestCidr      string `json:"destCidr"`
 		SrcPort       string `json:"srcPort"`
 		SrcCidr       string `json:"srcCidr"`
-		SyslogEnabled bool   `json:"syslogEnabled"`
+		SyslogEnabled string `json:"syslogEnabled"`
 	} `json:"rules"`
-	SyslogDefaultRule bool `json:"syslogDefaultRule"`
+	SyslogDefaultRule string `json:"syslogDefaultRule"`
 }
 
 type L3FirewallRules struct {
@@ -48,11 +48,11 @@ type L3FirewallRules struct {
 		Comment       string `json:"comment"`
 		Policy        string `json:"policy"`
 		Protocol      string `json:"protocol"`
-		DestPort      string    `json:"destPort"`
+		DestPort      string `json:"destPort"`
 		DestCidr      string `json:"destCidr"`
 		SrcPort       string `json:"srcPort"`
 		SrcCidr       string `json:"srcCidr"`
-		SyslogEnabled bool   `json:"syslogEnabled"`
+		SyslogEnabled string `json:"syslogEnabled"`
 	} `json:"rules"`
 }
 

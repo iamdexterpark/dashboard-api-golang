@@ -10,9 +10,9 @@ import (
 type DataRateHistory []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	AverageKbps  int       `json:"averageKbps"`
-	DownloadKbps int       `json:"downloadKbps"`
-	UploadKbps   int       `json:"uploadKbps"`
+	AverageKbps  string       `json:"averageKbps"`
+	DownloadKbps string       `json:"downloadKbps"`
+	UploadKbps   string       `json:"uploadKbps"`
 }
 
 func GetDataRateHistory(networkId, t0, t1, timespan, resolution, autoResolution,

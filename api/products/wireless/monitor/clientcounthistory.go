@@ -10,7 +10,7 @@ import (
 type ClientCountHistory []struct {
 	StartTs     time.Time `json:"startTs"`
 	EndTs       time.Time `json:"endTs"`
-	ClientCount int       `json:"clientCount"`
+	ClientCount string       `json:"clientCount"`
 }
 
 func GetClientCountHistory (networkId, t0, t1, timespan,

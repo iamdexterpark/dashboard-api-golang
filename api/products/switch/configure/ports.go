@@ -14,21 +14,21 @@ type Port struct {
 	PortID                  string   `json:"portId"`
 	Name                    string   `json:"name"`
 	Tags                    []string `json:"tags"`
-	Enabled                 bool     `json:"enabled"`
-	PoeEnabled              bool     `json:"poeEnabled"`
+	Enabled                 string `json:"enabled"`
+	PoeEnabled              string `json:"poeEnabled"`
 	Type                    string   `json:"type"`
-	Vlan                    int      `json:"vlan"`
-	VoiceVlan               int      `json:"voiceVlan"`
-	IsolationEnabled        bool     `json:"isolationEnabled"`
-	RstpEnabled             bool     `json:"rstpEnabled"`
+	Vlan                    string      `json:"vlan"`
+	VoiceVlan               string      `json:"voiceVlan"`
+	IsolationEnabled        string `json:"isolationEnabled"`
+	RstpEnabled             string `json:"rstpEnabled"`
 	StpGuard                string   `json:"stpGuard"`
 	LinkNegotiation         string   `json:"linkNegotiation"`
 	PortScheduleID          string   `json:"portScheduleId"`
 	Udld                    string   `json:"udld"`
 	AccessPolicyType        string   `json:"accessPolicyType"`
 	StickyMacAllowList      []string `json:"stickyMacAllowList"`
-	StickyMacAllowListLimit int      `json:"stickyMacAllowListLimit"`
-	StormControlEnabled     bool     `json:"stormControlEnabled"`
+	StickyMacAllowListLimit string      `json:"stickyMacAllowListLimit"`
+	StormControlEnabled     string `json:"stormControlEnabled"`
 }
 
 func GetPorts(serial string) []api.Results {

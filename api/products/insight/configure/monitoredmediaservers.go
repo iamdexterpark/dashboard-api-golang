@@ -15,7 +15,7 @@ type MonitoredMediaServer struct {
 	ID                          string `json:"id"`
 	Name                        string `json:"name"`
 	Address                     string `json:"address"`
-	BestEffortMonitoringEnabled bool   `json:"bestEffortMonitoringEnabled"`
+	BestEffortMonitoringEnabled string `json:"bestEffortMonitoringEnabled"`
 }
 
 func PostMonitoredMediaServer(organizationId string, data interface{}) []api.Results {

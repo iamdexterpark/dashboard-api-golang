@@ -9,8 +9,8 @@ import (
 
 type Uplink struct {
 	BandwidthLimits struct {
-		LimitUp   int `json:"limitUp"`
-		LimitDown int `json:"limitDown"`
+		LimitUp   string `json:"limitUp"`
+		LimitDown string `json:"limitDown"`
 	} `json:"bandwidthLimits"`
 }
 

@@ -13,13 +13,13 @@ type CustomPerformanceClasses []struct {
 type CustomPerformanceClass struct {
 	CustomPerformanceClassID string `json:"customPerformanceClassId"`
 	Name                     string `json:"name"`
-	MaxLatency               int    `json:"maxLatency"`
-	MaxJitter                int    `json:"maxJitter"`
-	MaxLossPercentage        int    `json:"maxLossPercentage"`
+	MaxLatency               string `json:"maxLatency"`
+	MaxJitter                string `json:"maxJitter"`
+	MaxLossPercentage        string `json:"maxLossPercentage"`
 }
 
 type TrafficShapingRules struct {
-	DefaultRulesEnabled bool `json:"defaultRulesEnabled"`
+	DefaultRulesEnabled string `json:"defaultRulesEnabled"`
 	Rules               []struct {
 		Definitions []struct {
 			Type  string `json:"type"`
@@ -28,8 +28,8 @@ type TrafficShapingRules struct {
 		PerClientBandwidthLimits struct {
 			Settings        string `json:"settings"`
 			BandwidthLimits struct {
-				LimitUp   int `json:"limitUp"`
-				LimitDown int `json:"limitDown"`
+				LimitUp   string `json:"limitUp"`
+				LimitDown string `json:"limitDown"`
 			} `json:"bandwidthLimits"`
 		} `json:"perClientBandwidthLimits"`
 		DscpTagValue interface{} `json:"dscpTagValue"`
@@ -40,24 +40,24 @@ type TrafficShapingRules struct {
 type UplinkBandwidth struct {
 	BandwidthLimits struct {
 		Wan1 struct {
-			LimitUp   int `json:"limitUp"`
-			LimitDown int `json:"limitDown"`
+			LimitUp   string `json:"limitUp"`
+			LimitDown string `json:"limitDown"`
 		} `json:"wan1"`
 		Wan2 struct {
-			LimitUp   int `json:"limitUp"`
-			LimitDown int `json:"limitDown"`
+			LimitUp   string `json:"limitUp"`
+			LimitDown string `json:"limitDown"`
 		} `json:"wan2"`
 		Cellular struct {
-			LimitUp   int `json:"limitUp"`
-			LimitDown int `json:"limitDown"`
+			LimitUp   string `json:"limitUp"`
+			LimitDown string `json:"limitDown"`
 		} `json:"cellular"`
 	} `json:"bandwidthLimits"`
 }
 
 type UplinkSelection struct {
-	ActiveActiveAutoVpnEnabled  bool   `json:"activeActiveAutoVpnEnabled"`
+	ActiveActiveAutoVpnEnabled  string `json:"activeActiveAutoVpnEnabled"`
 	DefaultUplink               string `json:"defaultUplink"`
-	LoadBalancingEnabled        bool   `json:"loadBalancingEnabled"`
+	LoadBalancingEnabled        string `json:"loadBalancingEnabled"`
 	WanTrafficUplinkPreferences []struct {
 		TrafficFilters []struct {
 			Type  string `json:"type"`
@@ -93,8 +93,8 @@ type UplinkSelection struct {
 
 type TrafficShaping struct {
 	GlobalBandwidthLimits struct {
-		LimitUp   int `json:"limitUp"`
-		LimitDown int `json:"limitDown"`
+		LimitUp   string `json:"limitUp"`
+		LimitDown string `json:"limitDown"`
 	} `json:"globalBandwidthLimits"`
 }
 

@@ -8,17 +8,17 @@ import (
 )
 
 type LoginSecurity struct {
-	EnforcePasswordExpiration bool     `json:"enforcePasswordExpiration"`
-	PasswordExpirationDays    int      `json:"passwordExpirationDays"`
-	EnforceDifferentPasswords bool     `json:"enforceDifferentPasswords"`
-	NumDifferentPasswords     int      `json:"numDifferentPasswords"`
-	EnforceStrongPasswords    bool     `json:"enforceStrongPasswords"`
-	EnforceAccountLockout     bool     `json:"enforceAccountLockout"`
-	AccountLockoutAttempts    int      `json:"accountLockoutAttempts"`
-	EnforceIdleTimeout        bool     `json:"enforceIdleTimeout"`
-	IdleTimeoutMinutes        int      `json:"idleTimeoutMinutes"`
-	EnforceTwoFactorAuth      bool     `json:"enforceTwoFactorAuth"`
-	EnforceLoginIPRanges      bool     `json:"enforceLoginIpRanges"`
+	EnforcePasswordExpiration string `json:"enforcePasswordExpiration"`
+	PasswordExpirationDays    string      `json:"passwordExpirationDays"`
+	EnforceDifferentPasswords string `json:"enforceDifferentPasswords"`
+	NumDifferentPasswords     string      `json:"numDifferentPasswords"`
+	EnforceStrongPasswords    string `json:"enforceStrongPasswords"`
+	EnforceAccountLockout     string `json:"enforceAccountLockout"`
+	AccountLockoutAttempts    string      `json:"accountLockoutAttempts"`
+	EnforceIdleTimeout        string `json:"enforceIdleTimeout"`
+	IdleTimeoutMinutes        string      `json:"idleTimeoutMinutes"`
+	EnforceTwoFactorAuth      string `json:"enforceTwoFactorAuth"`
+	EnforceLoginIPRanges      string `json:"enforceLoginIpRanges"`
 	LoginIPRanges             []string `json:"loginIpRanges"`
 }
 

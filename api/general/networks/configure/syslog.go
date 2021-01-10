@@ -11,7 +11,7 @@ import (
 type SyslogServers struct {
 	Servers []struct {
 		Host  string   `json:"host"`
-		Port  int      `json:"port"`
+		Port  string      `json:"port"`
 		Roles []string `json:"roles"`
 	} `json:"servers"`
 }

@@ -8,7 +8,7 @@ import (
 )
 
 type WarmSpare struct {
-	Enabled       bool   `json:"enabled"`
+	Enabled       string `json:"enabled"`
 	PrimarySerial string `json:"primarySerial"`
 	SpareSerial   string `json:"spareSerial"`
 }

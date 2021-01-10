@@ -8,12 +8,12 @@ import (
 )
 
 type SplashPageSettings struct {
-	SsidNumber     int    `json:"ssidNumber"`
+	SsidNumber     string `json:"ssidNumber"`
 	SplashPage     string `json:"splashPage"`
 	SplashURL      string `json:"splashUrl"`
-	UseSplashURL   bool   `json:"useSplashUrl"`
+	UseSplashURL   string `json:"useSplashUrl"`
 	RedirectURL    string `json:"redirectUrl"`
-	UseRedirectURL bool   `json:"useRedirectUrl"`
+	UseRedirectURL string `json:"useRedirectUrl"`
 	WelcomeMessage string `json:"welcomeMessage"`
 	SplashLogo     struct {
 		Md5       string `json:"md5"`

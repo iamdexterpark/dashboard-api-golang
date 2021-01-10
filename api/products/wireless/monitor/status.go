@@ -9,15 +9,15 @@ import (
 type Status struct {
 	BasicServiceSets []struct {
 		SsidName     string `json:"ssidName"`
-		SsidNumber   int    `json:"ssidNumber"`
-		Enabled      bool   `json:"enabled"`
+		SsidNumber   string `json:"ssidNumber"`
+		Enabled      string `json:"enabled"`
 		Band         string `json:"band"`
 		Bssid        string `json:"bssid"`
-		Channel      int    `json:"channel"`
+		Channel      string `json:"channel"`
 		ChannelWidth string `json:"channelWidth"`
 		Power        string `json:"power"`
-		Visible      bool   `json:"visible"`
-		Broadcasting bool   `json:"broadcasting"`
+		Visible      string `json:"visible"`
+		Broadcasting string `json:"broadcasting"`
 	} `json:"basicServiceSets"`
 }
 

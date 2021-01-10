@@ -16,8 +16,8 @@ type AccessControlLists struct {
 		SrcCidr   string `json:"srcCidr"`
 		SrcPort   string `json:"srcPort"`
 		DstCidr   string `json:"dstCidr"`
-		DstPort   int    `json:"dstPort"`
-		Vlan      int    `json:"vlan"`
+		DstPort   string `json:"dstPort"`
+		Vlan      string `json:"vlan"`
 	} `json:"rules"`
 }
 

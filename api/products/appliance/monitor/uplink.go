@@ -8,8 +8,8 @@ import (
 )
 
 type UplinkStatus []struct {
-	NetworkID      string    `json:"networkId"`
-	Serial         string    `json:"serial"`
+	NetworkID      string `json:"networkId"`
+	Serial         string `json:"serial"`
 	LastReportedAt time.Time `json:"lastReportedAt"`
 	Uplinks        []struct {
 		Interface    string `json:"interface"`

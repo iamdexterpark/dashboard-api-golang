@@ -10,9 +10,9 @@ import (
 type UsageHistory []struct {
 	StartTs      time.Time `json:"startTs"`
 	EndTs        time.Time `json:"endTs"`
-	TotalKbps    int       `json:"totalKbps"`
-	SentKbps     int       `json:"sentKbps"`
-	ReceivedKbps int       `json:"receivedKbps"`
+	TotalKbps    string       `json:"totalKbps"`
+	SentKbps     string       `json:"sentKbps"`
+	ReceivedKbps string       `json:"receivedKbps"`
 }
 
 func GetUsageHistory(networkId, t0, t1, timespan,
