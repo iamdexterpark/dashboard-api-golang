@@ -8,7 +8,7 @@ import (
 )
 
 type VLANSettings struct {
-	VlansEnabled string `json:"vlansEnabled"`
+	VlansEnabled bool `json:"vlansEnabled"`
 }
 
 type VLANS []struct {
@@ -36,11 +36,11 @@ type VLAN struct {
 	DNSNameservers         string      `json:"dnsNameservers"`
 	DhcpHandling           string      `json:"dhcpHandling"`
 	DhcpLeaseTime          string      `json:"dhcpLeaseTime"`
-	DhcpBootOptionsEnabled string        `json:"dhcpBootOptionsEnabled"`
+	DhcpBootOptionsEnabled bool        `json:"dhcpBootOptionsEnabled"`
 	DhcpBootNextServer     interface{} `json:"dhcpBootNextServer"`
 	DhcpBootFilename       interface{} `json:"dhcpBootFilename"`
 	DhcpOptions            []struct {
-		Code  string `json:"code"`
+		Code  int    `json:"code"`
 		Type  string `json:"type"`
 		Value string `json:"value"`
 	} `json:"dhcpOptions"`

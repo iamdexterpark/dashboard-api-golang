@@ -10,8 +10,8 @@ import (
 type SmUserProfiles []struct {
 	DeviceID    string `json:"deviceId"`
 	ID          string `json:"id"`
-	IsEncrypted string `json:"isEncrypted"`
-	IsManaged   string `json:"isManaged"`
+	IsEncrypted bool   `json:"isEncrypted"`
+	IsManaged   bool   `json:"isManaged"`
 	ProfileData struct {
 	} `json:"profileData"`
 	ProfileIdentifier string `json:"profileIdentifier"`
@@ -30,7 +30,7 @@ type SmUserSoftware []struct {
 	InstalledAt       time.Time   `json:"installedAt"`
 	ToInstall         interface{} `json:"toInstall"`
 	IosRedemptionCode interface{} `json:"iosRedemptionCode"`
-	IsManaged         string        `json:"isManaged"`
+	IsManaged         bool        `json:"isManaged"`
 	ItunesID          interface{} `json:"itunesId"`
 	LicenseKey        interface{} `json:"licenseKey"`
 	Name              string      `json:"name"`
@@ -38,7 +38,7 @@ type SmUserSoftware []struct {
 	RedemptionCode    interface{} `json:"redemptionCode"`
 	ShortVersion      interface{} `json:"shortVersion"`
 	Status            interface{} `json:"status"`
-	ToUninstall       string        `json:"toUninstall"`
+	ToUninstall       bool        `json:"toUninstall"`
 	UninstalledAt     interface{} `json:"uninstalledAt"`
 	UpdatedAt         time.Time   `json:"updatedAt"`
 	Vendor            string      `json:"vendor"`
@@ -50,13 +50,13 @@ type SmUsers []struct {
 	Email                  string        `json:"email"`
 	FullName               string        `json:"fullName"`
 	Username               string        `json:"username"`
-	HasPassword            string          `json:"hasPassword"`
+	HasPassword            bool          `json:"hasPassword"`
 	Tags                   []string      `json:"tags"`
 	AdGroups               []interface{} `json:"adGroups"`
 	AsmGroups              []interface{} `json:"asmGroups"`
-	IsExternal             string          `json:"isExternal"`
+	IsExternal             bool          `json:"isExternal"`
 	DisplayName            string        `json:"displayName"`
-	HasIdentityCertificate string          `json:"hasIdentityCertificate"`
+	HasIdentityCertificate bool          `json:"hasIdentityCertificate"`
 	UserThumbnail          string        `json:"userThumbnail"`
 }
 

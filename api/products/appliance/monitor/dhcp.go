@@ -8,9 +8,9 @@ import (
 
 type DHCP []struct {
 	Subnet    string `json:"subnet"`
-	VlanID    string `json:"vlanId"`
-	UsedCount string `json:"usedCount"`
-	FreeCount string `json:"freeCount"`
+	VlanID    int    `json:"vlanId"`
+	UsedCount int    `json:"usedCount"`
+	FreeCount int    `json:"freeCount"`
 }
 
 func GetDHCP(serial string) []api.Results {

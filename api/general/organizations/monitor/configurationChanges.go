@@ -13,13 +13,13 @@ type ConfigurationChanges []struct {
 
 type ConfigurationChange struct {
 	Ts         time.Time `json:"ts"`
-	AdminName  string `json:"adminName"`
-	AdminEmail string `json:"adminEmail"`
-	AdminID    string `json:"adminId"`
-	Page       string `json:"page"`
-	Label      string `json:"label"`
-	OldValue   string `json:"oldValue"`
-	NewValue   string `json:"newValue"`
+	AdminName  string    `json:"adminName"`
+	AdminEmail string    `json:"adminEmail"`
+	AdminID    string    `json:"adminId"`
+	Page       string    `json:"page"`
+	Label      string    `json:"label"`
+	OldValue   string    `json:"oldValue"`
+	NewValue   string    `json:"newValue"`
 }
 
 // View the Change Log for your organization

@@ -10,39 +10,39 @@ import (
 
 
 type SSID struct {
-	Number              string `json:"number"`
+	Number              int    `json:"number"`
 	Name                string `json:"name"`
-	Enabled             string `json:"enabled"`
+	Enabled             bool   `json:"enabled"`
 	SplashPage          string `json:"splashPage"`
-	SsidAdminAccessible string `json:"ssidAdminAccessible"`
+	SsidAdminAccessible bool   `json:"ssidAdminAccessible"`
 	AuthMode            string `json:"authMode"`
 	EncryptionMode      string `json:"encryptionMode"`
 	WpaEncryptionMode   string `json:"wpaEncryptionMode"`
 	RadiusServers       []struct {
 		Host   string `json:"host"`
-		Port   string `json:"port"`
+		Port   int    `json:"port"`
 		Secret string `json:"secret"`
 	} `json:"radiusServers"`
-	RadiusAccountingEnabled         string `json:"radiusAccountingEnabled"`
-	RadiusEnabled                   string `json:"radiusEnabled"`
+	RadiusAccountingEnabled         bool     `json:"radiusAccountingEnabled"`
+	RadiusEnabled                   bool     `json:"radiusEnabled"`
 	RadiusAttributeForGroupPolicies string   `json:"radiusAttributeForGroupPolicies"`
 	RadiusFailoverPolicy            string   `json:"radiusFailoverPolicy"`
 	RadiusLoadBalancingPolicy       string   `json:"radiusLoadBalancingPolicy"`
 	IPAssignmentMode                string   `json:"ipAssignmentMode"`
 	AdminSplashURL                  string   `json:"adminSplashUrl"`
 	SplashTimeout                   string   `json:"splashTimeout"`
-	WalledGardenEnabled             string `json:"walledGardenEnabled"`
+	WalledGardenEnabled             bool     `json:"walledGardenEnabled"`
 	WalledGardenRanges              []string `json:"walledGardenRanges"`
-	MinBitrate                      string      `json:"minBitrate"`
+	MinBitrate                      int      `json:"minBitrate"`
 	BandSelection                   string   `json:"bandSelection"`
-	PerClientBandwidthLimitUp       string      `json:"perClientBandwidthLimitUp"`
-	PerClientBandwidthLimitDown     string      `json:"perClientBandwidthLimitDown"`
-	Visible                         string `json:"visible"`
-	AvailableOnAllAps               string `json:"availableOnAllAps"`
+	PerClientBandwidthLimitUp       int      `json:"perClientBandwidthLimitUp"`
+	PerClientBandwidthLimitDown     int      `json:"perClientBandwidthLimitDown"`
+	Visible                         bool     `json:"visible"`
+	AvailableOnAllAps               bool     `json:"availableOnAllAps"`
 	AvailabilityTags                []string `json:"availabilityTags"`
-	PerSsidBandwidthLimitUp         string      `json:"perSsidBandwidthLimitUp"`
-	PerSsidBandwidthLimitDown       string      `json:"perSsidBandwidthLimitDown"`
-	MandatoryDhcpEnabled            string `json:"mandatoryDhcpEnabled"`
+	PerSsidBandwidthLimitUp         int      `json:"perSsidBandwidthLimitUp"`
+	PerSsidBandwidthLimitDown       int      `json:"perSsidBandwidthLimitDown"`
+	MandatoryDhcpEnabled            bool     `json:"mandatoryDhcpEnabled"`
 }
 
 type SSIDS []struct {

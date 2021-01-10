@@ -11,21 +11,21 @@ type SwitchProfile struct {
 	PortID                  string   `json:"portId"`
 	Name                    string   `json:"name"`
 	Tags                    []string `json:"tags"`
-	Enabled                 string `json:"enabled"`
-	PoeEnabled              string `json:"poeEnabled"`
+	Enabled                 bool     `json:"enabled"`
+	PoeEnabled              bool     `json:"poeEnabled"`
 	Type                    string   `json:"type"`
-	Vlan                    string      `json:"vlan"`
-	VoiceVlan               string      `json:"voiceVlan"`
-	IsolationEnabled        string `json:"isolationEnabled"`
-	RstpEnabled             string `json:"rstpEnabled"`
+	Vlan                    int      `json:"vlan"`
+	VoiceVlan               int      `json:"voiceVlan"`
+	IsolationEnabled        bool     `json:"isolationEnabled"`
+	RstpEnabled             bool     `json:"rstpEnabled"`
 	StpGuard                string   `json:"stpGuard"`
 	LinkNegotiation         string   `json:"linkNegotiation"`
 	PortScheduleID          string   `json:"portScheduleId"`
 	Udld                    string   `json:"udld"`
 	AccessPolicyType        string   `json:"accessPolicyType"`
 	StickyMacAllowList      []string `json:"stickyMacAllowList"`
-	StickyMacAllowListLimit string      `json:"stickyMacAllowListLimit"`
-	StormControlEnabled     string `json:"stormControlEnabled"`
+	StickyMacAllowListLimit int      `json:"stickyMacAllowListLimit"`
+	StormControlEnabled     bool     `json:"stormControlEnabled"`
 }
 
 type ConfigTemplatesProfiles []struct {

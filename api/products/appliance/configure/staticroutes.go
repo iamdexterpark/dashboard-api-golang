@@ -14,7 +14,7 @@ type StaticRoutes []struct {
 type StaticRoute struct {
 	ID                 string `json:"id"`
 	NetworkID          string `json:"networkId"`
-	Enabled            string `json:"enabled"`
+	Enabled            bool   `json:"enabled"`
 	Name               string `json:"name"`
 	Subnet             string `json:"subnet"`
 	GatewayIP          string `json:"gatewayIp"`

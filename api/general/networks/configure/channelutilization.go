@@ -19,14 +19,14 @@ type ChannelUtilization struct {
 		StartTime           time.Time `json:"startTime"`
 		EndTime             time.Time `json:"endTime"`
 		UtilizationTotal    float64   `json:"utilizationTotal"`
-		Utilization80211    string       `json:"utilization80211"`
+		Utilization80211    int       `json:"utilization80211"`
 		UtilizationNon80211 float64   `json:"utilizationNon80211"`
 	} `json:"wifi0"`
 	Wifi1 []struct {
 		StartTime           time.Time `json:"startTime"`
 		EndTime             time.Time `json:"endTime"`
 		UtilizationTotal    float64   `json:"utilizationTotal"`
-		Utilization80211    string       `json:"utilization80211"`
+		Utilization80211    int       `json:"utilization80211"`
 		UtilizationNon80211 float64   `json:"utilizationNon80211"`
 	} `json:"wifi1"`
 }

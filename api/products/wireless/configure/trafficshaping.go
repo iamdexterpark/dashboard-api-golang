@@ -8,8 +8,8 @@ import (
 )
 
 type TrafficShapingRules struct {
-	TrafficShapingEnabled string `json:"trafficShapingEnabled"`
-	DefaultRulesEnabled   string `json:"defaultRulesEnabled"`
+	TrafficShapingEnabled bool `json:"trafficShapingEnabled"`
+	DefaultRulesEnabled   bool `json:"defaultRulesEnabled"`
 	Rules                 []struct {
 		Definitions []struct {
 			Type  string `json:"type"`
@@ -18,8 +18,8 @@ type TrafficShapingRules struct {
 		PerClientBandwidthLimits struct {
 			Settings        string `json:"settings"`
 			BandwidthLimits struct {
-				LimitUp   string `json:"limitUp"`
-				LimitDown string `json:"limitDown"`
+				LimitUp   int `json:"limitUp"`
+				LimitDown int `json:"limitDown"`
 			} `json:"bandwidthLimits"`
 		} `json:"perClientBandwidthLimits"`
 		DscpTagValue interface{} `json:"dscpTagValue"`

@@ -8,9 +8,9 @@ import (
 )
 
 type StormControl struct {
-	BroadcastThreshold      string `json:"broadcastThreshold"`
-	MulticastThreshold      string `json:"multicastThreshold"`
-	UnknownUnicastThreshold string `json:"unknownUnicastThreshold"`
+	BroadcastThreshold      int `json:"broadcastThreshold"`
+	MulticastThreshold      int `json:"multicastThreshold"`
+	UnknownUnicastThreshold int `json:"unknownUnicastThreshold"`
 }
 
 func GetStormControl(networkId string) []api.Results {

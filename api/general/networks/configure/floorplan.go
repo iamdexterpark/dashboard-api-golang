@@ -32,14 +32,14 @@ type FloorPlan struct {
 		NetworkID      string   `json:"networkId"`
 		BeaconIDParams struct {
 			UUID  string `json:"uuid"`
-			Major string `json:"major"`
-			Minor string `json:"minor"`
+			Major int    `json:"major"`
+			Minor int    `json:"minor"`
 		} `json:"beaconIdParams"`
 		Firmware    string `json:"firmware"`
 		FloorPlanID string `json:"floorPlanId"`
 	} `json:"devices"`
-	Width  string `json:"width"`
-	Height string `json:"height"`
+	Width  int `json:"width"`
+	Height int `json:"height"`
 	Center struct {
 		Lat float64 `json:"lat"`
 		Lng float64 `json:"lng"`

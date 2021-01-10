@@ -13,13 +13,13 @@ type Admins []struct {
 }
 
 type Admin struct {
-	ID                   string `json:"id"`
-	Name                 string `json:"name"`
-	Email                string `json:"email"`
-	OrgAccess            string `json:"orgAccess"`
-	AccountStatus        string `json:"accountStatus"`
-	TwoFactorAuthEnabled string      `json:"twoFactorAuthEnabled"`
-	HasAPIKey            string      `json:"hasApiKey"`
+	ID                   string    `json:"id"`
+	Name                 string    `json:"name"`
+	Email                string    `json:"email"`
+	OrgAccess            string    `json:"orgAccess"`
+	AccountStatus        string    `json:"accountStatus"`
+	TwoFactorAuthEnabled bool      `json:"twoFactorAuthEnabled"`
+	HasAPIKey            bool      `json:"hasApiKey"`
 	LastActive           time.Time `json:"lastActive"`
 	Tags                 []struct {
 		Tag    string `json:"tag"`

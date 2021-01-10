@@ -15,18 +15,18 @@ type UsageHistory struct {
 	Vlan                 string      `json:"vlan"`
 	Switchport           interface{} `json:"switchport"`
 	IP6                  string      `json:"ip6"`
-	FirstSeen            string         `json:"firstSeen"`
-	LastSeen             string         `json:"lastSeen"`
+	FirstSeen            int         `json:"firstSeen"`
+	LastSeen             int         `json:"lastSeen"`
 	Manufacturer         string      `json:"manufacturer"`
 	Os                   string      `json:"os"`
 	Ssid                 string      `json:"ssid"`
 	WirelessCapabilities string      `json:"wirelessCapabilities"`
-	SmInstalled          string        `json:"smInstalled"`
+	SmInstalled          bool        `json:"smInstalled"`
 	RecentDeviceMac      string      `json:"recentDeviceMac"`
 	ClientVpnConnections []struct {
 		RemoteIP       string `json:"remoteIp"`
-		ConnectedAt    string `json:"connectedAt"`
-		DisconnectedAt string `json:"disconnectedAt"`
+		ConnectedAt    int    `json:"connectedAt"`
+		DisconnectedAt int    `json:"disconnectedAt"`
 	} `json:"clientVpnConnections"`
 	Lldp   [][]string  `json:"lldp"`
 	Cdp    interface{} `json:"cdp"`
@@ -35,19 +35,19 @@ type UsageHistory struct {
 
 type Clients []struct {
 	Usage struct {
-		Sent string `json:"sent"`
-		Recv string `json:"recv"`
+		Sent int `json:"sent"`
+		Recv int `json:"recv"`
 	} `json:"usage"`
 	ID                 string      `json:"id"`
 	Description        string      `json:"description"`
 	Mac                string      `json:"mac"`
 	IP                 string      `json:"ip"`
 	User               string      `json:"user"`
-	Vlan               string         `json:"vlan"`
+	Vlan               int         `json:"vlan"`
 	Switchport         interface{} `json:"switchport"`
 	IP6                string      `json:"ip6"`
-	FirstSeen          string         `json:"firstSeen"`
-	LastSeen           string         `json:"lastSeen"`
+	FirstSeen          int         `json:"firstSeen"`
+	LastSeen           int         `json:"lastSeen"`
 	Manufacturer       string      `json:"manufacturer"`
 	Os                 string      `json:"os"`
 	RecentDeviceSerial string      `json:"recentDeviceSerial"`
@@ -57,7 +57,7 @@ type Clients []struct {
 	Status             string      `json:"status"`
 	Notes              string      `json:"notes"`
 	IP6Local           string      `json:"ip6Local"`
-	SmInstalled        string        `json:"smInstalled"`
+	SmInstalled        bool        `json:"smInstalled"`
 	GroupPolicy8021X   string      `json:"groupPolicy8021x"`
 }
 
@@ -71,18 +71,18 @@ type Client struct {
 	Vlan                 string      `json:"vlan"`
 	Switchport           interface{} `json:"switchport"`
 	IP6                  string      `json:"ip6"`
-	FirstSeen            string         `json:"firstSeen"`
-	LastSeen             string         `json:"lastSeen"`
+	FirstSeen            int         `json:"firstSeen"`
+	LastSeen             int         `json:"lastSeen"`
 	Manufacturer         string      `json:"manufacturer"`
 	Os                   string      `json:"os"`
 	Ssid                 string      `json:"ssid"`
 	WirelessCapabilities string      `json:"wirelessCapabilities"`
-	SmInstalled          string        `json:"smInstalled"`
+	SmInstalled          bool        `json:"smInstalled"`
 	RecentDeviceMac      string      `json:"recentDeviceMac"`
 	ClientVpnConnections []struct {
 		RemoteIP       string `json:"remoteIp"`
-		ConnectedAt    string `json:"connectedAt"`
-		DisconnectedAt string `json:"disconnectedAt"`
+		ConnectedAt    int    `json:"connectedAt"`
+		DisconnectedAt int    `json:"disconnectedAt"`
 	} `json:"clientVpnConnections"`
 	Lldp   [][]string  `json:"lldp"`
 	Cdp    interface{} `json:"cdp"`

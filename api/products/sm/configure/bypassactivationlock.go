@@ -12,11 +12,11 @@ type BypassActivationLockAttempts struct {
 	Status string `json:"status"`
 	Data   struct {
 		Num2090938209 struct {
-			Success string `json:"success"`
+			Success bool     `json:"success"`
 			Errors  []string `json:"errors"`
 		} `json:"2090938209"`
 		Num38290139892 struct {
-			Success string `json:"success"`
+			Success bool `json:"success"`
 		} `json:"38290139892"`
 	} `json:"data"`
 }

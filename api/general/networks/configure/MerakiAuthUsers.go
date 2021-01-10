@@ -12,17 +12,17 @@ type MerakiAuthUsers []struct {
 	MerakiAuthUser
 }
 type MerakiAuthUser struct {
-	MerakiAuthUserID string `json:"merakiAuthUserId"`
-	Email            string `json:"email"`
-	Name             string `json:"name"`
+	MerakiAuthUserID string    `json:"merakiAuthUserId"`
+	Email            string    `json:"email"`
+	Name             string    `json:"name"`
 	CreatedAt        time.Time `json:"createdAt"`
-	AccountType      string `json:"accountType"`
+	AccountType      string    `json:"accountType"`
 	Authorizations   []struct {
-		SsidNumber        string       `json:"ssidNumber"`
-		AuthorizedZone    string `json:"authorizedZone"`
+		SsidNumber        int       `json:"ssidNumber"`
+		AuthorizedZone    string    `json:"authorizedZone"`
 		ExpiresAt         time.Time `json:"expiresAt"`
-		AuthorizedByName  string `json:"authorizedByName"`
-		AuthorizedByEmail string `json:"authorizedByEmail"`
+		AuthorizedByName  string    `json:"authorizedByName"`
+		AuthorizedByEmail string    `json:"authorizedByEmail"`
 	} `json:"authorizations"`
 }
 

@@ -11,18 +11,18 @@ type DeviceStatuses []struct {
 	DeviceStatus
 }
 type DeviceStatus struct {
-	Name           string `json:"name"`
-	Serial         string `json:"serial"`
-	Mac            string `json:"mac"`
-	PublicIP       string `json:"publicIp"`
-	NetworkID      string `json:"networkId"`
-	Status         string `json:"status"`
+	Name           string    `json:"name"`
+	Serial         string    `json:"serial"`
+	Mac            string    `json:"mac"`
+	PublicIP       string    `json:"publicIp"`
+	NetworkID      string    `json:"networkId"`
+	Status         string    `json:"status"`
 	LastReportedAt time.Time `json:"lastReportedAt"`
-	LanIP          string `json:"lanIp"`
-	Gateway        string `json:"gateway"`
-	IPType         string `json:"ipType"`
-	PrimaryDNS     string `json:"primaryDns"`
-	SecondaryDNS   string `json:"secondaryDns"`
+	LanIP          string    `json:"lanIp"`
+	Gateway        string    `json:"gateway"`
+	IPType         string    `json:"ipType"`
+	PrimaryDNS     string    `json:"primaryDns"`
+	SecondaryDNS   string    `json:"secondaryDns"`
 }
 
 type UplinksLossAndLatency []struct {

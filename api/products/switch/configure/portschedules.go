@@ -8,7 +8,7 @@ import (
 )
 
 type Day struct {
-Active string `json:"active"`
+Active bool   `json:"active"`
 From   string `json:"from"`
 To     string `json:"to"`
 }

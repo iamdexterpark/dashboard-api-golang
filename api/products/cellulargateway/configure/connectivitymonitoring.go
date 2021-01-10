@@ -11,7 +11,7 @@ type ConnectivityTesting struct {
 	Destinations []struct {
 		IP          string `json:"ip"`
 		Description string `json:"description"`
-		Default     string `json:"default"`
+		Default     bool   `json:"default"`
 	} `json:"destinations"`
 }
 

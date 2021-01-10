@@ -8,13 +8,13 @@ import (
 )
 
 type SNMP struct {
-	V2CEnabled string `json:"v2cEnabled"`
-	V3Enabled  string `json:"v3Enabled"`
+	V2CEnabled bool     `json:"v2cEnabled"`
+	V3Enabled  bool     `json:"v3Enabled"`
 	V3AuthMode string   `json:"v3AuthMode"`
 	V3PrivMode string   `json:"v3PrivMode"`
 	PeerIps    []string `json:"peerIps"`
 	Hostname   string   `json:"hostname"`
-	Port       string      `json:"port"`
+	Port       int      `json:"port"`
 }
 
 // Return the SNMP settings for an organization

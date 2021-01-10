@@ -20,14 +20,14 @@ type PIIKeys struct {
 
 type PIIRequest struct {
 	ID               string `json:"id"`
-	OrganizationWide string `json:"organizationWide"`
+	OrganizationWide bool   `json:"organizationWide"`
 	NetworkID        string `json:"networkId"`
 	Type             string `json:"type"`
 	Mac              string `json:"mac"`
 	Datasets         string `json:"datasets"`
 	Status           string `json:"status"`
-	CreatedAt        string `json:"createdAt"`
-	CompletedAt      string `json:"completedAt"`
+	CreatedAt        int    `json:"createdAt"`
+	CompletedAt      int    `json:"completedAt"`
 }
 
 type PIIRequests []struct {

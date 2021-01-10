@@ -13,35 +13,35 @@ type VpnStats []struct {
 		NetworkID    string `json:"networkId"`
 		NetworkName  string `json:"networkName"`
 		UsageSummary struct {
-			ReceivedInKilobytes string `json:"receivedInKilobytes"`
-			SentInKilobytes     string `json:"sentInKilobytes"`
+			ReceivedInKilobytes int `json:"receivedInKilobytes"`
+			SentInKilobytes     int `json:"sentInKilobytes"`
 		} `json:"usageSummary"`
 		LatencySummaries []struct {
 			SenderUplink   string `json:"senderUplink"`
 			ReceiverUplink string `json:"receiverUplink"`
-			AvgLatencyMs   string `json:"avgLatencyMs"`
-			MinLatencyMs   string `json:"minLatencyMs"`
-			MaxLatencyMs   string `json:"maxLatencyMs"`
+			AvgLatencyMs   int    `json:"avgLatencyMs"`
+			MinLatencyMs   int    `json:"minLatencyMs"`
+			MaxLatencyMs   int    `json:"maxLatencyMs"`
 		} `json:"latencySummaries"`
 		LossPercentageSummaries []struct {
 			SenderUplink      string  `json:"senderUplink"`
 			ReceiverUplink    string  `json:"receiverUplink"`
-			AvgLossPercentage string     `json:"avgLossPercentage"`
-			MinLossPercentage string     `json:"minLossPercentage"`
+			AvgLossPercentage int     `json:"avgLossPercentage"`
+			MinLossPercentage int     `json:"minLossPercentage"`
 			MaxLossPercentage float64 `json:"maxLossPercentage"`
 		} `json:"lossPercentageSummaries"`
 		JitterSummaries []struct {
 			SenderUplink   string  `json:"senderUplink"`
 			ReceiverUplink string  `json:"receiverUplink"`
 			AvgJitter      float64 `json:"avgJitter"`
-			MinJitter      string     `json:"minJitter"`
+			MinJitter      int     `json:"minJitter"`
 			MaxJitter      float64 `json:"maxJitter"`
 		} `json:"jitterSummaries"`
 		MosSummaries []struct {
 			SenderUplink   string  `json:"senderUplink"`
 			ReceiverUplink string  `json:"receiverUplink"`
 			AvgMos         float64 `json:"avgMos"`
-			MinMos         string     `json:"minMos"`
+			MinMos         int     `json:"minMos"`
 			MaxMos         float64 `json:"maxMos"`
 		} `json:"mosSummaries"`
 	} `json:"merakiVpnPeers"`

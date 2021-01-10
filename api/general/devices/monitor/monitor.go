@@ -10,15 +10,15 @@ import (
 
 type DeviceClients []struct {
 	Usage struct {
-		Sent string `json:"sent"`
-		Recv string `json:"recv"`
+		Sent int `json:"sent"`
+		Recv int `json:"recv"`
 	} `json:"usage"`
 	ID           string      `json:"id"`
 	Description  string      `json:"description"`
 	Mac          string      `json:"mac"`
 	IP           string      `json:"ip"`
 	User         string      `json:"user"`
-	Vlan         string         `json:"vlan"`
+	Vlan         int         `json:"vlan"`
 	Switchport   interface{} `json:"switchport"`
 	MdnsName     string      `json:"mdnsName"`
 	DhcpHostname string      `json:"dhcpHostname"`
@@ -56,8 +56,8 @@ type LLdpCdp struct {
 type UplinkLoss []struct {
 	StartTime   time.Time `json:"startTime"`
 	EndTime     time.Time `json:"endTime"`
-	LossPercent string       `json:"lossPercent"`
-	LatencyMs   string       `json:"latencyMs"`
+	LossPercent int       `json:"lossPercent"`
+	LatencyMs   int       `json:"latencyMs"`
 }
 
 // Return A Devices Clients

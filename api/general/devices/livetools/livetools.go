@@ -8,13 +8,13 @@ import (
 )
 
 type BlinkLeds struct {
-	Duration string `json:"duration"`
-	Period   string `json:"period"`
-	Duty     string `json:"duty"`
+	Duration int `json:"duration"`
+	Period   int `json:"period"`
+	Duty     int `json:"duty"`
 }
 
 type Reboot struct {
-	Success string `json:"success"`
+	Success bool `json:"success"`
 }
 
 // Blink the LEDs on a device
@@ -31,7 +31,7 @@ func PostBlinkLEDs(serial string) []api.Results {
 
 // Reboot a device
 func PostReboot(serial string) []api.Results {
-	baseurl := fmt.Sprintf("/devices/%s/blinkLeds",  serial)
+	baseurl := fmt.Sprintf("/devices/%s/reboot",  serial)
 	var datamodel Reboot
 	data := Reboot{true}
 	payload := user_agent.MarshalJSON(data)

@@ -16,23 +16,23 @@ type AccessPolicy struct {
 	Name               string `json:"name"`
 	RadiusServers      []struct {
 		Host   string `json:"host"`
-		Port   string `json:"port"`
+		Port   int    `json:"port"`
 		Secret string `json:"secret"`
 	} `json:"radiusServers"`
-	RadiusTestingEnabled    string `json:"radiusTestingEnabled"`
-	RadiusCoaSupportEnabled string `json:"radiusCoaSupportEnabled"`
-	RadiusAccountingEnabled string `json:"radiusAccountingEnabled"`
+	RadiusTestingEnabled    bool `json:"radiusTestingEnabled"`
+	RadiusCoaSupportEnabled bool `json:"radiusCoaSupportEnabled"`
+	RadiusAccountingEnabled bool `json:"radiusAccountingEnabled"`
 	RadiusAccountingServers []struct {
 		Host   string `json:"host"`
-		Port   string `json:"port"`
+		Port   int    `json:"port"`
 		Secret string `json:"secret"`
 	} `json:"radiusAccountingServers"`
 	HostMode                       string `json:"hostMode"`
 	AccessPolicyType               string `json:"accessPolicyType"`
-	IncreaseAccessSpeed            string `json:"increaseAccessSpeed"`
-	GuestVlanID                    string `json:"guestVlanId"`
-	VoiceVlanClients               string `json:"voiceVlanClients"`
-	URLRedirectWalledGardenEnabled string `json:"urlRedirectWalledGardenEnabled"`
+	IncreaseAccessSpeed            bool   `json:"increaseAccessSpeed"`
+	GuestVlanID                    int    `json:"guestVlanId"`
+	VoiceVlanClients               bool   `json:"voiceVlanClients"`
+	URLRedirectWalledGardenEnabled bool   `json:"urlRedirectWalledGardenEnabled"`
 	URLRedirectWalledGardenRanges  string `json:"urlRedirectWalledGardenRanges"`
 }
 

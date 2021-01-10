@@ -11,7 +11,7 @@ type SecurityIntrusion struct {
 	Mode              string `json:"mode"`
 	IdsRulesets       string `json:"idsRulesets"`
 	ProtectedNetworks struct {
-		UseDefault   string `json:"useDefault"`
+		UseDefault   bool     `json:"useDefault"`
 		IncludedCidr []string `json:"includedCidr"`
 		ExcludedCidr []string `json:"excludedCidr"`
 	} `json:"protectedNetworks"`

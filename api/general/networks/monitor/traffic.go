@@ -10,16 +10,16 @@ type Traffic []struct {
 	Application string      `json:"application"`
 	Destination interface{} `json:"destination"`
 	Protocol    string      `json:"protocol"`
-	Port        string         `json:"port"`
-	Sent        string         `json:"sent"`
-	Recv        string         `json:"recv"`
-	NumClients  string         `json:"numClients"`
-	ActiveTime  string         `json:"activeTime"`
-	Flows       string         `json:"flows"`
+	Port        int         `json:"port"`
+	Sent        int         `json:"sent"`
+	Recv        int         `json:"recv"`
+	NumClients  int         `json:"numClients"`
+	ActiveTime  int         `json:"activeTime"`
+	Flows       int         `json:"flows"`
 }
 
 // Return the client's network traffic data over time. Usage data is in kilobytes.
-// This endpostring requires detailed traffic analysis to be enabled on the Network-wide > General
+// This endpoint requires detailed traffic analysis to be enabled on the Network-wide > General
 // page. Clients can be identified by a client key or either the MAC or IP depending on whether
 // the network uses Track-by-IP.
 func GetTraffic(networkId, t0, timespan, deviceType string) []api.Results {

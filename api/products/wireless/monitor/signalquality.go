@@ -10,8 +10,8 @@ import (
 type SignalQualityHistory []struct {
 	StartTs time.Time `json:"startTs"`
 	EndTs   time.Time `json:"endTs"`
-	Snr     string       `json:"snr"`
-	Rssi    string       `json:"rssi"`
+	Snr     int       `json:"snr"`
+	Rssi    int       `json:"rssi"`
 }
 
 func GetSignalQualityHistory(networkId, t0, t1, timespan,

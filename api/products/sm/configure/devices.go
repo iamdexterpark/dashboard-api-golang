@@ -9,21 +9,21 @@ import (
 )
 
 type DeviceCerts []struct {
-	Name           string `json:"name"`
+	Name           string    `json:"name"`
 	NotValidAfter  time.Time `json:"notValidAfter"`
 	NotValidBefore time.Time `json:"notValidBefore"`
-	CertPem        string `json:"certPem"`
-	DeviceID       string `json:"deviceId"`
-	Issuer         string `json:"issuer"`
-	Subject        string `json:"subject"`
-	ID             string `json:"id"`
+	CertPem        string    `json:"certPem"`
+	DeviceID       string    `json:"deviceId"`
+	Issuer         string    `json:"issuer"`
+	Subject        string    `json:"subject"`
+	ID             string    `json:"id"`
 }
 
 type DeviceProfiles []struct {
 	DeviceID    string `json:"deviceId"`
 	ID          string `json:"id"`
-	IsEncrypted string `json:"isEncrypted"`
-	IsManaged   string `json:"isManaged"`
+	IsEncrypted bool   `json:"isEncrypted"`
+	IsManaged   bool   `json:"isManaged"`
 	ProfileData struct {
 	} `json:"profileData"`
 	ProfileIdentifier string `json:"profileIdentifier"`
@@ -46,20 +46,20 @@ type DeviceRestrictions []struct {
 	Profile      string `json:"profile"`
 	Restrictions struct {
 		MyRestriction struct {
-			Value string `json:"value"`
+			Value bool `json:"value"`
 		} `json:"myRestriction"`
 	} `json:"restrictions"`
 }
 
 type DeviceSecurityCenters []struct {
-	IsRooted             string `json:"isRooted"`
-	HasAntiVirus         string `json:"hasAntiVirus"`
+	IsRooted             bool   `json:"isRooted"`
+	HasAntiVirus         bool   `json:"hasAntiVirus"`
 	AntiVirusName        string `json:"antiVirusName"`
-	IsFireWallEnabled    string `json:"isFireWallEnabled"`
-	HasFireWallInstalled string `json:"hasFireWallInstalled"`
+	IsFireWallEnabled    bool   `json:"isFireWallEnabled"`
+	HasFireWallInstalled bool   `json:"hasFireWallInstalled"`
 	FireWallName         string `json:"fireWallName"`
-	IsDiskEncrypted      string `json:"isDiskEncrypted"`
-	IsAutoLoginDisabled  string `json:"isAutoLoginDisabled"`
+	IsDiskEncrypted      bool   `json:"isDiskEncrypted"`
+	IsAutoLoginDisabled  bool   `json:"isAutoLoginDisabled"`
 	ID                   string `json:"id"`
 	RunningProcs         string `json:"runningProcs"`
 }
@@ -75,7 +75,7 @@ type DeviceSoftwares []struct {
 	InstalledAt       time.Time   `json:"installedAt"`
 	ToInstall         interface{} `json:"toInstall"`
 	IosRedemptionCode interface{} `json:"iosRedemptionCode"`
-	IsManaged         string        `json:"isManaged"`
+	IsManaged         bool        `json:"isManaged"`
 	ItunesID          interface{} `json:"itunesId"`
 	LicenseKey        interface{} `json:"licenseKey"`
 	Name              string      `json:"name"`
@@ -83,7 +83,7 @@ type DeviceSoftwares []struct {
 	RedemptionCode    interface{} `json:"redemptionCode"`
 	ShortVersion      interface{} `json:"shortVersion"`
 	Status            interface{} `json:"status"`
-	ToUninstall       string        `json:"toUninstall"`
+	ToUninstall       bool        `json:"toUninstall"`
 	UninstalledAt     interface{} `json:"uninstalledAt"`
 	UpdatedAt         time.Time   `json:"updatedAt"`
 	Vendor            string      `json:"vendor"`
@@ -92,8 +92,8 @@ type DeviceSoftwares []struct {
 
 type DeviceWlanLists []struct {
 	CreatedAt time.Time `json:"createdAt"`
-	ID        string `json:"id"`
-	XML       string `json:"xml"`
+	ID        string    `json:"id"`
+	XML       string    `json:"xml"`
 }
 
 type Fields struct {
@@ -133,7 +133,7 @@ type SMDevices struct {
 }
 
 type Unenroll struct {
-	Success string `json:"success"`
+	Success bool `json:"success"`
 }
 
 func GetDeviceCerts(networkId, deviceId string) []api.Results {

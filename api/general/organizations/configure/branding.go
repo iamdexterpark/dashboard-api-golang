@@ -18,7 +18,7 @@ type BrandingPolicies []struct {
 type BrandingPolicy struct {
 	BrandingPolicyID string `json:"brandingPolicyId"`
 	Name             string `json:"name"`
-	Enabled          string `json:"enabled"`
+	Enabled          bool   `json:"enabled"`
 	AdminSettings    struct {
 		AppliesTo string   `json:"appliesTo"`
 		Values    []string `json:"values"`

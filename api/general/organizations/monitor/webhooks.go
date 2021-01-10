@@ -12,11 +12,11 @@ type AlertTypes []struct {
 	AlertType string `json:"alertType"`
 	AlertName string `json:"alertName"`
 	Example   struct {
-		Version      string `json:"version"`
-		SharedSecret string `json:"sharedSecret"`
+		Version      string    `json:"version"`
+		SharedSecret string    `json:"sharedSecret"`
 		SentAt       time.Time `json:"sentAt"`
-		AlertID      string `json:"alertId"`
-		AlertType    string `json:"alertType"`
+		AlertID      string    `json:"alertId"`
+		AlertType    string    `json:"alertType"`
 		OccurredAt   time.Time `json:"occurredAt"`
 		AlertData    struct {
 		} `json:"alertData"`
@@ -40,14 +40,14 @@ type WebHookLogs []struct {
 	Log
 }
 type Log struct {
-	OrganizationID   string `json:"organizationId"`
-	NetworkID        string `json:"networkId"`
-	AlertType        string `json:"alertType"`
-	URL              string `json:"url"`
+	OrganizationID   string    `json:"organizationId"`
+	NetworkID        string    `json:"networkId"`
+	AlertType        string    `json:"alertType"`
+	URL              string    `json:"url"`
 	SentAt           time.Time `json:"sentAt"`
 	LoggedAt         time.Time `json:"loggedAt"`
-	ResponseCode     string       `json:"responseCode"`
-	ResponseDuration string       `json:"responseDuration"`
+	ResponseCode     int       `json:"responseCode"`
+	ResponseDuration int       `json:"responseDuration"`
 }
 
 // Return a list of alert types to be used with managing webhook alerts

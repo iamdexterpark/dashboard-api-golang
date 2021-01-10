@@ -10,7 +10,7 @@ type License struct {
 	Status               string `json:"status"`
 	ExpirationDate       string `json:"expirationDate"`
 	LicensedDeviceCounts struct {
-		MS string `json:"MS"`
+		MS int `json:"MS"`
 	} `json:"licensedDeviceCounts"`
 }
 

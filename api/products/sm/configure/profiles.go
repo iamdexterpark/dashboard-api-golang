@@ -11,7 +11,7 @@ type Profiles []struct {
 	Name          string      `json:"name"`
 	Description   string      `json:"description"`
 	Scope         string      `json:"scope"`
-	Tags          []string `json:"tags"`
+	Tags          []string    `json:"tags"`
 	TargetGroupID interface{} `json:"targetGroupId"`
 }
 

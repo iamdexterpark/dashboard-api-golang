@@ -12,11 +12,11 @@ type EnvironmentalEvents struct {
 	PageEndAt   time.Time `json:"pageEndAt"`
 	Events      []struct {
 		OccurredAt    time.Time `json:"occurredAt"`
-		NetworkID     string `json:"networkId"`
-		Type          string `json:"type"`
-		Description   string `json:"description"`
-		SensorSerial  string `json:"sensorSerial"`
-		GatewaySerial string `json:"gatewaySerial"`
+		NetworkID     string    `json:"networkId"`
+		Type          string    `json:"type"`
+		Description   string    `json:"description"`
+		SensorSerial  string    `json:"sensorSerial"`
+		GatewaySerial string    `json:"gatewaySerial"`
 		EventData     struct {
 			Version string `json:"version"`
 		} `json:"eventData"`

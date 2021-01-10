@@ -8,14 +8,14 @@ import (
 )
 
 type FailedConnections []struct {
-	SsidNumber  string       `json:"ssidNumber"`
-	Vlan        string       `json:"vlan"`
-	ClientMac   string `json:"clientMac"`
-	Serial      string `json:"serial,omitempty"`
-	FailureStep string `json:"failureStep"`
-	Type        string `json:"type"`
+	SsidNumber  int       `json:"ssidNumber"`
+	Vlan        int       `json:"vlan"`
+	ClientMac   string    `json:"clientMac"`
+	Serial      string    `json:"serial,omitempty"`
+	FailureStep string    `json:"failureStep"`
+	Type        string    `json:"type"`
 	Ts          time.Time `json:"ts"`
-	NodeID      string `json:"nodeId,omitempty"`
+	NodeID      string    `json:"nodeId,omitempty"`
 }
 
 func GetFailedConnections(networkId, t0, t1, timespan,

@@ -28,7 +28,7 @@ type ApplicationCategories struct {
 }
 
 type DscpTaggingOptions []struct {
-	DscpTagValue string `json:"dscpTagValue"`
+	DscpTagValue int    `json:"dscpTagValue"`
 	Description  string `json:"description"`
 }
 

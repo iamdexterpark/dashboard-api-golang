@@ -13,7 +13,7 @@ type ObjectDetectionModel []struct {
 }
 
 type Sense struct {
-	SenseEnabled string `json:"senseEnabled"`
+	SenseEnabled bool     `json:"senseEnabled"`
 	MqttBrokerID string   `json:"mqttBrokerId"`
 	MqttTopics   []string `json:"mqttTopics"`
 }

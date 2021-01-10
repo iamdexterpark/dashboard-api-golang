@@ -10,18 +10,18 @@ type AirMarshal[]struct {
 	Ssid   string `json:"ssid"`
 	Bssids []struct {
 		Bssid      string `json:"bssid"`
-		Contained  string `json:"contained"`
+		Contained  bool   `json:"contained"`
 		DetectedBy []struct {
 			Device string `json:"device"`
-			Rssi   string `json:"rssi"`
+			Rssi   int    `json:"rssi"`
 		} `json:"detectedBy"`
 	} `json:"bssids"`
-	Channels      []string `json:"channels"`
-	FirstSeen     string      `json:"firstSeen"`
-	LastSeen      string      `json:"lastSeen"`
+	Channels      []int    `json:"channels"`
+	FirstSeen     int      `json:"firstSeen"`
+	LastSeen      int      `json:"lastSeen"`
 	WiredMacs     []string `json:"wiredMacs"`
-	WiredVlans    []string `json:"wiredVlans"`
-	WiredLastSeen string      `json:"wiredLastSeen"`
+	WiredVlans    []int    `json:"wiredVlans"`
+	WiredLastSeen int      `json:"wiredLastSeen"`
 }
 
 func GetAirMarshal(serial, t0, timespan string) []api.Results {

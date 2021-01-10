@@ -10,20 +10,20 @@ import (
 
 type TrafficHistory []struct {
 	Ts            time.Time `json:"ts"`
-	Application   string `json:"application"`
-	Destination   string `json:"destination"`
-	Protocol      string `json:"protocol"`
-	Port          string       `json:"port"`
-	Recv          string       `json:"recv"`
-	Sent          string       `json:"sent"`
-	NumFlows      string       `json:"numFlows"`
-	ActiveSeconds string       `json:"activeSeconds"`
+	Application   string    `json:"application"`
+	Destination   string    `json:"destination"`
+	Protocol      string    `json:"protocol"`
+	Port          int       `json:"port"`
+	Recv          int       `json:"recv"`
+	Sent          int       `json:"sent"`
+	NumFlows      int       `json:"numFlows"`
+	ActiveSeconds int       `json:"activeSeconds"`
 }
 
 
 type ClientUsageHistory []struct {
-	Sent     string       `json:"sent"`
-	Received string       `json:"received"`
+	Sent     int       `json:"sent"`
+	Received int       `json:"received"`
 	Ts       time.Time `json:"ts"`
 }
 

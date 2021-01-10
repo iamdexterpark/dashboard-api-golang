@@ -9,12 +9,12 @@ import (
 
 type APIRequestsSummary struct {
 	ResponseCodeCounts struct {
-		Num200 string `json:"200"`
-		Num201 string `json:"201"`
-		Num204 string `json:"204"`
-		Num400 string `json:"400"`
-		Num404 string `json:"404"`
-		Num429 string `json:"429"`
+		Num200 int `json:"200"`
+		Num201 int `json:"201"`
+		Num204 int `json:"204"`
+		Num400 int `json:"400"`
+		Num404 int `json:"404"`
+		Num429 int `json:"429"`
 	} `json:"responseCodeCounts"`
 }
 
@@ -22,15 +22,15 @@ type APIRequests []struct {
 	APIRequest
 }
 type APIRequest struct {
-	AdminID      string `json:"adminId"`
-	Method       string `json:"method"`
-	Host         string `json:"host"`
-	Path         string `json:"path"`
-	QueryString  string `json:"queryString"`
-	UserAgent    string `json:"userAgent"`
+	AdminID      string    `json:"adminId"`
+	Method       string    `json:"method"`
+	Host         string    `json:"host"`
+	Path         string    `json:"path"`
+	QueryString  string    `json:"queryString"`
+	UserAgent    string    `json:"userAgent"`
 	Ts           time.Time `json:"ts"`
-	ResponseCode string       `json:"responseCode"`
-	SourceIP     string `json:"sourceIp"`
+	ResponseCode int       `json:"responseCode"`
+	SourceIP     string    `json:"sourceIp"`
 }
 
 // Return an aggregated overview of API requests data

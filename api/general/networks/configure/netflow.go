@@ -8,9 +8,9 @@ import (
 )
 
 type NetFlow struct {
-	ReportingEnabled string `json:"reportingEnabled"`
+	ReportingEnabled bool   `json:"reportingEnabled"`
 	CollectorIP      string `json:"collectorIp"`
-	CollectorPort    string `json:"collectorPort"`
+	CollectorPort    int    `json:"collectorPort"`
 }
 
 // Return the NetFlow traffic reporting settings for a network

@@ -8,13 +8,13 @@ import (
 )
 
 type QualityAndRetention struct {
-	MotionBasedRetentionEnabled    string        `json:"motionBasedRetentionEnabled"`
-	AudioRecordingEnabled          string        `json:"audioRecordingEnabled"`
-	RestrictedBandwidthModeEnabled string        `json:"restrictedBandwidthModeEnabled"`
+	MotionBasedRetentionEnabled    bool        `json:"motionBasedRetentionEnabled"`
+	AudioRecordingEnabled          bool        `json:"audioRecordingEnabled"`
+	RestrictedBandwidthModeEnabled bool        `json:"restrictedBandwidthModeEnabled"`
 	ProfileID                      interface{} `json:"profileId"`
 	Quality                        string      `json:"quality"`
-	MotionDetectorVersion          string         `json:"motionDetectorVersion"`
-	Resolution                     string         `json:"resolution"`
+	MotionDetectorVersion          int         `json:"motionDetectorVersion"`
+	Resolution                     int         `json:"resolution"`
 }
 
 func GetQualityAndRetention(serial string) []api.Results {

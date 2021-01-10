@@ -10,19 +10,19 @@ import (
 type AlertSettings struct {
 	DefaultDestinations struct {
 		Emails    []string `json:"emails"`
-		AllAdmins string `json:"allAdmins"`
-		Snmp      string `json:"snmp"`
+		AllAdmins bool     `json:"allAdmins"`
+		Snmp      bool     `json:"snmp"`
 	} `json:"defaultDestinations"`
 	Alerts []struct {
 		Type              string `json:"type"`
-		Enabled           string `json:"enabled"`
+		Enabled           bool   `json:"enabled"`
 		AlertDestinations struct {
 			Emails    []string `json:"emails"`
-			AllAdmins string `json:"allAdmins"`
-			Snmp      string `json:"snmp"`
+			AllAdmins bool     `json:"allAdmins"`
+			Snmp      bool     `json:"snmp"`
 		} `json:"alertDestinations"`
 		Filters struct {
-			Timeout string `json:"timeout"`
+			Timeout int `json:"timeout"`
 		} `json:"filters"`
 	} `json:"alerts"`
 }

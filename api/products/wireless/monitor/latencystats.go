@@ -11,19 +11,19 @@ type APLatencyStats struct {
 	LatencyStats struct {
 		BackgroundTraffic struct {
 			RawDistribution struct {
-				Num0    string `json:"0"`
-				Num1    string `json:"1"`
-				Num2    string `json:"2"`
-				Num4    string `json:"4"`
-				Num8    string `json:"8"`
-				Num16   string `json:"16"`
-				Num32   string `json:"32"`
-				Num64   string `json:"64"`
-				Num128  string `json:"128"`
-				Num256  string `json:"256"`
-				Num512  string `json:"512"`
-				Num1024 string `json:"1024"`
-				Num2048 string `json:"2048"`
+				Num0    int `json:"0"`
+				Num1    int `json:"1"`
+				Num2    int `json:"2"`
+				Num4    int `json:"4"`
+				Num8    int `json:"8"`
+				Num16   int `json:"16"`
+				Num32   int `json:"32"`
+				Num64   int `json:"64"`
+				Num128  int `json:"128"`
+				Num256  int `json:"256"`
+				Num512  int `json:"512"`
+				Num1024 int `json:"1024"`
+				Num2048 int `json:"2048"`
 			} `json:"rawDistribution"`
 			Avg float64 `json:"avg"`
 		} `json:"backgroundTraffic"`
@@ -36,19 +36,19 @@ type APLatencyStats struct {
 type APLatencyStat struct {
 	BackgroundTraffic struct {
 		RawDistribution struct {
-			Num0    string `json:"0"`
-			Num1    string `json:"1"`
-			Num2    string `json:"2"`
-			Num4    string `json:"4"`
-			Num8    string `json:"8"`
-			Num16   string `json:"16"`
-			Num32   string `json:"32"`
-			Num64   string `json:"64"`
-			Num128  string `json:"128"`
-			Num256  string `json:"256"`
-			Num512  string `json:"512"`
-			Num1024 string `json:"1024"`
-			Num2048 string `json:"2048"`
+			Num0    int `json:"0"`
+			Num1    int `json:"1"`
+			Num2    int `json:"2"`
+			Num4    int `json:"4"`
+			Num8    int `json:"8"`
+			Num16   int `json:"16"`
+			Num32   int `json:"32"`
+			Num64   int `json:"64"`
+			Num128  int `json:"128"`
+			Num256  int `json:"256"`
+			Num512  int `json:"512"`
+			Num1024 int `json:"1024"`
+			Num2048 int `json:"2048"`
 		} `json:"rawDistribution"`
 		Avg float64 `json:"avg"`
 	} `json:"backgroundTraffic"`

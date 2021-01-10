@@ -8,9 +8,9 @@ import (
 )
 
 type Settings struct {
-	MeshingEnabled           string `json:"meshingEnabled"`
-	Ipv6BridgeEnabled        string `json:"ipv6BridgeEnabled"`
-	LocationAnalyticsEnabled string `json:"locationAnalyticsEnabled"`
+	MeshingEnabled           bool   `json:"meshingEnabled"`
+	Ipv6BridgeEnabled        bool   `json:"ipv6BridgeEnabled"`
+	LocationAnalyticsEnabled bool   `json:"locationAnalyticsEnabled"`
 	UpgradeStrategy          string `json:"upgradeStrategy"`
 }
 

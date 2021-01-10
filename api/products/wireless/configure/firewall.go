@@ -12,7 +12,7 @@ type L3FirewallRules struct {
 		Comment  string `json:"comment"`
 		Policy   string `json:"policy"`
 		Protocol string `json:"protocol"`
-		DestPort string `json:"destPort"`
+		DestPort int    `json:"destPort"`
 		DestCidr string `json:"destCidr"`
 	} `json:"rules"`
 }

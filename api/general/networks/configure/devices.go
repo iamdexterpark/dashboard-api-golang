@@ -24,8 +24,8 @@ type Device struct {
 	NetworkID      string  `json:"networkId"`
 	BeaconIDParams struct {
 		UUID  string `json:"uuid"`
-		Major string `json:"major"`
-		Minor string `json:"minor"`
+		Major int    `json:"major"`
+		Minor int    `json:"minor"`
 	} `json:"beaconIdParams"`
 	Firmware    string `json:"firmware"`
 	FloorPlanID string `json:"floorPlanId"`

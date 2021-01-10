@@ -15,27 +15,27 @@ type RFProfile struct {
 	ID                     string `json:"id"`
 	NetworkID              string `json:"networkId"`
 	Name                   string `json:"name"`
-	ClientBalancingEnabled string `json:"clientBalancingEnabled"`
+	ClientBalancingEnabled bool   `json:"clientBalancingEnabled"`
 	MinBitrateType         string `json:"minBitrateType"`
 	BandSelectionType      string `json:"bandSelectionType"`
 	ApSelectionSettings    struct {
 		BandOperationMode   string `json:"bandOperationMode"`
-		BandSteeringEnabled string `json:"bandSteeringEnabled"`
+		BandSteeringEnabled bool   `json:"bandSteeringEnabled"`
 	} `json:"apSelectionSettings"`
 	TwoFourGhzSettings struct {
-		MaxPower          string         `json:"maxPower"`
-		MinPower          string         `json:"minPower"`
-		MinBitrate        string         `json:"minBitrate"`
+		MaxPower          int         `json:"maxPower"`
+		MinPower          int         `json:"minPower"`
+		MinBitrate        int         `json:"minBitrate"`
 		Rxsop             interface{} `json:"rxsop"`
-		ValidAutoChannels []string       `json:"validAutoChannels"`
-		AxEnabled         string        `json:"axEnabled"`
+		ValidAutoChannels []int       `json:"validAutoChannels"`
+		AxEnabled         bool        `json:"axEnabled"`
 	} `json:"twoFourGhzSettings"`
 	FiveGhzSettings struct {
-		MaxPower          string         `json:"maxPower"`
-		MinPower          string         `json:"minPower"`
-		MinBitrate        string         `json:"minBitrate"`
+		MaxPower          int         `json:"maxPower"`
+		MinPower          int         `json:"minPower"`
+		MinBitrate        int         `json:"minBitrate"`
 		Rxsop             interface{} `json:"rxsop"`
-		ValidAutoChannels []string       `json:"validAutoChannels"`
+		ValidAutoChannels []int       `json:"validAutoChannels"`
 		ChannelWidth      string      `json:"channelWidth"`
 	} `json:"fiveGhzSettings"`
 }

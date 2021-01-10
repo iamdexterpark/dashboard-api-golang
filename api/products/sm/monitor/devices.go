@@ -8,8 +8,8 @@ import (
 )
 
 type CellularUsageHistory []struct {
-	Received string       `json:"received"`
-	Sent     string       `json:"sent"`
+	Received int       `json:"received"`
+	Sent     int       `json:"sent"`
 	Ts       time.Time `json:"ts"`
 }
 
@@ -20,46 +20,46 @@ type Connectivity []struct {
 
 type DesktopLogs []struct {
 	MeasuredAt    time.Time `json:"measuredAt"`
-	User          string `json:"user"`
-	NetworkDevice string `json:"networkDevice"`
-	NetworkDriver string `json:"networkDriver"`
-	WifiChannel   string `json:"wifiChannel"`
-	WifiAuth      string `json:"wifiAuth"`
-	WifiBssid     string `json:"wifiBssid"`
-	WifiSsid      string `json:"wifiSsid"`
-	WifiRssi      string `json:"wifiRssi"`
-	WifiNoise     string `json:"wifiNoise"`
-	DhcpServer    string `json:"dhcpServer"`
-	IP            string `json:"ip"`
-	NetworkMTU    string `json:"networkMTU"`
-	Subnet        string `json:"subnet"`
-	Gateway       string `json:"gateway"`
-	PublicIP      string `json:"publicIP"`
-	DNSServer     string `json:"dnsServer"`
+	User          string    `json:"user"`
+	NetworkDevice string    `json:"networkDevice"`
+	NetworkDriver string    `json:"networkDriver"`
+	WifiChannel   string    `json:"wifiChannel"`
+	WifiAuth      string    `json:"wifiAuth"`
+	WifiBssid     string    `json:"wifiBssid"`
+	WifiSsid      string    `json:"wifiSsid"`
+	WifiRssi      string    `json:"wifiRssi"`
+	WifiNoise     string    `json:"wifiNoise"`
+	DhcpServer    string    `json:"dhcpServer"`
+	IP            string    `json:"ip"`
+	NetworkMTU    string    `json:"networkMTU"`
+	Subnet        string    `json:"subnet"`
+	Gateway       string    `json:"gateway"`
+	PublicIP      string    `json:"publicIP"`
+	DNSServer     string    `json:"dnsServer"`
 	Ts            time.Time `json:"ts"`
 }
 
 type DeviceCommandLogs []struct {
-	Action        string `json:"action"`
-	Name          string `json:"name"`
-	Details       string `json:"details"`
-	DashboardUser string `json:"dashboardUser"`
+	Action        string    `json:"action"`
+	Name          string    `json:"name"`
+	Details       string    `json:"details"`
+	DashboardUser string    `json:"dashboardUser"`
 	Ts            time.Time `json:"ts"`
 }
 
 type PerformanceHistory []struct {
 	CPUPercentUsed  float64 `json:"cpuPercentUsed"`
-	MemFree         string     `json:"memFree"`
-	MemWired        string     `json:"memWired"`
-	MemActive       string     `json:"memActive"`
-	MemInactive     string     `json:"memInactive"`
-	NetworkSent     string     `json:"networkSent"`
-	NetworkReceived string     `json:"networkReceived"`
-	SwapUsed        string     `json:"swapUsed"`
+	MemFree         int     `json:"memFree"`
+	MemWired        int     `json:"memWired"`
+	MemActive       int     `json:"memActive"`
+	MemInactive     int     `json:"memInactive"`
+	NetworkSent     int     `json:"networkSent"`
+	NetworkReceived int     `json:"networkReceived"`
+	SwapUsed        int     `json:"swapUsed"`
 	DiskUsage       struct {
 		C struct {
-			Used  string `json:"used"`
-			Space string `json:"space"`
+			Used  int `json:"used"`
+			Space int `json:"space"`
 		} `json:"c"`
 	} `json:"diskUsage"`
 	Ts time.Time `json:"ts"`

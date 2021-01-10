@@ -9,8 +9,8 @@ import (
 
 type DscpToCosMappings struct {
 	Mappings []struct {
-		Dscp  string `json:"dscp"`
-		Cos   string `json:"cos"`
+		Dscp  int    `json:"dscp"`
+		Cos   int    `json:"cos"`
 		Title string `json:"title"`
 	} `json:"mappings"`
 }

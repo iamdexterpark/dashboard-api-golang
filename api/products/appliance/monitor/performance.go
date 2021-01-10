@@ -7,7 +7,7 @@ import (
 )
 
 type Performance struct {
-	PerfScore string `json:"perfScore"`
+	PerfScore int `json:"perfScore"`
 }
 
 func GetPerformance(serial string) []api.Results {

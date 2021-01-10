@@ -10,8 +10,8 @@ type MeshStatuses struct {
 	Serial                string   `json:"serial"`
 	MeshRoute             []string `json:"meshRoute"`
 	LatestMeshPerformance struct {
-		Mbps            string `json:"mbps"`
-		Metric          string `json:"metric"`
+		Mbps            int    `json:"mbps"`
+		Metric          int    `json:"metric"`
 		UsagePercentage string `json:"usagePercentage"`
 	} `json:"latestMeshPerformance"`
 }

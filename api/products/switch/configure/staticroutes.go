@@ -16,8 +16,8 @@ type StaticRoute struct {
 	Name                        string `json:"name"`
 	Subnet                      string `json:"subnet"`
 	NextHopIP                   string `json:"nextHopIp"`
-	AdvertiseViaOspfEnabled     string `json:"advertiseViaOspfEnabled"`
-	PreferOverOspfRoutesEnabled string `json:"preferOverOspfRoutesEnabled"`
+	AdvertiseViaOspfEnabled     bool   `json:"advertiseViaOspfEnabled"`
+	PreferOverOspfRoutesEnabled bool   `json:"preferOverOspfRoutesEnabled"`
 }
 
 func GetStaticRoutes(serial string) []api.Results {

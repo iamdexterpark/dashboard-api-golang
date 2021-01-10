@@ -15,7 +15,7 @@ type MQTTBroker struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
 	Host string `json:"host"`
-	Port string `json:"port"`
+	Port int    `json:"port"`
 }
 
 // List the MQTT brokers for this network

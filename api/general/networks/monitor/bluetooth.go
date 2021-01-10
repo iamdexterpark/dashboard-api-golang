@@ -19,10 +19,10 @@ type BluetoothClient struct {
 	Name            string   `json:"name"`
 	DeviceName      string   `json:"deviceName"`
 	Manufacturer    string   `json:"manufacturer"`
-	LastSeen        string      `json:"lastSeen"`
+	LastSeen        int      `json:"lastSeen"`
 	SeenByDeviceMac string   `json:"seenByDeviceMac"`
-	InSightAlert    string `json:"inSightAlert"`
-	OutOfSightAlert string `json:"outOfSightAlert"`
+	InSightAlert    bool     `json:"inSightAlert"`
+	OutOfSightAlert bool     `json:"outOfSightAlert"`
 	Tags            []string `json:"tags"`
 }
 

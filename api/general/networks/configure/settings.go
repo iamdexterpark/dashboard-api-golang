@@ -8,8 +8,8 @@ import (
 )
 
 type Settings struct {
-	LocalStatusPageEnabled  string `json:"localStatusPageEnabled"`
-	RemoteStatusPageEnabled string `json:"remoteStatusPageEnabled"`
+	LocalStatusPageEnabled  bool `json:"localStatusPageEnabled"`
+	RemoteStatusPageEnabled bool `json:"remoteStatusPageEnabled"`
 }
 
 // Return the settings for a network

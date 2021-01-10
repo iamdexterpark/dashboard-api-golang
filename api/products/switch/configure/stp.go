@@ -8,10 +8,10 @@ import (
 )
 
 type STP struct {
-	RstpEnabled       string `json:"rstpEnabled"`
+	RstpEnabled       bool `json:"rstpEnabled"`
 	StpBridgePriority []struct {
 		Switches    []string `json:"switches,omitempty"`
-		StpPriority string      `json:"stpPriority"`
+		StpPriority int      `json:"stpPriority"`
 		Stacks      []string `json:"stacks,omitempty"`
 	} `json:"stpBridgePriority"`
 }
