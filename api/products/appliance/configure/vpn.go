@@ -92,7 +92,7 @@ func PutBGP(networkId string, data interface{}) []api.Results {
 }
 
 func GetSiteToSiteVPN(networkId string) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/vpn/siteToSiteVpn",  networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vpn/siteToSiteVpn",  networkId)
 	var datamodel = SiteToSiteVPN{}
 	sessions, err := api.Sessions(baseurl, "GET", nil, nil, datamodel)
 	if err != nil {
@@ -102,7 +102,7 @@ func GetSiteToSiteVPN(networkId string) []api.Results {
 }
 
 func PutSiteToSiteVPN(networkId string, data interface{}) []api.Results {
-	baseurl := fmt.Sprintf("/networks/%s/appliance/vlans/vpn/siteToSiteVpn",  networkId)
+	baseurl := fmt.Sprintf("/networks/%s/appliance/vpn/siteToSiteVpn",  networkId)
 	var datamodel = SiteToSiteVPN{}
 	payload := user_agent.MarshalJSON(data)
 	sessions, err := api.Sessions(baseurl, "PUT", payload, nil, datamodel)
