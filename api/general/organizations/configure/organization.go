@@ -17,7 +17,7 @@ type Organizations []struct {
 	Organization
 }
 
-type Claim struct {
+type ClaimDevicesLicensesAndOrders struct {
 	Orders   []string `json:"orders"`
 	Serials  []string `json:"serials"`
 	Licenses []struct {
@@ -100,10 +100,10 @@ func DelOrganization(organizationId string) []api.Results {
 // When claiming by order, all devices and licenses in the order will be
 // claimed; licenses will be added to the organization and devices will
 // be placed in the organization's inventory.
-func PostClaim(organizationId string, data interface{}) []api.Results {
+func PostClaimDevicesLicensesAndOrders(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/claim",  organizationId)
 	payload := user_agent.MarshalJSON(data)
-	var datamodel = Claim{}
+	var datamodel = ClaimDevicesLicensesAndOrders{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
