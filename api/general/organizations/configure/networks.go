@@ -21,6 +21,15 @@ type Network struct {
 	EnrollmentString string   `json:"enrollmentString"`
 }
 
+type CreateNetwork struct {
+	Name             string   `json:"name"`
+	ProductTypes     []string `json:"productTypes"`
+	Tags             []string `json:"tags"`
+	TimeZone         string   `json:"timeZone"`
+	CopyFromNetworkId   string   `json:"copyFromNetworkId"`
+	Notes   string   `json:"notes"`
+}
+
 type Clients []struct {
 	Usage struct {
 		Sent int `json:"sent"`
@@ -89,7 +98,7 @@ func PostNetworks(organizationId string, data interface{}) []api.Results {
 	baseurl := fmt.Sprintf("/organizations/%s/networks",
 		organizationId)
 	payload := user_agent.MarshalJSON(data)
-	var datamodel = Networks{}
+	var datamodel = CreateNetwork{}
 	sessions, err := api.Sessions(baseurl, "POST", payload, nil, datamodel)
 	if err != nil {
 		log.Fatal(err)
