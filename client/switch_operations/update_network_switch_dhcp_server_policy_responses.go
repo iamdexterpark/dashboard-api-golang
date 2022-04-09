@@ -68,15 +68,15 @@ func (o *UpdateNetworkSwitchDhcpServerPolicyOK) readResponse(response runtime.Cl
 }
 
 /*UpdateNetworkSwitchDhcpServerPolicyBody update network switch dhcp server policy body
-// Example: {"allowedServers":["00:50:56:00:00:01","00:50:56:00:00:02"],"defaultPolicy":"block"}
+// Example: {"alerts":{"email":{"enabled":false}},"allowedServers":["00:50:56:00:00:01","00:50:56:00:00:02"],"arpInspection":{"enabled":false},"blockedServers":["00:50:56:00:00:03","00:50:56:00:00:04"],"defaultPolicy":"block"}
 swagger:model UpdateNetworkSwitchDhcpServerPolicyBody
 */
 type UpdateNetworkSwitchDhcpServerPolicyBody struct {
 
-	// List the MAC addresses of DHCP servers to permit on the network. Applicable only if defaultPolicy is set to block. An empty array will clear the entries.
+	// List the MAC addresses of DHCP servers to permit on the network when defaultPolicy is set to block. An empty array will clear the entries.
 	AllowedServers []string `json:"allowedServers"`
 
-	// List the MAC addresses of DHCP servers to block on the network. Applicable only if defaultPolicy is set to allow. An empty array will clear the entries.
+	// List the MAC addresses of DHCP servers to block on the network when defaultPolicy is set to allow. An empty array will clear the entries.
 	BlockedServers []string `json:"blockedServers"`
 
 	// 'allow' or 'block' new DHCP servers. Default value is 'allow'.

@@ -72,7 +72,7 @@ swagger:model CreateNetworkSwitchRoutingMulticastRendezvousPointBody
 */
 type CreateNetworkSwitchRoutingMulticastRendezvousPointBody struct {
 
-	// The IP address of the interface where the RP needs to be created.
+	// The IP address of the interface where the RP needs to be created.
 	// Required: true
 	InterfaceIP *string `json:"interfaceIp"`
 

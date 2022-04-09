@@ -68,7 +68,7 @@ func (o *UpdateDeviceSwitchPortOK) readResponse(response runtime.ClientResponse,
 }
 
 /*UpdateDeviceSwitchPortBody update device switch port body
-// Example: {"accessPolicyType":"Sticky MAC allow list","adaptivePolicyGroupId":"123","enabled":true,"isolationEnabled":false,"linkNegotiation":"Auto negotiate","name":"My switch port","peerSgtCapable":false,"poeEnabled":true,"portScheduleId":"1234","rstpEnabled":true,"stickyMacAllowList":["34:56:fe:ce:8e:b0","34:56:fe:ce:8e:b1"],"stickyMacAllowListLimit":5,"stormControlEnabled":true,"stpGuard":"disabled","tags":["tag1","tag2"],"type":"access","udld":"Alert only","vlan":10,"voiceVlan":20}
+// Example: {"accessPolicyType":"Sticky MAC allow list","adaptivePolicyGroupId":"123","enabled":true,"isolationEnabled":false,"linkNegotiation":"Auto negotiate","linkNegotiationCapabilities":["Auto negotiate","1 Gigabit full duplex (auto)"],"name":"My switch port","peerSgtCapable":false,"poeEnabled":true,"portScheduleId":"1234","rstpEnabled":true,"stickyMacAllowList":["34:56:fe:ce:8e:b0","34:56:fe:ce:8e:b1"],"stickyMacAllowListLimit":5,"stormControlEnabled":true,"stpGuard":"disabled","tags":["tag1","tag2"],"type":"access","udld":"Alert only","vlan":10,"voiceVlan":20}
 swagger:model UpdateDeviceSwitchPortBody
 */
 type UpdateDeviceSwitchPortBody struct {

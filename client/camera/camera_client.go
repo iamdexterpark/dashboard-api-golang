@@ -34,9 +34,13 @@ type ClientService interface {
 
 	CreateNetworkCameraWirelessProfile(params *CreateNetworkCameraWirelessProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateNetworkCameraWirelessProfileOK, error)
 
+	CreateOrganizationCameraCustomAnalyticsArtifact(params *CreateOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateOrganizationCameraCustomAnalyticsArtifactCreated, error)
+
 	DeleteNetworkCameraQualityRetentionProfile(params *DeleteNetworkCameraQualityRetentionProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteNetworkCameraQualityRetentionProfileNoContent, error)
 
 	DeleteNetworkCameraWirelessProfile(params *DeleteNetworkCameraWirelessProfileParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteNetworkCameraWirelessProfileNoContent, error)
+
+	DeleteOrganizationCameraCustomAnalyticsArtifact(params *DeleteOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationCameraCustomAnalyticsArtifactNoContent, error)
 
 	GenerateDeviceCameraSnapshot(params *GenerateDeviceCameraSnapshotParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GenerateDeviceCameraSnapshotAccepted, error)
 
@@ -49,6 +53,8 @@ type ClientService interface {
 	GetDeviceCameraAnalyticsZoneHistory(params *GetDeviceCameraAnalyticsZoneHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceCameraAnalyticsZoneHistoryOK, error)
 
 	GetDeviceCameraAnalyticsZones(params *GetDeviceCameraAnalyticsZonesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceCameraAnalyticsZonesOK, error)
+
+	GetDeviceCameraCustomAnalytics(params *GetDeviceCameraCustomAnalyticsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceCameraCustomAnalyticsOK, error)
 
 	GetDeviceCameraQualityAndRetention(params *GetDeviceCameraQualityAndRetentionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceCameraQualityAndRetentionOK, error)
 
@@ -72,7 +78,13 @@ type ClientService interface {
 
 	GetNetworkCameraWirelessProfiles(params *GetNetworkCameraWirelessProfilesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetNetworkCameraWirelessProfilesOK, error)
 
+	GetOrganizationCameraCustomAnalyticsArtifact(params *GetOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationCameraCustomAnalyticsArtifactOK, error)
+
+	GetOrganizationCameraCustomAnalyticsArtifacts(params *GetOrganizationCameraCustomAnalyticsArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationCameraCustomAnalyticsArtifactsOK, error)
+
 	GetOrganizationCameraOnboardingStatuses(params *GetOrganizationCameraOnboardingStatusesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationCameraOnboardingStatusesOK, error)
+
+	UpdateDeviceCameraCustomAnalytics(params *UpdateDeviceCameraCustomAnalyticsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateDeviceCameraCustomAnalyticsOK, error)
 
 	UpdateDeviceCameraQualityAndRetention(params *UpdateDeviceCameraQualityAndRetentionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateDeviceCameraQualityAndRetentionOK, error)
 
@@ -174,6 +186,47 @@ func (a *Client) CreateNetworkCameraWirelessProfile(params *CreateNetworkCameraW
 }
 
 /*
+  CreateOrganizationCameraCustomAnalyticsArtifact creates custom analytics artifact
+
+  Create custom analytics artifact. Returns an artifact upload URL with expiry time. Upload the artifact file with a put request to the returned upload URL before its expiry.
+*/
+func (a *Client) CreateOrganizationCameraCustomAnalyticsArtifact(params *CreateOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateOrganizationCameraCustomAnalyticsArtifactCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateOrganizationCameraCustomAnalyticsArtifactParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createOrganizationCameraCustomAnalyticsArtifact",
+		Method:             "POST",
+		PathPattern:        "/organizations/{organizationId}/camera/customAnalytics/artifacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateOrganizationCameraCustomAnalyticsArtifactReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateOrganizationCameraCustomAnalyticsArtifactCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createOrganizationCameraCustomAnalyticsArtifact: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
   DeleteNetworkCameraQualityRetentionProfile deletes an existing quality retention profile for this network
 
   Delete an existing quality retention profile for this network.
@@ -252,6 +305,47 @@ func (a *Client) DeleteNetworkCameraWirelessProfile(params *DeleteNetworkCameraW
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for deleteNetworkCameraWirelessProfile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  DeleteOrganizationCameraCustomAnalyticsArtifact deletes custom analytics artifact
+
+  Delete Custom Analytics Artifact
+*/
+func (a *Client) DeleteOrganizationCameraCustomAnalyticsArtifact(params *DeleteOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationCameraCustomAnalyticsArtifactNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteOrganizationCameraCustomAnalyticsArtifactParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteOrganizationCameraCustomAnalyticsArtifact",
+		Method:             "DELETE",
+		PathPattern:        "/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrganizationCameraCustomAnalyticsArtifactReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteOrganizationCameraCustomAnalyticsArtifactNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteOrganizationCameraCustomAnalyticsArtifact: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -498,6 +592,47 @@ func (a *Client) GetDeviceCameraAnalyticsZones(params *GetDeviceCameraAnalyticsZ
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getDeviceCameraAnalyticsZones: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetDeviceCameraCustomAnalytics returns custom analytics settings for a camera
+
+  Return custom analytics settings for a camera
+*/
+func (a *Client) GetDeviceCameraCustomAnalytics(params *GetDeviceCameraCustomAnalyticsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDeviceCameraCustomAnalyticsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDeviceCameraCustomAnalyticsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getDeviceCameraCustomAnalytics",
+		Method:             "GET",
+		PathPattern:        "/devices/{serial}/camera/customAnalytics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDeviceCameraCustomAnalyticsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDeviceCameraCustomAnalyticsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDeviceCameraCustomAnalytics: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -953,6 +1088,88 @@ func (a *Client) GetNetworkCameraWirelessProfiles(params *GetNetworkCameraWirele
 }
 
 /*
+  GetOrganizationCameraCustomAnalyticsArtifact gets custom analytics artifact
+
+  Get Custom Analytics Artifact
+*/
+func (a *Client) GetOrganizationCameraCustomAnalyticsArtifact(params *GetOrganizationCameraCustomAnalyticsArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationCameraCustomAnalyticsArtifactOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationCameraCustomAnalyticsArtifactParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getOrganizationCameraCustomAnalyticsArtifact",
+		Method:             "GET",
+		PathPattern:        "/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationCameraCustomAnalyticsArtifactReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetOrganizationCameraCustomAnalyticsArtifactOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getOrganizationCameraCustomAnalyticsArtifact: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetOrganizationCameraCustomAnalyticsArtifacts lists custom analytics artifacts
+
+  List Custom Analytics Artifacts
+*/
+func (a *Client) GetOrganizationCameraCustomAnalyticsArtifacts(params *GetOrganizationCameraCustomAnalyticsArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationCameraCustomAnalyticsArtifactsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationCameraCustomAnalyticsArtifactsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getOrganizationCameraCustomAnalyticsArtifacts",
+		Method:             "GET",
+		PathPattern:        "/organizations/{organizationId}/camera/customAnalytics/artifacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrganizationCameraCustomAnalyticsArtifactsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetOrganizationCameraCustomAnalyticsArtifactsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getOrganizationCameraCustomAnalyticsArtifacts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
   GetOrganizationCameraOnboardingStatuses fetches onboarding status of cameras
 
   Fetch onboarding status of cameras
@@ -990,6 +1207,47 @@ func (a *Client) GetOrganizationCameraOnboardingStatuses(params *GetOrganization
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getOrganizationCameraOnboardingStatuses: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  UpdateDeviceCameraCustomAnalytics updates custom analytics settings for a camera
+
+  Update custom analytics settings for a camera
+*/
+func (a *Client) UpdateDeviceCameraCustomAnalytics(params *UpdateDeviceCameraCustomAnalyticsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateDeviceCameraCustomAnalyticsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDeviceCameraCustomAnalyticsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateDeviceCameraCustomAnalytics",
+		Method:             "PUT",
+		PathPattern:        "/devices/{serial}/camera/customAnalytics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateDeviceCameraCustomAnalyticsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDeviceCameraCustomAnalyticsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateDeviceCameraCustomAnalytics: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -69,7 +69,7 @@ func (o *ClaimIntoOrganizationInventoryOK) readResponse(response runtime.ClientR
 }
 
 /*ClaimIntoOrganizationInventoryBody claim into organization inventory body
-// Example: {}
+// Example: {"licenses":[{"key":"Z2XXXXXXXXXX","mode":"addDevices"}],"orders":["4CXXXXXXX"],"serials":["Q234-ABCD-5678"]}
 swagger:model ClaimIntoOrganizationInventoryBody
 */
 type ClaimIntoOrganizationInventoryBody struct {

@@ -68,7 +68,7 @@ type GetOrganizationSensorReadingsLatestParams struct {
 
 	/* Metrics.
 
-	   Types of sensor readings to retrieve. If no metrics are supplied, all available types of readings will be retrieved. Allowed values are temperature, humidity, water, door, and battery.
+	   Types of sensor readings to retrieve. If no metrics are supplied, all available types of readings will be retrieved. Allowed values are temperature, humidity, water, door, tvoc, pm25, noise, indoorAirQuality, button, and battery.
 	*/
 	Metrics []string
 
