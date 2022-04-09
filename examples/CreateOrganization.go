@@ -18,18 +18,20 @@ func main() {
 	transport.DefaultAuthentication = httptransport.APIKeyAuth("X-Cisco-Meraki-API-Key", "header", apikey)
 	c := apiclient.New(transport, nil)
 
-	params := organizations.NewGetOrganizationsParams()
-	prod, err := c.Organizations.GetOrganizations(params, transport.DefaultAuthentication)
+	params := organizations.NewCreateOrganizationParams()
+	name := "testOrg"
+	params.CreateOrganization.Name = &name
+
+	prod, err := c.Organizations.CreateOrganization(params, transport.DefaultAuthentication)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// Returns Object
-	pretty.Println(prod.GetPayload())
+	// Returns Data
+	pretty.Println(prod.GetPayload().ID)
+	pretty.Println(prod.GetPayload().Licensing)
+	pretty.Println(prod.GetPayload().API)
+	pretty.Println(prod.GetPayload().URL)
+	pretty.Println(prod.GetPayload().Name)
+	pretty.Println(prod.GetPayload().Cloud.Region.Name)
 
-	// Returns Specific Fields
-	pretty.Println(prod.GetPayload()[0].URL)
-	pretty.Println(prod.GetPayload()[0].Cloud.Region.Name)
-	pretty.Println(prod.GetPayload()[0].ID)
-	pretty.Println(prod.GetPayload()[0].API.Enabled)
-	pretty.Println(prod.GetPayload()[0].Licensing.Model)
 }

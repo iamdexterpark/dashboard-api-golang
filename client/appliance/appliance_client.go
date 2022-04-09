@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateDeviceApplianceVmxAuthenticationToken(params *CreateDeviceApplianceVmxAuthenticationTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateDeviceApplianceVmxAuthenticationTokenCreated, error)
+
 	CreateNetworkApplianceStaticRoute(params *CreateNetworkApplianceStaticRouteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateNetworkApplianceStaticRouteCreated, error)
 
 	CreateNetworkApplianceTrafficShapingCustomPerformanceClass(params *CreateNetworkApplianceTrafficShapingCustomPerformanceClassParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateNetworkApplianceTrafficShapingCustomPerformanceClassCreated, error)
@@ -191,6 +193,47 @@ type ClientService interface {
 	UpdateOrganizationApplianceVpnVpnFirewallRules(params *UpdateOrganizationApplianceVpnVpnFirewallRulesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateOrganizationApplianceVpnVpnFirewallRulesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CreateDeviceApplianceVmxAuthenticationToken generates a new v m x authentication token
+
+  Generate a new vMX authentication token
+*/
+func (a *Client) CreateDeviceApplianceVmxAuthenticationToken(params *CreateDeviceApplianceVmxAuthenticationTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateDeviceApplianceVmxAuthenticationTokenCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateDeviceApplianceVmxAuthenticationTokenParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createDeviceApplianceVmxAuthenticationToken",
+		Method:             "POST",
+		PathPattern:        "/devices/{serial}/appliance/vmx/authenticationToken",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateDeviceApplianceVmxAuthenticationTokenReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateDeviceApplianceVmxAuthenticationTokenCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createDeviceApplianceVmxAuthenticationToken: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

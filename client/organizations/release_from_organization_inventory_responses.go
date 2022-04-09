@@ -65,7 +65,7 @@ func (o *ReleaseFromOrganizationInventoryOK) readResponse(response runtime.Clien
 }
 
 /*ReleaseFromOrganizationInventoryBody release from organization inventory body
-// Example: {}
+// Example: {"serials":["Q234-ABCD-5678"]}
 swagger:model ReleaseFromOrganizationInventoryBody
 */
 type ReleaseFromOrganizationInventoryBody struct {

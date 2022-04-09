@@ -69,10 +69,13 @@ func (o *UpdateNetworkWirelessSsidVpnOK) readResponse(response runtime.ClientRes
 }
 
 /*UpdateNetworkWirelessSsidVpnBody update network wireless ssid vpn body
-// Example: {"failover":{"heartbeatInterval":10,"idleTimeout":30,"requestIp":"1.1.1.1"},"splitTunnel":{"enabled":true,"rules":[{"comment":"split tunnel rule 1","destCidr":"1.1.1.1/32","destPort":"any","policy":"allow","protocol":"Any"},{"comment":"split tunnel rule 2","destCidr":"foo.com","destPort":"any","policy":"deny"}]}}
+// Example: {"concentrator":{"name":"some concentrator name","networkId":"N_123"},"failover":{"heartbeatInterval":10,"idleTimeout":30,"requestIp":"1.1.1.1"},"splitTunnel":{"enabled":true,"rules":[{"comment":"split tunnel rule 1","destCidr":"1.1.1.1/32","destPort":"any","policy":"allow","protocol":"Any"},{"comment":"split tunnel rule 2","destCidr":"foo.com","destPort":"any","policy":"deny"}]}}
 swagger:model UpdateNetworkWirelessSsidVpnBody
 */
 type UpdateNetworkWirelessSsidVpnBody struct {
+
+	// concentrator
+	Concentrator *UpdateNetworkWirelessSsidVpnParamsBodyConcentrator `json:"concentrator,omitempty"`
 
 	// failover
 	Failover *UpdateNetworkWirelessSsidVpnParamsBodyFailover `json:"failover,omitempty"`
@@ -85,6 +88,10 @@ type UpdateNetworkWirelessSsidVpnBody struct {
 func (o *UpdateNetworkWirelessSsidVpnBody) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := o.validateConcentrator(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := o.validateFailover(formats); err != nil {
 		res = append(res, err)
 	}
@@ -96,6 +103,25 @@ func (o *UpdateNetworkWirelessSsidVpnBody) Validate(formats strfmt.Registry) err
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (o *UpdateNetworkWirelessSsidVpnBody) validateConcentrator(formats strfmt.Registry) error {
+	if swag.IsZero(o.Concentrator) { // not required
+		return nil
+	}
+
+	if o.Concentrator != nil {
+		if err := o.Concentrator.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateNetworkWirelessSsidVpn" + "." + "concentrator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateNetworkWirelessSsidVpn" + "." + "concentrator")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -141,6 +167,10 @@ func (o *UpdateNetworkWirelessSsidVpnBody) validateSplitTunnel(formats strfmt.Re
 func (o *UpdateNetworkWirelessSsidVpnBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := o.contextValidateConcentrator(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := o.contextValidateFailover(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -152,6 +182,22 @@ func (o *UpdateNetworkWirelessSsidVpnBody) ContextValidate(ctx context.Context, 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (o *UpdateNetworkWirelessSsidVpnBody) contextValidateConcentrator(ctx context.Context, formats strfmt.Registry) error {
+
+	if o.Concentrator != nil {
+		if err := o.Concentrator.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updateNetworkWirelessSsidVpn" + "." + "concentrator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updateNetworkWirelessSsidVpn" + "." + "concentrator")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -198,6 +244,43 @@ func (o *UpdateNetworkWirelessSsidVpnBody) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (o *UpdateNetworkWirelessSsidVpnBody) UnmarshalBinary(b []byte) error {
 	var res UpdateNetworkWirelessSsidVpnBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
+
+/*UpdateNetworkWirelessSsidVpnParamsBodyConcentrator The VPN concentrator settings for this SSID.
+swagger:model UpdateNetworkWirelessSsidVpnParamsBodyConcentrator
+*/
+type UpdateNetworkWirelessSsidVpnParamsBodyConcentrator struct {
+
+	// The NAT ID of the concentrator that should be set.
+	NetworkID string `json:"networkId,omitempty"`
+}
+
+// Validate validates this update network wireless ssid vpn params body concentrator
+func (o *UpdateNetworkWirelessSsidVpnParamsBodyConcentrator) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this update network wireless ssid vpn params body concentrator based on context it is used
+func (o *UpdateNetworkWirelessSsidVpnParamsBodyConcentrator) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *UpdateNetworkWirelessSsidVpnParamsBodyConcentrator) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *UpdateNetworkWirelessSsidVpnParamsBodyConcentrator) UnmarshalBinary(b []byte) error {
+	var res UpdateNetworkWirelessSsidVpnParamsBodyConcentrator
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

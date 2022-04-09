@@ -1727,9 +1727,9 @@ func (a *Client) GetNetworkSwitchAlternateManagementInterface(params *GetNetwork
 }
 
 /*
-  GetNetworkSwitchDhcpServerPolicy returns the d h c p server policy
+  GetNetworkSwitchDhcpServerPolicy returns the d h c p server settings
 
-  Return the DHCP server policy
+  Return the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively
 */
 func (a *Client) GetNetworkSwitchDhcpServerPolicy(params *GetNetworkSwitchDhcpServerPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetNetworkSwitchDhcpServerPolicyOK, error) {
 	// TODO: Validate the params before sending
@@ -3121,9 +3121,9 @@ func (a *Client) UpdateNetworkSwitchAlternateManagementInterface(params *UpdateN
 }
 
 /*
-  UpdateNetworkSwitchDhcpServerPolicy updates the d h c p server policy
+  UpdateNetworkSwitchDhcpServerPolicy updates the d h c p server settings
 
-  Update the DHCP server policy
+  Update the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively
 */
 func (a *Client) UpdateNetworkSwitchDhcpServerPolicy(params *UpdateNetworkSwitchDhcpServerPolicyParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateNetworkSwitchDhcpServerPolicyOK, error) {
 	// TODO: Validate the params before sending
