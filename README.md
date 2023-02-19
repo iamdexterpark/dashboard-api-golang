@@ -1,54 +1,17 @@
-# dashboard-api-golang
+Dear Community,
 
-## Introduction
-A Community developed Golang Library for the Cisco Meraki Dashboard API. 
-This library was generated using [go-swagger](https://github.com/go-swagger/go-swagger) against the Cisco Meraki [OpenAPI Specification.](https://github.com/meraki/openapi)
+I wanted to take a moment to reflect on the journey of our "dashboard-api-golang" project, which started in 2020 as an ambitious undertaking to learn Go programming language and develop a manual API with **over 370 endpoints**. While the tenacity was commendable, the approach was questionable, and in hindsight, not sustainable in the long term.
 
-Inspired by the vendor supported  [Meraki Dashboard API Python Library](https://github.com/meraki/dashboard-api-python).
+As we continue to grow and learn, it's time to archive "dashboard-api-golang" project as it will no longer be maintained. However, we are excited to announce that a new chapter has begun!
 
-## Requirements
-[Go Programming Language](https://golang.org/doc/install) >= 1.16
+During Cisco Live 2022 in Las Vegas, I spoke about our [network automation journey at Starbucks](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2022/m08/cisco-helps-starbucks-brew-up-efficiency-through-network-automation.html) and why declarative programming paradigms are critical to automating the full infrastructure lifecycle at scale. As a result, I made a commitment to work with Cisco Meraki to produce a version of the Go API client suitable for enterprise use.
 
-## Getting Started
+I'm thrilled to introduce "dashboard-api-go," hosted in the official Meraki Repo, which is community-supported and different from the previous version. You can find the new repo at this link: [dashboard-api-go](https://github.com/meraki/dashboard-api-go).
 
-Please see [INSTALLATION.md](/docs/en/INSTALLATION.md) to get started.
-Reference code can be found in the [examples folder](/examples).
+I want to express my gratitude to all contributors for their support in developing and maintaining "dashboard-api-golang" over the years. We encourage you to continue your contributions to the new project, and we look forward to collaborating with you in the future.
 
-## Disclaimer
+Best regards,
 
-Even with the Dashboard rate-limit, you have a theoretical potential to make:
+Dexter Park
 
-| Number of API Calls  | 5            | 300          | 180,000    | 1,400,000   |
-|----------------------|--------------|--------------|------------|-------------|
-| **Time to Complete** | **1 second** | **1 minute** | **1 hour** | **8 hours** |
-
-Please be cautious when making production changes. If you are unsure about the tool, look at the code. 
-
-Never run a program that you do not understand. Practice using this tool in a test environment before touching production.
-
-Create a production change plan. Implement every aspect of your plan in a test environment to ensure the highest levels of confidence in your change.   
-
-#### Elements of a great production change plan include:
-- **Peer Review** Have someone else review your test plan, ask them to run it in your test environment.
-- **Pre-checks**  Capture the state of the network before the change.
-- **Post-checks** Capture the state of the network after the change. 
-- **Backup Config** Copy the config so that you can re-apply it in the event of a rollback.
-- **Rollback Procedure** Do not take this step lightly, things go wrong. 
-The worst possible position is to have a change fail and not have a tested, reliable rollback plan.
-- **Exponential Change Schedule** Don't do everything at once. Start with a single network, 
-monitor it, give it time to operate normally, then, if nothing is wrong schedule the next 5 networks, then 10, 25, 50, 100, etc..
-- **Failure threshold** What percentage of failed changes are acceptable in a batch of networks 
-before all scheduled changes are canceled? Typically, 1-5% is acceptable depending on your scale. 
-Anything over that needs a root cause analysis, and modification of your plan.
-
-## Contributing
-
-Contributions are always appreciated. Please use following guidelines:
-
-- [Contributor Guidelines](.github/CONTRIBUTING.md)
-- [Code of Conduct](.github/CODE_OF_CONDUCT.md)
-- [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md)
-- [Issue Template](.github/ISSUE_TEMPLATE.md)
-
-
-Full list of [Contributors](https://github.com/ddexterpark/dashboard-api-golang/graphs/contributors) who participated in this project.
+[@iamdexterpark](https://twitter.com/iamdexterpark)

@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a4c8173-ad18-4f33-ab2a-6e216a96e282" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/appliance_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_device_appliance_vmx_authentication_token_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_device_appliance_vmx_authentication_token_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_traffic_shaping_custom_performance_class_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_traffic_shaping_custom_performance_class_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_vlan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/create_network_appliance_vlan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_traffic_shaping_custom_performance_class_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_traffic_shaping_custom_performance_class_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_vlan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/delete_network_appliance_vlan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_device_appliance_dhcp_subnets_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_device_appliance_dhcp_subnets_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_device_appliance_performance_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_device_appliance_performance_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_client_security_events_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_client_security_events_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_connectivity_monitoring_destinations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_connectivity_monitoring_destinations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_content_filtering_categories_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_content_filtering_categories_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_content_filtering_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_content_filtering_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_cellular_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_cellular_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_firewalled_service_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_firewalled_service_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_firewalled_services_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_firewalled_services_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_inbound_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_inbound_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l3_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l3_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l7_firewall_rules_application_categories_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l7_firewall_rules_application_categories_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l7_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_l7_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_one_to_many_nat_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_one_to_many_nat_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_one_to_one_nat_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_one_to_one_nat_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_port_forwarding_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_firewall_port_forwarding_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_ports_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_ports_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_events_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_events_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_intrusion_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_intrusion_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_malware_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_security_malware_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_single_lan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_single_lan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_static_routes_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_static_routes_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_custom_performance_class_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_custom_performance_class_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_custom_performance_classes_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_custom_performance_classes_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_uplink_bandwidth_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_uplink_bandwidth_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_uplink_selection_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_traffic_shaping_uplink_selection_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_uplinks_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_uplinks_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlans_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlans_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlans_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vlans_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vpn_bgp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vpn_bgp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vpn_site_to_site_vpn_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_vpn_site_to_site_vpn_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_warm_spare_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_network_appliance_warm_spare_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_security_events_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_security_events_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_security_intrusion_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_security_intrusion_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_uplink_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_uplink_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_third_party_v_p_n_peers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_third_party_v_p_n_peers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_vpn_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/get_organization_appliance_vpn_vpn_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/swap_network_appliance_warm_spare_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/swap_network_appliance_warm_spare_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_connectivity_monitoring_destinations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_connectivity_monitoring_destinations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_content_filtering_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_content_filtering_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_cellular_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_cellular_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_firewalled_service_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_firewalled_service_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_inbound_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_inbound_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_l3_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_l3_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_l7_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_l7_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_one_to_many_nat_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_one_to_many_nat_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_one_to_one_nat_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_one_to_one_nat_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_port_forwarding_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_firewall_port_forwarding_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_security_intrusion_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_security_intrusion_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_security_malware_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_security_malware_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_single_lan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_single_lan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_custom_performance_class_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_custom_performance_class_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_uplink_bandwidth_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_uplink_bandwidth_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_uplink_selection_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_traffic_shaping_uplink_selection_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vlan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vlan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vlans_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vlans_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vpn_bgp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vpn_bgp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vpn_site_to_site_vpn_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_vpn_site_to_site_vpn_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_warm_spare_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_network_appliance_warm_spare_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_security_intrusion_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_security_intrusion_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_vpn_third_party_v_p_n_peers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_vpn_third_party_v_p_n_peers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_vpn_vpn_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/appliance/update_organization_appliance_vpn_vpn_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/camera_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_network_camera_quality_retention_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_network_camera_quality_retention_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_network_camera_wireless_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_network_camera_wireless_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_organization_camera_custom_analytics_artifact_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/create_organization_camera_custom_analytics_artifact_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_network_camera_quality_retention_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_network_camera_quality_retention_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_network_camera_wireless_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_network_camera_wireless_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_organization_camera_custom_analytics_artifact_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/delete_organization_camera_custom_analytics_artifact_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/generate_device_camera_snapshot_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/generate_device_camera_snapshot_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_live_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_live_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_recent_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_recent_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_zone_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_zone_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_zones_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_analytics_zones_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_custom_analytics_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_custom_analytics_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_quality_and_retention_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_quality_and_retention_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_sense_object_detection_models_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_sense_object_detection_models_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_sense_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_sense_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_video_link_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_video_link_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_video_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_video_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_wireless_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_device_camera_wireless_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_quality_retention_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_quality_retention_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_quality_retention_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_quality_retention_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_schedules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_schedules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_wireless_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_wireless_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_wireless_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_network_camera_wireless_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_custom_analytics_artifact_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_custom_analytics_artifact_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_custom_analytics_artifacts_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_custom_analytics_artifacts_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_onboarding_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/get_organization_camera_onboarding_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_custom_analytics_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_custom_analytics_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_quality_and_retention_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_quality_and_retention_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_sense_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_sense_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_video_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_video_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_wireless_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_device_camera_wireless_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_network_camera_quality_retention_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_network_camera_quality_retention_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_network_camera_wireless_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_network_camera_wireless_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_organization_camera_onboarding_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/camera/update_organization_camera_onboarding_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/cellular_gateway_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_device_cellular_gateway_lan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_device_cellular_gateway_lan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_device_cellular_gateway_port_forwarding_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_device_cellular_gateway_port_forwarding_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_connectivity_monitoring_destinations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_connectivity_monitoring_destinations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_subnet_pool_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_subnet_pool_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_uplink_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_network_cellular_gateway_uplink_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_organization_cellular_gateway_uplink_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/get_organization_cellular_gateway_uplink_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_device_cellular_gateway_lan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_device_cellular_gateway_lan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_device_cellular_gateway_port_forwarding_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_device_cellular_gateway_port_forwarding_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_connectivity_monitoring_destinations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_connectivity_monitoring_destinations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_subnet_pool_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_subnet_pool_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_uplink_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cellular_gateway/update_network_cellular_gateway_uplink_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/blink_device_leds_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/blink_device_leds_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/create_device_live_tools_ping_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/create_device_live_tools_ping_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/create_device_live_tools_ping_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/create_device_live_tools_ping_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/devices_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_clients_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_clients_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_live_tools_ping_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_live_tools_ping_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_live_tools_ping_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_live_tools_ping_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_lldp_cdp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_lldp_cdp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_loss_and_latency_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_loss_and_latency_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/get_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/reboot_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/reboot_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/update_device_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/update_device_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/update_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/devices/update_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/create_organization_insight_monitored_media_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/create_organization_insight_monitored_media_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/delete_organization_insight_monitored_media_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/delete_organization_insight_monitored_media_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_network_insight_application_health_by_time_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_network_insight_application_health_by_time_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_applications_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_applications_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_monitored_media_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_monitored_media_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_monitored_media_servers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/get_organization_insight_monitored_media_servers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/insight_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/update_organization_insight_monitored_media_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/insight/update_organization_insight_monitored_media_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/meraki_api_golang_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/bind_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/bind_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/claim_network_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/claim_network_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_firmware_upgrades_rollback_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_firmware_upgrades_rollback_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_floor_plan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_floor_plan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_group_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_group_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_meraki_auth_user_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_meraki_auth_user_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_mqtt_broker_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_mqtt_broker_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_pii_request_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_pii_request_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_http_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_http_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_payload_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_payload_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_webhook_test_swagger_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/create_network_webhooks_webhook_test_swagger_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_floor_plan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_floor_plan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_group_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_group_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_meraki_auth_user_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_meraki_auth_user_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_mqtt_broker_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_mqtt_broker_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_pii_request_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_pii_request_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_webhooks_http_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_webhooks_http_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_webhooks_payload_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/delete_network_webhooks_payload_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_alerts_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_alerts_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_bluetooth_client_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_bluetooth_client_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_bluetooth_clients_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_bluetooth_clients_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_splash_authorization_status_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_splash_authorization_status_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_traffic_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_traffic_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_client_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_application_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_application_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_bandwidth_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_bandwidth_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_usage_histories_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_clients_usage_histories_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_events_event_types_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_events_event_types_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_events_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_events_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_firmware_upgrades_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_firmware_upgrades_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_floor_plan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_floor_plan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_floor_plans_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_floor_plans_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_group_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_group_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_group_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_group_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_health_alerts_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_health_alerts_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_meraki_auth_user_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_meraki_auth_user_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_meraki_auth_users_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_meraki_auth_users_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_mqtt_broker_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_mqtt_broker_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_mqtt_brokers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_mqtt_brokers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_netflow_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_netflow_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_network_health_channel_utilization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_network_health_channel_utilization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_pii_keys_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_pii_keys_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_request_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_request_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_requests_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_requests_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_sm_devices_for_key_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_sm_devices_for_key_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_sm_owners_for_key_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_pii_sm_owners_for_key_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_snmp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_snmp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_splash_login_attempts_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_splash_login_attempts_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_syslog_servers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_syslog_servers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_topology_link_layer_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_topology_link_layer_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_analysis_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_analysis_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_shaping_application_categories_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_shaping_application_categories_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_shaping_dscp_tagging_options_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_traffic_shaping_dscp_tagging_options_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_http_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_http_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_http_servers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_http_servers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_payload_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_payload_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_payload_templates_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_payload_templates_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_webhook_test_swagger_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/get_network_webhooks_webhook_test_swagger_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/networks_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/provision_network_clients_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/provision_network_clients_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/remove_network_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/remove_network_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/split_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/split_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/unbind_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/unbind_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_alerts_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_alerts_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_client_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_client_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_client_splash_authorization_status_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_client_splash_authorization_status_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_firmware_upgrades_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_firmware_upgrades_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_floor_plan_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_floor_plan_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_group_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_group_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_meraki_auth_user_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_meraki_auth_user_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_mqtt_broker_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_mqtt_broker_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_netflow_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_netflow_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_snmp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_snmp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_syslog_servers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_syslog_servers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_traffic_analysis_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_traffic_analysis_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_webhooks_http_server_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_webhooks_http_server_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_webhooks_payload_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/update_network_webhooks_payload_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/vmx_network_devices_claim_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/networks/vmx_network_devices_claim_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/assign_organization_licenses_seats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/assign_organization_licenses_seats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/claim_into_organization_inventory_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/claim_into_organization_inventory_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/claim_into_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/claim_into_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/clone_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/clone_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/combine_organization_networks_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/combine_organization_networks_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_action_batch_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_action_batch_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_acl_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_acl_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_adaptive_policy_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_admin_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_admin_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_alerts_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_alerts_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_branding_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_branding_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_config_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_config_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_network_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_network_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_saml_idp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_saml_idp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_saml_role_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/create_organization_saml_role_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_action_batch_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_action_batch_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_acl_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_acl_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_adaptive_policy_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_admin_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_admin_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_alerts_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_alerts_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_branding_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_branding_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_config_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_config_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_saml_idp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_saml_idp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_saml_role_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/delete_organization_saml_role_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_action_batch_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_action_batch_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_action_batches_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_action_batches_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_acl_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_acl_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_acls_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_acls_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_groups_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_groups_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_adaptive_policy_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_admins_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_admins_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_alerts_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_alerts_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_api_requests_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_api_requests_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_api_requests_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_api_requests_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policies_priorities_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policies_priorities_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_branding_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_bandwidth_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_bandwidth_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_search_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_clients_search_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_config_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_config_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_config_templates_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_config_templates_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_configuration_changes_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_configuration_changes_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_statuses_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_statuses_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_uplinks_loss_and_latency_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_devices_uplinks_loss_and_latency_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_inventory_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_inventory_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_inventory_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_inventory_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_license_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_license_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_licenses_overview_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_licenses_overview_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_licenses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_licenses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_login_security_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_login_security_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_networks_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_networks_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_openapi_spec_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_openapi_spec_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_idp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_idp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_idps_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_idps_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_role_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_role_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_roles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_saml_roles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_snmp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_snmp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_appliances_by_utilization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_appliances_by_utilization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_clients_by_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_clients_by_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_clients_manufacturers_by_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_clients_manufacturers_by_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_devices_by_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_devices_by_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_devices_models_by_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_devices_models_by_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_ssids_by_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_ssids_by_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_switches_by_energy_usage_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_summary_top_switches_by_energy_usage_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_uplinks_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_uplinks_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_webhooks_alert_types_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_webhooks_alert_types_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_webhooks_logs_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organization_webhooks_logs_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organizations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/get_organizations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/move_organization_licenses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/move_organization_licenses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/move_organization_licenses_seats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/move_organization_licenses_seats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/organizations_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/release_from_organization_inventory_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/release_from_organization_inventory_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/renew_organization_licenses_seats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/renew_organization_licenses_seats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_action_batch_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_action_batch_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_acl_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_acl_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_adaptive_policy_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_admin_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_admin_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_alerts_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_alerts_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_branding_policies_priorities_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_branding_policies_priorities_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_branding_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_branding_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_config_template_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_config_template_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_license_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_license_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_login_security_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_login_security_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_idp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_idp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_role_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_saml_role_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_snmp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/organizations/update_organization_snmp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sensor/get_organization_sensor_readings_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sensor/get_organization_sensor_readings_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sensor/get_organization_sensor_readings_latest_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sensor/get_organization_sensor_readings_latest_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sensor/sensor_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/checkin_network_sm_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/checkin_network_sm_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/create_network_sm_bypass_activation_lock_attempt_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/create_network_sm_bypass_activation_lock_attempt_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/create_network_sm_target_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/create_network_sm_target_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/delete_network_sm_target_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/delete_network_sm_target_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/delete_network_sm_user_access_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/delete_network_sm_user_access_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_bypass_activation_lock_attempt_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_bypass_activation_lock_attempt_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_cellular_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_cellular_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_certs_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_certs_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_connectivity_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_connectivity_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_desktop_logs_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_desktop_logs_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_device_command_logs_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_device_command_logs_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_device_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_device_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_network_adapters_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_network_adapters_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_performance_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_performance_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_restrictions_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_restrictions_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_security_centers_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_security_centers_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_softwares_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_softwares_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_wlan_lists_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_device_wlan_lists_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_target_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_target_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_target_groups_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_target_groups_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_access_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_access_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_device_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_device_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_softwares_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_user_softwares_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_users_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_network_sm_users_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_apns_cert_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_apns_cert_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_vpp_account_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_vpp_account_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_vpp_accounts_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/get_organization_sm_vpp_accounts_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/lock_network_sm_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/lock_network_sm_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/modify_network_sm_devices_tags_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/modify_network_sm_devices_tags_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/move_network_sm_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/move_network_sm_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/refresh_network_sm_device_details_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/refresh_network_sm_device_details_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/sm_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/unenroll_network_sm_device_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/unenroll_network_sm_device_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/update_network_sm_devices_fields_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/update_network_sm_devices_fields_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/update_network_sm_target_group_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/update_network_sm_target_group_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/wipe_network_sm_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/sm/wipe_network_sm_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/add_network_switch_stack_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/add_network_switch_stack_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/clone_organization_switch_devices_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/clone_organization_switch_devices_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_device_switch_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_device_switch_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_device_switch_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_device_switch_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_access_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_access_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_link_aggregation_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_link_aggregation_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_port_schedule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_port_schedule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_qos_rule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_qos_rule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_routing_multicast_rendezvous_point_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_routing_multicast_rendezvous_point_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/create_network_switch_stack_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/cycle_device_switch_ports_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/cycle_device_switch_ports_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_device_switch_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_device_switch_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_device_switch_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_device_switch_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_access_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_access_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_link_aggregation_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_link_aggregation_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_port_schedule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_port_schedule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_qos_rule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_qos_rule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_routing_multicast_rendezvous_point_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_routing_multicast_rendezvous_point_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/delete_network_switch_stack_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_statuses_packets_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_statuses_packets_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_ports_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interface_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interface_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interfaces_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_interfaces_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_static_routes_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_routing_static_routes_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_warm_spare_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_device_switch_warm_spare_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_control_lists_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_control_lists_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_access_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_alternate_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_alternate_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_dhcp_server_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_dhcp_server_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_dscp_to_cos_mappings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_dscp_to_cos_mappings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_link_aggregations_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_link_aggregations_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_mtu_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_mtu_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_port_schedules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_port_schedules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rules_order_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rules_order_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_qos_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_rendezvous_point_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_rendezvous_point_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_rendezvous_points_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_rendezvous_points_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_multicast_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_ospf_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_routing_ospf_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interface_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interface_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interfaces_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_interfaces_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_static_routes_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stack_routing_static_routes_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stacks_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stacks_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_storm_control_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_storm_control_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_network_switch_stp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profile_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profile_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profile_ports_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profile_ports_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/get_organization_config_template_switch_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/remove_network_switch_stack_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/remove_network_switch_stack_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/switch_operations_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_interface_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_interface_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_warm_spare_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_device_switch_warm_spare_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_access_control_lists_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_access_control_lists_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_access_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_access_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_alternate_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_alternate_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_dhcp_server_policy_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_dhcp_server_policy_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_dscp_to_cos_mappings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_dscp_to_cos_mappings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_link_aggregation_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_link_aggregation_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_mtu_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_mtu_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_port_schedule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_port_schedule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_qos_rule_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_qos_rule_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_qos_rules_order_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_qos_rules_order_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_multicast_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_multicast_rendezvous_point_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_multicast_rendezvous_point_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_multicast_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_ospf_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_routing_ospf_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_interface_dhcp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_interface_dhcp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_static_route_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stack_routing_static_route_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_storm_control_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_storm_control_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stp_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_network_switch_stp_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_organization_config_template_switch_profile_port_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/switch_operations/update_organization_config_template_switch_profile_port_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/create_network_wireless_rf_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/create_network_wireless_rf_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/create_network_wireless_ssid_identity_psk_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/create_network_wireless_ssid_identity_psk_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/delete_network_wireless_rf_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/delete_network_wireless_rf_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/delete_network_wireless_ssid_identity_psk_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/delete_network_wireless_ssid_identity_psk_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_bluetooth_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_bluetooth_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_connection_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_connection_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_latency_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_latency_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_radio_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_radio_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_status_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_device_wireless_status_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_air_marshal_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_air_marshal_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_alternate_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_alternate_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_billing_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_billing_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_bluetooth_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_bluetooth_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_channel_utilization_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_channel_utilization_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_connection_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_connection_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_connectivity_events_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_connectivity_events_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_count_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_count_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_latency_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_latency_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_latency_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_client_latency_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_clients_connection_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_clients_connection_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_clients_latency_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_clients_latency_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_connection_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_connection_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_data_rate_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_data_rate_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_devices_connection_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_devices_connection_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_devices_latency_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_devices_latency_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_failed_connections_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_failed_connections_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_latency_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_latency_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_latency_stats_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_latency_stats_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_mesh_statuses_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_mesh_statuses_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_rf_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_rf_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_rf_profiles_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_rf_profiles_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_signal_quality_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_signal_quality_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_bonjour_forwarding_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_bonjour_forwarding_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_device_type_group_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_device_type_group_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_eap_override_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_eap_override_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_firewall_l3_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_firewall_l3_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_firewall_l7_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_firewall_l7_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_hotspot20_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_hotspot20_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_identity_psk_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_identity_psk_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_identity_psks_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_identity_psks_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_schedules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_schedules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_splash_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_splash_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_traffic_shaping_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_traffic_shaping_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_vpn_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssid_vpn_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssids_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_ssids_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_usage_history_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/get_network_wireless_usage_history_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_device_wireless_bluetooth_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_device_wireless_bluetooth_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_device_wireless_radio_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_device_wireless_radio_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_alternate_management_interface_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_alternate_management_interface_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_billing_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_billing_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_bluetooth_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_bluetooth_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_rf_profile_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_rf_profile_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_bonjour_forwarding_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_bonjour_forwarding_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_device_type_group_policies_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_device_type_group_policies_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_eap_override_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_eap_override_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_firewall_l3_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_firewall_l3_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_firewall_l7_firewall_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_firewall_l7_firewall_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_hotspot20_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_hotspot20_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_identity_psk_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_identity_psk_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_schedules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_schedules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_splash_settings_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_splash_settings_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_traffic_shaping_rules_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_traffic_shaping_rules_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_vpn_parameters.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/update_network_wireless_ssid_vpn_responses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/wireless/wireless_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/en/INSTALLATION.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/CreateOrganization.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/DeleteOrganization.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/GetNetworkClients.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/GetNetworkList.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/GetOrganization.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/GetOrganizationsList.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/UpdateOrganization.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/client_test.go" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../go1.19.3" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25vGE9MaUmBoeknaoI6YBMFKS8P" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/dexterpark/go/src/github.com/ddexterpark/dashboard-api-golang",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/gen" />
+      <recent name="$PROJECT_DIR$/docs/cn" />
+      <recent name="$PROJECT_DIR$/docs/jp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build DeleteOrganization.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="3b0779c586b85dca7aa810e48d8b3434d74f7e2f" />
+      </envs>
+      <kind value="PACKAGE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build CreateOrganization.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/examples/CreateOrganization.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build DeleteOrganization.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/examples/DeleteOrganization.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build GetOrganization.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/examples/GetOrganization.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build GetOrganizationsList.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/examples/GetOrganizationsList.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build UpdateOrganization.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/examples/UpdateOrganization.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/ddexterpark/dashboard-api-golang" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="MERAKI_DASHBOARD_API_KEY" value="b5f2d47560a76451412ab5a2f82becd7551af0d1" />
+        <env name="MERAKI_DASHBOARD_TEST_ORG" value="752475" />
+        <env name="MERAKI_DASHBOARD_TEST_NETWORK" value="L_657525545596114766" />
+      </envs>
+      <kind value="PACKAGE" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="dashboard-api-golang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/ddexterpark/dashboard-api-golang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/spec2.json" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build github.com/ddexterpark/dashboard-api-golang" />
+      <item itemvalue="Go Build.go build CreateOrganization.go" />
+      <item itemvalue="Go Build.go build DeleteOrganization.go" />
+      <item itemvalue="Go Build.go build GetOrganization.go" />
+      <item itemvalue="Go Build.go build GetOrganizationsList.go" />
+      <item itemvalue="Go Build.go build UpdateOrganization.go" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build DeleteOrganization.go" />
+        <item itemvalue="Go Build.go build GetOrganizationsList.go" />
+        <item itemvalue="Go Build.go build UpdateOrganization.go" />
+        <item itemvalue="Go Build.go build CreateOrganization.go" />
+        <item itemvalue="Go Build.go build GetOrganization.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
